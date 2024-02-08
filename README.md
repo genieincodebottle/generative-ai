@@ -1,9 +1,7 @@
 # generative-ai
 All codes related to Generative AI as per YouTube video day wise.
 
-
 # Project tree
-.
  * [generative-ai](./generative-ai)
    * [huggingface](./huggingface)
     * [day-1](./huggingface/day-1)
