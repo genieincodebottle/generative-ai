@@ -1,4 +1,4 @@
-# Command to create VIrtual environment
+# Command to create Virtual environment
 python -m venv venv
 .venv\Scripts\activate
 
