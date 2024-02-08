@@ -12,7 +12,7 @@ generatuve-ai
 .
 
  * [generative-ai](./generative-ai)
-   * [huggingface](./generative-ai/huggingface)
+   * [huggingface](./huggingface)
     * [day-1](./huggingface/day-1)
         * [hello_genai.ipynb](./huggingface/day-1/hello_genai.ipynb)
         * [hello_genai_prompt_template.ipynb](./huggingface/day-1/hello_genai_prompt_template.ipynb)
