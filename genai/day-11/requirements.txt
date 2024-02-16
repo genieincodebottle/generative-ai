@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain_experimental
+
+google-generativeai 
+langchain-google-genai
+
+streamlit
+streamlit_chat
+retrying
