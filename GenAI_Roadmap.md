@@ -19,6 +19,8 @@
    [Huggingface Official site](https://huggingface.co/)
 
 5. [LangChain Framework Fundamentals](https://www.youtube.com/watch?v=NlDLSqWU3P8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=4)
+
+   [LangChain Official Doc](https://www.langchain.com/)
  
 6. [GenAI Coding with Basic Retrieval Augmented Generation](https://www.youtube.com/watch?v=H8o1ZDJJTBk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=5)
 
