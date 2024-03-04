@@ -2,8 +2,8 @@
 
 ## Part-1
 
-![alt text](<images/GenAI Roadmap_1.png>)
+![alt text](img src="images/GenAI Roadmap_1.png", width="400", height="600">)
 
 ## Part-2
 
-![alt text](<images/GenAI Roadmap_2.png>)
+![alt text](<img src="images/GenAI Roadmap_2.png", width="400", height="600">)
