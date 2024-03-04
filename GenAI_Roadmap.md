@@ -39,8 +39,8 @@
 
    [Watch GenAI Hindi YouTube Playlist that has Day Wise contents (Only 2 Videos at present). I Will upload more content soon](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
-   [YouTube Channel]([https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0](https://www.youtube.com/channel/UC4eWPbD3Hl--F4LuZ8i2kYg)
-  
+   [YouTube Channel](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+     
 Stay tuned for more engaging Industry standard GenAI app development tutorials coming soon to my YouTube channel!
 
 ## Part-2 (Advance)
