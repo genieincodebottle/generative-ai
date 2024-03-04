@@ -4,7 +4,7 @@
 <img src="images/GenAI Roadmap_1.png" alt="image" width="50%" height="auto">
 
 # Link to Part-1 Roadmap Resources
-[My YouTube Channel](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+[My GenAI YouTube Channel](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
   
 1. [Python Crash Course in 1 Hr](https://www.youtube.com/watch?v=kqtD5dpn9C8)
    
