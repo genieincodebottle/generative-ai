@@ -10,9 +10,9 @@
    
    [Python Refresher PDF & Notebook ](https://github.com/genieincodebottle/python)
 
-2. [Google Coalb Understanding](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=1)
+2. [Google Colab Understanding](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=1)
 
-   [Google Coalb Link](https://colab.research.google.com/)
+   [Google Colab Link](https://colab.research.google.com/)
    
 4. [Generative AI & LLM basic fundamentals](https://www.youtube.com/watch?v=UCNsWooQuPU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=2)
 
