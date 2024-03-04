@@ -4,7 +4,8 @@
 <img src="images/GenAI Roadmap_1.png" alt="image" width="50%" height="auto">
 
 # Link to Part-1 Roadmap Resources
-
+[My YouTube Channel](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+  
 1. [Python Crash Course in 1 Hr](https://www.youtube.com/watch?v=kqtD5dpn9C8)
    
    [Python Refresher PDF & Notebook ](https://github.com/genieincodebottle/python)
@@ -39,8 +40,7 @@
 
    [Watch GenAI Hindi YouTube Playlist that has Day Wise contents (Only 2 Videos at present). I Will upload more content soon](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
-   [YouTube Channel](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-     
+      
 Stay tuned for more engaging Industry standard GenAI app development tutorials coming soon to my YouTube channel!
 
 ## Part-2 (Advance)
