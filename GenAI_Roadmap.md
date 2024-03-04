@@ -12,19 +12,21 @@
 
 2. [Google Coalb Understanding](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=1)
 
-3. [Generative AI & LLM basic fundamentals](https://www.youtube.com/watch?v=UCNsWooQuPU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=2)
+   [Google Coalb Link](https://colab.research.google.com/)
+   
+4. [Generative AI & LLM basic fundamentals](https://www.youtube.com/watch?v=UCNsWooQuPU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=2)
 
-4. [Huggingface Fundamentals](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
+5. [Huggingface Fundamentals](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
 
    [Huggingface Official site](https://huggingface.co/)
 
-5. [LangChain Framework Fundamentals](https://www.youtube.com/watch?v=NlDLSqWU3P8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=4)
+6. [LangChain Framework Fundamentals](https://www.youtube.com/watch?v=NlDLSqWU3P8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=4)
 
    [LangChain Official Doc](https://www.langchain.com/)
  
-6. [GenAI Coding with Basic Retrieval Augmented Generation](https://www.youtube.com/watch?v=H8o1ZDJJTBk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=5)
+7. [GenAI Coding with Basic Retrieval Augmented Generation](https://www.youtube.com/watch?v=H8o1ZDJJTBk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=5)
 
-7. [Prompt Engineering Couresera free course](https://www.coursera.org/specializations/prompt-engineering)
+8. [Prompt Engineering Couresera free course](https://www.coursera.org/specializations/prompt-engineering)
 
    [Prompt Engineering-1](https://www.promptingguide.ai/)
 
@@ -36,11 +38,11 @@
 
    [Prompt Engineering-5](https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks)
        
-8. [Streamlit UI Official Doc](https://docs.streamlit.io/get-started)
+9. [Streamlit UI Official Doc](https://docs.streamlit.io/get-started)
 
    [Streamlit UI DataCamp](https://www.datacamp.com/tutorial/streamlit)
        
-9. [Watch GenAI English YouTube Playlist that has Day Wise contents](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+10. [Watch GenAI English YouTube Playlist that has Day Wise contents](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
    [Watch GenAI Hindi YouTube Playlist that has Day Wise contents (Only 2 Videos at present). I Will upload more content soon](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
