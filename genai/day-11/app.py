@@ -17,7 +17,7 @@ def initialize_session_state():
 
 def display_chat(conversation_chain, chain):
     """
-    Streamlit relatde code wher we are passing conversation_chain instance created earlier
+    Streamlit relatde code where we are passing conversation_chain instance created earlier
     It creates two containers
     container: To group our chat input form
     reply_container: To group the generated chat response
@@ -47,7 +47,7 @@ def display_chat(conversation_chain, chain):
 
 def generate_response(user_input, conversation_chain, chain):
     """
-    Generate LLM response based on the user question by retrieving data from Vector Database
+    Generate LLM response based on the user question by retrieving data from Database
     Also, stores information to streamlit session states 'past' and 'generated' so that it can
     have memory of previous generation for converstational type of chats (Like chatGPT)
 
