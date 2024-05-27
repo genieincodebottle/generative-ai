@@ -1,0 +1,10 @@
+INFO:utils:Graph Config: {'llm': {'api_key': 'AIzaSyBNE3FABNgTYBncFg0Fn0aUREIWJQPR-AU', 'model': 'gemini-pro'}, 'embeddings': {'model': 'ollama/nomic-embed-text', 'base_url': 'http://localhost:11434'}}
+INFO:utils:Graph Config: {'llm': {'api_key': 'AIzaSyBNE3FABNgTYBncFg0Fn0aUREIWJQPR-AU', 'model': 'gemini-pro'}, 'embeddings': {'model': 'ollama/nomic-embed-text', 'base_url': 'http://localhost:11434'}}
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:utils:        node_name  total_tokens  prompt_tokens  completion_tokens  successful_requests  total_cost_USD  exec_time
+0           Fetch             0              0                  0                    0             0.0   0.000292
+1           Parse             0              0                  0                    0             0.0   0.000245
+2             RAG             0              0                  0                    0             0.0   0.477576
+3  GenerateAnswer             0              0                  0                    1             0.0   1.450232
+4    TOTAL RESULT             0              0                  0                    1             0.0   1.928345

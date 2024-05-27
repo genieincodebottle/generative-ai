@@ -1,0 +1,5 @@
+streamlit==1.34.0
+streamlit-chat==0.1.1
+scrapegraphai==0.10.1
+playwright==1.43.0
+python-dotenv==1.0.1
