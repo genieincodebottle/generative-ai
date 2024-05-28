@@ -1,5 +1,6 @@
 
 <h1 align="left">Gen AI Roadmap - Updated</h1>
+Useful resources selected from the internet, created by various creators.
 
 ## 0. GenAI Crash Course for Beginners (~3 Hr)
 [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
@@ -17,6 +18,7 @@
    * https://cohere.com/blog/llm-parameters-best-outputs-language-ai
    
 * Useful Blog - https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024
+* Optional Deep Learning Playlist (Famous 3blue1brown) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 
 
 
 ## 2. What is GPT? (28 Min) 
@@ -29,10 +31,10 @@
 [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 
 
-## 4. Python Basics (1 Hr)
+## 4. Python 
 
-Crash Course -  [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8)
-
+* Python Core Crash Course (1 Hr) -  [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8)
+* Python DS Crash Course (49 Min) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7eh4d6sabA0)
 
 ## 5. Understanding Google Colab (22 Min Video)
 
@@ -133,10 +135,10 @@ https://docs.streamlit.io/
 
 ## 🤝 Contributing
 
-Contributions to add good resources to the list are welcome!<br /><br />
+Contributions to add good resources to the list are welcome! You can fork the repo and create a PR to merge changes.<br /><br />
 
 <h1 align="left">Hi 👋, I am Rajesh Srivastava</h1>
-<h3 align="left">A Lead Data Scientist | Coder</h3>
+<h3 align="left">Lead Data Scientist | Coder</h3>
 
 <h3 align="left">Connect with me</h3>
 <p align="left">
