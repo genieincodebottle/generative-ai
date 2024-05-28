@@ -133,6 +133,10 @@ https://huggingface.co/blog/moe
 https://docs.streamlit.io/
 
 
+## 20. GenAI Interview Questions & Answers
+
+Coming soon
+
 ## 🤝 Contributing
 
 Contributions to add good resources to the list are welcome! You can fork the repo and create a PR to merge changes.<br /><br />
