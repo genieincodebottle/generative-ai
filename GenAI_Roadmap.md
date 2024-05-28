@@ -133,7 +133,16 @@ https://huggingface.co/blog/moe
 https://docs.streamlit.io/
 
 
-## 20. GenAI Interview Questions & Answers
+## 20. GenAI Usecases
+* Tagging - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
+* Webscraping - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
+* Chatbot with SQL Database - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=11)
+* Chatbot with CSV - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
+* Text to SQL generation - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=10)
+* Text Summarization - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=6)
+
+
+## 21. GenAI Interview Questions & Answers
 
 Coming soon
 
