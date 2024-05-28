@@ -1,53 +1,146 @@
-# GenAI Roadmap
 
-## Part-1 (Basic)
-<img src="images/GenAI Roadmap_1.png" alt="image" width="50%" height="auto">
+<h1 align="left">Gen AI Roadmap - Updated</h1>
 
-# Link to Part-1 Roadmap Resources
-[My GenAI YouTube Channel](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-  
-1. [Python Crash Course in 1 Hr](https://www.youtube.com/watch?v=kqtD5dpn9C8)
+## 0. GenAI Crash Course for Beginners (~3 Hr)
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
+
+
+## 1. Fundamentals of GenAI (1.2 Hr)
+* Generative AI in Nutshell - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=2IK3DFHRFfw)
+* Intro to GenAI - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=cZaNf2rA30k&list)
+* What is LLM - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list)
+* What is LLM (Optional) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=osKyvYJ3PRM) 
+
+* Useful LLM Concepts - 
+   * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12) 
    
-   [Python Refresher PDF & Notebook ](https://github.com/genieincodebottle/python)
-
-2. [Google Colab Understanding](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=1)
-
-   [Google Colab Link](https://colab.research.google.com/)
+   * https://cohere.com/blog/llm-parameters-best-outputs-language-ai
    
-4. [Generative AI & LLM basic fundamentals](https://www.youtube.com/watch?v=UCNsWooQuPU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=2)
+* Useful Blog - https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024
 
-5. [Huggingface Fundamentals](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
 
-   [Huggingface Official site](https://huggingface.co/)
+## 2. What is GPT? (28 Min) 
 
-6. [LangChain Framework Fundamentals](https://www.youtube.com/watch?v=NlDLSqWU3P8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=4)
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 
-   [LangChain Official Doc](https://www.langchain.com/)
- 
-7. [GenAI Coding with Basic Retrieval Augmented Generation](https://www.youtube.com/watch?v=H8o1ZDJJTBk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=5)
 
-8. [Prompt Engineering Couresera free course](https://www.coursera.org/specializations/prompt-engineering)
+## 3. What is Transformer? (10 Min Video)
 
-   [Prompt Engineering-1](https://www.promptingguide.ai/)
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 
-   [Prompt Engineering-2](https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering)
 
-   [Prompt Engineering-3](https://developers.google.com/machine-learning/resources/prompt-eng)
+## 4. Python Basics (1 Hr)
 
-   [Prompt Engineering-4](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api)
+Crash Course -  [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8)
 
-   [Prompt Engineering-5](https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks)
-       
-9. [Streamlit UI Official Doc](https://docs.streamlit.io/get-started)
 
-   [Streamlit UI DataCamp](https://www.datacamp.com/tutorial/streamlit)
-       
-10. [Watch GenAI English YouTube Playlist that has Day Wise contents](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+## 5. Understanding Google Colab (22 Min Video)
 
-   [Watch GenAI Hindi YouTube Playlist that has Day Wise contents (Only 2 Videos at present). I Will upload more content soon](https://www.youtube.com/playlist?list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
-      
-Stay tuned for more engaging Industry standard GenAI app development tutorials coming soon to my YouTube channel!
 
-## Part-2 (Advance)
-<img src="images/GenAI Roadmap_2.png" alt="image" width="50%" height="auto">
+## 6. Why should you use Open Source LLM? (7 Min)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=y9k-U9AuDeM)
+
+
+## 7. Huggingface Open Source Models (34 Min)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
+
+
+Official Doc - https://huggingface.co/
+
+
+## 8. Running LLM Locally using Ollama (~ 1.5 Hr)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PL8motc6AQftkWtR16gGQWSVrH4bvbEETo)
+
+Some Cool examples (18 Min)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=h_GTxRFYETY)
+
+
+## 9. Langchain
+
+Official Doc - https://www.langchain.com/
+
+
+## 10. Prompt Engineering
+
+* https://www.coursera.org/specializations/prompt-engineering
+* https://www.promptingguide.ai/
+* https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering
+* https://developers.google.com/machine-learning/resources/prompt-eng
+* https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api
+* https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks
+
+
+## 11. What is Vector Database?
+
+https://www.pinecone.io/learn/vector-database/
+
+
+## 12. What is Vector Embedding?
+
+https://qdrant.tech/articles/what-are-embeddings/
+
+
+## 13. RAG Tutorials (~2 Hr)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
+
+
+## 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=YVWxbHJakgg)
+
+
+## 15. Fine Tuning LLM (~4 Hr)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
+
+
+## 16. LLM Agents
+
+* https://www.promptingguide.ai/research/llm-agents
+* https://developer.nvidia.com/blog/introduction-to-llm-agents/
+* https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.
+
+* https://docs.agpt.co/#agent
+
+
+## 17. What is MultiModel? (7 Min)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=WkoytlA3MoQ)
+
+
+## 18. What is Mixture of Experts (MoE) (~30 Min)
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mwO6v4BlgZQ)
+
+https://huggingface.co/blog/moe
+
+
+## 19. Streamlit for fast prototype UI
+
+[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=20V_ZB7taCM)
+
+https://docs.streamlit.io/
+
+
+## 🤝 Contributing
+
+Contributions to add good resources to the list are welcome!<br /><br />
+
+<h1 align="left">Hi 👋, I am Rajesh Srivastava</h1>
+<h3 align="left">A Lead Data Scientist | Coder</h3>
+
+<h3 align="left">Connect with me</h3>
+<p align="left">
+<a href="https://instagram.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="genieincodebottle" height="30" width="40" /></a>
+<a href="https://www.youtube.com/c/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="genieincodebottle" height="30" width="40" /></a>
+<a href="https://kaggle.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="genieincodebottle" height="30" width="40" /></a>
+</p>
