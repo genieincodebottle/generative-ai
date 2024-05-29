@@ -1,8 +1,14 @@
 
-<h1 align="left">Gen AI Roadmap - Updated</h1>
-Useful resources selected from the internet, created by various creators.
+<h1 align="left">Gen AI Roadmap - 2024</h1>
+Useful resources curated from the internet and created by various good creators. While this field is changing rapidly, the fundamentals remain the same. Avoid getting distracted by the constant influx of new models and technologies. Focus on mastering GenAI fundamentals and start building projects alongside your learning. Implementing what you learn will solidify your understanding. Dedicate at least one hour every day to GenAI, and you will have a strong grasp of the tech stack within 1-2 months.
+</br></br>
+Learning GenAI is now essential as it integrates into all aspects of software engineering and will soon be a mandatory requirement for all positions. Be prepared—it's easier to learn than you might think.
+</br></br></br>
+PS: I planned to create a new playlist on my GenAI learning, where I am working on 7-8 projects, including 3 in production, but unavoidable personal and professional circumstances delayed this. I will try to record YouTube videos in the coming months to share insights from my 15+ months of experience in GenAI development.
 
 ## 0. GenAI Crash Course for Beginners (~3 Hr)
+This is a nice video to refresh your high-level overview of generative AI. I suggest watching this video first, then proceeding with more detailed learning from the first point onward.
+
 [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
 
 
@@ -63,19 +69,21 @@ Some Cool examples (18 Min)
 [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=h_GTxRFYETY)
 
 
-## 9. Langchain
+## 9. LangChain
+I prefer going through the LangChain documentation, which is well-written and includes example notebooks, as it updates very quickly. Referring to most of the LangChain YouTube videos might give you outdated content after a few weeks.
 
 Official Doc - https://www.langchain.com/
 
 
 ## 10. Prompt Engineering
 
-* https://www.coursera.org/specializations/prompt-engineering
-* https://www.promptingguide.ai/
-* https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering
-* https://developers.google.com/machine-learning/resources/prompt-eng
-* https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api
-* https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks
+* Course - https://www.coursera.org/specializations/prompt-engineering
+* Blogs
+   * https://www.promptingguide.ai/
+   * https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering
+   * https://developers.google.com/machine-learning/resources/prompt-eng
+   * https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api
+   * https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks
 
 
 ## 11. What is Vector Database?
@@ -133,7 +141,7 @@ https://huggingface.co/blog/moe
 https://docs.streamlit.io/
 
 
-## 20. GenAI Usecases
+## 20. GenAI Use Cases
 * Tagging - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
 * Webscraping - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
 * Chatbot with SQL Database - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=11)
@@ -142,13 +150,19 @@ https://docs.streamlit.io/
 * Text Summarization - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=6)
 
 
-## 21. GenAI Interview Questions & Answers
+## 21. GenAI Glossary of Terms
 
 Coming soon
 
+## 22. GenAI Interview Questions & Answers
+
+Coming soon
+
+
+
 ## 🤝 Contributing
 
-Contributions to add good resources to the list are welcome! You can fork the repo and create a PR to merge changes.<br /><br />
+Contributions to add good impactful resources to the list are welcome! You can fork the repo and create a PR to merge your changes.<br /><br />
 
 <h1 align="left">Hi 👋, I am Rajesh Srivastava</h1>
 <h3 align="left">Lead Data Scientist | Coder</h3>
@@ -158,4 +172,5 @@ Contributions to add good resources to the list are welcome! You can fork the re
 <a href="https://instagram.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="genieincodebottle" height="30" width="40" /></a>
 <a href="https://www.youtube.com/c/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="genieincodebottle" height="30" width="40" /></a>
 <a href="https://kaggle.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="genieincodebottle" height="30" width="40" /></a>
+<a href="https://discord.gg/https://discord.gg/CUUeZvmP5j" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.gg/CUUeZvmP5j" height="30" width="40" /></a>
 </p>
