@@ -1,6 +1,6 @@
 
-<h1 align="left">Gen AI Roadmap - 2024</h1>
-Useful resources curated from the internet and created by various good creators. While this field is changing rapidly, the fundamentals remain the same. Avoid getting distracted by the constant influx of new models and technologies. Focus on mastering GenAI fundamentals and start building projects alongside your learning. Implementing what you learn will solidify your understanding. Dedicate at least one hour every day to GenAI, and you will have a strong grasp of the tech stack within 1-2 months.
+<h1 align="left">Gen AI Roadmap for Everyone - 2024</h1>
+Useful resources curated from the internet and created by various good creators. I believe this should be sufficient to gain a strong hold on GenAI-related tasks, likely more than 85% of the time. While this field is changing rapidly, the fundamentals remain the same. Avoid getting distracted by the constant influx of new models and technologies. Focus on mastering GenAI fundamentals and start building projects alongside your learning. Implementing what you learn will solidify your understanding. Dedicate at least one hour every day to GenAI, and you will have a strong grasp of the tech stack within 1-2 months.
 </br></br>
 Learning GenAI is now essential as it integrates into all aspects of software engineering and will soon be a mandatory requirement for all positions. Be prepared—it's easier to learn than you might think.
 </br></br></br>
