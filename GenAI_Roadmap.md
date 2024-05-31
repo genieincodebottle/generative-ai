@@ -9,7 +9,7 @@ PS: I planned to create a new playlist on my GenAI learning, where I am working 
 ## 0. GenAI Crash Course for Beginners (~3 Hr)
 This is a nice video to refresh your high-level overview of generative AI. I suggest watching this video first, then proceeding with more detailed learning from the first point onward.
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
 
 
 ## 1. Fundamentals of GenAI (1.2 Hr)
@@ -29,12 +29,12 @@ This is a nice video to refresh your high-level overview of generative AI. I sug
 
 ## 2. What is GPT? (28 Min) 
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wjZofJX0v4M)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 
 
 ## 3. What is Transformer? (10 Min Video)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 
 
 ## 4. Python 
@@ -44,35 +44,35 @@ This is a nice video to refresh your high-level overview of generative AI. I sug
 
 ## 5. Understanding Google Colab (22 Min Video)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
 
 ## 6. Why should you use Open Source LLM? (7 Min)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=y9k-U9AuDeM)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=y9k-U9AuDeM)
 
 
 ## 7. Huggingface Open Source Models (34 Min)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
 
 
-Official Doc - https://huggingface.co/
+* Official Doc - https://huggingface.co/
 
 
 ## 8. Running LLM Locally using Ollama (~ 1.5 Hr)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PL8motc6AQftkWtR16gGQWSVrH4bvbEETo)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PL8motc6AQftkWtR16gGQWSVrH4bvbEETo)
 
 Some Cool examples (18 Min)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=h_GTxRFYETY)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=h_GTxRFYETY)
 
 
 ## 9. LangChain
 I prefer going through the LangChain documentation, which is well-written and includes example notebooks, as it updates very quickly. Referring to most of the LangChain YouTube videos might give you outdated content after a few weeks.
 
-Official Doc - https://www.langchain.com/
+* Official Doc - https://www.langchain.com/
 
 
 ## 10. Prompt Engineering
@@ -88,57 +88,58 @@ Official Doc - https://www.langchain.com/
 
 ## 11. What is Vector Database?
 
-https://www.pinecone.io/learn/vector-database/
+* https://www.pinecone.io/learn/vector-database/
 
 
 ## 12. What is Vector Embedding?
 
-https://qdrant.tech/articles/what-are-embeddings/
+* https://qdrant.tech/articles/what-are-embeddings/
 
 
 ## 13. RAG Tutorials (~2 Hr)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
 
 ## 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=YVWxbHJakgg)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=YVWxbHJakgg)
 
 
 ## 15. Fine Tuning LLM (~4 Hr)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
 
 
 ## 16. LLM Agents
+* https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/
 
 * https://www.promptingguide.ai/research/llm-agents
 * https://developer.nvidia.com/blog/introduction-to-llm-agents/
 * https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.
-
 * https://docs.agpt.co/#agent
 
 
 ## 17. What is MultiModel? (7 Min)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=WkoytlA3MoQ)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=WkoytlA3MoQ)
+* Blog - https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/mm_llms_guide.md
 
 
 ## 18. What is Mixture of Experts (MoE) (~30 Min)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mwO6v4BlgZQ)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mwO6v4BlgZQ)
 
-https://huggingface.co/blog/moe
+* https://huggingface.co/blog/moe
 
 
 ## 19. Streamlit for fast prototype UI
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=20V_ZB7taCM)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=20V_ZB7taCM)
 
-https://docs.streamlit.io/
+* https://docs.streamlit.io/
 
 
 ## 20. GenAI Use Cases
@@ -158,8 +159,6 @@ Coming soon
 
 Coming soon
 
-
-
 ## 🤝 Contributing
 
 Contributions to add good impactful resources to the list are welcome! You can fork the repo and create a PR to merge your changes.<br /><br />
@@ -174,3 +173,7 @@ Contributions to add good impactful resources to the list are welcome! You can f
 <a href="https://kaggle.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="genieincodebottle" height="30" width="40" /></a>
 <a href="https://discord.gg/https://discord.gg/CUUeZvmP5j" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.gg/CUUeZvmP5j" height="30" width="40" /></a>
 </p>
+
+
+## Resource Updation
+* 31 May 2024 - Added Multimodel doc written by @aishwaryanr at Point-17
