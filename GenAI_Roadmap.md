@@ -143,6 +143,7 @@ I prefer going through the LangChain documentation, which is well-written and in
 
 
 ## 20. GenAI Use Cases
+
 * Tagging - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
 * Webscraping - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
 * Chatbot with SQL Database - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=11)
@@ -151,11 +152,23 @@ I prefer going through the LangChain documentation, which is well-written and in
 * Text Summarization - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=6)
 
 
-## 21. GenAI Glossary of Terms
+## 21. LLM Evaluation
+
+* Blogs
+   * https://deci.ai/blog/llm-evaluation-ultimate-guide/
+   * https://research.aimultiple.com/large-language-model-evaluation/
+   * https://aisera.com/blog/llm-evaluation/
+
+## 22. LLMOPs & Productionization of GenAI applications
+
+* Short Course - https://www.deeplearning.ai/short-courses/llmops/
+* Specialization - https://www.coursera.org/specializations/large-language-model-operations
+
+## 23. GenAI Glossary of terms
 
 Coming soon
 
-## 22. GenAI Interview Questions & Answers
+## 24. GenAI Interview Questions & Answers
 
 Coming soon
 
@@ -175,5 +188,9 @@ Contributions to add good impactful resources to the list are welcome! You can f
 </p>
 
 
-## Resource Updation
+## Doc Updation History
+
 * 31 May 2024 - Added Multimodel doc written by @aishwaryanr at Point-17
+* 01 Jun 2024
+   * Added resources related LLM Evaluation at Point-21
+   * Added resources related LLMOPs at Point-22
