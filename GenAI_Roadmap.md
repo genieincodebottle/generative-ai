@@ -17,8 +17,6 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 
 ### 1. Fundamentals of GenAI (1.2 Hr)
 ---
-<br/>
-
 * Generative AI in Nutshell - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=2IK3DFHRFfw)
 * Intro to GenAI - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=cZaNf2rA30k&list)
 * What is LLM - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list)
@@ -35,43 +33,31 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 
 ### 2. What is GPT? (28 Min) 
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 
 
 ### 3. What is Transformer? (10 Min Video)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 
 
 ### 4. Python 
 ---
-<br/>
-
 * Python Core Crash Course (1 Hr) -  [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8)
 * Python DS Crash Course (49 Min) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7eh4d6sabA0)
 
 ### 5. Understanding Google Colab (22 Min Video)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
 
 ### 6. Why should you use Open Source LLM? (7 Min)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=y9k-U9AuDeM)
 
 
 ### 7. Huggingface Open Source Models (34 Min)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
 
 
@@ -80,8 +66,6 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 
 ### 8. Running LLM Locally using Ollama (~ 1.5 Hr)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PL8motc6AQftkWtR16gGQWSVrH4bvbEETo)
 
 Some Cool examples (18 Min)
@@ -91,7 +75,6 @@ Some Cool examples (18 Min)
 
 ### 9. LangChain
 ---
-<br/>
 > I prefer going through the LangChain documentation, which is well-written and includes example notebooks, as it updates very quickly. Referring to most of the LangChain YouTube videos might give you outdated content after a few weeks.
 
 * Official Doc - https://www.langchain.com/
@@ -99,8 +82,6 @@ Some Cool examples (18 Min)
 
 ### 10. Prompt Engineering
 ---
-<br/>
-
 * Course - https://www.coursera.org/specializations/prompt-engineering
 * Blogs
    * https://www.promptingguide.ai/
@@ -112,22 +93,16 @@ Some Cool examples (18 Min)
 
 ### 11. What is Vector Database?
 ---
-<br/>
-
 * https://www.pinecone.io/learn/vector-database/
 
 
 ### 12. What is Vector Embedding?
 ---
-<br/>
-
 * https://qdrant.tech/articles/what-are-embeddings/
 
 
 ### 13. RAG Tutorials (~2 Hr)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
@@ -135,22 +110,16 @@ Some Cool examples (18 Min)
 
 ### 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=YVWxbHJakgg)
 
 
 ### 15. Fine Tuning LLM (~4 Hr)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
 
 
 ### 16. LLM Agents
 ---
-<br/>
-
 * https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/
 
 * https://www.promptingguide.ai/research/llm-agents
@@ -161,16 +130,12 @@ Some Cool examples (18 Min)
 
 ### 17. What is MultiModel? (7 Min)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=WkoytlA3MoQ)
 * Blog - https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/mm_llms_guide.md
 
 
 ### 18. What is Mixture of Experts (MoE) (~30 Min)
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mwO6v4BlgZQ)
 
 * https://huggingface.co/blog/moe
@@ -178,8 +143,6 @@ Some Cool examples (18 Min)
 
 ### 19. Streamlit for fast prototype UI
 ---
-<br/>
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=20V_ZB7taCM)
 
 * https://docs.streamlit.io/
@@ -187,8 +150,6 @@ Some Cool examples (18 Min)
 
 ### 20. GenAI Use Cases
 ---
-<br/>
-
 * Tagging - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
 * Webscraping - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
 * Chatbot with SQL Database - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=11)
@@ -199,8 +160,6 @@ Some Cool examples (18 Min)
 
 ### 21. LLM Evaluation
 ---
-<br/>
-
 * Blogs
    * https://deci.ai/blog/llm-evaluation-ultimate-guide/
    * https://research.aimultiple.com/large-language-model-evaluation/
@@ -208,8 +167,6 @@ Some Cool examples (18 Min)
 
 ### 22. LLMOPs & Productionization of GenAI applications
 ---
-<br/>
-
 * Short Course - https://www.deeplearning.ai/short-courses/llmops/
 * Specialization - https://www.coursera.org/specializations/large-language-model-operations
 
