@@ -178,8 +178,8 @@ Coming soon
 ---
 Coming soon
 
-## 🤝 Contributing
-
+### 🤝 Contributing
+---
 Contributions to add good impactful resources to the list are welcome! You can fork the repo and create a PR to merge your changes.<br /><br />
 
 <h1 align="left">Hi 👋, I am Rajesh Srivastava</h1>
@@ -194,8 +194,8 @@ Contributions to add good impactful resources to the list are welcome! You can f
 </p>
 
 
-## Doc Updation History
-
+### Doc Updation History
+---
 * 31 May 2024 - Added Multimodel doc written by @aishwaryanr at Point-17
 * 01 Jun 2024
    * Added resources related LLM Evaluation at Point-21
