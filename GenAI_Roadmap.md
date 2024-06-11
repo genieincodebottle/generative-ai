@@ -172,7 +172,7 @@ Some Cool examples (18 Min)
 
 ### 23. GenAI Glossary of terms
 ---
-Coming soon
+* https://github.com/genieincodebottle/generative-ai/tree/main/docs/Essential_Terms_GenAI.pdf
 
 ### 24. GenAI Interview Questions & Answers
 ---
@@ -200,3 +200,5 @@ Contributions to add good impactful resources to the list are welcome! You can f
 * 01 Jun 2024
    * Added resources related LLM Evaluation at Point-21
    * Added resources related LLMOPs at Point-22
+* 11 Jun 2024
+   * Added GenAI & LLM Essential Terms
