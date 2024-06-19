@@ -176,7 +176,7 @@ Some Cool examples (18 Min)
 
 ### 24. GenAI Interview Questions & Answers
 ---
-Coming soon
+* https://github.com/genieincodebottle/generative-ai/tree/main/docs/GenAI_Interview_Questions-Draft.pdf
 
 ### 🤝 Contributing
 ---
