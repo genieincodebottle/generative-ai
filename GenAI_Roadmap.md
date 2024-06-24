@@ -120,6 +120,7 @@ Some Cool examples (18 Min)
 
 ### 16. LLM Agents
 ---
+* https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/
 * https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/
 
 * https://www.promptingguide.ai/research/llm-agents
