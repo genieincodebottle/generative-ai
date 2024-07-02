@@ -107,6 +107,8 @@ Some Cool examples (18 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
+* GitHub
+   * https://github.com/sakunaharinda/ragatouille-book/tree/main
 
 ### 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
 ---
