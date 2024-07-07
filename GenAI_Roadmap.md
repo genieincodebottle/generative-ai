@@ -167,6 +167,7 @@ Some Cool examples (18 Min)
    * https://deci.ai/blog/llm-evaluation-ultimate-guide/
    * https://research.aimultiple.com/large-language-model-evaluation/
    * https://aisera.com/blog/llm-evaluation/
+   * https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c
 
 ### 22. LLMOPs & Productionization of GenAI applications
 ---
@@ -180,6 +181,12 @@ Some Cool examples (18 Min)
 ### 24. GenAI Interview Questions & Answers
 ---
 * https://github.com/genieincodebottle/generative-ai/tree/main/docs/GenAI_Interview_Questions-Draft.pdf
+
+### 25. LLM Leaderboard & Benchmarks
+---
+* https://artificialanalysis.ai/
+* https://chat.lmsys.org/?leaderboard
+* https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
 
 ### 🤝 Contributing
 ---
@@ -205,3 +212,5 @@ Contributions to add good impactful resources to the list are welcome! You can f
    * Added resources related LLMOPs at Point-22
 * 11 Jun 2024
    * Added GenAI & LLM Essential Terms
+* 07 Jul 2024
+   * Added LLM Ledaerboard links & benchmarks
