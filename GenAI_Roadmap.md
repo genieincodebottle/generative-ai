@@ -151,14 +151,16 @@ Some Cool examples (18 Min)
 * https://docs.streamlit.io/
 
 
-### 20. GenAI Use Cases
+### 20. GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 ---
-* Tagging - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
-* Webscraping - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
-* Chatbot with SQL Database - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=11)
-* Chatbot with CSV - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
-* Text to SQL generation - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=10)
-* Text Summarization - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=6)
+* Chat with Graph Database (Neo4j Graph Database & Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w)
+* Machine Translation (Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw)
+* Tagging (Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
+* Webscraping (Gemini Pro LLM) - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
+* Chatbot with SQL Database (Huggingface Opensource LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+* Chatbot with CSV (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
+* Text to SQL generation (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+* Text Summarization (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 
 
 ### 21. LLM Evaluation
