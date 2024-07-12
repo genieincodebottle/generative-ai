@@ -153,6 +153,7 @@ Some Cool examples (18 Min)
 
 ### 20. GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 ---
+* How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
 * Chat with Graph Database (Neo4j Graph Database & Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w)
 * Machine Translation (Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw)
 * Tagging (Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
