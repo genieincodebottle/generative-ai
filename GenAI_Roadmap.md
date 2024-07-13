@@ -154,11 +154,11 @@ Some Cool examples (18 Min)
 ### 20. GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 ---
 * How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
-* Chat with Graph Database (Neo4j Graph Database & Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w)
-* Machine Translation (Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw)
-* Tagging (Gemini Pro LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
-* Webscraping (Gemini Pro LLM) - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
-* Chatbot with SQL Database (Huggingface Opensource LLM) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+* Chat with Graph Database (Neo4j Graph Database, Gemini Pro LLM & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w)
+* Machine Translation (Gemini Pro LLM  & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw)
+* Tagging (Gemini Pro LLM  & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
+* Webscraping (Gemini Pro LLM  & Streamlit UI) - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
+* Chatbot with SQL Database (Huggingface Opensource LLM  & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 * Chatbot with CSV (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
 * Text to SQL generation (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 * Text Summarization (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
