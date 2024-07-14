@@ -13,6 +13,9 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 >This is a nice video to refresh your high-level overview of generative AI. I suggest watching this video first, then proceeding with more detailed learning from the first point onward.
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
+* Replace the OpenAI LLM used anywhere with the free Google’s Gemini Pro API-based LLM.
+   * How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
+
 
 
 ### 1. Fundamentals of GenAI (1.2 Hr)
