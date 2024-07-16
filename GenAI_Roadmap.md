@@ -113,6 +113,8 @@ Some Cool examples (18 Min)
 * GitHub
    * https://github.com/sakunaharinda/ragatouille-book/tree/main
 
+* Graph RAG (New) - https://github.com/microsoft/graphrag?tab=readme-ov-file 
+
 ### 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
 ---
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=YVWxbHJakgg)
@@ -220,3 +222,6 @@ Contributions to add good impactful resources to the list are welcome! You can f
    * Added GenAI & LLM Essential Terms
 * 07 Jul 2024
    * Added LLM Ledaerboard links & benchmarks
+* 16 Jul 2024
+   * Added resource related Graph RAG
+   * Updated Interview pdf with Advance Topics
