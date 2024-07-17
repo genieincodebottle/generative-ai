@@ -15,7 +15,7 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
 * Replace the OpenAI LLM used anywhere with the free Google’s Gemini Pro API-based LLM.
    * How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
-
+   * Note: To access the Gemini Model via Google AI, you only need a Google account and an API key. A Google Cloud account is not required. It's easy and straightforward as shown in the above yt video.
 
 
 ### 1. Fundamentals of GenAI (1.2 Hr)
