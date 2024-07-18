@@ -1,3 +1,23 @@
+<div align="center">
+<h1><img width="30" src="https://madewithml.com/static/images/rounded_logo.png">&nbsp;<a href="https://madewithml.com/">Made With ML</a></h1>
+Design · Develop · Deploy · Iterate
+<br>
+Join 40K+ developers in learning how to responsibly deliver value with ML.
+    <br>
+</div>
+
+<br>
+
+<div align="center">
+    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/Subscribe-9.6K-brightgreen"></a>&nbsp;
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/GokuMohandas/Made-With-ML.svg?style=social&label=Star"></a>&nbsp;
+    <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
+    <a target="_blank" href="https://twitter.com/genie_aicode"><img src="https://img.shields.io/twitter/follow/GokuMohandas.svg?label=Follow&style=social"></a>
+</div>
+
+<br>
+<hr>
+
 # generative-ai
 All codes related to Generative AI as per YouTube video.
 
