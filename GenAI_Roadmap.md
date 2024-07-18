@@ -1,8 +1,7 @@
 
 <div align="center">
 <h1><a href="https://www.instagram.com/genieincodebottle/"><img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo_genie.png">&nbsp;</a></h1>
-<h2>Gen AI Roadmap for Everyone - 2024</h2>
-<br>
+<h1>Gen AI Roadmap for Everyone - 2024</h1>
 </div>
 
 <br>
