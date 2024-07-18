@@ -1,9 +1,7 @@
 <div align="center">
-<h1><img width="30" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;<a href="https://www.instagram.com/genieincodebottle/"></a></h1>
-Design · Develop · Deploy · Iterate
+<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="30" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
+Generative AI Simplified
 <br>
-Join 40K+ developers in learning how to responsibly deliver value with ML.
-    <br>
 </div>
 
 <br>
@@ -18,7 +16,6 @@ Join 40K+ developers in learning how to responsibly deliver value with ML.
 <br>
 <hr>
 
-# generative-ai
 All codes related to Generative AI as per YouTube video.
 
 # Project tree
