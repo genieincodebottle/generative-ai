@@ -1,6 +1,6 @@
 <div align="center">
-<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
-Generative AI Simplified
+<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
+Generative AI
 <br>
 </div>
 
