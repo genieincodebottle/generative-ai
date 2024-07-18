@@ -1,5 +1,5 @@
 <div align="center">
-<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="30" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
+<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
 Generative AI Simplified
 <br>
 </div>
@@ -10,6 +10,7 @@ Generative AI Simplified
     <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/Subscribe-9.6K-brightgreen"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai    "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/-Instagram-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
     <a target="_blank" href="https://twitter.com/genie_aicode"><img src="https://img.shields.io/twitter/follow/GokuMohandas.svg?label=Follow&style=social"></a>
 </div>
 
