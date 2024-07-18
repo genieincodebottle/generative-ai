@@ -7,7 +7,7 @@ Generative AI
 <br>
 
 <div align="center">
-    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/youtube/channel/subscribers/@genieincodebottle
+    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.69K-brightgreen
     "></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai    "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
