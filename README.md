@@ -1,5 +1,5 @@
 <div align="center">
-<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
+<h1><a href="https://www.instagram.com/genieincodebottle/"><img width="300" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo.png">&nbsp;</a></h1>
 Generative AI
 <br>
 </div>
