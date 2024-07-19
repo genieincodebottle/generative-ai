@@ -69,6 +69,12 @@ All codes related to Generative AI as per YouTube video.
         * [utils.py](./genai_usecases/scrapegraph/utils.py)
         * [.env](./genai_usecases/scrapegraph/.env)
         * [requirements.txt](./genai_usecases/scrapegraph/requirements.txt)
+   * [google-gemini-pro](./genai_usecases/google-gemini-pro)
+        * [main.py](./genai_usecases/google-gemini-pro/main.py)
+        * [.env](./genai_usecases/google-gemini-pro/.env)
+        * [requirements.txt](./genai_usecases/google-gemini-pro/requirements.txt) 
+   * [translation-agent](./genai_usecases/translation-agent)
+   * [graph-qa](./genai_usecases/graph-qa)
 * [kaggle](./kaggle) [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=14)
    * [gemma-kaggle-competition.ipynb](./kaggle/gemma-kaggle-competition.ipynb)
 
