@@ -205,6 +205,10 @@ Some Cool examples (18 Min)
 ---
 * https://github.com/genieincodebottle/generative-ai/tree/main/docs/GenAI_Interview_Questions-Draft.pdf
 
+### 24. GenAI Coding Round Preparation
+---
+* https://github.com/genieincodebottle/generative-ai/tree/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf
+
 ### 25. LLM Leaderboard & Benchmarks
 ---
 * https://artificialanalysis.ai/
@@ -240,3 +244,5 @@ Contributions to add good impactful resources to the list are welcome! You can f
 * 16 Jul 2024
    * Added resource related Graph RAG
    * Updated Interview pdf with Advance Topics
+* 19 Jul 2024
+   * Added resource related GenAI Coding round preparation (Point 24)
