@@ -7,16 +7,27 @@ Generative AI
 <br>
 
 <div align="center">
-    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.69K-brightgreen"></a>&nbsp;
+    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.7K-brightgreen"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/33.1K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/33.2K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 
 <br>
 <hr>
 
+# Popular Links
+
+<div align="left">
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md">GenAI Roadmap</a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/tree/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/tree/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/tree/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
+</div>
+<hr></hr>
+</br>
 All codes related to Generative AI as per YouTube video.
+<br></br>
 
 # Project tree
  * [generative-ai](./generative-ai)
