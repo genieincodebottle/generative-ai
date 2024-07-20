@@ -3,9 +3,7 @@
 Generative AI
 <br>
 </div>
-
 <br>
-
 <div align="center">
     <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.7K-brightgreen"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
@@ -16,13 +14,13 @@ Generative AI
 <br>
 <hr>
 
-# Popular Links
+# Popular Resources
 
 <div align="left">
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md">GenAI Roadmap</a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/tree/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/tree/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/tree/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
 </div>
 <hr></hr>
 </br>

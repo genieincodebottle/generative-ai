@@ -21,6 +21,17 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 </br></br></br>
  PS: I planned to create a new playlist on my GenAI learning, where I am working on 7-8 projects, including 3 in production, but unavoidable personal and professional circumstances delayed this. I will try to record YouTube videos in the coming months to share insights from my 15+ months of experience in GenAI development.
 
+<hr>
+
+# Popular Resources
+
+<div align="left">
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
+    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
+</div>
+<hr></hr>
+
 ### 0. GenAI Crash Course for Beginners (~3 Hr)
 ---
 <br/>
@@ -199,15 +210,15 @@ Some Cool examples (18 Min)
 
 ### 23. GenAI Glossary of terms
 ---
-* https://github.com/genieincodebottle/generative-ai/tree/main/docs/Essential_Terms_GenAI.pdf
+* https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf
 
 ### 24. GenAI Interview Questions & Answers
 ---
-* https://github.com/genieincodebottle/generative-ai/tree/main/docs/GenAI_Interview_Questions-Draft.pdf
+* https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf
 
 ### 25. GenAI Coding Round Preparation
 ---
-* https://github.com/genieincodebottle/generative-ai/tree/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf
+* https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf
 
 ### 26. LLM Leaderboard & Benchmarks
 ---
