@@ -14,21 +14,20 @@
 </div>
 
 <br>
-<hr>
+<hr></hr>
 Useful resources curated from the internet and created by various good creators. I believe this should be sufficient to gain a strong hold on GenAI-related tasks, likely more than 85% of the time. While this field is changing rapidly, the fundamentals remain the same. Avoid getting distracted by the constant influx of new models and technologies. Focus on mastering GenAI fundamentals and start building projects alongside your learning. Implementing what you learn will solidify your understanding. Dedicate at least one hour every day to GenAI, and you will have a strong grasp of the tech stack within 1-2 months.
 </br></br>
 Learning GenAI is now essential as it integrates into all aspects of software engineering and will soon be a mandatory requirement for all positions. Be prepared—it's easier to learn than you might think.
 </br></br></br>
  PS: I planned to create a new playlist on my GenAI learning, where I am working on 7-8 projects, including 3 in production, but unavoidable personal and professional circumstances delayed this. I will try to record YouTube videos in the coming months to share insights from my 15+ months of experience in GenAI development.
 
-<hr>
+<hr></hr>
+<div align="center">
+   <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
 
-# <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
-
-<div align="left">
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
 </div>
 <hr></hr>
 
