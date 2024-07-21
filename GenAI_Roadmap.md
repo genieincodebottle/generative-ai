@@ -23,7 +23,7 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 
 <hr>
 
-# <img width="50" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> Popular Resources
+# <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
 
 <div align="left">
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
