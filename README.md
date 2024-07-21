@@ -12,22 +12,21 @@ Generative AI
 </div>
 
 <br>
-<hr>
+<hr></hr>
 
-# Popular Resources
+<div align="center">
+   <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
 
-<div align="left">
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md">GenAI Roadmap</a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
-    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
 </div>
 <hr></hr>
 </br>
 All codes related to Generative AI as per YouTube video.
 <br></br>
 
-# Project tree
+# Project Tree
  * [generative-ai](./generative-ai)
    * [genai](./genai)
         * [day-1](./genai/day-1) [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=1)
