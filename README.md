@@ -16,10 +16,11 @@ Generative AI
 
 <div align="center">
    <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
-
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf">GenAI Interview Q & A</a><br/>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf">GenAI Coding preparation </a><br/>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf">GenAI Glossary of Terms</a>
+   <br></br>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf"><img width="200" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_roadmap_button_.png"></a>&nbsp;&nbsp;
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf"><img width="200" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_interview_button_.png"></a>&nbsp;&nbsp;
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf"><img width="200" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>&nbsp;&nbsp;
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf"><img width="200" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
 </div>
 <hr></hr>
 </br>
