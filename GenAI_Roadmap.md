@@ -158,6 +158,7 @@ Some Cool examples (18 Min)
 * https://developer.nvidia.com/blog/introduction-to-llm-agents/
 * https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.
 * https://docs.agpt.co/#agent
+* Architecting & Testing reliable Agent(Using LangGraph) - https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0
 <hr></hr>
 
 ### 17. What is MultiModel? (7 Min)
