@@ -192,6 +192,9 @@ Some Cool examples (18 Min)
 * Chatbot with CSV (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
 * Text to SQL generation (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 * Text Summarization (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+* Fully local RAG Agent with Llama3.1 (By LangChain Team) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?app=desktop&v=nPpgh_KaNng)
+
+
 <hr></hr>
 
 ### 21. LLM Evaluation
