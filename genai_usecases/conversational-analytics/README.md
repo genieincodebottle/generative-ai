@@ -63,11 +63,11 @@ Conversational-analytics/
 - Git
 - Docker
 - Postman (for API testing)
-- Google Cloud account (for Gemini-pro API key)
+- Google Cloud account (for free Gemini-pro API key)
 
 ### Installation
 
-1. Clone the repository and open the foder at your IDE or terminal:
+1. Clone the repository and open the folder at your IDE or terminal:
 
 ```bash
 git clone https://github.com/genieincodebottle/generative-ai.git
