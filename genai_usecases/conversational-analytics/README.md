@@ -103,9 +103,20 @@ Example:
 c:/projects/conversational-analytics> docker-compose down
 ```
 5. Create an admin user using Postman:
-- Import the `Conversational-Analytics.postman_collection.json` file
+- Import the `Conversational-Analytics.postman_collection.json` file at your local postman
 - Update the `X-Admin-Key` header with your `SECRET_KEY`
 - Send the request to create an admin user
+
+Note: If you want to use curl command instead of postman then run following curl command after changing X-Admin-key value and username & password
+```bash
+curl --location 'http://localhost:8000/register' \
+--header 'Content-Type: application/json' \
+--header 'X-Admin-Key: <your secret-key generated in earlier step using python code>' \
+--data '{
+    "username": "suresh",
+    "password": "suresh"
+}'
+```
 
 6. Access the application:
 - Frontend: `http://localhost:3000/login`
@@ -118,10 +129,9 @@ c:/projects/conversational-analytics> docker-compose down
 
 ## 🔄 Development Workflow
 
-1. Make changes to the codebase
+1. Make changes to the codebase as per your requirement like adding SECRET_KEY, GOOGLE_API_KEY
 2. Rebuild and restart containers: `docker-compose up --build`
 3. Test your changes
-4. Commit and push to your repository
 
 ## 📸 Screenshots
 
