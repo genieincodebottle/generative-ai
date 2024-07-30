@@ -150,9 +150,7 @@ c:/projects/conversational-analytics> docker-compose down
 
 - [ ] Multi-user support with segregated feedback
 - [ ] Enhanced analytics capabilities
-- [ ] Integration with popular CRM systems
-- [ ] Mobile app development
-- [ ] AI-powered chatbot for automated feedback collection
+- [ ] Streaming ......
 
 ---
 
