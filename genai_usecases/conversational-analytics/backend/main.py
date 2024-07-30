@@ -49,10 +49,10 @@ client = MongoClient(MONGODB_URI)
 db = client.sentiment
 feedback_collection = db.sentiment_analytics
 
-# Constants
-ADMIN_SECRET_KEY = os.getenv("ADMIN_SECRET_KEY", "bff2c0075fe88136a75d70bb00121f1f97cf4634f1c99e5484d80f48471ca537")  # Set this securely in production
-if not ADMIN_SECRET_KEY:
-    raise ValueError("ADMIN_SECRET_KEY not set in environment variables")
+# JWT settings
+SECRET_KEY = os.environ.get("SECRET_KEY")  # Set this securely in production
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY not set in environment variables")
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not GOOGLE_API_KEY:
@@ -141,16 +141,11 @@ async def register(user: User, admin_key: str = Header(None, alias="X-Admin-Key"
     user_dict = user.dict()
     user_dict["password"] = hashed_password
 
-    print(f"ADMIN SECRET KEY : {ADMIN_SECRET_KEY}")
-
-    print(f"ADMIN KEY : {admin_key}")
-    
-    if admin_key and admin_key == ADMIN_SECRET_KEY:
+    if admin_key and admin_key == SECRET_KEY:
         user_dict["role"] = UserRole.ADMIN
     else:
         user_dict["role"] = UserRole.USER
     
-    print(f"USER ROLE : {user_dict['role']}")
     result = users_collection.insert_one(user_dict)
     return {"message": "User registered successfully", "id": str(result.inserted_id)}
 
