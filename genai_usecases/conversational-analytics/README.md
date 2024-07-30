@@ -126,25 +126,25 @@ c:/projects/conversational-analytics> docker-compose down
 ## 📸 Screenshots
 
 1. Login <br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/login.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/login.png">
 
 2. Register<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/register.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/register.png">
 
 3. User Home Page<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/user-home.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/user-home.png">
 
 4. Admin Home Page<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/admin-home.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/admin-home.png">
 
 5. User Feedback<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/user-feedback.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/user-feedback.png">
 
 6. Analytics<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/analytics.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/analytics.png">
 
 7. Feedback Details<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/feedback-details.png">
+<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/feedback-details.png">
 
 ## 🛣️ Roadmap
 
