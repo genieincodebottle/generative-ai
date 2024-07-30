@@ -20,7 +20,7 @@ db = client['user_auth_db']
 users_collection = db['users']
 
 # JWT settings
-SECRET_KEY = os.environ.get("SECRET_KEY", "Z0hUFgMjdHuCpOgtFclC1jr0AjQCahUnBq1Xbw2Fsys")  # Set this securely in production
+SECRET_KEY = os.environ.get("SECRET_KEY")  # Set this securely in production
 if not SECRET_KEY:
     raise ValueError("SECRET_KEY not set in environment variables")
 ALGORITHM = "HS256"
