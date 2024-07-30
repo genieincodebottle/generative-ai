@@ -70,8 +70,8 @@ Conversational-analytics/
 1. Clone the repository and open the foder at your IDE or terminal:
 
 ```bash
-git clone https://github.com/yourusername/Conversational-analytics.git
-cd Conversational-analytics
+git clone https://github.com/genieincodebottle/generative-ai.git
+cd generative-ai\genai_usecases\conversational-analytics
 ```
 2. Set up your Google Gemini-pro API key:
 - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
