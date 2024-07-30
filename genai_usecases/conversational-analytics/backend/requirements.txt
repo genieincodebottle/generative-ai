@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pymongo
+pydantic
+pyjwt
+passlib[bcrypt]
+
+python-multipart
+python-dotenv
+
+langchain
+langchain_core
+langchain-google-genai 
