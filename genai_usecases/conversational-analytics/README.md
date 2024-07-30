@@ -135,7 +135,7 @@ c:/projects/conversational-analytics> docker-compose down
 <img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/user-home.png">
 
 4. Admin Home Page<br>
-<img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/admin-home.png">
+<img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/admin-home.png">
 
 5. User Feedback<br>
 <img width="200" src="https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/conversational-analytics/images/user-feedback.png">
