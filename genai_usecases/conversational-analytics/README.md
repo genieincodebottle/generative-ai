@@ -1,6 +1,6 @@
 # Conversational Analytics
 
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/conversational-analytics.png">
+<img src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/conversational-analytics.png">
 
 Welcome to the **Conversational Analytics** project. This sample application lets customers send feedback while our system identifies sentiment, topics, and emerging trends using a Large Language Model (LLM). The project is still in development, but the basic features are ready for you to use. Currently, it combines analytics for all users, but in the next update, I will separate the analytics for each user and add more important features related to conversational analytics. Feel free to use this repo for your experiments and customize it to meet your needs.
 
