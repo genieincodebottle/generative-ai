@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "986c2f18-3677-44f0-ba95-7418b9a86b60",
+		"name": "Conversational-Analytics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1502920"
+	},
+	"item": [
+		{
+			"name": "converstaional-analytics",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Admin-Key",
+						"value": "bff2c0075fe88136a75d70bb00121f1f97cf4634f1c99e5484d80f48471ca537",
+						"description": "Copy the .env, SECRET_KEY at value field",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"suresh\",\r\n    \"password\": \"suresh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
