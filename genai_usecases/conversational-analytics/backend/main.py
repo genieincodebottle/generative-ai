@@ -1,5 +1,5 @@
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List
 
 from bson import ObjectId
@@ -24,6 +24,21 @@ from auth import (
     get_password_hash,
     users_collection,
 )
+
+import logging
+
+# Configure the logger
+logging.basicConfig(
+    level=logging.INFO,  # Set the logging level
+    format='%(asctime)s - %(levelname)s - %(message)s',  # Log format
+    handlers=[
+        logging.FileHandler('app.log'),  # Log to a file
+        logging.StreamHandler()  # Log to console
+    ]
+)
+
+# Create a logger instance
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
@@ -134,6 +149,7 @@ async def register(user: User, admin_key: str = Header(None, alias="X-Admin-Key"
     """
     Register a new user.
     """
+    logger.info(f"Entered in 'register' function")
     if users_collection.find_one({"username": user.username}):
         raise HTTPException(status_code=400, detail="Username already registered")
     
@@ -154,6 +170,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     """
     Authenticate user and provide access token.
     """
+    logger.info(f"Entered in 'login_for_access_token' function")
     user = authenticate_user(form_data.username, form_data.password)
     if not user:
         raise HTTPException(
@@ -173,6 +190,7 @@ async def read_users_me(current_user: dict = Depends(get_current_user)):
     """
     Get current user information.
     """
+    logger.info(f"Entered in 'read_users_me' function")
     return UserOut(username=current_user["username"], role=current_user["role"])
 
 @app.get("/admin")
@@ -180,6 +198,7 @@ async def admin_only(current_user: dict = Depends(admin_required)):
     """
     Admin-only endpoint.
     """
+    logger.info(f"Entered in 'admin_only' function")
     return {"message": "Welcome, admin!", "username": current_user["username"]}
 
 @app.post("/feedback")
@@ -187,6 +206,7 @@ async def submit_feedback(feedback_item: FeedbackSubmission, current_user: dict 
     """
     Submit feedback.
     """
+    logger.info(f"Entered in 'submit_feedback' function")
     feedback_doc = feedback_item.dict()
     feedback_doc["username"] = current_user["username"]
     feedback_collection.insert_one(feedback_doc)
@@ -197,6 +217,7 @@ async def get_feedback(current_user: dict = Depends(get_current_user)):
     """
     Get recent and historical feedback.
     """
+    logger.info(f"Entered in 'get_feedback' function")
     current_time = datetime.now()
     one_hour_ago = current_time - timedelta(hours=1)
     
@@ -219,6 +240,7 @@ async def get_analytics(current_user: dict = Depends(admin_required)):
     """
     Get analytics from feedback data.
     """
+    logger.info(f"Entered in 'get_analytics' function")
     all_feedback = list(feedback_collection.find({}, {"_id": 0, "feedback": 1}))
     combined_feedback = " ".join([f["feedback"] for f in all_feedback])
 
