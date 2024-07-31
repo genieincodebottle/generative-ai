@@ -266,3 +266,5 @@ Contributions to add good impactful resources to the list are welcome! You can f
    * Updated Interview pdf with Advance Topics
 * 19 Jul 2024
    * Added resource related GenAI Coding round preparation (Point 25)
+* 31 Jul 2024
+   * Added Conversational Analytics project repo link (Point 20)
