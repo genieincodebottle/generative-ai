@@ -108,8 +108,8 @@ Conversational-analytics/
 2. Set up your Google Gemini-pro API key:
     - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
     - Create a new API key
-    - Add the key to your `.env` file: `GEMINI_API_KEY=your_api_key_here`
-    - How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
+    - Add the key to your `.env` file: `GOOGLE_API_KEY=<your_api_key_here>`
+    - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
 
 3. Generate a secret key for creating Admin User in other step:
 
@@ -120,7 +120,8 @@ Conversational-analytics/
 
     print(secret_key)
     ```
-    Copy the output and add it to your `.env` file: `SECRET_KEY=generated_secret_key`
+    Copy the output and add it to your `.env` file: `SECRET_KEY=<generated_secret_key>`
+    
 
 4. Build and run the Docker containers at your project folder:
     Example:
