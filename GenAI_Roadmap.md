@@ -7,10 +7,10 @@
 <br>
 
 <div align="center">
-    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.7K-brightgreen"></a>&nbsp;
+    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.75K-brightgreen"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/33.2K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/34.5K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 
 <br>
@@ -33,28 +33,30 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 
 ### 0. GenAI Crash Course for Beginners (~3 Hr)
 
->This is a nice video to refresh your high-level overview of generative AI. I suggest watching this video first, then proceeding with more detailed learning from the first point onward.
+>This is a nice video to refresh your high-level overview of generative AI in brief. 
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
 * Replace the OpenAI LLM used anywhere with the free Google’s Gemini Pro API-based LLM.
-   * How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
-   * Note: To access the Gemini Model via Google AI, you only need a Google account and an API key. A Google Cloud account is not required. It's easy and straightforward as shown in the above yt video.
+   * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
+   * **Note**: To access the Gemini Model via Google AI, you only need a Google account and an API key. A Google Cloud account is not required. It's easy and straightforward as shown in the above yt video.
 <hr></hr>
 
 ### 1. Fundamentals of GenAI (1.2 Hr)
 
-* Generative AI in Nutshell - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=2IK3DFHRFfw)
-* Intro to GenAI - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=cZaNf2rA30k&list)
-* What is LLM - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list)
-* What is LLM (Optional) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=osKyvYJ3PRM) 
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=2IK3DFHRFfw) - Generative AI in Nutshell
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=cZaNf2rA30k&list) - Intro to GenAI
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list) - What is LLM 
 
-* Useful LLM Concepts - 
+   #### **Optional**
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=osKyvYJ3PRM) - What is LLM
+* **Useful LLM Concepts**
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12) 
    
    * https://cohere.com/blog/llm-parameters-best-outputs-language-ai
    
-* Useful Blog - https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024
-* Optional Deep Learning Playlist (Famous 3blue1brown) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 
+   * https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024
+   
+   * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown)
 <hr></hr>
 
 ### 2. What is GPT? (28 Min) 
@@ -62,17 +64,17 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 <hr></hr>
 
-### 3. What is Transformer? (10 Min Video)
+### 3. What is Transformer? (10 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 <hr></hr>
 
 ### 4. Python 
 
-* Python Core Crash Course (1 Hr) -  [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8)
-* Python DS Crash Course (49 Min) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7eh4d6sabA0)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8) - Python Core Crash Course (1 Hr)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7eh4d6sabA0) - Python DS Crash Course (49 Min)
 <hr></hr>
 
-### 5. Understanding Google Colab (22 Min Video)
+### 5. Understanding Google Colab (22 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 <hr></hr>
@@ -108,7 +110,8 @@ Some Cool examples (18 Min)
 
 ### 10. Prompt Engineering
 
-* Course - https://www.coursera.org/specializations/prompt-engineering
+* Course
+   * https://www.coursera.org/specializations/prompt-engineering
 * Blogs
    * https://www.promptingguide.ai/
    * https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering
@@ -136,7 +139,7 @@ Some Cool examples (18 Min)
 * GitHub
    * https://github.com/sakunaharinda/ragatouille-book/tree/main
 
-* Graph RAG (New) - https://github.com/microsoft/graphrag?tab=readme-ov-file 
+   * **Graph RAG (New)** - https://github.com/microsoft/graphrag?tab=readme-ov-file 
 <hr></hr>
 
 ### 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
@@ -158,7 +161,7 @@ Some Cool examples (18 Min)
 * https://developer.nvidia.com/blog/introduction-to-llm-agents/
 * https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.
 * https://docs.agpt.co/#agent
-* Architecting & Testing reliable Agent(Using LangGraph) - https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0
+* **Architecting & Testing reliable Agent(Using LangGraph)** - https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0
 <hr></hr>
 
 ### 17. What is MultiModel? (7 Min)
@@ -183,28 +186,28 @@ Some Cool examples (18 Min)
 
 ### 20. GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 
-* How to setup Google Colab Notebook for free GPU- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk)
-* How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
-* Conversational Analytics (Full Stack GenAI App using React, MongoDB, Free Gemini Pro LLM, Docker, Authentication & Authorisation using JWT oken) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=fzkM-qkibpM)
-* Chat with Graph Database (Neo4j Graph Database, Gemini Pro LLM & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w)
-* Machine Translation (Gemini Pro LLM  & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw)
-* Tagging (Gemini Pro LLM  & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo)
-* Webscraping (Gemini Pro LLM  & Streamlit UI) - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
-* Chatbot with SQL Database (Huggingface Opensource LLM  & Streamlit UI) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-* Chatbot with CSV (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
-* Text to SQL generation (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-* Text Summarization (Huggingface Opensource LLM)- [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-* Fully local RAG Agent with Llama3.1 (By LangChain Team) - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?app=desktop&v=nPpgh_KaNng)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=fzkM-qkibpM) - Conversational Analytics (Full Stack GenAI App using React, MongoDB, Free Gemini Pro LLM, Docker, Authentication & Authorisation using JWT oken) 
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w) - Chat with Graph Database (Neo4j Graph Database, Gemini Pro LLM & Streamlit UI)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw) - Machine Translation (Gemini Pro LLM  & Streamlit UI) 
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo) - Tagging (Gemini Pro LLM  & Streamlit UI) 
+* **Webscraping (Gemini Pro LLM  & Streamlit UI)** - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0) - Chatbot with SQL Database (Huggingface Opensource LLM  & Streamlit UI)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8) - Chatbot with CSV (Huggingface Opensource LLM)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0) - Text to SQL generation (Huggingface Opensource LLM)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0) - Text Summarization (Huggingface Opensource LLM)
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?app=desktop&v=nPpgh_KaNng) - Fully local RAG Agent with Llama3.1 (By LangChain Team)
 
 <hr></hr>
 
 ### 21. LLM Evaluation
 
 * Blogs
-   * https://deci.ai/blog/llm-evaluation-ultimate-guide/
-   * https://research.aimultiple.com/large-language-model-evaluation/
-   * https://aisera.com/blog/llm-evaluation/
-   * https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c
+  * https://deci.ai/blog/llm-evaluation-ultimate-guide/
+  * https://research.aimultiple.com/large-language-model-evaluation/
+  * https://aisera.com/blog/llm-evaluation/
+  * https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c
 <hr></hr>
 
 ### 22. LLMOPs & Productionization of GenAI applications
