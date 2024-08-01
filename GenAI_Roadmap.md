@@ -52,9 +52,9 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 * **Useful LLM Concepts**
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12) 
    
-   * https://cohere.com/blog/llm-parameters-best-outputs-language-ai
+   * [Cohere Blog](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
    
-   * https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024
+   * [Generative AI Guide](https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024)
    
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown)
 <hr></hr>
@@ -89,7 +89,7 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
 
 
-* Official Doc - https://huggingface.co/
+* [Official Doc](https://huggingface.co/)
 <hr></hr>
 
 ### 8. Running LLM Locally using Ollama (~ 1.5 Hr)
@@ -105,29 +105,29 @@ Some Cool examples (18 Min)
 
 > I prefer going through the LangChain documentation, which is well-written and includes example notebooks, as it updates very quickly. Referring to most of the LangChain YouTube videos might give you outdated content after a few weeks.
 
-* Official Doc - https://www.langchain.com/
+* [Official Doc](https://www.langchain.com/)
 <hr></hr>
 
 ### 10. Prompt Engineering
 
 * Course
-   * https://www.coursera.org/specializations/prompt-engineering
+   * [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering)
 * Blogs
-   * https://www.promptingguide.ai/
-   * https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering
-   * https://developers.google.com/machine-learning/resources/prompt-eng
-   * https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api
-   * https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks
+   * [Prompting Guide](https://www.promptingguide.ai/)
+   * [Google's Five Best practices for Prompt Engineering](https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering)
+   * [Google's doc of Prompt Engineering](https://developers.google.com/machine-learning/resources/prompt-eng)
+   * [OpenAI Best Practices](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api)
+   * [OpenAI Guide](https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks)
 <hr></hr>
 
 ### 11. What is Vector Database?
 
-* https://www.pinecone.io/learn/vector-database/
+* [Pinecone Blog](https://www.pinecone.io/learn/vector-database/)
 <hr></hr>
 
 ### 12. What is Vector Embedding?
 
-* https://qdrant.tech/articles/what-are-embeddings/
+* [Qdrant Blog](https://qdrant.tech/articles/what-are-embeddings/)
 <hr></hr>
 
 ### 13. RAG Tutorials (~2 Hr)
@@ -137,9 +137,9 @@ Some Cool examples (18 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
 * GitHub
-   * https://github.com/sakunaharinda/ragatouille-book/tree/main
+   * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
 
-   * **Graph RAG (New)** - https://github.com/microsoft/graphrag?tab=readme-ov-file 
+   * [Graph RAG (New)](https://github.com/microsoft/graphrag?tab=readme-ov-file )
 <hr></hr>
 
 ### 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
@@ -154,34 +154,35 @@ Some Cool examples (18 Min)
 
 ### 16. LLM Agents
 
-* https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/
-* https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/
+* [Deeplearning.ai Short Course - Agent](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/)
+* [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
+* [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
+* [Architecting & Testing reliable Agent (Using LangGraph)](https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0)
+   #### **Optional**
+* [Nvidia Blog](https://developer.nvidia.com/blog/introduction-to-llm-agents/)
+* [Ttruefoundry Blog](https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.)
+* [Agpt Blog](https://docs.agpt.co/#agent)
 
-* https://www.promptingguide.ai/research/llm-agents
-* https://developer.nvidia.com/blog/introduction-to-llm-agents/
-* https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.
-* https://docs.agpt.co/#agent
-* **Architecting & Testing reliable Agent(Using LangGraph)** - https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0
 <hr></hr>
 
 ### 17. What is MultiModel? (7 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=WkoytlA3MoQ)
-* Blog - https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/mm_llms_guide.md
+* [Blog](https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/mm_llms_guide.md)
 <hr></hr>
 
 ### 18. What is Mixture of Experts (MoE) (~30 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mwO6v4BlgZQ)
 
-* https://huggingface.co/blog/moe
+* [Huggingface MoE Blog](https://huggingface.co/blog/moe)
 <hr></hr>
 
 ### 19. Streamlit for fast prototype UI
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=20V_ZB7taCM)
 
-* https://docs.streamlit.io/
+* [Official Doc](https://docs.streamlit.io/)
 <hr></hr>
 
 ### 20. GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
@@ -192,7 +193,7 @@ Some Cool examples (18 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=PJTxPW5He7w) - Chat with Graph Database (Neo4j Graph Database, Gemini Pro LLM & Streamlit UI)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=F9FBHTLJEBw) - Machine Translation (Gemini Pro LLM  & Streamlit UI) 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7yFxK0kGLNo) - Tagging (Gemini Pro LLM  & Streamlit UI) 
-* **Webscraping (Gemini Pro LLM  & Streamlit UI)** - https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph
+* [Webscraping (Gemini Pro LLM  & Streamlit UI)](https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0) - Chatbot with SQL Database (Huggingface Opensource LLM  & Streamlit UI)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8) - Chatbot with CSV (Huggingface Opensource LLM)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0) - Text to SQL generation (Huggingface Opensource LLM)
@@ -204,38 +205,40 @@ Some Cool examples (18 Min)
 ### 21. LLM Evaluation
 
 * Blogs
-  * https://deci.ai/blog/llm-evaluation-ultimate-guide/
-  * https://research.aimultiple.com/large-language-model-evaluation/
-  * https://aisera.com/blog/llm-evaluation/
-  * https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c
+  * [LLM Evaluation Ultimate Guide](https://deci.ai/blog/llm-evaluation-ultimate-guide/)
+  * [Large Language Model Evaluation](https://research.aimultiple.com/large-language-model-evaluation/)
+  
+  ### **Optional**
+  * [LLM Evaluation](https://aisera.com/blog/llm-evaluation/)
+  * [Medium Blog](https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c)
 <hr></hr>
 
 ### 22. LLMOPs & Productionization of GenAI applications
 
-* Short Course - https://www.deeplearning.ai/short-courses/llmops/
-* Specialization - https://www.coursera.org/specializations/large-language-model-operations
+* [Deeplearning.ai Short Course](https://www.deeplearning.ai/short-courses/llmops/)
+* [Specialization](https://www.coursera.org/specializations/large-language-model-operations)
 <hr></hr>
 
 ### 23. GenAI Glossary of terms
 
-* https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf
+* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf)
 <hr></hr>
 
 ### 24. GenAI Interview Questions & Answers
 
-* https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf
+* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf)
 <hr></hr>
 
 ### 25. GenAI Coding Round Preparation
 
-* https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf
+* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf)
 <hr></hr>
 
 ### 26. LLM Leaderboard & Benchmarks
 
-* https://artificialanalysis.ai/
-* https://chat.lmsys.org/?leaderboard
-* https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+* [Artificial Analysis AI](https://artificialanalysis.ai/)
+* [LMSYS](https://chat.lmsys.org/?leaderboard)
+* [Huggingface open-llm-leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
 <hr></hr>
 
 ### 🤝 Contributing
