@@ -31,35 +31,6 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 </div>
 <hr></hr>
 
-# Table of Contents
-
-1. [🚀 GenAI Crash Course for Beginners](#-genai-crash-course-for-beginners)
-2. [📚 Fundamentals of GenAI](#-fundamentals-of-genai)
-3. [🤖 What is GPT?](#-what-is-gpt)
-4. [⚡ What is a Transformer?](#-what-is-a-transformer)
-5. [🐍 Python](#-python)
-6. [☁️ Understanding Google Colab](#-understanding-google-colab)
-7. [🛠️ Why Use Open Source LLM?](#-why-use-open-source-llm)
-8. [🤗 Hugging Face Open Source Models](#-hugging-face-open-source-models)
-9. [🏠 Running LLM Locally Using Ollama](#-running-llm-locally-using-ollama)
-10. [🔗 LangChain](#-langchain)
-11. [🎯 Prompt Engineering](#-prompt-engineering)
-12. [📊 Vector Database](#-vector-database)
-13. [📍 Vector Embedding](#-vector-embedding)
-14. [📖 RAG Tutorials](#-rag-tutorials)
-15. [⚖️ RAG vs Prompt Engineering vs Fine Tuning](#-rag-vs-prompt-engineering-vs-fine-tuning)
-16. [🔧 Fine Tuning LLM](#-fine-tuning-llm)
-17. [🤖 LLM Agents](#-llm-agents)
-18. [🔀 MultiModel](#-multimodel)
-19. [🧠 Mixture of Experts (MoE)](#-mixture-of-experts-moe)
-20. [🎨 Streamlit](#-streamlit)
-21. [📚 GenAI Use Cases](#-genai-use-cases)
-22. [🔍 LLM Evaluation](#-llm-evaluation)
-23. [⚙️ LLMOps & Productionization of GenAI Applications](#-llmops--productionization-of-genai-applications)
-24. [📖 GenAI Glossary of Terms](#-genai-glossary-of-terms)
-25. [💬 GenAI Interview Questions & Answers](#-genai-interview-questions--answers)
-26. [💻 GenAI Coding Round Preparation](#-genai-coding-round-preparation)
-27. [🏆 LLM Leaderboard & Benchmarks](#-llm-leaderboard--benchmarks)
 
 ### 🚀 GenAI Crash Course for Beginners
 
