@@ -2,6 +2,11 @@
 
 Welcome to the **Conversational Analytics** project. This sample application lets customers send feedback while our system identifies sentiment, topics, and emerging trends using a Large Language Model (LLM). The project is still in development, but the basic features are ready for you to use. Currently, it combines analytics for all users, but in the next update, I will separate the analytics for each user and add more important features related to conversational analytics. Feel free to use this repo for your experiments and customize it to meet your needs.
 
+## YouTube
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fzkM-qkibpM" frameborder="0" allowfullscreen></iframe>
+
+
 ## 🚀 Project Details
 
 This project enables conversational analytics by analyzing customer feedback to uncover sentiment and trends. It leverages the power of Google's free Gemini-pro LLM API, providing valuable insights to help you understand your customers better.
