@@ -108,10 +108,12 @@ Conversational-analytics/
 2. Set up your Google Gemini-pro API key:
     - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
     - Create a new API key
-    - Add the key to your `.env` file: `GOOGLE_API_KEY=<your_api_key_here>`
+    - Add the key to your `.env` file: 
+    
+        `GOOGLE_API_KEY=<your_api_key_here>`
     - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
 
-3. Generate a secret key for creating Admin User in other step:
+3. Generate a secret key to create Admin User in other step:
 
     ```python
     import secrets
@@ -120,26 +122,31 @@ Conversational-analytics/
 
     print(secret_key)
     ```
-    Copy the output and add it to your `.env` file: `SECRET_KEY=<generated_secret_key>`
+    Copy the print output and add it to your `.env` file at following key: 
+
+    `SECRET_KEY=<generated_secret_key>`
     
 
 4. Build and run the Docker containers at your project folder:
-    Example:
+    
     ```bash
-    c:/projects/conversational-analytics> docker-compose up --build
+    c:/<your_folder_location>/conversational-analytics> docker-compose up --build
     ```
-    > To close the application. Type **Ctrl+C** to stop the session (Simplest way)
+    > To close the application. Type **Ctrl+C** to stop the session or from Docker Desktop UI
 
-    > To remove the application specific docker components, run following command
-    Example:
-
-    ```bash
-    c:/projects/conversational-analytics> docker-compose down
-    ```
-5. Create an admin user using Postman:
+    > To remove the application from docker, run following command or use Docker Desktop UI
+     
+        c:/<your_folder_location>/conversational-analytics> docker-compose down
+        
+5. Create an admin user using Postman (You can create Normal User using Register link at UI but to create Admin user, you need to run Rest API call using postman or using CURL command):
     - Import the `Conversational-Analytics.postman_collection.json` file at your local postman
-    - Update the `X-Admin-Key` header with your `SECRET_KEY`
+    - After import, update the `X-Admin-Key` header with your `SECRET_KEY`
     - Send the request to create an admin user
+    - Screenshots
+    <br>
+    <img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/postman-1.png">
+    <br>
+    <img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/postman-2.png">
 
     Note: If you want to use curl command instead of postman then run following curl command after changing X-Admin-key value and username & password
     ```bash
@@ -151,7 +158,7 @@ Conversational-analytics/
         "password": "suresh"
     }'
     ```
-
+    
 6. Access the application:
     - Frontend: `http://localhost:3000/login`
     - Backend API: `http://localhost:8000`
