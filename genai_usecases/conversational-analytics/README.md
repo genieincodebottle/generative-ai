@@ -4,8 +4,8 @@ Welcome to the **Conversational Analytics** project. This sample application let
 
 ## YouTube
 <br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fzkM-qkibpM" frameborder="0" allowfullscreen></iframe>
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=fzkM-qkibpM)
 
 ## 🚀 Project Details
 
