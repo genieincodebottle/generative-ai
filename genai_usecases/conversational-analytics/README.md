@@ -1,15 +1,30 @@
 <img src="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/conversational-analytics/images/conversational-analytics.png">
 
-Welcome to the **Conversational Analytics** project. This sample application lets customers send feedback while our system identifies sentiment, topics, and emerging trends using a Large Language Model (LLM). The project is still in development, but the basic features are ready for you to use. Currently, it combines analytics for all users, but in the next update, I will separate the analytics for each user and add more important features related to conversational analytics. Feel free to use this repo for your experiments and customize it to meet your needs.
+Welcome to the fullstack **Conversational Analytics** Generative AI application. This simple application lets customers send feedback while our system identifies Key Topics, Overall Sentiment, and Emerging Trends using a Large Language Model (LLM). 
 
-## YouTube
-<br>
+The application is still in development, but the basic features are ready for you to use, experiment and extend. Currently, it combines analytics for all users, but in the next update, I will separate the analytics for each user and add more important features related to conversational analytics. 
 
+Feel free to use this repo for your experiments and customize it to meet your needs.
+
+## 🎥 YouTube
 [![YouTube Video](https://img.youtube.com/vi/fzkM-qkibpM/0.jpg)](https://www.youtube.com/watch?v=fzkM-qkibpM)
 
 ## 🚀 Project Details
 
-This project enables conversational analytics by analyzing customer feedback to uncover sentiment and trends. It leverages the power of Google's free Gemini-pro LLM API, providing valuable insights to help you understand your customers better.
+This project enables conversational analytics by analyzing customer feedback to uncover important topics, sentiment and emerging-trends. It leverages the power of Google's free Gemini-pro LLM API, providing valuable insights to help you understand your customers better. You can replace gemini-pro LLM API endpoint with any other LLM at main.py file.
+
+**Example:**
+
+**Customer Feedback:** I reached out for help with my account, and the support team was very responsive and helpful. I appreciate their quick assistance, but it would be helpful to have more self-service options available.
+
+**Conversational Analytics:**
+
+    Key Topics: Account support
+
+    Overall Sentiments: Mixed (Positive | Negative)
+
+    Emerging Trends: Limited self-service options
+
 
 ### 🔥 Key Features
 
@@ -32,98 +47,113 @@ This project enables conversational analytics by analyzing customer feedback to 
 ```
 Conversational-analytics/
 ├── backend/
+│ ├── test
+│ ├── .gitignore
 │ ├── auth.py
+│ ├── Dockerfile
 │ ├── main.py
-│ └── Dockerfile
+│ └── requirements.txt
 ├── frontend/
 │ ├── public/
 │ └── src/
-│ ├── components/
-│ │ ├── AnalyticsDisplay.tsx
-│ │ ├── FeedbackDisplay.tsx
-│ │ ├── FeedbackForm.tsx
-│ │ ├── Home.tsx
-│ │ ├── Login.tsx
-│ │ ├── Footer.tsx
-│ │ ├── Header.tsx
-│ │ ├── PrivateRoute.tsx
-│ │ └── Register.tsx
-│ ├── App.css
-│ ├── App.tsx
-│ ├── index.css
-│ ├── index.tsx
-│ └── Dockerfile
+│ │ ├── components/
+│ │ │ ├── AnalyticsDisplay.tsx
+│ │ │ ├── FeedbackDisplay.tsx
+│ │ │ ├── FeedbackForm.tsx
+│ │ │ ├── Home.tsx
+│ │ │ ├── Login.tsx
+│ │ │ ├── Footer.tsx
+│ │ │ ├── Header.tsx
+│ │ │ ├── PrivateRoute.tsx
+│ │ │ └── Register.tsx
+│ │ ├── App.css
+│ │ ├── App.tsx
+│ │ ├── index.css
+│ │ ├── index.tsx
+│ │ ├── logo.svg
+│ │ ├── react-app-env.d.ts
+│ │ ├── reportWebVitals.ts
+│ │ └── types.ts
+│ ├── .gitignore
+│ ├── Dockerfile
+│ ├── package-lock.json
+│ ├── package.json
+│ ├── README.md
+│ └── tsconfig.json
 ├── .env
+├── .gitignore
+├── Conversational-Analytics.postman_collection.json
 ├── docker-compose.yml
-├── secret_key_generation.py
-└── Conversational-Analytics.postman_collection.json
+├── README.md
+└── secret_key_generation.py
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Git
-- Docker
-- Postman (for API testing)
-- Google Cloud account (for free Gemini-pro API key)
+- [Git](https://git-scm.com/downloads)
+- [Docker Desktop](https://docs.docker.com/engine/install/)
+- [Postman (for API testing)](https://www.postman.com/downloads/)
+- [Free Google API Key](https://makersuite.google.com/app/apikey)
 
 ### Installation
 
 1. Clone the repository and open the folder at your IDE or terminal:
 
-```bash
-git clone https://github.com/genieincodebottle/generative-ai.git
-cd generative-ai\genai_usecases\conversational-analytics
-```
+    ```bash
+    git clone https://github.com/genieincodebottle/generative-ai.git
+    cd generative-ai/genai_usecases/conversational-analytics
+    ```
 2. Set up your Google Gemini-pro API key:
-- Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-- Create a new API key
-- Add the key to your `.env` file: `GEMINI_API_KEY=your_api_key_here`
-- How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
+    - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+    - Create a new API key
+    - Add the key to your `.env` file: `GEMINI_API_KEY=your_api_key_here`
+    - How to setup Google's free Gemini Pro API Key - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc)
 
 3. Generate a secret key for creating Admin User in other step:
 
-```python
-import secrets
+    ```python
+    import secrets
 
-secret_key = secrets.token_hex(32)  # Generates a 64 character hex string
+    secret_key = secrets.token_hex(32)  # Generates a 64 character hex string
 
-print(secret_key)
-```
-Copy the output and add it to your `.env` file: `SECRET_KEY=generated_secret_key`
+    print(secret_key)
+    ```
+    Copy the output and add it to your `.env` file: `SECRET_KEY=generated_secret_key`
 
 4. Build and run the Docker containers at your project folder:
-Example:
-```bash
-c:/projects/conversational-analytics> docker-compose up --build
-```
-To close the application. Type **Ctrl+C** to stop the session (Simplest way)
+    Example:
+    ```bash
+    c:/projects/conversational-analytics> docker-compose up --build
+    ```
+    > To close the application. Type **Ctrl+C** to stop the session (Simplest way)
 
-To remove the application specific docker components, run following command
-Example:
-```bash
-c:/projects/conversational-analytics> docker-compose down
-```
+    > To remove the application specific docker components, run following command
+    Example:
+
+    ```bash
+    c:/projects/conversational-analytics> docker-compose down
+    ```
 5. Create an admin user using Postman:
-- Import the `Conversational-Analytics.postman_collection.json` file at your local postman
-- Update the `X-Admin-Key` header with your `SECRET_KEY`
-- Send the request to create an admin user
+    - Import the `Conversational-Analytics.postman_collection.json` file at your local postman
+    - Update the `X-Admin-Key` header with your `SECRET_KEY`
+    - Send the request to create an admin user
 
-Note: If you want to use curl command instead of postman then run following curl command after changing X-Admin-key value and username & password
-```bash
-curl --location 'http://localhost:8000/register' \
---header 'Content-Type: application/json' \
---header 'X-Admin-Key: <your secret-key generated in earlier step using python code>' \
---data '{
-    "username": "suresh",
-    "password": "suresh"
-}'
-```
+    Note: If you want to use curl command instead of postman then run following curl command after changing X-Admin-key value and username & password
+    ```bash
+    curl --location 'http://localhost:8000/register' \
+    --header 'Content-Type: application/json' \
+    --header 'X-Admin-Key: <your secret-key generated in earlier step using python code>' \
+    --data '{
+        "username": "suresh",
+        "password": "suresh"
+    }'
+    ```
 
 6. Access the application:
-- Frontend: `http://localhost:3000/login`
-- Backend API: `http://localhost:8000`
+    - Frontend: `http://localhost:3000/login`
+    - Backend API: `http://localhost:8000`
 
 ## 👥 User Roles
 
