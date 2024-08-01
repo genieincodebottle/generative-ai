@@ -5,7 +5,7 @@ Welcome to the **Conversational Analytics** project. This sample application let
 ## YouTube
 <br>
 
-[![YouTube Video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=fzkM-qkibpM)
+[![YouTube Video](https://img.youtube.com/vi/fzkM-qkibpM/0.jpg)](https://www.youtube.com/watch?v=fzkM-qkibpM)
 
 ## 🚀 Project Details
 
