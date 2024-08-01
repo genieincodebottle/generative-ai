@@ -260,10 +260,10 @@ Contributions to add good impactful resources to the list are welcome! You can f
 
 ### Doc Updation History
 
-* 31 May 2024 - Added Multimodel doc written by @aishwaryanr at Point-17
+* 31 May 2024 - Added Multimodel doc
 * 01 Jun 2024
-   * Added resources related LLM Evaluation at Point-21
-   * Added resources related LLMOPs at Point-22
+   * Added resources related LLM Evaluation
+   * Added resources related LLMOPs
 * 11 Jun 2024
    * Added GenAI & LLM Essential Terms
 * 07 Jul 2024
@@ -272,6 +272,8 @@ Contributions to add good impactful resources to the list are welcome! You can f
    * Added resource related Graph RAG
    * Updated Interview pdf with Advance Topics
 * 19 Jul 2024
-   * Added resource related GenAI Coding round preparation (Point 25)
+   * Added resource related GenAI Coding round preparation
 * 31 Jul 2024
-   * Added Conversational Analytics project repo link (Point 20)
+   * Added Conversational Analytics project repo link
+* 01 Aug 2024
+   * Organised the doc and some formatting
