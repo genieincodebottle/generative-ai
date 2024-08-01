@@ -31,7 +31,17 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 </div>
 <hr></hr>
 
-### 0. GenAI Crash Course for Beginners (Optional) (~3 Hr)
+# Table of Contents
+
+1. [Introduction](###genai-crash-course-for-beginners)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Features](#features)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contact](#contact)
+
+### 🚀 GenAI Crash Course for Beginners
 
 >This is a nice video to refresh your high-level overview of generative AI in brief. This is optional.
 
@@ -41,7 +51,7 @@ Learning GenAI is now essential as it integrates into all aspects of software en
    * **Note**: To access the Gemini Model via Google AI, you only need a Google account and an API key. A Google Cloud account is not required. It's easy and straightforward as shown in the above yt video.
 <hr></hr>
 
-### 1. Fundamentals of GenAI (1.2 Hr)
+### 📚 Fundamentals of GenAI (1.2 Hr)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=2IK3DFHRFfw) - Generative AI in Nutshell
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=cZaNf2rA30k&list) - Intro to GenAI
@@ -59,32 +69,32 @@ Learning GenAI is now essential as it integrates into all aspects of software en
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown)
 <hr></hr>
 
-### 2. What is GPT? (28 Min) 
+### 🤖 What is GPT? (28 Min) 
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wjZofJX0v4M)
 <hr></hr>
 
-### 3. What is Transformer? (10 Min)
+### ⚡What is Transformer? (10 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 <hr></hr>
 
-### 4. Python 
+### 📜 Python 
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=kqtD5dpn9C8) - Python Core Crash Course (1 Hr)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=7eh4d6sabA0) - Python DS Crash Course (49 Min)
 <hr></hr>
 
-### 5. Understanding Google Colab (22 Min)
+### ☁️ Understanding Google Colab (22 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 <hr></hr>
 
-### 6. Why should you use Open Source LLM? (7 Min)
+### 🛠️ Why should you use Open Source LLM? (7 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=y9k-U9AuDeM)
 <hr></hr>
 
-### 7. Huggingface Open Source Models (34 Min)
+### 🤗 Huggingface Open Source Models (34 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
 
@@ -92,7 +102,7 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 * [Official Doc](https://huggingface.co/)
 <hr></hr>
 
-### 8. Running LLM Locally using Ollama (~ 1.5 Hr)
+### 🏠 Running LLM Locally using Ollama (~ 1.5 Hr)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PL8motc6AQftkWtR16gGQWSVrH4bvbEETo)
 
@@ -101,14 +111,14 @@ Some Cool examples (18 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=h_GTxRFYETY)
 <hr></hr>
 
-### 9. LangChain
+### 🔗 LangChain
 
 > I prefer going through the LangChain documentation, which is well-written and includes example notebooks, as it updates very quickly. Referring to most of the LangChain YouTube videos might give you outdated content after a few weeks.
 
 * [Official Doc](https://www.langchain.com/)
 <hr></hr>
 
-### 10. Prompt Engineering
+### 🎯 Prompt Engineering
 
 * Course
    * [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering)
@@ -120,17 +130,17 @@ Some Cool examples (18 Min)
    * [OpenAI Guide](https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks)
 <hr></hr>
 
-### 11. What is Vector Database?
+### 📊 What is Vector Database?
 
 * [Pinecone Blog](https://www.pinecone.io/learn/vector-database/)
 <hr></hr>
 
-### 12. What is Vector Embedding?
+### 🗺️ What is Vector Embedding?
 
 * [Qdrant Blog](https://qdrant.tech/articles/what-are-embeddings/)
 <hr></hr>
 
-### 13. RAG Tutorials (~2 Hr)
+### 📖 RAG Tutorials (~2 Hr)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
 
@@ -142,17 +152,17 @@ Some Cool examples (18 Min)
    * [Graph RAG (New)](https://github.com/microsoft/graphrag?tab=readme-ov-file )
 <hr></hr>
 
-### 14. RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
+### ⚖️ RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=YVWxbHJakgg)
 <hr></hr>
 
-### 15. Fine Tuning LLM (~4 Hr)
+### 🔧 Fine Tuning LLM (~4 Hr)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
 <hr></hr>
 
-### 16. LLM Agents
+### 🤖 LLM Agents
 
 * [Deeplearning.ai Short Course - Agent](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/)
 * [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
@@ -165,27 +175,27 @@ Some Cool examples (18 Min)
 
 <hr></hr>
 
-### 17. What is MultiModel? (7 Min)
+### 🔀 What is MultiModel? (7 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=WkoytlA3MoQ)
 * [Blog](https://github.com/aishwaryanr/awesome-generative-ai-guide/blob/main/resources/mm_llms_guide.md)
 <hr></hr>
 
-### 18. What is Mixture of Experts (MoE) (~30 Min)
+### 🧠 What is Mixture of Experts (MoE) (~30 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=mwO6v4BlgZQ)
 
 * [Huggingface MoE Blog](https://huggingface.co/blog/moe)
 <hr></hr>
 
-### 19. Streamlit for fast prototype UI
+### 🎨 Streamlit for fast prototype UI
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=20V_ZB7taCM)
 
 * [Official Doc](https://docs.streamlit.io/)
 <hr></hr>
 
-### 20. GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
+### 📚 GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
@@ -202,7 +212,7 @@ Some Cool examples (18 Min)
 
 <hr></hr>
 
-### 21. LLM Evaluation
+### 🔍 LLM Evaluation
 
 * Blogs
   * [LLM Evaluation Ultimate Guide](https://deci.ai/blog/llm-evaluation-ultimate-guide/)
@@ -213,28 +223,28 @@ Some Cool examples (18 Min)
   * [Medium Blog](https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c)
 <hr></hr>
 
-### 22. LLMOPs & Productionization of GenAI applications
+### 🏭 LLMOPs & Productionization of GenAI applications
 
 * [Deeplearning.ai Short Course](https://www.deeplearning.ai/short-courses/llmops/)
 * [Specialization](https://www.coursera.org/specializations/large-language-model-operations)
 <hr></hr>
 
-### 23. GenAI Glossary of terms
+### 📖 GenAI Glossary of terms
 
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf)
 <hr></hr>
 
-### 24. GenAI Interview Questions & Answers
+### 📝 GenAI Interview Questions & Answers
 
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf)
 <hr></hr>
 
-### 25. GenAI Coding Round Preparation
+### 💻 GenAI Coding Round Preparation
 
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf)
 <hr></hr>
 
-### 26. LLM Leaderboard & Benchmarks
+### 🏆 LLM Leaderboard & Benchmarks
 
 * [Artificial Analysis AI](https://artificialanalysis.ai/)
 * [LMSYS](https://chat.lmsys.org/?leaderboard)
