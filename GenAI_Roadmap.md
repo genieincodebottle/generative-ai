@@ -32,7 +32,7 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 <hr></hr>
 
 
-### 🚀 GenAI Crash Course for Beginners
+### 🚀 GenAI Crash Course for Beginners (Optional) (~3 Hrs)
 
 >This is a nice video to refresh your high-level overview of generative AI in brief. This is optional.
 
