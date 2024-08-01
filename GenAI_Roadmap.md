@@ -31,9 +31,9 @@ Learning GenAI is now essential as it integrates into all aspects of software en
 </div>
 <hr></hr>
 
-### 0. GenAI Crash Course for Beginners (~3 Hr)
+### 0. GenAI Crash Course for Beginners (Optional) (~3 Hr)
 
->This is a nice video to refresh your high-level overview of generative AI in brief. 
+>This is a nice video to refresh your high-level overview of generative AI in brief. This is optional.
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
 * Replace the OpenAI LLM used anywhere with the free Google’s Gemini Pro API-based LLM.
