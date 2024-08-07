@@ -131,6 +131,7 @@ Some Cool examples (18 Min)
 ### 🗺️ What is Vector Embedding?
 
 * [Qdrant Blog](https://qdrant.tech/articles/what-are-embeddings/)
+* [How to choose right Embedding Model ?](https://colab.research.google.com/drive/1aaU4YZC-fswSImo1fV-w67FXPQg5Ictm#scrollTo=HxxOWz9dpsYj)
 <hr></hr>
 
 ### 📖 RAG Tutorials (~2 Hr)
