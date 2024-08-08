@@ -7,10 +7,10 @@
 <br>
 
 <div align="center">
-    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.75K-brightgreen"></a>&nbsp;
+    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-9.8K-brightgreen"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/34.5K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/35.5K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 
 <br>
@@ -29,7 +29,10 @@ Learning GenAI is now essential as it integrates into all aspects of software en
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>&nbsp;&nbsp;
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
    &nbsp;&nbsp;
+   <a target="_blank" href="https://colab.research.google.com/drive/1aaU4YZC-fswSImo1fV-w67FXPQg5Ictm?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/embedding_models.png"></a>
+   &nbsp;&nbsp;
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/rag/advance_rag_decision_flow_chart.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/advance_rag.png"></a>
+   
 </div>
 <hr></hr>
 
