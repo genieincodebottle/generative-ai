@@ -248,7 +248,39 @@ Some Cool examples (18 Min)
 
 ### 🤝 Contributing
 
-Contributions to add good impactful resources to the list are welcome! You can fork the repo and create a PR to merge your changes.<br /><br />
+Contributions to add good impactful resources/codes to the list are welcome! 
+
+Here’s how you can help:
+
+1. Fork the Repository
+Click on the "Fork" button at the top right corner of the page to create a personal copy of the repository.
+
+2. Clone the Repository
+Clone your forked repository to your local machine:
+```bash
+git clone https://github.com/genieincodebottle/generative-ai.git
+```
+
+3. Create a New Branch
+Create a new branch for your feature or bug fix:
+```bash
+git checkout -b your-branch-name
+```
+
+4. Make Your Changes
+Make your changes and commit them with a clear message:
+```bash
+git commit -m "Brief description of your changes"
+```
+
+5. Push Your Changes
+Push your changes to your forked repository:
+```bash
+git push origin your-branch-name
+```
+
+### 5. Create a Pull Request
+Go to the original repository and create a pull request. Make sure to explain your changes and why they should be merged.
 
 <h1 align="left">Hi 👋, I am Rajesh Srivastava</h1>
 <h3 align="left">Lead Data Scientist | Coder</h3>
