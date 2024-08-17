@@ -15,11 +15,11 @@
 
 <br>
 <hr></hr>
-Useful resources curated from the internet and created by various good creators. I believe this should be sufficient to gain a strong hold on GenAI-related tasks, likely more than 85% of the time. While this field is changing rapidly, the fundamentals remain the same. Avoid getting distracted by the constant influx of new models and technologies. Focus on mastering GenAI fundamentals and start building projects alongside your learning. Implementing what you learn will solidify your understanding. Dedicate at least one hour every day to GenAI, and you will have a strong grasp of the tech stack within 1-2 months.
+Resources that should cover 85%+ of what you need for GenAI tasks. The field changes fast, but the basics stay the same. Don’t get lost in all the new stuff/models and focus on the fundamentals. Build projects as you learn. Spend at least an hour a day, and you’ll get a good grip on GenAI in 1-2 months.
 <br><br>
-Learning GenAI is now essential as it integrates into all aspects of software engineering and will soon be a mandatory requirement for all positions. Be prepared—it's easier to learn than you might think.
+Learning GenAI is essential now—soon, it'll be a must for all software roles. Get ready—it’s easier than you think
 </br><br>
- PS: I planned to create a new playlist on my GenAI learning, where I am working on 7-8 projects, including 3 in production, but unavoidable personal and professional circumstances delayed this. I will try to record YouTube videos in the coming months to share insights from my 15+ months of experience in GenAI development.
+ PS: I planned to create a new GenAI learning playlist, where I am working on 7-8 projects, including 3 in production. However, personal and work things delayed it. I will try to record YouTube videos in the coming months to share insights from my 15+ months of production grade GenAI development experience.
 
 <hr></hr>
 <div align="center">
@@ -289,35 +289,3 @@ Push your changes to your forked repository:
 
    Go to the original repository and create a pull request. Make sure to explain your changes and why they should be merged.
 
-
-<h1 align="left">Hi 👋, I am Rajesh Srivastava</h1>
-<h3 align="left">Lead Data Scientist | Coder</h3>
-
-<h3 align="left">Connect with me</h3>
-<p align="left">
-<a href="https://instagram.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="genieincodebottle" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="genieincodebottle" height="30" width="40" /></a>
-<a href="https://kaggle.com/genieincodebottle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="genieincodebottle" height="30" width="40" /></a>
-<a href="https://discord.gg/https://discord.gg/CUUeZvmP5j" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.gg/CUUeZvmP5j" height="30" width="40" /></a>
-</p>
-<hr></hr>
-
-### Doc Updation History
-
-* 31 May 2024 - Added Multimodel doc
-* 01 Jun 2024
-   * Added resources related LLM Evaluation
-   * Added resources related LLMOPs
-* 11 Jun 2024
-   * Added GenAI & LLM Essential Terms
-* 07 Jul 2024
-   * Added LLM Ledaerboard links & benchmarks
-* 16 Jul 2024
-   * Added resource related Graph RAG
-   * Updated Interview pdf with Advance Topics
-* 19 Jul 2024
-   * Added resource related GenAI Coding round preparation
-* 31 Jul 2024
-   * Added Conversational Analytics project repo link
-* 01 Aug 2024
-   * Organised the doc and some formatting
