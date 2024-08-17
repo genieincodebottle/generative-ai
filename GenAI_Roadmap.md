@@ -12,7 +12,7 @@
 <hr></hr>
 Resources that should cover 85%+ of what you need for GenAI tasks. The field changes fast, but the basics stay the same. Don’t get lost in all the new stuff/models and focus on the fundamentals. Build projects as you learn. Spend at least an hour a day, and you’ll get a good grip on GenAI in 1-2 months.
 <br><br>
-Learning GenAI is essential now—soon, it'll be a must for all software roles. Get ready—it’s easier than you think
+Learning GenAI is essential now. Soon, it may be a desired requirements for all software roles. Get ready—it’s easier than you think.
 </br><br>
  PS: I planned to create a new GenAI learning playlist, where I am working on 7-8 projects, including 3 in production. However, personal and work things delayed it. I will try to record YouTube videos in the coming months to share insights from my 15+ months of production grade GenAI development experience.
 
