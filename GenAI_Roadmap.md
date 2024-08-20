@@ -236,6 +236,11 @@ Some Cool examples (18 Min)
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf)
 <hr></hr>
 
+### 💻 GenAI Project Lifecycle
+
+* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/genai-project-lifecycle.pdf)
+<hr></hr>
+
 ### 🏆 LLM Leaderboard & Benchmarks
 
 * [Artificial Analysis AI](https://artificialanalysis.ai/)
