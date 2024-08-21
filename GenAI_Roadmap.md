@@ -47,7 +47,7 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=cZaNf2rA30k&list) - Intro to GenAI
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list) - What is LLM 
 
-   #### **Optional**
+**Optional**
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=osKyvYJ3PRM) - What is LLM
 * **Useful LLM Concepts**
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12) 
@@ -113,6 +113,8 @@ Some Cool examples (18 Min)
 * [Prompt Engineering Colab Notebook](https://colab.research.google.com/drive/1u5b4BjIC2AGJb-8XomjIooSmBlbTDHLJ?usp=sharing)
 * Course
    * [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering)
+
+**Optional**
 * Blogs
    * [Prompting Guide](https://www.promptingguide.ai/)
    * [Google's Five Best practices for Prompt Engineering](https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering)
@@ -138,6 +140,7 @@ Some Cool examples (18 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
+**Optional**
 * GitHub
    * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
 
@@ -187,6 +190,23 @@ Some Cool examples (18 Min)
 * [Official Doc](https://docs.streamlit.io/)
 <hr></hr>
 
+### 🔍 LLM Evaluation
+
+* Blogs
+  * [LLM Evaluation Ultimate Guide](https://deci.ai/blog/llm-evaluation-ultimate-guide/)
+  * [Large Language Model Evaluation](https://research.aimultiple.com/large-language-model-evaluation/)
+  
+  **Optional**
+  * [LLM Evaluation](https://aisera.com/blog/llm-evaluation/)
+  * [Medium Blog](https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c)
+<hr></hr>
+
+### 🏭 LLMOPs & Productionization of GenAI applications
+
+* [Deeplearning.ai Short Course](https://www.deeplearning.ai/short-courses/llmops/)
+* [Specialization](https://www.coursera.org/specializations/large-language-model-operations)
+<hr></hr>
+
 ### 📚 GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
@@ -204,22 +224,7 @@ Some Cool examples (18 Min)
 
 <hr></hr>
 
-### 🔍 LLM Evaluation
 
-* Blogs
-  * [LLM Evaluation Ultimate Guide](https://deci.ai/blog/llm-evaluation-ultimate-guide/)
-  * [Large Language Model Evaluation](https://research.aimultiple.com/large-language-model-evaluation/)
-  
-  ### **Optional**
-  * [LLM Evaluation](https://aisera.com/blog/llm-evaluation/)
-  * [Medium Blog](https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c)
-<hr></hr>
-
-### 🏭 LLMOPs & Productionization of GenAI applications
-
-* [Deeplearning.ai Short Course](https://www.deeplearning.ai/short-courses/llmops/)
-* [Specialization](https://www.coursera.org/specializations/large-language-model-operations)
-<hr></hr>
 
 ### 📖 GenAI Glossary of terms
 
