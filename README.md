@@ -18,6 +18,7 @@
    <a target="_blank" href="https://colab.research.google.com/drive/1u5b4BjIC2AGJb-8XomjIooSmBlbTDHLJ?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/prompt_techniques.png"></a>
    <a target="_blank" href="https://colab.research.google.com/drive/1aaU4YZC-fswSImo1fV-w67FXPQg5Ictm?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/embedding_models.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/rag/advance_rag_decision_flow_chart.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/advance_rag.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/advance_rag.png"></a>
 </div>
 <hr></hr>
 GenAI related stuff for everyone. Simple, practical insights to get you started and keep you ahead.
