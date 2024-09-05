@@ -31,17 +31,6 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
 </div>
 <hr></hr>
 
-
-### 🚀 GenAI Crash Course for Beginners (Optional) (~3 Hrs)
-
->This is a nice video to refresh your high-level overview of generative AI in brief. This is optional.
-
-* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=d4yCWBGFCEs)
-* Replace the OpenAI LLM used anywhere with the free Google’s Gemini Pro API-based LLM.
-   * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
-   * **Note**: To access the Gemini Model via Google AI, you only need a Google account and an API key. A Google Cloud account is not required. It's easy and straightforward as shown in the above yt video.
-<hr></hr>
-
 ### 📚 Fundamentals of GenAI (1.2 Hr)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=2IK3DFHRFfw) - Generative AI in Nutshell
