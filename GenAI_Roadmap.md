@@ -192,8 +192,8 @@ Some Cool examples (18 Min)
 
 ### 🏭 LLMOPs & Productionization of GenAI applications
 
-* [Deeplearning.ai Short Course](https://www.deeplearning.ai/short-courses/llmops/)
-* [Specialization](https://www.coursera.org/specializations/large-language-model-operations)
+* Short Course - [deeplearning.ai](https://www.deeplearning.ai/short-courses/llmops/)
+* Specialization - [Coursera](https://www.coursera.org/specializations/large-language-model-operations)
 <hr></hr>
 
 ### 🏆 LLM Leaderboard & Benchmarks
