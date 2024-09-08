@@ -4,10 +4,10 @@
 <h1>Gen AI Roadmap for Everyone - 2024</h1>
 </div>
 <div align="center">
-    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-10.2K-blue"></a>&nbsp;
+    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-10.6K-blue"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/35.5K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/39.1K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 <hr></hr>
 Resources that should cover 85%+ of what you need for GenAI tasks. The field changes fast, but the basics stay the same. Don’t get lost in all the new stuff/models and focus on the fundamentals. Build projects as you learn. Spend at least an hour a day, and you’ll get a good grip on GenAI in 1-2 months.
