@@ -131,10 +131,9 @@ Some Cool examples (18 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
 **Optional**
-* GitHub
-   * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
+  * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
 
-   * [Graph RAG (New)](https://github.com/microsoft/graphrag?tab=readme-ov-file )
+  * [Graph RAG (New)](https://github.com/microsoft/graphrag?tab=readme-ov-file )
 <hr></hr>
 
 ### ⚖️ RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
@@ -197,6 +196,13 @@ Some Cool examples (18 Min)
 * [Specialization](https://www.coursera.org/specializations/large-language-model-operations)
 <hr></hr>
 
+### 🏆 LLM Leaderboard & Benchmarks
+
+* [Artificial Analysis AI](https://artificialanalysis.ai/)
+* [LMSYS](https://chat.lmsys.org/?leaderboard)
+* [Huggingface open-llm-leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
+<hr></hr>
+
 ### 📚 GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
@@ -217,13 +223,6 @@ Some Cool examples (18 Min)
 ### 📝 GenAI Interview Questions & Answers
 
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf)
-<hr></hr>
-
-### 🏆 LLM Leaderboard & Benchmarks
-
-* [Artificial Analysis AI](https://artificialanalysis.ai/)
-* [LMSYS](https://chat.lmsys.org/?leaderboard)
-* [Huggingface open-llm-leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
 <hr></hr>
 
 ### 🤝 Contributing
