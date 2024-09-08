@@ -214,24 +214,9 @@ Some Cool examples (18 Min)
 
 <hr></hr>
 
-### 📖 GenAI Glossary of terms
-
-* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf)
-<hr></hr>
-
 ### 📝 GenAI Interview Questions & Answers
 
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf)
-<hr></hr>
-
-### 💻 GenAI Coding Round Preparation
-
-* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf)
-<hr></hr>
-
-### 💻 GenAI Project Lifecycle
-
-* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf)
 <hr></hr>
 
 ### 🏆 LLM Leaderboard & Benchmarks
