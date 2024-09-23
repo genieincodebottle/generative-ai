@@ -58,6 +58,9 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 <hr></hr>
 
+### 🗣️ NLP for beginners
+* [NLP Tutorial]https://github.com/microsoft/ML-For-Beginners/tree/main/6-NLP
+
 ### 📜 Python 
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=kqtD5dpn9C8) - Python Core Crash Course (1 Hr)
