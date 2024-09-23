@@ -124,11 +124,13 @@ Some Cool examples (18 Min)
 
 ### 🗺️ What is Vector Embedding?
 
+* [Embedding Model Notebook](https://colab.research.google.com/drive/1aaU4YZC-fswSImo1fV-w67FXPQg5Ictm#scrollTo=HxxOWz9dpsYj)
 * [Qdrant Blog](https://qdrant.tech/articles/what-are-embeddings/)
-* [How to choose right Embedding Model ?](https://colab.research.google.com/drive/1aaU4YZC-fswSImo1fV-w67FXPQg5Ictm#scrollTo=HxxOWz9dpsYj)
 <hr></hr>
 
 ### 📖 RAG Tutorials (~2 Hr)
+
+* [Advance RAG Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/rag/advance_rag_decision_flow_chart.pdf)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
 
