@@ -46,7 +46,7 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
    
    * [Generative AI Guide](https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024)
    
-   * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown)
+   * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown. **Must go through if looking for broad AI Engineer role.**)
 <hr></hr>
 
 ### 🤖 What is GPT? (28 Min) 
