@@ -37,7 +37,7 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=cZaNf2rA30k&list) - Intro to GenAI
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list) - What is LLM 
 
-**Optional**
+**Optional References**
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=osKyvYJ3PRM) - What is LLM
 * **Useful LLM Concepts**
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12) 
@@ -108,7 +108,7 @@ Some Cool examples (18 Min)
 * Course
    * [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering)
 
-**Optional**
+**Optional References**
 * Blogs
    * [Prompting Guide](https://www.promptingguide.ai/)
    * [Google's Five Best practices for Prompt Engineering](https://cloud.google.com/blog/products/application-development/five-best-practices-for-prompt-engineering)
@@ -136,7 +136,7 @@ Some Cool examples (18 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
-**Optional**
+**Optional References**
   * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
 
   * [Graph RAG (New)](https://github.com/microsoft/graphrag?tab=readme-ov-file )
@@ -154,14 +154,15 @@ Some Cool examples (18 Min)
 
 ### 🤖 LLM Agents
 
+* [GenAI Agents - GitHub](https://github.com/NirDiamant/GenAI_Agents)
 * [Deeplearning.ai Short Course - Agent](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/)
-* [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
 * [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
-* [Architecting & Testing reliable Agent (Using LangGraph)](https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0)
-   #### **Optional**
+   #### **Optional References**
+* [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
 * [Nvidia Blog](https://developer.nvidia.com/blog/introduction-to-llm-agents/)
 * [Ttruefoundry Blog](https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.)
 * [Agpt Blog](https://docs.agpt.co/#agent)
+* [Architecting & Testing reliable Agent (Using LangGraph)](https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0)
 
 <hr></hr>
 
