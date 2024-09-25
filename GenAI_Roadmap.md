@@ -157,7 +157,7 @@ Some Cool examples (18 Min)
 * [GenAI Agents - GitHub](https://github.com/NirDiamant/GenAI_Agents)
 * [Deeplearning.ai Short Course - Agent](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/)
 * [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
-   #### **Optional References**
+**Optional References**
 * [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
 * [Nvidia Blog](https://developer.nvidia.com/blog/introduction-to-llm-agents/)
 * [Ttruefoundry Blog](https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.)
@@ -192,7 +192,7 @@ Some Cool examples (18 Min)
   * [LLM Evaluation Ultimate Guide](https://deci.ai/blog/llm-evaluation-ultimate-guide/)
   * [Large Language Model Evaluation](https://research.aimultiple.com/large-language-model-evaluation/)
   
-  **Optional**
+**Optional References**
   * [LLM Evaluation](https://aisera.com/blog/llm-evaluation/)
   * [Medium Blog](https://medium.com/@jeffreyip54/llm-evaluation-metrics-everything-you-need-for-llm-evaluation-6b129157e33c)
 <hr></hr>
