@@ -7,7 +7,7 @@
     <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-10.6K-blue"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/39.1K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/40.6K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 <hr></hr>
 Resources that should cover 85%+ of what you need for GenAI tasks. The field changes fast, but the basics stay the same. Don’t get lost in all the new stuff/models and focus on the fundamentals. Build projects as you learn. Spend at least an hour a day, and you’ll get a good grip on GenAI in 1-2 months.
@@ -157,6 +157,7 @@ Some Cool examples (18 Min)
 * [GenAI Agents - GitHub](https://github.com/NirDiamant/GenAI_Agents)
 * [Deeplearning.ai Short Course - Agent](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/)
 * [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
+
 **Optional References**
 * [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
 * [Nvidia Blog](https://developer.nvidia.com/blog/introduction-to-llm-agents/)
