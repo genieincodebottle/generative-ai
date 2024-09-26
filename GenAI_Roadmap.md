@@ -32,7 +32,7 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
 </div>
 <hr></hr>
 
-### 🔧 Set up related GenAI use cases (you can do this step later, after mastering the fundamentals and when you're ready to code)
+### 🔧 Set up related GenAI use cases (you can do this step later, when you're ready to code)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
 * [GenAI Use cases](https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md#-genai-use-cases-used-free-gemini-pro--huggingface-llms-only)
