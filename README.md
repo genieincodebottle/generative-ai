@@ -22,6 +22,7 @@
    <a target="_blank" href="https://colab.research.google.com/drive/1yhpXqiF5BGjGwFHVWzzT_wpCGbR3PDZH?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/agents_button.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md#-genai-use-cases-used-free-gemini-pro--huggingface-llms-only"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_usecases.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_awscloud.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_azurecloud.png"></a>
 </div>
 <hr></hr>
 GenAI related stuff for everyone. Simple, practical insights to get you started and keep you ahead.
