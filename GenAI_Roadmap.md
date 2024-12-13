@@ -70,6 +70,7 @@ Learning GenAI is essential now. Soon, it may be a desired requirements for all 
 
 ### 🗣️ Natural Language Processing (NLP) for beginners
 * [Tutorial Link](https://github.com/microsoft/ML-For-Beginners/tree/main/6-NLP)
+* [Simple and Quick Understanding of NLP Basics Tutorial](https://www.youtube.com/watch?v=MpIagClRELI&ab_channel=MoChen)
 <hr></hr>
 
 ### 📜 Python 
