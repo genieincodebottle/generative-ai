@@ -148,8 +148,6 @@ Some Cool examples (18 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
-* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=26thuRsxiUc)
-
 **Optional References**
   * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
 
@@ -231,7 +229,6 @@ Some Cool examples (18 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=fzkM-qkibpM) - Conversational Analytics (Full Stack GenAI App using React, MongoDB, Free Gemini Pro LLM, Docker, Authentication & Authorisation using JWT oken) 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=PJTxPW5He7w) - Chat with Graph Database (Neo4j Graph Database, Gemini Pro LLM & Streamlit UI)
-* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=26thuRsxiUc) - Complex snapshot based PDF Parsing with Docling, Claude, GPT-4 etc
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=F9FBHTLJEBw) - Machine Translation (Gemini Pro LLM  & Streamlit UI) 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=7yFxK0kGLNo) - Tagging (Gemini Pro LLM  & Streamlit UI) 
 * [Webscraping (Gemini Pro LLM  & Streamlit UI)](https://github.com/genieincodebottle/generative-ai/tree/main/genai_usecases/scrapgraph)
