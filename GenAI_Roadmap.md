@@ -164,7 +164,7 @@ Some Cool examples (18 Min)
 ### 🔧 Fine Tuning LLM (~4 Hr)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
-<hr></hr>
+<hr></hr> 
 
 ### 🤖 LLM Agents
 
