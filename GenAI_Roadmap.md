@@ -1,6 +1,6 @@
 
 <div align="center">
-<a href="https://www.instagram.com/genieincodebottle/"><img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo_genie.png"></a>
+<a href="https://www.instagram.com/genieincodebottle/"><img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo_genie_new.png"></a>
 <h1>Gen AI Roadmap for Everyone - 2024</h1>
 </div>
 
