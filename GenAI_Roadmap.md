@@ -9,11 +9,9 @@
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
     <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/@genieincodebottle-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
-<hr></hr>
 Resources that should cover 85%+ of what you need for GenAI tasks. The field changes fast, but the basics stay the same. Don’t get lost in all the new stuff/models and focus on the fundamentals. Build projects as you learn. Spend at least an hour a day, and you’ll get a good grip on GenAI in 1-2 months.
 <br><br>
 
-<hr></hr>
 <div align="center">
    <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
    <br></br>
@@ -30,7 +28,6 @@ Resources that should cover 85%+ of what you need for GenAI tasks. The field cha
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_azurecloud.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_vertexai.png"></a>
 </div>
-<hr></hr>
 
 ### 🔧 Set up related GenAI use cases (you can do this step later, when you're ready to code)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
