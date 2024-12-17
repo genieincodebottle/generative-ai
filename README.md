@@ -29,29 +29,6 @@
 GenAI related stuff for everyone. Simple, practical insights to get you started and keep you ahead.
 <br></br>
 
-# 📁 Repo Structure
- * [generative-ai](./generative-ai)
-   * [genai](./genai)
-        * [day-1](./genai/day-1) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=1)
-        * [day-5](./genai/day-5) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=H8o1ZDJJTBk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=5)
-        * [day-6](./genai/day-6) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=8ztk-f2PcrQ&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=6)
-        * [day-7](./genai/day-7) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=CMnZJUi6RMs&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=7)
-        * [day-8](./genai/day-8) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=c7mwwfsBGZ8&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=8)
-        * [day-9](./genai/day-9)
-        * [day-10](./genai/day-10) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=yXPull517vE&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=10)
-        * [day-11](./genai/day-11) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=sztCQgZhwME&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=11)
-        * [day-12](./genai/day-12) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12)
-        * [langchain](./genai/langchain) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=X9g54hY2EA0&list=PL02dtxLisSig1bvjjUXFFq1oHCSR_DWra&index=1)
-        * [kaggle](./genai/kaggle)
-        * [llms](./genai/llms)
- * [genai-usecases](./genai-usecases)
-   * [conversational-analytics](./genai-usecases/conversational-analytics) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=fzkM-qkibpM)
-   * [tagging](./genai-usecases/tagging) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=7yFxK0kGLNo&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-   * [scrapegraph](./genai-usecases/scrapegraph)
-   * [translation-agent](./genai-usecases/translation-agent)
-   * [graph-qa](./genai-usecases/graph-qa)
-
-
 
 ### 🤝 Contributing
 
