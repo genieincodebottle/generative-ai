@@ -81,10 +81,6 @@ Resources that should cover 85%+ of what you need for GenAI tasks. The field cha
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
 <hr></hr>
 
-### 🛠️ Why should you use Open Source LLM? (7 Min)
-
-* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=y9k-U9AuDeM)
-<hr></hr>
 
 ### 🤗 Huggingface Open Source Models (34 Min)
 
