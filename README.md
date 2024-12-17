@@ -11,13 +11,13 @@
 <div align="center">
    <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
    <br></br>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/Essential_Terms_GenAI.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_roadmap_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_interview_button_.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/sample_setup_coding_interview/GenAI_Coding_Task_Overview.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/sample-setup-coding-interview/genai-coding-task-overview.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>
    <a target="_blank" href="https://colab.research.google.com/drive/1u5b4BjIC2AGJb-8XomjIooSmBlbTDHLJ?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/prompt_techniques.png"></a>
    <a target="_blank" href="https://colab.research.google.com/drive/1aaU4YZC-fswSImo1fV-w67FXPQg5Ictm?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/embedding_models.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai_usecases/rag/advance_rag_decision_flow_chart.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/advance_rag.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/advance_rag.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_prj_lifecycle_button_.png"></a>
    <a target="_blank" href="https://colab.research.google.com/drive/1yhpXqiF5BGjGwFHVWzzT_wpCGbR3PDZH?usp=sharing"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/agents_button.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md#-genai-use-cases-used-free-gemini-pro--huggingface-llms-only"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_usecases.png"></a>
@@ -44,12 +44,12 @@ GenAI related stuff for everyone. Simple, practical insights to get you started 
         * [langchain](./genai/langchain) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=X9g54hY2EA0&list=PL02dtxLisSig1bvjjUXFFq1oHCSR_DWra&index=1)
         * [kaggle](./genai/kaggle)
         * [llms](./genai/llms)
- * [genai_usecases](./genai_usecases)
-   * [conversational-analytics](./genai_usecases/conversational-analytics) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=fzkM-qkibpM)
-   * [tagging](./genai_usecases/tagging) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=7yFxK0kGLNo&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
-   * [scrapegraph](./genai_usecases/scrapegraph)
-   * [translation-agent](./genai_usecases/translation-agent)
-   * [graph-qa](./genai_usecases/graph-qa)
+ * [genai-usecases](./genai-usecases)
+   * [conversational-analytics](./genai-usecases/conversational-analytics) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=fzkM-qkibpM)
+   * [tagging](./genai-usecases/tagging) [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=7yFxK0kGLNo&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0)
+   * [scrapegraph](./genai-usecases/scrapegraph)
+   * [translation-agent](./genai-usecases/translation-agent)
+   * [graph-qa](./genai-usecases/graph-qa)
 
 
 
