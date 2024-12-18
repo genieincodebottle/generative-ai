@@ -28,6 +28,8 @@
 
 GenAI related stuff for everyone. Simple, practical insights to get you started and keep you ahead.
 <br></br>
+⭐ Star this repo to stay updated with the latest GenAI Use cases, many more industry level Use cases coming soon.
+<br></br>
 
 
 ### 🤝 Contributing
