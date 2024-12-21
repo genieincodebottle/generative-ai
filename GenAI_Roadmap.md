@@ -11,7 +11,7 @@
     <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/@genieincodebottle-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 <br>
-Resources that should cover 85%+ of what you need for GenAI tasks. The field changes fast, but the basics stay the same. Don’t get lost in all the new stuff/models and focus on the fundamentals. Build projects as you learn. Spend at least an hour a day, and you’ll get a good grip on GenAI fundamentals in 1-2 months.
+Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves fast, but the fundamentals are forever.
 <br><br>
 ⭐ Star this repo to stay updated with the latest GenAI Use cases, many more industry level Use cases coming soon.
 <br></br>
