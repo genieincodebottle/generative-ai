@@ -13,7 +13,7 @@
 <br>
 Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves fast, but the fundamentals are forever.
 <br><br>
-⭐ Star this repo to stay updated with the latest GenAI Use cases, many more industry level Use cases coming soon.
+⭐ Star this repo to stay updated with the latest GenAI Use cases, many more Enterprise grade Use cases (Especially AI Agents) are in the pipeline and will be updated here soon. Stay tuned :)
 <br></br>
 
 <div align="center">
