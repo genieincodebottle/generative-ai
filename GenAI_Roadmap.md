@@ -19,7 +19,7 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 <div align="center">
    <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
    <br></br>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential_terms_genai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_interview_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/sample-setup-coding-interview/genai-coding-task-overview.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering/prompt-engineering.ipynb"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/prompt_techniques.png"></a>
