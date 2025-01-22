@@ -25,12 +25,17 @@
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_azurecloud.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_vertexai.png"></a>
 </div>
-
+<br>
 GenAI related stuff for everyone. Simple, practical insights to get you started and keep you ahead.
 <br></br>
 ⭐ Star this repo to stay updated with the latest GenAI Use cases, many more industry level Use cases coming soon.
 <br></br>
 
+<div align="left">
+<a href="https://github.com/genieincodebottle/genaicodelab/tree/main" target="_parent"><img src="https://img.shields.io/badge/GENAICODELAB-181717?style=flat&logo=github&logoColor=white" alt="GENAICODELAB"></a>
+</div>
+👆 Check out this repository as well where I’m uploading the latest code on Multi-Agents, Advanced RAG, Cache-Augmented Generation, and more practical usecase (work in progress) 
+<br>
 
 ### 🤝 Contributing
 
