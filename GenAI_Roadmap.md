@@ -15,7 +15,7 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 <br><br>
 ⭐ Star this repo to stay updated with the latest GenAI Use cases, many more Enterprise grade Use cases (Especially AI Agents) are in the pipeline and will be updated here soon. Stay tuned :)
 <br></br>
-<a href="https://github.com/genieincodebottle/genaicodelab/tree/main" target="_parent"><img src="https://img.shields.io/badge/GENAICODELAB-181717?style=flat&logo=github&logoColor=white" alt="GENAICODELAB"></a> 
+<a href="https://github.com/genieincodebottle/genaicodelab/tree/main" target="_parent"><img src="https://img.shields.io/badge/GENAICODELAB-181717?style=flat&logo=github&logoColor=white" alt="GENAICODELAB"></a>
 
 👆 Check out this repository as well where I’m uploading the latest code on Multi-Agents, Advanced RAG, Cache-Augmented Generation, and more practical usecase (work in progress) 
 
