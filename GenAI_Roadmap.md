@@ -48,8 +48,6 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=2IK3DFHRFfw) - Generative AI in Nutshell
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://youtu.be/LPZh9BOjkQs) - LLM Explained (By 3blue1brown)
-* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=cZaNf2rA30k&list) - Intro to GenAI
-* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=RBzXsQHjptQ&list) - What is LLM 
 
 **Optional References**
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=osKyvYJ3PRM) - What is LLM
@@ -92,8 +90,6 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 ### 🤗 Huggingface Open Source Models (34 Min)
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=wMqo7-d4T4Y&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=3)
-
-
 * [Official Doc](https://huggingface.co/)
 <hr></hr>
 
@@ -102,7 +98,6 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PL8motc6AQftkWtR16gGQWSVrH4bvbEETo)
 
 Some Cool examples (18 Min)
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=h_GTxRFYETY)
 <hr></hr>
 
@@ -141,17 +136,14 @@ Some Cool examples (18 Min)
 
 ### 📖 RAG Tutorials (~2 Hr)
 
+* [Advanced RAG Techniques (New)](https://8738733.fs1.hubspotusercontent-na1.net/hubfs/8738733/eBooks/Weaviate-Advanced-RAG-Techniques-ebook.pdf)
 * [Advance RAG Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=26thuRsxiUc) - Complex Pdf Parsing
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?app=desktop&list=PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x)
-
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=u5Vcrwpzoz8&t)
 
 **Optional References**
-  * [Ragatouille-Book](https://github.com/sakunaharinda/ragatouille-book/tree/main)
-
-  * [Graph RAG (New)](https://github.com/microsoft/graphrag?tab=readme-ov-file )
+  * [Graph RAG](https://github.com/microsoft/graphrag?tab=readme-ov-file )
 <hr></hr>
 
 ### ⚖️ RAG Vs Prompt Engineering Vs Fine Tuning (15 Min)
@@ -164,18 +156,18 @@ Some Cool examples (18 Min)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PLZoTAELRMXVN9VbAx5I2VvloTtYmlApe3)
 <hr></hr> 
 
-### 🤖 LLM Agents
+### 🤖 Agentic AI
 
+* [Building Effective Agent-By Claude (New)](https://www.anthropic.com/research/building-effective-agents)
+* [Agents-By Chip Huyen (New)](https://huyenchip.com/2025/01/07/agents.html)
 * [GenAI Agents - GitHub](https://github.com/NirDiamant/GenAI_Agents)
 * [Deeplearning.ai Short Course - Agent](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/)
-* [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
 
 **Optional References**
 * [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
 * [Nvidia Blog](https://developer.nvidia.com/blog/introduction-to-llm-agents/)
-* [Ttruefoundry Blog](https://www.truefoundry.com/blog/llm-agents#:~:text=Challenges-,Introduction,assistant%2C%20to%20plan%20a%20vacation.)
-* [Agpt Blog](https://docs.agpt.co/#agent)
 * [Architecting & Testing reliable Agent (Using LangGraph)](https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0)
+* [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
 
 <hr></hr>
 
