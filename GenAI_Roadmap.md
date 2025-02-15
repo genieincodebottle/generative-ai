@@ -26,7 +26,7 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
    <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
    <br></br>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_interview_button_.png"></a>
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_interview_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/sample-setup-coding-interview/genai-coding-task-overview.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering/prompt-engineering.ipynb"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/prompt_techniques.png"></a>
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/embedding_models.png"></a>
@@ -236,7 +236,7 @@ Some Cool examples (18 Min)
 
 ### 📝 GenAI Interview Questions & Answers
 
-* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/GenAI_Interview_Questions-Draft.pdf)
+* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf)
 <hr></hr>
 
 ### 🤝 Contributing
