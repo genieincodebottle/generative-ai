@@ -1,7 +1,7 @@
 
 <div align="center">
 <a href="https://www.instagram.com/genieincodebottle/"><img width="200" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/logo_genie_new.png"></a>
-<h1>Gen AI Roadmap for Everyone - 2024</h1>
+<h1>Gen AI Roadmap for Everyone</h1>
 </div>
 
 <div align="center">
@@ -40,6 +40,7 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 </div>
 
 ### 🔧 Set up related GenAI use cases (you can do this step later, when you're ready to code)
+
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
 * [GenAI Use cases](https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md#-genai-use-cases-used-free-gemini-pro--huggingface-llms-only)
@@ -50,15 +51,12 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://youtu.be/LPZh9BOjkQs) - LLM Explained (By 3blue1brown)
 
 **Optional References**
+* [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown. **Must go through if looking for broad AI Engineer role.**)
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=osKyvYJ3PRM) - What is LLM
 * **Useful LLM Concepts**
    * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=mh1RBdQeKdU&list=PL02dtxLisSijKxtTNoRbQ47RWdGZ27wN0&index=12) 
-   
    * [Cohere Blog](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
-   
    * [Generative AI Guide](https://github.com/aishwaryanr/awesome-generative-ai-guide/tree/main/free_courses/Applied_LLMs_Mastery_2024)
-   
-   * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) - Deep Learning Playlist (Famous 3blue1brown. **Must go through if looking for broad AI Engineer role.**)
 <hr></hr>
 
 ### 🤖 What is GPT? (28 Min) 
@@ -67,10 +65,12 @@ Your 85%+ go to toolkit for Enterprise Grade GenAI..Tech especially AI evolves f
 <hr></hr>
 
 ### ⚡What is Transformer? (10 Min)
+
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 <hr></hr>
 
 ### 🗣️ Natural Language Processing (NLP) for beginners
+
 * [Tutorial Link](https://github.com/microsoft/ML-For-Beginners/tree/main/6-NLP)
 * [Simple and Quick Understanding of NLP Basics Tutorial](https://www.youtube.com/watch?v=MpIagClRELI&ab_channel=MoChen)
 <hr></hr>
@@ -110,9 +110,9 @@ Some Cool examples (18 Min)
 
 ### 🎯 Prompt Engineering
 
-* [Prompt Engineering Colab Notebook](https://colab.research.google.com/drive/1u5b4BjIC2AGJb-8XomjIooSmBlbTDHLJ?usp=sharing)
 * Course
    * [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering)
+* [Prompt Engineering Colab Notebook](https://colab.research.google.com/drive/1u5b4BjIC2AGJb-8XomjIooSmBlbTDHLJ?usp=sharing)
 
 **Optional References**
 * Blogs
@@ -167,7 +167,6 @@ Some Cool examples (18 Min)
 * [Deeplearning.ai Autogen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/)
 * [Nvidia Blog](https://developer.nvidia.com/blog/introduction-to-llm-agents/)
 * [Architecting & Testing reliable Agent (Using LangGraph)](https://docs.google.com/presentation/d/1QWkXi4DYjfw94eHcy9RMLqpQdJtS2C_kx_u7wAUvlZE/edit#slide=id.g273e7f400bc_0_0)
-* [Prompt Guide - LLM Agents](https://www.promptingguide.ai/research/llm-agents)
 
 <hr></hr>
 
@@ -215,7 +214,7 @@ Some Cool examples (18 Min)
 * [Huggingface open-llm-leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
 <hr></hr>
 
-### 📚 GenAI Use Cases (Used free Gemini Pro & huggingface LLMs only)
+### 📚 GenAI Use Cases
 
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=0egNLDwwCSk) - How to setup Google Colab Notebook for free GPU
 * [![YouTube](https://img.shields.io/badge/YouTube-Video-blue)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
@@ -237,11 +236,14 @@ Some Cool examples (18 Min)
 ### 📝 GenAI Interview Questions & Answers
 
 * [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf)
+
+### 📝 Agentic AI Interview Questions & Answers
+
+* [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/agentic-ai-interview-questions.pdf)
+
 <hr></hr>
 
 ### 🤝 Contributing
-
-Contributions to add good impactful resources/codes to the list are welcome! 
 
 Here’s how you can help:
 
