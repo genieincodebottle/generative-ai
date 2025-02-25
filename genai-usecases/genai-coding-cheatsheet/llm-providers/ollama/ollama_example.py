@@ -1,6 +1,6 @@
 """"
 1. Follow READEME file to Download, Install, Pull Models and Run
-For the following example pull following example
+For the this example pull below model
 
 ollama pull llama3.2:1b
 
