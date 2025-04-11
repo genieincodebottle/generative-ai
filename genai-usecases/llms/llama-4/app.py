@@ -30,9 +30,6 @@ import streamlit as st
 # Load environment variables from .env file
 load_dotenv()
 
-os.environ["OPIK_API_KEY"] =  os.getenv("OPIK_API_KEY")
-os.environ["OPIK_WORKSPACE"] = "genieincodebottle"
-
 # Get API keys from environment variables
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
