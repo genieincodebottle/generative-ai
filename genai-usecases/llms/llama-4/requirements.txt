@@ -11,5 +11,5 @@ pillow>=10.2.0
 streamlit-chat>=0.1.1
 sentence-transformers>=2.2.2
 crewai>=0.28.5
-crewai-tools>=0.40.1
+crewai-tools
 google-genai>=1.5.0
