@@ -26,7 +26,6 @@ sentence-transformers>=2.2.2
 crewai>=0.28.5
 crewai-tools>=0.40.1
 google-genai>=1.5.0
-opik>=1.7.2
 ```
 
 ### ⚙️ Setup Instructions
@@ -54,15 +53,12 @@ opik>=1.7.2
       ```bash
       GROQ_API_KEY=your_key_here
       GOOGLE_API_KEY=your_key_here
-      OPIK_API_KEY=your_key_here    
       ```
 
       For **GROQ_API_KEY** follow this -> https://console.groq.com/keys
 
-      For **GOOGLE_API_KEY** follow this -> https://ai.google.dev/gemini-api/docs/api-key
+      For **GOOGLE_API_KEY** follow this -> https://aistudio.google.com/app/apikey
 
-      For **OPIK_API_KEY** follow this -> https://www.comet.com/signup?from=llm&=opik&utm_medium=colab&utm_content=llamaindex&utm_campaign=opik
-  
 6. Run App
    
    `streamlit run app.py`

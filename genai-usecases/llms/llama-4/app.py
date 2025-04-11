@@ -27,12 +27,6 @@ from crewai import Agent, Task, Crew, Process
 # UI
 import streamlit as st
 
-# LLM Evaluation
-import opik
-
-opik.configure(use_local=False)
-from opik.integrations.crewai import track_crewai
-
 # Load environment variables from .env file
 load_dotenv()
 
