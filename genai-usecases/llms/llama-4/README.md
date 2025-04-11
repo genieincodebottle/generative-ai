@@ -6,13 +6,27 @@
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md"><img src="https://img.shields.io/badge/style--5eba00.svg?label=GenAI Roadmap&logo=github&style=social"></a>
 </div>
 
-### RAG using the Llama 4 Scout model
+### Llama-4 Scout: All-in-One App for Chat, OCR, RAG & Agentic AI with CrewAI Integration
 
 ### 🔗 Dependencies
 
 ```bash
 streamlit>=1.43.2 
+groq>=0.22.0
+python-dotenv>=1.1.0
 langchain-groq>=0.3.2
+langchain-community>=0.0.27
+langchain>=0.0.27
+python-dotenv>=1.0.0
+pypdf>=4.0.0
+faiss-cpu>=1.7.4
+pillow>=10.2.0
+streamlit-chat>=0.1.1
+sentence-transformers>=2.2.2
+crewai>=0.28.5
+crewai-tools>=0.40.1
+google-genai>=1.5.0
+opik>=1.7.2
 ```
 
 ### ⚙️ Setup Instructions
@@ -38,10 +52,16 @@ langchain-groq>=0.3.2
       ```
    4. Provide Groq API key in `.env` file
       ```bash
-      GROQ_API_KEY=your_key_here    
+      GROQ_API_KEY=your_key_here
+      GOOGLE_API_KEY=your_key_here
+      OPIK_API_KEY=your_key_here    
       ```
 
       For **GROQ_API_KEY** follow this -> https://console.groq.com/keys
+
+      For **GOOGLE_API_KEY** follow this -> https://ai.google.dev/gemini-api/docs/api-key
+
+      For **OPIK_API_KEY** follow this -> https://www.comet.com/signup?from=llm&=opik&utm_medium=colab&utm_content=llamaindex&utm_campaign=opik
   
 6. Run App
    
