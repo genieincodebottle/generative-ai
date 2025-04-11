@@ -1,0 +1,16 @@
+streamlit>=1.43.2 
+groq>=0.22.0
+python-dotenv>=1.1.0
+langchain-groq>=0.3.2
+langchain-community>=0.0.27
+langchain>=0.0.27
+python-dotenv>=1.0.0
+pypdf>=4.0.0
+faiss-cpu>=1.7.4
+pillow>=10.2.0
+streamlit-chat>=0.1.1
+sentence-transformers>=2.2.2
+crewai>=0.28.5
+crewai-tools
+google-genai>=1.5.0
+opik
