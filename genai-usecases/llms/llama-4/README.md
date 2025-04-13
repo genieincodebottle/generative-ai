@@ -49,7 +49,7 @@ google-genai>=1.5.0
       ```bash
       pip install -r requirements.txt
       ```
-   4. Provide Groq API key in `.env` file
+   4. Rename `.env.example` file to `.env` and updated following API Keys
       ```bash
       GROQ_API_KEY=your_key_here
       GOOGLE_API_KEY=your_key_here
