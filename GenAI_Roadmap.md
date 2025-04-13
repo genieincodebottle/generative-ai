@@ -26,6 +26,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 |-------------|---------|
 | GenAI Essential Terms     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png) |
 | GenAI Interview Q & A     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
+| LLM Aggregators     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
 | Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | AgenticAI   | [GitHub](https://github.com/genieincodebottle/genaicodelab/tree/main/agentic_ai) |
