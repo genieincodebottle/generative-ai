@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+plotly
+crewai
+scipy
+python-dotenv
+xlsxwriter

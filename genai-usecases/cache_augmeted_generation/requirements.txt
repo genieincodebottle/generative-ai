@@ -1,0 +1,9 @@
+streamlit==1.41.1
+plotly==5.24.1 
+pandas==2.2.3
+python-dotenv==1.0.1
+
+transformers
+sentence-transformers
+accelerate
+bitsandbytes

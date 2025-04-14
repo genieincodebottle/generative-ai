@@ -8,34 +8,22 @@
     <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/@genieincodebottle-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>
 </div>
 <br>
-<div align="center">
-   <img width="100" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png"> 
-   <br></br>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_glossary_button_.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_roadmap_button_.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_interview_button_.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/sample-setup-coding-interview/genai-coding-task-overview.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_coding_prep_button_.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/prompt_techniques.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/embedding_models.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/advance_rag.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_prj_lifecycle_button_.png"></a>
-   <a target="_blank" href=https://github.com/genieincodebottle/genaicodelab/tree/main/agentic_ai"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/agents_button.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md#-genai-use-cases-used-free-gemini-pro--huggingface-llms-only"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_usecases.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_awscloud.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_azurecloud.png"></a>
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf"><img width="150" height="40" src="https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_vertexai.png"></a>
-</div>
-<br>
-GenAI related stuff for everyone. Simple, practical insights to get you started and keep you ahead.
-<br></br>
-⭐ Star this repo to stay updated with the latest GenAI Use cases, many more industry level Use cases coming soon.
-<br></br>
+Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI tools, guides, and resources :)
 
-<div align="left">
-<a href="https://github.com/genieincodebottle/genaicodelab/tree/main" target="_parent"><img src="https://img.shields.io/badge/GENAICODELAB-181717?style=flat&logo=github&logoColor=white" alt="GENAICODELAB"></a>
-</div>
-👆 Check out this repository as well where I’m uploading the latest code on Multi-Agents, Advanced RAG, Cache-Augmented Generation, and more practical usecase (work in progress) 
-<br>
+### 📘 Quick Reference
+
+| Category | Links |
+|-------------|---------|
+| GenAI Essential Terms     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/images/popular_resources_.png) |
+| GenAI Interview Q & A     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
+| Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
+| RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
+| Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
+| GenAI on Cloud   | [Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) <br>  [AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/images/genai_awscloud.png) <br>  [VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf)  |
+| Example Code for Running API-Based LLM | [Groq](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/groq.ipynb), [Claude](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/claude.ipynb), [OpenAI](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/openai.ipynb), [Gemini](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/gemini.ipynb), [DeepSeek](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/deepseek.ipynb), [Cohere](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/cohere.ipynb) |
+| Example Code for Running LLMs Locally | [Huggingace](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb), [Ollama Local](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama), [Ollama at Colab](https://colab.research.google.com/drive/1TrB6dLCSBdSDXcauQ1lofgWDiiEbQXHw?usp=sharing), [LMStudio](https://lmstudio.ai/) |
+| Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb) <br> [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) <br> [GenAI Coding Approach](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/sample-setup-coding-interview/genai-coding-task-overview.pdf) |
+<hr>
 
 ### 🤝 Contributing
 
