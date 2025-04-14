@@ -32,7 +32,7 @@ google-genai>=1.5.0
    1. Clone the repository:
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases/llms/llama-4
+      cd genai-usecases/llama-4-multi-function-app
       ```
    2. Create a virtual environment:
       ```bash
