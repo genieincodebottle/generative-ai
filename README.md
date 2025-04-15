@@ -14,6 +14,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 | Category | Links |
 |-------------|---------|
+| GenAI Roadmap    | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md) |
 | GenAI Essential Terms     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf) |
 | GenAI Interview Q & A     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
 | Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
