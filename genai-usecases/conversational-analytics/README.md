@@ -103,7 +103,7 @@ Conversational-analytics/
 
     ```bash
     git clone https://github.com/genieincodebottle/generative-ai.git
-    cd generative-ai/genai_usecases/conversational-analytics
+    cd generative-ai/genai-usecases/conversational-analytics
     ```
 2. Set up your Google Gemini-pro API key:
     - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
