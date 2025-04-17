@@ -46,7 +46,7 @@ google-genai>=1.5.0
    4. Rename `.env.example` file to `.env` and updated following API Keys
       ```bash
       GROQ_API_KEY=your_key_here
-      GOOGLE_API_KEY=your_key_here # Gemini serves as the fallback model when the primary Llama 4 Scout fails in CrewAI's agent workflow.
+      GOOGLE_API_KEY=your_key_here # Using the free-tier model in CrewAI as a fallback when the primary Llama 4 Scout model fails.
       ```
 
       For **GROQ_API_KEY** follow this -> https://console.groq.com/keys

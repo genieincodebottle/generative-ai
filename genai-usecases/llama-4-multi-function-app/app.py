@@ -4,7 +4,6 @@ import io
 import os
 import tempfile
 from datetime import datetime
-from typing import Any
 
 # Environment and API setup
 from dotenv import load_dotenv
@@ -27,8 +26,8 @@ from crewai import Agent, Task, Crew, Process
 # UI
 import streamlit as st
 
-#EEvlauation
-from evaluation import evaluate_with_gemini, evaluate_single_query, create_evaluation_chart
+# Import evaluation functions
+from rag_evaluation import evaluate_with_gemini, evaluate_single_query, create_evaluation_chart
 
 # Load environment variables from .env file
 load_dotenv()
@@ -80,11 +79,7 @@ def chat_with_groq(model_name, messages):
 # For OCR task    
 def encode_image_to_base64(image):
     """Convert PIL Image to base64 string"""
-    # Determine the format based on the original image format or default to PNG
-    if hasattr(image, 'format') and image.format:
-        img_format = image.format
-    else:
-        img_format = "PNG"
+    img_format = image.format if hasattr(image, 'format') and image.format else "PNG"
     
     buffered = io.BytesIO()
     image.save(buffered, format=img_format)
@@ -95,22 +90,15 @@ def process_with_groq(model_name, image, prompt):
     """Process the image with the Groq and Llama-4 Scout Model"""
     if not GROQ_API_KEY:
         return "Groq API key not set."
+    
     # Encode image to base64
     base64_string, img_format = encode_image_to_base64(image)
     
-    # Create Groq client
-    client = Groq(api_key=GROQ_API_KEY)
-    
     # Determine media type based on image format
-    if img_format == 'jpg' or img_format == 'jpeg':
-        media_type = "image/jpeg"
-    elif img_format == 'png':
-        media_type = "image/png"
-    else:
-        # Default to JPEG if format is unknown
-        media_type = "image/jpeg"
+    media_type = "image/jpeg" if img_format in ['jpg', 'jpeg'] else "image/png"
     
     try:
+        client = Groq(api_key=GROQ_API_KEY)
         response = client.chat.completions.create(
             model=model_name,
             messages=[
@@ -169,7 +157,7 @@ def process_document(uploaded_file):
         )
         chunks = text_splitter.split_documents(documents)
         
-        # Create embeddings (use a small model for simplicity)
+        # Create embeddings
         embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         
         # Create or update vector store
@@ -216,7 +204,7 @@ def create_groq_llm(model_name):
 def fallback_to_gemini(task_description):
     """Fallback to Gemini model when Llama/Groq fails"""
     if not GOOGLE_API_KEY:
-        return "Gemini API key not set in environment variables. Please add GEMINI_API_KEY to your .env file."
+        return "Gemini API key not set in environment variables. Please add GOOGLE_API_KEY to your .env file."
     try:
         client = genai.Client(api_key=GOOGLE_API_KEY)
         # Create a comprehensive prompt for the task
@@ -234,18 +222,12 @@ def fallback_to_gemini(task_description):
         - Research Findings
         - Analysis & Insights
         - Final Deliverable
-        
-        Make your response comprehensive, well-organized, and directly addressing the task.
         """
         
-        # Generate content with Gemini
         response = client.models.generate_content(
             model="gemini-2.0-flash",
-            contents=[
-                prompt
-            ]
+            contents=[prompt]
         )
-        # Return the text response
         return response.text
     except Exception as e:
         return f"Error using Gemini fallback: {str(e)}"
@@ -332,7 +314,6 @@ def execute_agent_task(task_description, model_name):
         return result
     
     except Exception as e:
-        error_message = f"Error executing agent task: {str(e)}"
         st.warning(f"Primary model error: {str(e)}. Attempting fallback to Gemini model...")
         
         # Fallback to Gemini
@@ -449,7 +430,7 @@ with tab1:
         st.session_state.chat_history = []
         st.rerun()
 
-# Tab 2: OCR (from original code)
+# Tab 2: OCR
 with tab2:
     st.header("📄 OCR")
     st.markdown("Upload an image and extract text using the Llama-4 Scout model")
@@ -555,7 +536,7 @@ with tab3:
                     reuse_same_model = st.checkbox(
                         "Use same model for evaluation", 
                         value=False,
-                        help="Use the same model for both generation and evaluation"
+                        help="Use the same model for both generation and evaluation; otherwise, RAGA defaults to OpenAI for evaluation, which requires setting the OPENAI_API_KEY."
                     )
         
         # Optional ground truth input
@@ -603,87 +584,86 @@ with tab3:
                                 st.info(ground_truth)
                         
                         # Evaluation Tab
-                    with result_tabs[1]:
-                        if enable_evaluation:
-                            with st.spinner(f"Running {eval_method} evaluation..."):
-                                try:
-                                    # Run the chosen evaluation method
-                                    if eval_method == "Gemini as Evaluator":
-                                        eval_results = evaluate_with_gemini(
-                                            query=query,
-                                            answer=response,
-                                            contexts=contexts,
-                                            ground_truth=ground_truth if use_ground_truth else None
-                                        )
-                                    else:  # RAGAs
-                                        eval_results = evaluate_single_query(
-                                            query=query,
-                                            answer=response,
-                                            contexts=contexts,
-                                            resuse_same_model_for_eval=reuse_same_model,
-                                            ground_truth=ground_truth if use_ground_truth else None,
-                                        )
-                                        print(f"########## Eval Result : {eval_results}")
-                                    
-                                    # Display metrics
-                                    st.markdown("### Evaluation Metrics")
-                                    
-                                    # Create metrics display
-                                    num_metrics = len(eval_results)
-                                    metric_cols = st.columns(min(num_metrics, 4))  # Max 4 columns
-                                    
-                                    # Display individual metrics
-                                    metric_labels = {
-                                        "answer_relevancy": "Answer Relevancy",
-                                        "faithfulness": "Faithfulness",
-                                        "context_precision": "Context Precision",
-                                        "context_recall": "Context Recall"
-                                    }
-                                    
-                                    for i, (metric, score) in enumerate(eval_results.items()):
-                                        col_index = i % min(num_metrics, 4)
-                                        with metric_cols[col_index]:
-                                            st.metric(
-                                                metric_labels.get(metric, metric),
-                                                f"{score:.2f}"
-                                            )
-                                    
-                                    # Create visualization
+                        with result_tabs[1]:
+                            if enable_evaluation:
+                                with st.spinner(f"Running {eval_method} evaluation..."):
                                     try:
+                                        # Run the chosen evaluation method
+                                        if eval_method == "Gemini as Evaluator":
+                                            eval_results = evaluate_with_gemini(
+                                                query=query,
+                                                answer=response,
+                                                contexts=contexts,
+                                                ground_truth=ground_truth if use_ground_truth else None
+                                            )
+                                        else:  # RAGAs
+                                            eval_results = evaluate_single_query(
+                                                model_provider="groq",
+                                                model_name=model,
+                                                question=query,
+                                                answer=response,
+                                                contexts=contexts,
+                                                resuse_same_model_for_eval=reuse_same_model,
+                                                ground_truth=ground_truth if use_ground_truth else None,
+                                            )
+                                        
+                                        # Display metrics
+                                        st.markdown("### Evaluation Metrics")
+                                        
+                                        # Create metrics display
+                                        num_metrics = len(eval_results)
+                                        metric_cols = st.columns(min(num_metrics, 4))  # Max 4 columns
+                                        
+                                        # Display individual metrics
+                                        metric_labels = {
+                                            "answer_relevancy": "Answer Relevancy",
+                                            "faithfulness": "Faithfulness",
+                                            "context_precision": "Context Precision",
+                                            "context_recall": "Context Recall"
+                                        }
+                                        
+                                        for i, (metric, score) in enumerate(eval_results.items()):
+                                            col_index = i % min(num_metrics, 4)
+                                            with metric_cols[col_index]:
+                                                st.metric(
+                                                    metric_labels.get(metric, metric),
+                                                    f"{score:.2f}"
+                                                )
+                                        
+                                        # Create visualization
                                         chart = create_evaluation_chart(eval_results)
                                         st.plotly_chart(chart, use_container_width=True)
-                                    except Exception as chart_error:
-                                        st.error(f"Error creating evaluation chart: {str(chart_error)}")
-                                    
-                                    # Explanation of metrics
-                                    with st.expander(f"Understanding {eval_method} Evaluation Metrics"):
-                                        if eval_method == "Gemini as Evaluator":
-                                            st.markdown("""
-                                            **Answer Relevancy (0-1)**: Measures how directly the answer addresses the question.
-                                            
-                                            **Faithfulness (0-1)**: Measures how factually accurate the answer is based only on the provided context.
-                                            
-                                            **Context Precision (0-1)**: When ground truth is provided, measures how well the answer aligns with the known correct answer.
-                                            """)
-                                        else:  # RAGAS
-                                            st.markdown("""
-                                            **Answer Relevancy (0-1)**: RAGAS metric for how well the answer addresses the specific question asked.
-                                            
-                                            **Faithfulness (0-1)**: RAGAS metric for factual consistency between the answer and context.
-                                            
-                                            **Context Precision (0-1)**: When ground truth is provided, RAGAS metric for precision of the retrieved context relative to the ground truth.
-                                            """)
-                                except Exception as e:
-                                    st.error(f"{eval_method} evaluation failed: {str(e)}")
-                                    
-                                    if eval_method == "RAGAs":
-                                        st.error("Make sure you have RAGAS installed: pip install ragas datasets")
-                                        st.info("Consider trying the Gemini evaluation method instead.")
-                                    elif eval_method == "Gemini as Evaluator":
-                                        st.error("Make sure you have the Google API library installed: pip install google-generativeai")
-                                        st.info("Also check that your GOOGLE_API_KEY is set in the environment variables.")
-                        else:
-                            st.info("Enable the evaluation checkbox to see quality metrics for this response.")
+                                        
+                                        # Explanation of metrics
+                                        with st.expander(f"Understanding {eval_method} Evaluation Metrics"):
+                                            if eval_method == "Gemini as Evaluator":
+                                                st.markdown("""
+                                                **Answer Relevancy (0-1)**: Measures how directly the answer addresses the question.
+                                                
+                                                **Faithfulness (0-1)**: Measures how factually accurate the answer is based only on the provided context.
+                                                
+                                                **Context Precision (0-1)**: When ground truth is provided, measures how well the answer aligns with the known correct answer.
+                                                """)
+                                            else:  # RAGAS
+                                                st.markdown("""
+                                                **Answer Relevancy (0-1)**: RAGAS metric for how well the answer addresses the specific question asked.
+                                                
+                                                **Faithfulness (0-1)**: RAGAS metric for factual consistency between the answer and context.
+                                                
+                                                **Context Precision (0-1)**: When ground truth is provided, RAGAS metric for precision of the retrieved context relative to the ground truth.
+                                                """)
+                                    except Exception as e:
+                                        st.error(f"{eval_method} evaluation failed: {str(e)}")
+                                        
+                                        if eval_method == "RAGAs":
+                                            st.error("Make sure you have RAGAS installed: pip install ragas datasets")
+                                            st.info("Consider trying the Gemini evaluation method instead.")
+                                        elif eval_method == "Gemini as Evaluator":
+                                            st.error("Make sure you have the Google API library installed: pip install google-generativeai")
+                                            st.info("Also check that your GOOGLE_API_KEY is set in the environment variables.")
+                            else:
+                                st.info("Enable the evaluation checkbox to see quality metrics for this response.")
+                                
                         # Context Tab
                         with result_tabs[2]:
                             st.markdown("### Retrieved Document Chunks")
@@ -698,6 +678,7 @@ with tab3:
                                         for key, value in doc.metadata.items():
                                             if key != "page_content":  # Skip content itself
                                                 st.caption(f"**{key}**: {value}")
+
 # Tab 4: Agent
 with tab4:
     st.header("🤖 Agentic AI with CrewAI")
@@ -736,24 +717,6 @@ with tab4:
         - Write a research paper on the impact of artificial intelligence on the future of work.
         """)
     
-    # Show advanced options
-    with st.expander("Advanced Options"):
-        process_type = st.radio(
-            "Process Type",
-            ["Sequential", "Hierarchical"],
-            index=0,
-            help="Sequential: Agents work one after another | Hierarchical: Manager agent delegates tasks"
-        )
-        
-        custom_agents = st.multiselect(
-            "Select Agents for your Crew",
-            ["Researcher", "Analyst", "Writer", "Critic", "Manager"],
-            default=["Researcher", "Analyst", "Writer"],
-            help="Select which specialist agents you want in your AI crew"
-        )
-        
-        st.caption("Note: The more agents you select, the longer the process may take.")
-    
     # Execute task
     if st.button("Execute Task", key="execute_agent"):
         if agent_task:
@@ -778,4 +741,4 @@ with tab4:
 
 # Footer
 st.markdown("---")
-st.caption("This app uses Llama-4 Scout via Groq API for Chat, OCR, RAG, and Agent tasks. Google's Gemini (free tier) acts as a fallback in CrewAI’s Multi-Agent setup if Llama 4 Scout fails.")
+st.caption("This app uses Llama-4 Scout via Groq API for Chat, OCR, RAG, and Agent tasks. Google's Gemini (limited free tier) acts as a fallback in CrewAI's Multi-Agent setup if Llama 4 Scout fails.")

@@ -2,8 +2,8 @@ streamlit>=1.43.2
 groq>=0.22.0
 python-dotenv>=1.1.0
 langchain-groq>=0.3.2
+langchain-huggingface>=0.1.2
 langchain-community>=0.0.27
-langchain-huggingface
 langchain>=0.0.27
 python-dotenv>=1.0.0
 pypdf>=4.0.0
@@ -18,5 +18,3 @@ plotly
 ragas>=0.1.0
 datasets>=2.0.0
 pandas>=1.0.0
-langchain-anthropic 
-langchain-openai 
