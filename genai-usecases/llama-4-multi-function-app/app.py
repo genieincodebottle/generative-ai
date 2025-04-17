@@ -19,13 +19,16 @@ from PIL import Image
 from langchain_community.document_loaders import PyPDFLoader, TextLoader, CSVLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # CrewAI components
 from crewai import Agent, Task, Crew, Process
 
 # UI
 import streamlit as st
+
+#EEvlauation
+from evaluation import evaluate_with_gemini, evaluate_single_query, create_evaluation_chart
 
 # Load environment variables from .env file
 load_dotenv()
@@ -491,7 +494,7 @@ with tab2:
                         mime="text/plain"
                     )
 
-# Tab 3: RAG
+# Tab 3: RAG with Gemini & RAGAS evaluation
 with tab3:
     st.header("📚 Retrieval-Augmented Generation (RAG)")
     st.markdown("Upload documents, then ask questions about their content")
@@ -526,24 +529,57 @@ with tab3:
     else:
         query = st.text_input("Enter your question:", key="rag_query")
         
-        col1, col2 = st.columns([2, 1])
+        # RAG configuration options
+        col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("Ask", key="rag_ask_button"):
-                if query:
-                    with st.spinner("Searching documents and generating answer..."):
-                        # Retrieve relevant documents
-                        relevant_docs = query_documents(query, top_k=3)
-                        
-                        # Format context from retrieved documents
-                        context = "\n\n".join([doc.page_content for doc in relevant_docs])
+            top_k = st.slider("Number of chunks to retrieve", 1, 5, 3, 
+                           help="Number of most relevant document chunks to use")
+            
+            use_ground_truth = st.checkbox("Add Ground Truth", value=False,
+                                        help="Provide a ground truth answer for reference")
+        
+        with col2:
+            enable_evaluation = st.checkbox("Enable Evaluation", value=True, 
+                                         help="Evaluate the quality of RAG response")
+            
+            if enable_evaluation:
+                eval_method = st.radio(
+                    "Evaluation Method",
+                    options=["Gemini as Evaluator", "RAGAs"],
+                    index=0,
+                    help="Choose between Gemini (lightweight) or RAGAs (comprehensive) evaluation"
+                )
+                
+                if eval_method == "RAGAs":
+                    reuse_same_model = st.checkbox(
+                        "Use same model for evaluation", 
+                        value=False,
+                        help="Use the same model for both generation and evaluation"
+                    )
+        
+        # Optional ground truth input
+        ground_truth = st.text_area("Ground Truth Answer (Optional)", height=100) if use_ground_truth else None
+        
+        if st.button("Ask", key="rag_ask_button"):
+            if query:
+                with st.spinner("Searching documents and generating answer..."):
+                    # Retrieve relevant documents
+                    relevant_docs = query_documents(query, top_k=top_k)
+                    
+                    if not relevant_docs:
+                        st.warning("No relevant documents found. Try modifying your query or upload more documents.")
+                    else:
+                        # Format contexts from retrieved documents
+                        contexts = [doc.page_content for doc in relevant_docs]
+                        context_text = "\n\n".join(contexts)
                         
                         # Create prompt with context
                         rag_prompt = f"""Answer the following question based on the provided context. 
                         If you cannot find the answer in the context, say so clearly.
                         
                         Context:
-                        {context}
+                        {context_text}
                         
                         Question: {query}"""
                         
@@ -554,18 +590,114 @@ with tab3:
                         ]
                         response = chat_with_groq(model, messages)
                         
-                        # Display response
-                        st.subheader("Answer")
-                        st.markdown(response)
-        
-        with col2:
-            if st.session_state.documents:
-                st.subheader("Document Details")
-                for i, doc in enumerate(st.session_state.documents):
-                    with st.expander(f"{doc['name']}"):
-                        st.write(f"Chunks: {doc['chunks']}")
-                        st.write(f"Uploaded: {doc['uploaded_at']}")
-
+                        # Create tabs for different sections
+                        result_tabs = st.tabs(["Answer", "Evaluation", "Retrieved Context"])
+                        
+                        # Answer Tab
+                        with result_tabs[0]:
+                            st.markdown("### Answer")
+                            st.markdown(response)
+                            
+                            if use_ground_truth and ground_truth:
+                                st.markdown("### Ground Truth")
+                                st.info(ground_truth)
+                        
+                        # Evaluation Tab
+                    with result_tabs[1]:
+                        if enable_evaluation:
+                            with st.spinner(f"Running {eval_method} evaluation..."):
+                                try:
+                                    # Run the chosen evaluation method
+                                    if eval_method == "Gemini as Evaluator":
+                                        eval_results = evaluate_with_gemini(
+                                            query=query,
+                                            answer=response,
+                                            contexts=contexts,
+                                            ground_truth=ground_truth if use_ground_truth else None
+                                        )
+                                    else:  # RAGAs
+                                        eval_results = evaluate_single_query(
+                                            query=query,
+                                            answer=response,
+                                            contexts=contexts,
+                                            resuse_same_model_for_eval=reuse_same_model,
+                                            ground_truth=ground_truth if use_ground_truth else None,
+                                        )
+                                        print(f"########## Eval Result : {eval_results}")
+                                    
+                                    # Display metrics
+                                    st.markdown("### Evaluation Metrics")
+                                    
+                                    # Create metrics display
+                                    num_metrics = len(eval_results)
+                                    metric_cols = st.columns(min(num_metrics, 4))  # Max 4 columns
+                                    
+                                    # Display individual metrics
+                                    metric_labels = {
+                                        "answer_relevancy": "Answer Relevancy",
+                                        "faithfulness": "Faithfulness",
+                                        "context_precision": "Context Precision",
+                                        "context_recall": "Context Recall"
+                                    }
+                                    
+                                    for i, (metric, score) in enumerate(eval_results.items()):
+                                        col_index = i % min(num_metrics, 4)
+                                        with metric_cols[col_index]:
+                                            st.metric(
+                                                metric_labels.get(metric, metric),
+                                                f"{score:.2f}"
+                                            )
+                                    
+                                    # Create visualization
+                                    try:
+                                        chart = create_evaluation_chart(eval_results)
+                                        st.plotly_chart(chart, use_container_width=True)
+                                    except Exception as chart_error:
+                                        st.error(f"Error creating evaluation chart: {str(chart_error)}")
+                                    
+                                    # Explanation of metrics
+                                    with st.expander(f"Understanding {eval_method} Evaluation Metrics"):
+                                        if eval_method == "Gemini as Evaluator":
+                                            st.markdown("""
+                                            **Answer Relevancy (0-1)**: Measures how directly the answer addresses the question.
+                                            
+                                            **Faithfulness (0-1)**: Measures how factually accurate the answer is based only on the provided context.
+                                            
+                                            **Context Precision (0-1)**: When ground truth is provided, measures how well the answer aligns with the known correct answer.
+                                            """)
+                                        else:  # RAGAS
+                                            st.markdown("""
+                                            **Answer Relevancy (0-1)**: RAGAS metric for how well the answer addresses the specific question asked.
+                                            
+                                            **Faithfulness (0-1)**: RAGAS metric for factual consistency between the answer and context.
+                                            
+                                            **Context Precision (0-1)**: When ground truth is provided, RAGAS metric for precision of the retrieved context relative to the ground truth.
+                                            """)
+                                except Exception as e:
+                                    st.error(f"{eval_method} evaluation failed: {str(e)}")
+                                    
+                                    if eval_method == "RAGAs":
+                                        st.error("Make sure you have RAGAS installed: pip install ragas datasets")
+                                        st.info("Consider trying the Gemini evaluation method instead.")
+                                    elif eval_method == "Gemini as Evaluator":
+                                        st.error("Make sure you have the Google API library installed: pip install google-generativeai")
+                                        st.info("Also check that your GOOGLE_API_KEY is set in the environment variables.")
+                        else:
+                            st.info("Enable the evaluation checkbox to see quality metrics for this response.")
+                        # Context Tab
+                        with result_tabs[2]:
+                            st.markdown("### Retrieved Document Chunks")
+                            
+                            for i, doc in enumerate(relevant_docs):
+                                with st.expander(f"Context Chunk {i+1}"):
+                                    st.markdown(doc.page_content)
+                                    
+                                    # Show metadata if available
+                                    if hasattr(doc, 'metadata') and doc.metadata:
+                                        st.markdown("**Source:**")
+                                        for key, value in doc.metadata.items():
+                                            if key != "page_content":  # Skip content itself
+                                                st.caption(f"**{key}**: {value}")
 # Tab 4: Agent
 with tab4:
     st.header("🤖 Agentic AI with CrewAI")
