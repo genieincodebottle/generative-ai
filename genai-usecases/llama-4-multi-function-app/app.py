@@ -383,7 +383,7 @@ with st.sidebar:
             st.success("All documents cleared!")
 
 # Main content area with tabs
-tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📄 OCR", "📚 RAG", "🤖 Agent AI"])
+tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📄 OCR", "📚 RAG with Evaluation", "🤖 Agent AI"])
 
 # Tab 1: Normal Chat
 with tab1:
