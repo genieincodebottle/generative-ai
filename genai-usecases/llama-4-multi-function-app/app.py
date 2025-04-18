@@ -819,7 +819,6 @@ with tab4:
         
         st.caption("Note: The more agents you select, the longer the process may take.")
     
-    
     # Execute task
     if st.button("Execute Task", key="execute_agent"):
         if agent_task:
