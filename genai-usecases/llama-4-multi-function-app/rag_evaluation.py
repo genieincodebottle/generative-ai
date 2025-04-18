@@ -74,7 +74,7 @@ class GeminiLightweightEvaluator:
         
         try:
             response = self.client.models.generate_content(
-                model="gemini-1.5-pro",
+                model="gemini-2.5-pro-exp-03-25",
                 contents=[prompt]
             )
             rating_text = response.text.strip()
@@ -112,7 +112,7 @@ class GeminiLightweightEvaluator:
         
         try:
             response = self.client.models.generate_content(
-                model="gemini-1.5-pro",
+                model="gemini-2.5-pro-exp-03-25",
                 contents=[prompt]
             )
             rating_text = response.text.strip()
@@ -145,7 +145,7 @@ class GeminiLightweightEvaluator:
         
         try:
             response = self.client.models.generate_content(
-            model="gemini-1.5-pro",
+            model="gemini-2.5-pro-exp-03-25",
             contents=[
                     prompt
                 ]

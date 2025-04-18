@@ -1,3 +1,7 @@
+import torch
+# To override warning related torch path reload when using streamlit 
+torch.classes.__path__ = []
+
 # Standard library imports
 import base64
 import io
@@ -225,74 +229,139 @@ def fallback_to_gemini(task_description):
         """
         
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-pro-exp-03-25",
             contents=[prompt]
         )
         return response.text
     except Exception as e:
         return f"Error using Gemini fallback: {str(e)}"
     
-def execute_agent_task(task_description, model_name):
-    """Execute a task using CrewAI framework with fallback to Gemini model if Llama fails"""
+def execute_agent_task(task_description, model_name, process_type="Sequential", custom_agents=None):
+    """Execute a task using CrewAI framework with fallback to Gemini model if Llama fails
+    
+    Args:
+        task_description (str): The task to be performed
+        model_name (str): The LLM model to use
+        process_type (str): "Sequential" or "Hierarchical" process type
+        custom_agents (list): List of agent roles to include
+    """
     try:
+        # Set default agents if none provided
+        if not custom_agents:
+            custom_agents = ["Researcher", "Analyst", "Writer"]
+        
         # Create LLM instance for agents
         llm = create_groq_llm(model_name)
         
-        # Create different specialized agents for the crew
-        researcher = Agent(
-            role="Researcher",
-            goal="Find and gather all relevant information for the task",
-            backstory="You are an expert researcher with keen attention to detail and a talent for finding relevant information.",
-            verbose=True,
-            allow_delegation=True,
-            llm=llm
-        )
+        agents = []
+        tasks = []
         
-        analyst = Agent(
-            role="Analyst",
-            goal="Analyze the information and extract insights",
-            backstory="You are a skilled analyst with a talent for identifying patterns and deriving valuable insights from data.",
-            verbose=True,
-            allow_delegation=True,
-            llm=llm
-        )
+        # Create selected agents based on custom_agents list
+        if "Researcher" in custom_agents:
+            researcher = Agent(
+                role="Researcher",
+                goal="Find and gather all relevant information for the task",
+                backstory="You are an expert researcher with keen attention to detail and a talent for finding relevant information.",
+                verbose=True,
+                allow_delegation=True,
+                llm=llm
+            )
+            agents.append(researcher)
+            
+            research_task = Task(
+                description=f"Research task: {task_description}\n\nFind and gather all relevant information needed to complete this task.",
+                agent=researcher,
+                expected_output="Comprehensive research findings"
+            )
+            tasks.append(research_task)
         
-        writer = Agent(
-            role="Writer",
-            goal="Create well-written, clear, and comprehensive content",
-            backstory="You are an accomplished writer with a talent for creating engaging and informative content.",
-            verbose=True,
-            allow_delegation=True,
-            llm=llm
-        )
+        if "Analyst" in custom_agents:
+            analyst = Agent(
+                role="Analyst",
+                goal="Analyze the information and extract insights",
+                backstory="You are a skilled analyst with a talent for identifying patterns and deriving valuable insights from data.",
+                verbose=True,
+                allow_delegation=True,
+                llm=llm
+            )
+            agents.append(analyst)
+            
+            analysis_task = Task(
+                description=f"Analysis task: After reviewing the research, perform an in-depth analysis to extract key insights for: {task_description}",
+                agent=analyst,
+                expected_output="Analytical report with key insights",
+                context=[t for t in tasks]  # Use all previous tasks as context
+            )
+            tasks.append(analysis_task)
         
-        # Create tasks for each agent
-        research_task = Task(
-            description=f"Research task: {task_description}\n\nFind and gather all relevant information needed to complete this task.",
-            agent=researcher,
-            expected_output="Comprehensive research findings"
-        )
+        if "Writer" in custom_agents:
+            writer = Agent(
+                role="Writer",
+                goal="Create well-written, clear, and comprehensive content",
+                backstory="You are an accomplished writer with a talent for creating engaging and informative content.",
+                verbose=True,
+                allow_delegation=True,
+                llm=llm
+            )
+            agents.append(writer)
+            
+            writing_task = Task(
+                description=f"Writing task: Create a final deliverable for: {task_description}\n\nBased on the research and analysis, create a well-structured and comprehensive final output.",
+                agent=writer,
+                expected_output="Final deliverable",
+                context=[t for t in tasks]  # Use all previous tasks as context
+            )
+            tasks.append(writing_task)
         
-        analysis_task = Task(
-            description=f"Analysis task: After reviewing the research, perform an in-depth analysis to extract key insights for: {task_description}",
-            agent=analyst,
-            expected_output="Analytical report with key insights",
-            context=[research_task]
-        )
+        if "Critic" in custom_agents:
+            critic = Agent(
+                role="Critic",
+                goal="Evaluate and improve the quality of the final deliverable",
+                backstory="You are a meticulous critic with an eye for detail and a commitment to excellence.",
+                verbose=True,
+                allow_delegation=True,
+                llm=llm
+            )
+            agents.append(critic)
+            
+            critique_task = Task(
+                description=f"Critique task: Review the final deliverable for: {task_description}\n\nProvide constructive criticism and suggestions for improvement.",
+                agent=critic,
+                expected_output="Critique with specific improvements",
+                context=[t for t in tasks]  # Use all previous tasks as context
+            )
+            tasks.append(critique_task)
         
-        writing_task = Task(
-            description=f"Writing task: Create a final deliverable for: {task_description}\n\nBased on the research and analysis, create a well-structured and comprehensive final output.",
-            agent=writer,
-            expected_output="Final deliverable",
-            context=[research_task, analysis_task]
-        )
+        if "Manager" in custom_agents:
+            manager = Agent(
+                role="Manager",
+                goal="Coordinate the work of the team and ensure high-quality output",
+                backstory="You are an experienced project manager skilled at coordinating complex tasks and ensuring successful outcomes.",
+                verbose=True,
+                allow_delegation=True,
+                llm=llm
+            )
+            agents.append(manager)
+            
+            # In hierarchical process, manager is typically the first agent
+            if process_type == "Hierarchical":
+                management_task = Task(
+                    description=f"Management task: Coordinate the completion of: {task_description}\n\nDelegate subtasks as needed and compile final results.",
+                    agent=manager,
+                    expected_output="Complete project with coordinated results"
+                )
+                # For hierarchical, we can just use this one task
+                tasks = [management_task]
+        
+        # Set process type based on selection
+        process = Process.sequential if process_type == "Sequential" else Process.hierarchical
         
         # Create the crew with the process
         crew = Crew(
-            agents=[researcher, analyst, writer],
-            tasks=[research_task, analysis_task, writing_task],
+            agents=agents,
+            tasks=tasks,
             verbose=True,
-            process=Process.sequential  # Execute tasks sequentially
+            process=process
         )
         
         # Execute the crew's work and get the result
@@ -308,7 +377,9 @@ def execute_agent_task(task_description, model_name):
         st.session_state.agent_tasks.append({
             "task": task_description,
             "response": result,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "process_type": process_type,
+            "agents_used": custom_agents
         })
         
         return result
@@ -325,7 +396,9 @@ def execute_agent_task(task_description, model_name):
             st.session_state.agent_tasks.append({
                 "task": task_description,
                 "response": response,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "process_type": process_type,
+                "agents_used": custom_agents
             })
             
             return response
@@ -337,7 +410,9 @@ def execute_agent_task(task_description, model_name):
             st.session_state.agent_tasks.append({
                 "task": task_description,
                 "response": final_error,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "process_type": process_type,
+                "agents_used": custom_agents
             })
             
             return final_error
@@ -367,6 +442,15 @@ with st.sidebar:
        GROQ_API_KEY=your_key_here
        GOOGLE_API_KEY=your_key_here 
        ```
+       Using free-tier API for dev with rate limits
+       
+       - For Groq API Key follow -> [Link](https://console.groq.com/keys)
+                
+       - List of Groq models -> [Link](https://console.groq.com/docs/models)
+       
+       - For Google API Key follow -> [Link](https://aistudio.google.com/app/apikey)
+    
+       - List of Gemini models -> [Link](https://ai.google.dev/gemini-api/docs/models)
     """)
     
     # Document information for RAG
@@ -383,7 +467,7 @@ with st.sidebar:
             st.success("All documents cleared!")
 
 # Main content area with tabs
-tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📄 OCR", "📚 RAG with Evaluation", "🤖 Agent AI"])
+tab1, tab2, tab3, tab4 = st.tabs(["💬 Chat", "📄 OCR", "📚 RAG with Evaluation", "🤖 Agentic AI"])
 
 # Tab 1: Normal Chat
 with tab1:
@@ -717,19 +801,51 @@ with tab4:
         - Write a research paper on the impact of artificial intelligence on the future of work.
         """)
     
-    # Execute task
-    if st.button("Execute Task", key="execute_agent"):
-        if agent_task:
-            with st.spinner("AI Crew is working on your task... This may take a few minutes."):
-                try:
-                    model_name = "groq/"+model
-                    response = execute_agent_task(agent_task, model_name)
-                    
-                    # Display response
-                    st.subheader("Task Result")
-                    st.markdown(response)
-                except Exception as e:
-                    st.error(f"Error occurred: {str(e)}")
+    # Show advanced options
+    with st.expander("Advanced Options"):
+        process_type = st.radio(
+            "Process Type",
+            ["Sequential", "Hierarchical"],
+            index=0,
+            help="Sequential: Agents work one after another | Hierarchical: Manager agent delegates tasks"
+        )
+        
+        custom_agents = st.multiselect(
+            "Select Agents for your Crew",
+            ["Researcher", "Analyst", "Writer", "Critic", "Manager"],
+            default=["Researcher", "Analyst", "Writer"],
+            help="Select which specialist agents you want in your AI crew"
+        )
+        
+        st.caption("Note: The more agents you select, the longer the process may take.")
+    
+    
+# Execute task
+if st.button("Execute Task", key="execute_agent"):
+    if agent_task:
+        with st.spinner("AI Crew is working on your task... This may take a few minutes."):
+            try:
+                model_name = "groq/"+model
+                
+                # Convert process_type to proper format for function
+                process_type_value = process_type if 'process_type' in locals() else "Sequential"
+                
+                # Get custom_agents if defined, otherwise use default
+                selected_agents = custom_agents if 'custom_agents' in locals() else ["Researcher", "Analyst", "Writer"]
+                
+                # Pass the advanced settings to the execute_agent_task function
+                response = execute_agent_task(
+                    agent_task, 
+                    model_name, 
+                    process_type=process_type_value, 
+                    custom_agents=selected_agents
+                )
+                
+                # Display response
+                st.subheader("Task Result")
+                st.markdown(response)
+            except Exception as e:
+                st.error(f"Error occurred: {str(e)}")
     
     # Task history
     if st.session_state.agent_tasks:
