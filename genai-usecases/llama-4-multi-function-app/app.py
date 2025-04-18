@@ -820,40 +820,40 @@ with tab4:
         st.caption("Note: The more agents you select, the longer the process may take.")
     
     
-# Execute task
-if st.button("Execute Task", key="execute_agent"):
-    if agent_task:
-        with st.spinner("AI Crew is working on your task... This may take a few minutes."):
-            try:
-                model_name = "groq/"+model
-                
-                # Convert process_type to proper format for function
-                process_type_value = process_type if 'process_type' in locals() else "Sequential"
-                
-                # Get custom_agents if defined, otherwise use default
-                selected_agents = custom_agents if 'custom_agents' in locals() else ["Researcher", "Analyst", "Writer"]
-                
-                # Pass the advanced settings to the execute_agent_task function
-                response = execute_agent_task(
-                    agent_task, 
-                    model_name, 
-                    process_type=process_type_value, 
-                    custom_agents=selected_agents
-                )
-                
-                # Display response
-                st.subheader("Task Result")
-                st.markdown(response)
-            except Exception as e:
-                st.error(f"Error occurred: {str(e)}")
-    
-    # Task history
-    if st.session_state.agent_tasks:
-        st.subheader("Task History")
-        for i, task in enumerate(reversed(st.session_state.agent_tasks)):
-            with st.expander(f"Task {len(st.session_state.agent_tasks) - i}: {task['task'][:50]}..." if len(task['task']) > 50 else f"Task {len(st.session_state.agent_tasks) - i}: {task['task']}"):
-                st.caption(f"Executed: {task['timestamp']}")
-                st.markdown(task['response'])
+    # Execute task
+    if st.button("Execute Task", key="execute_agent"):
+        if agent_task:
+            with st.spinner("AI Crew is working on your task... This may take a few minutes."):
+                try:
+                    model_name = "groq/"+model
+                    
+                    # Convert process_type to proper format for function
+                    process_type_value = process_type if 'process_type' in locals() else "Sequential"
+                    
+                    # Get custom_agents if defined, otherwise use default
+                    selected_agents = custom_agents if 'custom_agents' in locals() else ["Researcher", "Analyst", "Writer"]
+                    
+                    # Pass the advanced settings to the execute_agent_task function
+                    response = execute_agent_task(
+                        agent_task, 
+                        model_name, 
+                        process_type=process_type_value, 
+                        custom_agents=selected_agents
+                    )
+                    
+                    # Display response
+                    st.subheader("Task Result")
+                    st.markdown(response)
+                except Exception as e:
+                    st.error(f"Error occurred: {str(e)}")
+        
+        # Task history
+        if st.session_state.agent_tasks:
+            st.subheader("Task History")
+            for i, task in enumerate(reversed(st.session_state.agent_tasks)):
+                with st.expander(f"Task {len(st.session_state.agent_tasks) - i}: {task['task'][:50]}..." if len(task['task']) > 50 else f"Task {len(st.session_state.agent_tasks) - i}: {task['task']}"):
+                    st.caption(f"Executed: {task['timestamp']}")
+                    st.markdown(task['response'])
 
 # Footer
 st.markdown("---")
