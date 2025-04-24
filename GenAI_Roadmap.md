@@ -71,7 +71,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 | LLM Aggregators  |[litellm](https://github.com/BerriAI/litellm), [Openrouter](https://openrouter.ai/docs/quickstart), [Aisuite](https://github.com/andrewyng/aisuite)||
 | Agentic AI Framewords |[CrewAI](https://docs.crewai.com/introduction), [LangGraph](https://langchain-ai.github.io/langgraph/tutorials/introduction/), [SmolAgent](https://huggingface.co/blog/smolagents), [OpenAI Agent SDK](https://openai.github.io/openai-agents-python/), [Google's ADK](https://google.github.io/adk-docs/)||
 | Cloud Agentic Framework  |[Microsoft Agent](https://github.com/microsoft/Agents), [AWS Bedrok Agent](https://aws.amazon.com/bedrock/agents/)||
-| Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [Official Claude Doc](https://modelcontextprotocol.io/introduction) <br> [GitHub-Awsome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)||
+| Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM) <br> [Official Claude Doc](https://modelcontextprotocol.io/introduction) <br> [GitHub-Awsome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)||
 | Agent2Agent Protocol (A2A) |[Video - Demo](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) <br> [Specification](https://google.github.io/A2A/#/) <br> [GitHub](https://github.com/google/A2A)||
 | AI Coding Assistants |[Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) ||
 
