@@ -60,7 +60,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 | Knowledge Distillation | [Blog - Huggingface](https://huggingface.co/blog/Kseniase/kd) |||
 | LLM Evaluation | [Blog - Definitive Guide to LLM Evalaution ](https://arize.com/llm-evaluation) <br> [Tool - RAGA](https://docs.ragas.io/en/stable/) <br> [Tool - Opik](https://www.comet.com/site/products/opik/) <br> [Tool - DeepEval](https://www.deepeval.com/)| [Blog - LLM Evaluation](https://research.aimultiple.com/large-language-model-evaluation/) |[GitHub](#)|
 | LLMOPs | [Course - Coursera Specialization](https://www.coursera.org/specializations/large-language-model-operations) <br>  [Course - Deeplearning AI](https://www.deeplearning.ai/short-courses/llmops/)|||
-| GenAI in Production | Work In Progress |||
+| GenAI in Production | YT video explaining code soon... ||[GitHub Code](https://github.com/genieincodebottle/rag-app-on-aws)|
 | Safety & Alignment | [LlamaGuard](https://cloudyuga.guru/blogs/securing-ai-applications-with-llamaguard/) <br> [Prompt Guard](https://www.llama.com/llama-protections/) |[Constitutional AI](https://arxiv.org/html/2501.09004v1)|Work in Progress|
 | LLM Leaderboard | [Chatbot Arena (LMSYS)](https://lmarena.ai/?leaderboard) <br> [Artificial Analysis AI](https://artificialanalysis.ai/leaderboards/models) <br>[Aider](https://aider.chat/docs/leaderboards/)|||
 
