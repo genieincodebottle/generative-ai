@@ -13,13 +13,6 @@
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI tools, guides, and resources :)
 
-## Contents
-
-- [Quick Reference](#-quick-reference)
-- [Comprehensive Prep Resources](#-comprehensive-prep-resources)
-- [Tools/Frameworks/Specifications](#️-toolsframeworksspecifications)
-- [GenAI Use Cases](#-genai-use-cases)
-
 ### 📘 Quick Reference
 
 | Category | Links |
@@ -30,6 +23,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
 | GenAI on Cloud   | [Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) <br>  [AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) <br>  [VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf)  |
+| GenAI in Production | [YT - Explaining Code](https://www.youtube.com/watch?v=x2P4Ee6PYNg), [GitHub - Code](https://github.com/genieincodebottle/rag-app-on-aws) |
 | Example Code for Running API-Based LLM | [Groq](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/groq.ipynb), [Claude](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/claude.ipynb), [OpenAI](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/openai.ipynb), [Gemini](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/gemini.ipynb), [DeepSeek](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/deepseek.ipynb), [Cohere](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/cohere.ipynb) |
 | Example Code for Running LLMs Locally | [Huggingace](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb), [Ollama Local](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama), [Ollama at Colab](https://colab.research.google.com/drive/1TrB6dLCSBdSDXcauQ1lofgWDiiEbQXHw?usp=sharing), [LMStudio](https://lmstudio.ai/) |
 | Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM)|
@@ -60,7 +54,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 | Knowledge Distillation | [Blog - Huggingface](https://huggingface.co/blog/Kseniase/kd) |||
 | LLM Evaluation | [Blog - Definitive Guide to LLM Evalaution ](https://arize.com/llm-evaluation) <br> [Tool - RAGA](https://docs.ragas.io/en/stable/) <br> [Tool - Opik](https://www.comet.com/site/products/opik/) <br> [Tool - DeepEval](https://www.deepeval.com/)| [Blog - LLM Evaluation](https://research.aimultiple.com/large-language-model-evaluation/) |[GitHub](#)|
 | LLMOPs | [Course - Coursera Specialization](https://www.coursera.org/specializations/large-language-model-operations) <br>  [Course - Deeplearning AI](https://www.deeplearning.ai/short-courses/llmops/)|||
-| GenAI in Production | YT video explaining code soon... ||[GitHub Code](https://github.com/genieincodebottle/rag-app-on-aws)|
+| GenAI in Production | [YT - Explaining Code](https://www.youtube.com/watch?v=x2P4Ee6PYNg) ||[GitHub Code](https://github.com/genieincodebottle/rag-app-on-aws)|
 | Safety & Alignment | [LlamaGuard](https://cloudyuga.guru/blogs/securing-ai-applications-with-llamaguard/) <br> [Prompt Guard](https://www.llama.com/llama-protections/) |[Constitutional AI](https://arxiv.org/html/2501.09004v1)|Work in Progress|
 | LLM Leaderboard | [Chatbot Arena (LMSYS)](https://lmarena.ai/?leaderboard) <br> [Artificial Analysis AI](https://artificialanalysis.ai/leaderboards/models) <br>[Aider](https://aider.chat/docs/leaderboards/)|||
 
