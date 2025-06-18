@@ -90,7 +90,7 @@ async def initialize_clients():
         st.error(f"❌ Error initializing clients: {str(e)}")
         return None, None
 
-async def perform_search(query, model_name, mcp_client, gemini_client):
+async def perform_search(query, model_name, temperature, mcp_client, gemini_client):
     """Perform search using MCP and Gemini"""
     try:
         async with mcp_client:
@@ -103,7 +103,7 @@ async def perform_search(query, model_name, mcp_client, gemini_client):
                 model=model_name,
                 contents=f"Search for: {query}. Use web search MCP Server to find comprehensive and up-to-date information and synthesise details.",
                 config=genai.types.GenerateContentConfig(
-                    temperature=0.1,
+                    temperature=temperature,
                     tools=[mcp_client.session],
                 ),
             )
@@ -114,7 +114,8 @@ async def perform_search(query, model_name, mcp_client, gemini_client):
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header">🔍 Gemini MCP Client</h1>', unsafe_allow_html=True)
+    st.markdown('<h2>🔍 MCP Client</h2>', unsafe_allow_html=True)
+    st.markdown('(Google\'s Gemini API Response API with FastMCP Integration)', unsafe_allow_html=True)
     st.markdown("---")
     
     # Sidebar for configuration and status
@@ -181,7 +182,7 @@ def main():
                 
                 if mcp_client and gemini_client:
                     # Perform search
-                    result = asyncio.run(perform_search(search_query, model_name, mcp_client, gemini_client))
+                    result = asyncio.run(perform_search(search_query, model_name, temperature, mcp_client, gemini_client))
                     
                     # Display results
                     st.subheader(f"🎯 Results for: {search_query}")
