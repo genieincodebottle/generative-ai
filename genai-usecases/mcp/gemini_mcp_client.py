@@ -1,14 +1,14 @@
 """
-Streamlit UI for MCP Client with Gemini Integration
+Streamlit UI for MCP Client with Google's Gemini API Response Integration
 """
 import os
-import streamlit as st
+import logging
 import asyncio
+import streamlit as st
 from dotenv import load_dotenv
 from fastmcp import Client
 from google import genai
-import logging
-import time
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -19,7 +19,7 @@ load_dotenv()
 
 # Page configuration
 st.set_page_config(
-    page_title="MCP Gemini Client",
+    page_title="Gemini MCP Client",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -90,7 +90,7 @@ async def initialize_clients():
         st.error(f"❌ Error initializing clients: {str(e)}")
         return None, None
 
-async def perform_search(query, mcp_client, gemini_client):
+async def perform_search(query, model_name, mcp_client, gemini_client):
     """Perform search using MCP and Gemini"""
     try:
         async with mcp_client:
@@ -100,14 +100,13 @@ async def perform_search(query, mcp_client, gemini_client):
             
             # Generate response with Gemini
             response = await gemini_client.aio.models.generate_content(
-                model="gemini-2.0-flash-exp",
-                contents=f"Search for: {query}. Use web search to find comprehensive and up-to-date information.",
+                model=model_name,
+                contents=f"Search for: {query}. Use web search MCP Server to find comprehensive and up-to-date information and synthesise details.",
                 config=genai.types.GenerateContentConfig(
                     temperature=0.1,
                     tools=[mcp_client.session],
                 ),
             )
-            
             return response.text
             
     except Exception as e:
@@ -115,7 +114,7 @@ async def perform_search(query, mcp_client, gemini_client):
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header">🔍 MCP Gemini Client</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">🔍 Gemini MCP Client</h1>', unsafe_allow_html=True)
     st.markdown("---")
     
     # Sidebar for configuration and status
@@ -182,7 +181,7 @@ def main():
                 
                 if mcp_client and gemini_client:
                     # Perform search
-                    result = asyncio.run(perform_search(search_query, mcp_client, gemini_client))
+                    result = asyncio.run(perform_search(search_query, model_name, mcp_client, gemini_client))
                     
                     # Display results
                     st.subheader(f"🎯 Results for: {search_query}")

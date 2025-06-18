@@ -4,3 +4,5 @@ google-search-results>=2.4.2
 google-genai>=1.20.0
 fastmcp>=2.8.1
 streamlit>=1.45.1
+anthropic>=0.54.0
+openai>=1.88.0
