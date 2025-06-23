@@ -75,6 +75,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 | Usecase  | Link  | 
 |------------|----------------|
+| Run FastMCP based Websearch Remote MCP Server Locally |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/mcp)|
 | Production-Grade GenAI on AWS: RAG with Remote MCP Server |[YouTube](https://www.youtube.com/watch?v=x2P4Ee6PYNg) <br/> [GitHub](https://github.com/genieincodebottle/rag-app-on-aws)|
 | Llama 4 Scout – All-in-One App for Chat, OCR, RAG & Agentic AI with CrewAI |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/llama-4-multi-function-app)|
 | Advanced Snapshot-Based PDF Parsing using Docling, Markitdown, Gemini, Llama 4, Claude, GPT-4 & more |[YouTube](https://www.youtube.com/watch?v=26thuRsxiUc) <br> [GitHub](https://github.com/genieincodebottle/parsemypdf)|
