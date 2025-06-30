@@ -21,6 +21,8 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 | Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
+| Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM)|
+| AI Coding Assistants |[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/), [Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) |
 | AI Automation (Workflow + AI Integration)  |[n8n](https://n8n.io/) - [YT](https://www.youtube.com/watch?v=EH5jx5qPabU) <br/> [Zapier](https://zapier.com/) <br/> [Make](https://www.make.com/en)|
 | GenAI on Cloud   | [Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) <br>  [AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) <br>  [VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf)  |
 | GenAI in Production | [YT - Explaining Code](https://www.youtube.com/watch?v=x2P4Ee6PYNg), [GitHub - Code](https://github.com/genieincodebottle/rag-app-on-aws) |
