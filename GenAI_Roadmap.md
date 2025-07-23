@@ -16,7 +16,8 @@
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI tools, guides, and resources :)
 
 
-
+### 🔗 Quick Links
+[GenAI Essential Terms](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf) | [GenAI Interview Q & A](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) | [GenAI on Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) | [GenAI on AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) | [GenAI on VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf) 
 
 ### 📦 Comprehensive Prep Resources – Phase Wise
 
@@ -127,10 +128,7 @@ Each phase is split by week and builds progressively.
 
 | Category | Links |
 |-------------|---------|
-| GenAI Essential Terms     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf) |
-| GenAI Interview Q & A     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
 | Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
-| GenAI on Cloud   | [Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf),  [AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf),   [VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf)  |
 | Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
