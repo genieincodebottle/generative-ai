@@ -15,21 +15,7 @@
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI tools, guides, and resources :)
 
-### 📘 Quick Reference
 
-| Category | Links |
-|-------------|---------|
-| GenAI Essential Terms     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf) |
-| GenAI Interview Q & A     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
-| Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
-| RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
-| Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
-| AI Coding Assistants |[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/), [Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) |
-| AI Automation (Workflow + AI Integration)  |[n8n](https://n8n.io/) - [YT](https://www.youtube.com/watch?v=EH5jx5qPabU), [Zapier](https://zapier.com/), [Make](https://www.make.com/en)|
-| GenAI on Cloud   | [Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf),  [AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf),   [VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf)  |
-| Example Code for Running API-Based LLM | [Groq](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/groq.ipynb), [Claude](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/claude.ipynb), [OpenAI](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/openai.ipynb), [Gemini](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/gemini.ipynb), [DeepSeek](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/deepseek.ipynb), [Cohere](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/cohere.ipynb) |
-| Example Code for Running LLMs Locally | [Huggingace](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb), [Ollama Local](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama), [Ollama at Colab](https://colab.research.google.com/drive/1TrB6dLCSBdSDXcauQ1lofgWDiiEbQXHw?usp=sharing), [LMStudio](https://lmstudio.ai/) |
-| Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
 
 
 ### 📦 Comprehensive Prep Resources – Phase Wise
@@ -124,6 +110,8 @@ Each phase is split by week and builds progressively.
 
 | Usecase  | Link  | 
 |------------|----------------|
+| Example Code for Running API-Based LLM | [Groq](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/groq.ipynb), [Claude](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/claude.ipynb), [OpenAI](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/openai.ipynb), [Gemini](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/gemini.ipynb), [DeepSeek](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/deepseek.ipynb), [Cohere](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/cohere.ipynb) |
+| Example Code for Running LLMs Locally | [Huggingace](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb), [Ollama Local](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama), [Ollama at Colab](https://colab.research.google.com/drive/1TrB6dLCSBdSDXcauQ1lofgWDiiEbQXHw?usp=sharing), [LMStudio](https://lmstudio.ai/) |
 | Run FastMCP based Websearch Remote MCP Server Locally |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/mcp)|
 | Production-Grade GenAI on AWS: RAG with Remote MCP Server |[YouTube](https://www.youtube.com/watch?v=x2P4Ee6PYNg) <br/> [GitHub](https://github.com/genieincodebottle/rag-app-on-aws)|
 | Llama 4 Scout – All-in-One App for Chat, OCR, RAG & Agentic AI with CrewAI |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/llama-4-multi-function-app)|
@@ -134,3 +122,15 @@ Each phase is split by week and builds progressively.
 |  LLM-Driven Chatbot to Interact with CSV Data |[YouTube](https://www.youtube.com/watch?v=c7mwwfsBGZ8) <br> [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/archived/csv-rag)|
 | Cache-Augmented Generation (CAG) |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/cache_augmeted_generation) |
 | AI Chat Analyzer for ChatGPT & Claud |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/your_ai_chat_analytics) |
+
+### 📘 Misc Useful References
+
+| Category | Links |
+|-------------|---------|
+| GenAI Essential Terms     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf) |
+| GenAI Interview Q & A     | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) |
+| Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
+| RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
+| Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
+| GenAI on Cloud   | [Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf),  [AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf),   [VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf)  |
+| Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
