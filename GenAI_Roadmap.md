@@ -139,10 +139,7 @@ Each phase is split by week and builds progressively.
 | Title | Links |
 |-------------|---------|
 |Kimi K2: Open Agentic Intelligence|[Link](https://github.com/MoonshotAI/Kimi-K2/blob/main/tech_report.pdf)|
-|Gemini 2.5: Pushing the Frontier with
-Advanced Reasoning, Multimodality, Long
-Context, and Next Generation Agentic
-Capabilities|[Link](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf)|
+|Gemini 2.5|[Link](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf)|
 |DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning|[Link](https://arxiv.org/abs/2501.12948)|
 |DeepSeek-V3 Technical Report|[Link](https://arxiv.org/abs/2412.19437)|
 |Mixtral of Experts|[Link](https://arxiv.org/abs/2401.04088)|
