@@ -19,14 +19,14 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🔗 Quick Links
 [GenAI Essential Terms](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf) | [GenAI Interview Q & A](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf) | [GenAI on Azure - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) | [GenAI on AWS - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) | [GenAI on VertexAI - Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf) 
 
-### 📦 Comprehensive Prep Resources – Phase Wise
+### 📦 Comprehensive Prep Resources
 
 Each phase is split by week and builds progressively.
 
 > **Tip:** Expand or collapse each phase as you go using dropdowns (▸) to get all the relevant links.
 
 <details>
-<summary><strong>Phase 1: Foundation (Week 1–2)</strong></summary>
+<summary><strong>Phase 1: Foundation (Week 1-2)</strong></summary>
 
 | Topics | Core Material| Additional Resources | Code |
 |--------|------|-------|------|
@@ -37,7 +37,7 @@ Each phase is split by week and builds progressively.
 </details>
 
 <details>
-<summary><strong>Phase 2: NLP & Transformer Core (Week 3–4)</strong></summary>
+<summary><strong>Phase 2: NLP & Transformer Core (Week 3-4)</strong></summary>
 
 | Topics                        | Core Material | Additional Resources | Code |
 |------------------------------|---------------|-----------------------|------|
@@ -48,7 +48,7 @@ Each phase is split by week and builds progressively.
 </details>
 
 <details>
-<summary><strong>Phase 3: LLM Fundamentals (Week 5–6)</strong></summary>
+<summary><strong>Phase 3: LLM Fundamentals (Week 5-6)</strong></summary>
 
 | Topics                     | Core Material | Additional Resources | Code |
 |---------------------------|---------------|-----------------------|------|
@@ -61,7 +61,7 @@ Each phase is split by week and builds progressively.
 </details>
 
 <details>
-<summary><strong>Phase 4: RAG & Agentic Systems (Week 7–8)</strong></summary>
+<summary><strong>Phase 4: RAG & Agentic Systems (Week 7-8)</strong></summary>
 
 | Topics                      | Core Material | Additional Resources | Code |
 |----------------------------|---------------|-----------------------|------|
@@ -71,7 +71,7 @@ Each phase is split by week and builds progressively.
 </details>
 
 <details>
-<summary><strong>Phase 5: Optimization & Evaluation (Week 9–10)</strong></summary>
+<summary><strong>Phase 5: Optimization & Evaluation (Week 9-10)</strong></summary>
 
 | Topics                      | Core Material | Additional Resources | Code |
 |----------------------------|---------------|-----------------------|------|
@@ -82,7 +82,7 @@ Each phase is split by week and builds progressively.
 </details>
 
 <details>
-<summary><strong>Phase 6: Deployment & LLMOps (Week 11–12)</strong></summary>
+<summary><strong>Phase 6: Deployment & LLMOps (Week 11-12)</strong></summary>
 
 | Topics                      | Core Material | Additional Resources | Code |
 |----------------------------|---------------|-----------------------|------|
@@ -94,7 +94,7 @@ Each phase is split by week and builds progressively.
 </details>
 
 
-### 🛠️ Tools/Frameworks/Specifications
+### 🛠️ Tools | Frameworks
 
 | Category  | Link  | 
 |------------|----------------|
@@ -132,3 +132,17 @@ Each phase is split by week and builds progressively.
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
 | Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
+
+
+### 📘 Imp Research Papers
+
+| Title | Links |
+|-------------|---------|
+|Kimi K2: Open Agentic Intelligence|[Link](https://github.com/MoonshotAI/Kimi-K2/blob/main/tech_report.pdf)|
+|Gemini 2.5: Pushing the Frontier with
+Advanced Reasoning, Multimodality, Long
+Context, and Next Generation Agentic
+Capabilities|[Link](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf)|
+|DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning|[Link](https://arxiv.org/abs/2501.12948)|
+|DeepSeek-V3 Technical Report|[Link](https://arxiv.org/abs/2412.19437)|
+|Mixtral of Experts|[Link](https://arxiv.org/abs/2401.04088)|
