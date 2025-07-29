@@ -10,6 +10,8 @@ A local web search system that combines Google's **Gemini LLM** with a **FastMCP
 - ✅ Tool calling using [FastMCP based Remote MCP Server](https://github.com/jlowin/fastmcp)
 - ✅ Custom MCP Server with live web search via SerpApi
 
+### [MCP Official Doc](https://modelcontextprotocol.io/docs/getting-started/intro)
+
 ### Installation
 
 ```bash
