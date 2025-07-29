@@ -6,7 +6,7 @@
 
 ### Neo4J Installation
 
-1. Download and Install Neo4j Desktop:
+#### Download and Install Neo4j Desktop:
 - Navigate to the Neo4j download page at [neo4j.com/download/](https://neo4j.com/download/)
 - Click the "Download" button.
 - Fill out the registration form with your details and click "Download Desktop".
@@ -18,7 +18,7 @@
 - Choose a path to store application data or keep the default.
 - In the software registration window, paste the activation key you copied earlier and click "Activate".
 
-2. Configure the Neo4j Database:
+#### Configure the Neo4j Database:
 - Once Neo4j Desktop is open, an example project named "Movie DBMS" will be available and active.
 - Click on the "Movie DBMS" instance.
 - Go to the "Plugins" tab.
