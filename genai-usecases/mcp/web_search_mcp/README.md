@@ -1,16 +1,16 @@
-## 🔍 Web Search Remote MCP Server integrated with a Gemini LLM-based MCP Client
+## 🔍 Gemini LLM-powered MCP Client integrated with Web Search Remote MCP Server
 
 A local web search system that combines Google's **Gemini LLM** with a **FastMCP** tool-calling interface and a **Streamlit UI**. Uses **SerpApi** for live, real-time search results via a custom MCP server to show Remote MCP Server capabilities with Gemini LLM.
 
 ![alt text](images/mcp_flow.png)
 
-### 📦 Features
+### Features
 
 - ✅ Google's Gemini API integration with Remote FastMCP Server
 - ✅ Tool calling using [FastMCP based Remote MCP Server](https://github.com/jlowin/fastmcp)
 - ✅ Custom MCP Server with live web search via SerpApi
 
-### 🚀 Installation
+### Installation
 
 ```bash
 git clone https://github.com/genieincodebottle/generative-ai
@@ -26,7 +26,7 @@ uv venv
 uv pip install -r requirements.txt
 ```
 
-### 🔐 Environment Setup
+### Environment Setup
 Create a .env file and set the following keys:
 
 ```bash
@@ -38,7 +38,7 @@ SERPAPI_API_KEY=your_serpapi_key
 
 **For free-tier SerpAPI API Key** -> https://serpapi.com/manage-api-key
 
-### 🚀 Run the MCP Server at one terminal
+### Run the MCP Server at one terminal
 
 ```bash
 cd genai-usecases\mcp
@@ -48,10 +48,10 @@ cd genai-usecases\mcp
 python web_search_mcp_server.py --host localhost --port 8000
 ```
 
-### 💻 Run the Streamlit Client App in another terminal
+### Run the Streamlit Client App in another terminal
 
 ```bash
-cd genai-usecases\mcp
+cd genai-usecases\mcp\web_search_mcp
 
 .venv\Scripts\activate
 
