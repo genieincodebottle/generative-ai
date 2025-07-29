@@ -18,7 +18,7 @@ def main(query):
  
     print(graph.schema)
 
-    llm = ChatGoogleGenerativeAI(model="gemini-pro")
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
 
     chain = GraphCypherQAChain.from_llm(graph=graph, llm=llm, verbose=True)
     response = chain.invoke({"query": query})
