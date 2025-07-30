@@ -13,6 +13,7 @@
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
 
 ### 🔗 Quick Links
+* [GenAI Roadmap](./GenAI_Roadmap.md)
 * [GenAI Usecases](./genai-usecases/)
 * [GenAI Essential Terms](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf)
 * [GenAI Interview Q & A](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf)
