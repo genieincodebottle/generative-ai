@@ -47,15 +47,13 @@ Or any other information available in the Movie graph database.
    1. Clone the repository:
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases/graph-qa
+      cd genai-usecases\graph-qa
       ```
    2. Open the Project in VS Code or any code editor.
    3. Create a virtual environment by running the following command in the terminal:
       ```bash
       pip install uv #if uv not installed
-      
       uv venv
-      
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
    4. Create a requirements.txt file and add the following libraries:
