@@ -20,7 +20,19 @@ def main(query):
 
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
 
-    chain = GraphCypherQAChain.from_llm(graph=graph, llm=llm, verbose=True)
+    """
+    parameter: allow_dangerous_requests: bool = True
+        Forced user opt-in to acknowledge that the chain can make dangerous requests.
+    Security note: Make sure that the database connection uses credentials
+        that are narrowly-scoped to only include necessary permissions. Failure to do so may result 
+        in data corruption or loss, since the calling code may attempt commands 
+        that would result in deletion, mutation of data if appropriately prompted or 
+        reading sensitive data if such data is present in the database. The best way 
+        to guard against such negative outcomes is to (as appropriate) limit the permissions 
+        granted to the credentials used with this tool.
+        See https://python.langchain.com/docs/security for more information.
+    """
+    
+    chain = GraphCypherQAChain.from_llm(graph=graph, llm=llm, verbose=True, allow_dangerous_requests=True)
     response = chain.invoke({"query": query})
-    print(response)
     return response['result']

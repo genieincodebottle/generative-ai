@@ -6,12 +6,10 @@ import logging
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename='app.log', encoding='utf-8', level=logging.INFO)
 
-
 # Page configuration
 st.set_page_config(page_title="Graph Search Tool", page_icon="🌐")
 st.header("`Graph Search Tool`")
-st.info("`I am an Graph Search tool equipped to provide insightful answers by diving into, comprehending, \
-        and condensing information from Graph Database.`")
+st.info("`Graph Search tool designed to explore, understand, and distill insights from Graph Databases with precision and ease.`")
 st.sidebar.image("img/globe.png")
 # Hide Streamlit menu and footer
 hide_streamlit_style = """

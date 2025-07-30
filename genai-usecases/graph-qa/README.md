@@ -1,47 +1,61 @@
-### Graph-QA using free tier Gemini LLM
+## Graph Database-Powered Q&A Chatbot
+
+This app connects a Neo4j graph database to a Gemini LLM via LangChain to enable natural language Q&A over a **graph schema**. It uses the **default Neo4j Movie database** as its dataset.
 
 🎥 YouTube Video:  Walkthrough on setup and running the app
 
 [![Watch the video](https://img.youtube.com/vi/PJTxPW5He7w/0.jpg)](https://www.youtube.com/watch?v=PJTxPW5He7w)
 
-### Neo4J Installation
+### 🎞️ Demo Context
 
-#### Download and Install Neo4j Desktop:
-- Navigate to the Neo4j download page at [neo4j.com/download/](https://neo4j.com/download/)
-- Click the "Download" button.
-- Fill out the registration form with your details and click "Download Desktop".
-- On the next page, copy the Neo4j Desktop Activation Key to your clipboard.
-- Once the download is complete, run the installer.
-- Follow the on-screen instructions, keeping the default settings.
-- After installation, the Neo4j Desktop application will launch.
-- Agree to the license agreement.
-- Choose a path to store application data or keep the default.
-- In the software registration window, paste the activation key you copied earlier and click "Activate".
+This chatbot uses **Neo4j's built-in Movie Database**, which includes:
+- Actors
+- Movies
+- Directors
+- Relationships like `ACTED_IN` and `DIRECTED`
 
-#### Configure the Neo4j Database:
-- Once Neo4j Desktop is open, an example project named "Movie DBMS" will be available and active.
-- Click on the "Movie DBMS" instance.
-- Go to the "Plugins" tab.
-- Select "APOC" and click "Install and Restart".
-- Go to the "Details" tab and click on "Reset DBMS password".
-- Enter a new password for your database.
+You can ask natural language questions like:
+- "Who acted in The Matrix?"
+- "List all movies directed by Christopher Nolan."
+- "Which actors have worked together in more than one movie?"
+- "Give me movies released after 2000 featuring Keanu Reeves."
 
-### Setup Instructions
+Or any other information available in the Movie graph database. 
 
-#### Prerequisites
+### 🔧 Neo4J GraphDB Installation
+
+#### ✅ Download and Install Neo4j Desktop:
+- Visit [neo4j.com/download/](https://neo4j.com/download/)
+- Click Download, fill in the registration form.
+- Copy the Neo4j Desktop Activation Key.
+- Install Neo4j Desktop with default settings.
+- Launch the app, accept the license agreement.
+- Paste the activation key to activate.
+
+#### ⚙️ Configure Neo4j Database:
+- Open Neo4j Desktop → Open the Movie DBMS example project.
+- Go to the Plugins tab → Install APOC and restart.
+- Go to Details → Click Reset DBMS password and set your new password.
+
+### 🛠️ Setup Instructions
+
+#### ✅ Prerequisites
    - Python 3.10 or higher
    - pip (Python package installer)
 
-#### Installation & Running App
+#### 📦 Installation & Running App
    1. Clone the repository:
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
       cd genai-usecases/graph-qa
       ```
-   2. Open your project in a code editor like VS Code.
+   2. Open the Project in VS Code or any code editor.
    3. Create a virtual environment by running the following command in the terminal:
       ```bash
-      python -m venv .venv
+      pip install uv #if uv not installed
+      
+      uv venv
+      
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
    4. Create a requirements.txt file and add the following libraries:
@@ -56,18 +70,39 @@
       ```
    5. Install dependencies:
       ```bash
-      pip install -r requirements.txt
+      uv pip install -r requirements.txt
       ```
-   6. Rename .env.example to .env and update the following API keys in the .env file
+   6. Configure Environment
+      * Rename .env.example → .env
+      * Update with your keys:
+
       ```bash
       GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
       NEO4J_URI="bolt://localhost:7687"
       NEO4J_USERNAME="neo4j"
       NEO4J_PASSWORD="your_new_password"
       ```
-      For **GOOGLE_API_KEY** follow this -> https://aistudio.google.com/app/apikey
-   7. **utility file (utils.py):** This file contains the backend logic for connecting to the database and processing queries. The code in the video includes functions to load environment variables, connect to the Neo4j graph, and use the LangChain library to convert natural language questions into Cypher queries.
-   8. **main application file (app.py):** This file contains the Streamlit code for the user interface. It creates the "Graph Search Tool" title, an input box for the user's question, and a button to submit. When the user submits a question, it calls the main function from utils.py to get the answer from the graph database and displays the result.
-   9. Run App
+      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
+   7. Code Files Overview
+      * `utils.py`: Backend logic - connects to Neo4j, loads env variables, runs LangChain-based Q&A logic.
+      * `app.py`: Streamlit-based frontend - user inputs questions, displays answers from the graph DB.
+   9. Run the App
    
       `streamlit run app.py`
+
+### ⚠️ Troubleshooting
+
+#### If you see an error like:
+```
+neo4j.exceptions.ServiceUnavailable: Couldn't connect to localhost:7687 (resolved to ('[::1]:7687', '127.0.0.1:7687')):  
+Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0))
+```
+
+#### ✅ Open the Neo4j Desktop dashboard, go to the Settings tab, and verify that the Bolt port (7687) is enabled.
+
+#### 📌 Ensure the following line exists and is not commented out in the settings:
+```
+dbms.connector.bolt.listen_address=:7687
+```
+
+![alt text](img/troubleshoot.png)
