@@ -24,41 +24,24 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 ### 🤝 Contributing
 
-Contributions to add good impactful resources/codes to the list are welcome! 
+Contributions are welcome. To add useful resources or code:
 
-Here’s how you can help:
+1. Fork this repo
 
-1. **Fork the Repository**
-
-   Click on the "Fork" button at the top right corner of the page to create a personal copy of the repository.
-
-2. **Clone the Repository**
-
-   Clone your forked repository to your local machine:
-   ```bash
+2. Clone it
+   ```
    git clone https://github.com/genieincodebottle/generative-ai.git
    ```
-
-3. **Create a New Branch**
-
-   Create a new branch for your feature or bug fix:
-   ```bash
-   git checkout -b your-branch-name
+3. Create a branch
    ```
-
-4. **Make Your Changes**
-
-   Make your changes and commit them with a clear message:
-   ```bash
-   git commit -m "Brief description of your changes"
+   git checkout -b feature-name
    ```
-
-5. **Push Your Changes**
-Push your changes to your forked repository:
-   ```bash
-   git push origin your-branch-name
+4. Make changes and commit
    ```
-
-5. **Create a Pull Request**
-
-   Go to the original repository and create a pull request. Make sure to explain your changes and why they should be merged.
+   git commit -m "Your message"
+   ```
+5. Push your branch
+   ```
+   git push origin feature-name
+   ```
+6. Open a Pull Request with a brief description of your changes.
