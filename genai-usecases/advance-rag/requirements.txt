@@ -1,0 +1,10 @@
+streamlit>=1.47.1 
+langchain>=0.3.27 
+langchain-google-genai>=2.1.8 
+langchain-chroma>=0.2.5 
+langchain-community>=0.3.27
+nest-asyncio>=1.6.0
+pypdf>=5.9.0
+python-dotenv>=1.0.1
+flashrank>=0.2.10
+rank_bm25>=0.2.2
