@@ -33,31 +33,35 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
 
 #### 📦 Installation & Running App
    1. Clone the repository:
+
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
       cd genai-usecases\advance-rag
       ```
    2. Open the Project in VS Code or any code editor.
    3. Create a virtual environment by running the following command in the terminal:
+   
       ```bash
       pip install uv #if uv not installed
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
    4. Create a requirements.txt file and add the following libraries:
-      ```
-    streamlit>=1.47.1 
-    langchain>=0.3.27 
-    langchain-google-genai>=2.1.8 
-    langchain-chroma>=0.2.5 
-    langchain-community>=0.3.27
-    nest-asyncio>=1.6.0
-    pypdf>=5.9.0
-    python-dotenv>=1.0.1
-    flashrank>=0.2.10
-    rank_bm25>=0.2.2
+      
+      ```bash
+        streamlit>=1.47.1 
+        langchain>=0.3.27 
+        langchain-google-genai>=2.1.8 
+        langchain-chroma>=0.2.5 
+        langchain-community>=0.3.27
+        nest-asyncio>=1.6.0
+        pypdf>=5.9.0
+        python-dotenv>=1.0.1
+        flashrank>=0.2.10
+        rank_bm25>=0.2.2
       ```
    5. Install dependencies:
+      
       ```bash
       uv pip install -r requirements.txt
       ```
