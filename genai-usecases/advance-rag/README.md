@@ -73,7 +73,8 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
       GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
       ```
       * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
-   9. Run the different RAGs
+
+   9. Run the different RAG implementations located in ```genai-usecases\advance-rag```
    
       * [basic_rag](./basic_rag.py)
 
