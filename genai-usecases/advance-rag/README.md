@@ -76,7 +76,7 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
 
    9. Run the different RAG implementations located in ```genai-usecases\advance-rag```
    
-      * [basic_rag](./basic_rag.py)
+      * [basic_rag](./basic_rag.py) 
 
         `streamlit run basic_rag.py`
     
