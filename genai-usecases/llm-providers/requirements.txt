@@ -1,0 +1,5 @@
+streamlit>=1.47.1
+langchain-anthropic>=0.3.18
+langchain-google-genai>=2.1.8
+langchain-groq>=0.3.6
+python-dotenv>=1.0.1

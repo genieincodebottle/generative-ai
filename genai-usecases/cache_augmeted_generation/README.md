@@ -52,17 +52,18 @@ large datasets.
    1. Clone the repository:
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd generative-ai/genai-usecases/cache_augumeted_generation
+      cd generative-ai\genai-usecases\cache_augumeted_generation
       ```
    2. Create a virtual environment:
       ```bash
-      python -m venv venv
-      venv\Scripts\activate # On Linux -> source venv/bin/activate
+      pip install uv
+      uv venv
+      .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
    3. Install dependencies:
       ```bash
-      pip install torch --index-url https://download.pytorch.org/whl/cu118
-      pip install -r requirements.txt
+      uv pip install torch --index-url https://download.pytorch.org/whl/cu118
+      uv pip install -r requirements.txt
       ```
    4. Rename `.env.example` to `.env`
    

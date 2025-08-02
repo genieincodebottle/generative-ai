@@ -1,12 +1,14 @@
-## Advance RAG
+## 📚 Advance RAG
+
+![alt text](images/rag.png)
+**Source:** LangChain
 
 Retrieval Augmented Generation (RAG) is a technique that enhances language models by combining them with external knowledge retrieval.
 
 RAG integrates a retrieval system with a generative language model. When given a query, it first retrieves relevant information from a knowledge base, then uses this information to generate a more informed and accurate response.
 
 
-![alt text](images/rag.png)
-Source: LangChain
+
 
 ### Key components of RAG
 
@@ -24,6 +26,12 @@ The retrieval system typically consists of two main parts:
 RAG systems use Large Language Models (LLMs) to generate responses based on the retrieved information and the original query.
 
 RAG is essential for building accurate and context-aware GenAI applications. As queries become more complex and information increases, basic RAG may not be enough. Advanced RAG techniques, including agentic RAG, improve the retrieval and generation process, leading to more relevant, accurate, and adaptable responses.
+
+### A. To run each RAG type on Google Colab, use the notebook codes below 👇
+
+[Notebooks](notebooks/)
+
+### B. To run each RAG type individually, follow this process 👇
 
 ### 🛠️ Setup Instructions
 
@@ -96,3 +104,6 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
       
         `streamlit run hybrid_search_rag.py`
 
+### C. RAG with MCP Server as Web Search for Agentic RAG on AWS Cloud 👇
+
+[RAG Application build & deployed on AWS with MCP Server integration](https://github.com/genieincodebottle/rag-app-on-aws)
