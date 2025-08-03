@@ -30,7 +30,7 @@ It outputs a **maliciousness score** between 0.0 (benign) and 1.0 (dangerous).
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases\prompt_guard
+      cd genai-usecases\prompt-guard
       ```
    2. Open the Project in VS Code or any code editor.
    3. Create a virtual environment by running the following command in the terminal:
