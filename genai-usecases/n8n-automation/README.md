@@ -1,4 +1,4 @@
-# 🚀 n8n Automation Templates & Workflow Guide
+# n8n Automation Templates & Workflow Guide
 
 [![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
