@@ -16,6 +16,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🔗 Quick Links
 * [GenAI Roadmap](./GenAI_Roadmap.md)
 * [GenAI Usecases](./genai-usecases/)
+* [n8n Automation](./genai-usecases/n8n-automation/)
 * [GenAI Essential Terms](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf)
 * [GenAI Interview Q & A](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-interview-questions.pdf)
 * [GenAI on AWS-Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf), [GitHub](https://github.com/genieincodebottle/rag-app-on-aws), [YouTube](https://www.youtube.com/watch?v=x2P4Ee6PYNg)
