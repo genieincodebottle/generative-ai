@@ -1,4 +1,4 @@
-# n8n Automation Templates & Workflow Guide
+## n8n Automation Templates & Workflow Guide
 
 [![n8n](https://img.shields.io/badge/n8n-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n.io)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
@@ -8,9 +8,9 @@
 
 ---
 
-## 📋 Table of Contents
+### 📋 Table of Contents
 
-- [Template Library Highlights](#-template-library-highlights)
+- [Template Library](#-template-library)
 - [Getting Started](#-getting-started)
 - [Installation Methods](#-installation-methods)
 - [AI-Enhanced Setup](#-ai-enhanced-setup)
@@ -24,7 +24,7 @@
 
 ---
 
-## 📚 Template Library Highlights
+### 📚 Template Library
 
 - **4,200+ Official Templates**: Browse the full n8n template library - spanning categories like AI, sales, marketing, document ops, support, and more → [n8n.io/workflows](https://n8n.io/workflows)
 - **Community Collections**:
@@ -33,28 +33,31 @@
 
 ---
 
-## 🛠 Getting Started
+### 🛠 Getting Started
 
-### Local (Self-Hosted)
+#### Local (Self-Hosted)
 - **Try instantly** with NPX:
+
   ```bash
   npx n8n
   ```
 - **Recommended (Docker)**:
+
   ```bash
   docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
   ```
 - **Import Workflows** via UI or API using `.json` files
 
-### Cloud (n8n.io)
+#### Cloud (n8n.io)
 - Sign up at [n8n Cloud](https://app.n8n.cloud)
 - Click **Create New Workflow → Template** to browse and import
 
 ---
 
-## 🔧 Installation Methods
+### 🔧 Installation Methods
 
-### Docker Compose (with PostgreSQL)
+#### Docker Compose (with PostgreSQL)
+
 ```yaml
 # docker-compose.yml
 services:
@@ -86,9 +89,10 @@ volumes:
 
 ---
 
-## 🤖 AI-Enhanced Setup
+### 🤖 AI-Enhanced Setup
 
-### AI Starter Kit
+#### AI Starter Kit
+
 ```bash
 git clone https://github.com/n8n-io/self-hosted-ai-starter-kit.git
 cd self-hosted-ai-starter-kit
@@ -101,7 +105,8 @@ Includes:
 - AI workflows
 - Shared volume `/data/shared`
 
-### Comprehensive Setup
+#### Comprehensive Setup
+
 ```bash
 git clone https://github.com/kossakovsky/n8n-installer.git
 cd n8n-installer
@@ -113,7 +118,7 @@ Adds:
 
 ---
 
-## 📦 Template Categories & Examples
+### 📦 Template Categories & Examples
 
 | Category            | Count | Examples                                       |
 |---------------------|-------|------------------------------------------------|
@@ -125,7 +130,7 @@ Adds:
 
 ---
 
-## ✅ Workflow Creation Process
+### ✅ Workflow Creation Process
 
 1. Pick a template or build from scratch
 2. Import JSON or use cloud library
@@ -137,9 +142,10 @@ Adds:
 
 ---
 
-## ⚙️ Configuration
+### ⚙️ Configuration
 
-### `.env` Basics
+#### `.env` Basics
+
 ```env
 N8N_ENCRYPTION_KEY=your-256-key
 N8N_HOST=your-domain.com
@@ -149,7 +155,8 @@ DB_POSTGRESDB_PASSWORD=secure_password
 GENERIC_TIMEZONE=America/New_York
 ```
 
-### Optional Features
+#### Optional Features
+
 ```env
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
@@ -161,28 +168,30 @@ QUEUE_BULL_REDIS_HOST=redis
 
 ---
 
-## 🧪 Add Your Own Templates
+### 🧪 Add Your Own Templates
 
-### Creator Program
+#### Creator Program
 - Join at [n8n.io/creators](https://n8n.io/creators)
 - Submit workflows via docs portal
 - Get listed and earn via affiliate program
 
 ---
 
-## 🔍 Troubleshooting
+### 🔍 Troubleshooting
 
-### Common Fixes
+#### Common Fixes
 - Clear cache:
+
   ```bash
   docker exec -it n8n rm -rf /home/node/.n8n/cache/templates
   ```
 - Validate workflows:
+
   ```bash
   curl -X POST http://localhost:5678/api/v1/workflows/validate -d @workflow.json
   ```
 
-### Debugging
+#### Debugging
 ```bash
 export N8N_LOG_LEVEL=debug
 export N8N_LOG_OUTPUT=console
@@ -190,7 +199,7 @@ export N8N_LOG_OUTPUT=console
 
 ---
 
-## 📂 Sample Project Structure
+### 📂 Sample Project Structure
 
 ```text
 n8n-automation/
@@ -208,25 +217,25 @@ n8n-automation/
 
 ---
 
-## 📖 Resources
+### 📖 Resources
 
-### Official
+#### Official
 - [Docs](https://docs.n8n.io)
 - [Workflow Library](https://n8n.io/workflows)
 - [GitHub](https://github.com/n8n-io/n8n)
 
-### Templates
+#### Templates
 - [Awesome Templates](https://github.com/enescingoz/awesome-n8n-templates)
 - [Professional Collection](https://github.com/Zie619/n8n-workflows)
 
-### Community
+#### Community
 - [Forum](https://community.n8n.io)
 - [YouTube](https://youtube.com/@n8n_io)
 - [Twitter](https://twitter.com/n8n_io)
 
 ---
 
-## Next Steps
+### Next Steps
 
 1. Set up n8n (Docker is best)
 2. Configure `.env` and volumes
