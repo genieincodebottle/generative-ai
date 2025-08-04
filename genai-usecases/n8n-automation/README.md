@@ -12,15 +12,14 @@
 
 - [Template Library](#-template-library)
 - [Getting Started](#-getting-started)
-- [Installation Methods](#-installation-methods)
 - [AI-Enhanced Setup](#-ai-enhanced-setup)
 - [Template Categories & Examples](#-template-categories--examples)
 - [Workflow Creation Process](#-workflow-creation-process)
 - [Configuration](#-configuration)
-- [Contributing Templates](#-add-your-own-templates)
 - [Troubleshooting](#-troubleshooting)
-- [Project Structure](#-sample-project-structure)
+- [Sample Project Structure](#-sample-project-structure)
 - [Resources](#-resources)
+- [Contributing Templates](#-add-your-own-templates)
 
 ---
 
@@ -102,7 +101,7 @@
         * https://github.com/n8n-io/n8n/tree/master/packages/cli/templates
       * Community Templates: Search GitHub for "n8n workflow json"
     * **Step 2:** Download a Sample JSON Template
-    
+
       Let's use a simple example. Create a file called sample-workflow.json with this content:
 
       ```bash
