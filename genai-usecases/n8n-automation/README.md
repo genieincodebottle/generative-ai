@@ -35,57 +35,119 @@
 
 ### 🛠 Getting Started
 
-#### Local (Self-Hosted)
-- **Try instantly** with NPX:
+#### A. Local (Self-Hosted)
+  - **Method 1: Try instantly** with NPX:
 
-  ```bash
-  npx n8n
-  ```
-- **Recommended (Docker)**:
+    ```bash
+    npx n8n@latest
+    ```
+    - **Common NPX Fixes for**
 
-  ```bash
-  docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
-  ```
-- **Import Workflows** via UI or API using `.json` files
+      **Error:** Cannot find module 'ajv/dist/core' or any other issue
+      
+      * **Option A: Global Install**
+        
+        ```bash
+        npm install -g n8n
+        n8n
+        ```
+      * **Option B: Clear NPX Cache**
+        
+        ```bash
+        npx clear-npx-cache
+        npm install ajv #If error: Cannot find module 'ajv/dist/core'
+        npx n8n
+        ```
+      * **Option C: Use Specific Version**
 
-#### Cloud (n8n.io)
+        ```bash
+        npm create n8n@latest
+        ```
+  - **Method 2: Run with Docker (Best for Production)**:
+
+    ```bash
+    docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
+    ```
+  - **Access n8n UI at:** http://localhost:5678
+
+  - Use JSON Workflow Templates
+
+    * **Step 1:** Get Sample JSON
+      Create a file sample-workflow.json:
+
+      ```bash
+      {
+        "name": "My First Workflow",
+        "nodes": [
+          {
+            "parameters": {},
+            "id": "start-node",
+            "name": "When clicking Test workflow",
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [240, 300]
+          },
+          {
+            "parameters": {
+              "values": {
+                "string": [
+                  {
+                    "name": "message",
+                    "value": "Hello from n8n!"
+                  }
+                ]
+              }
+            },
+            "id": "set-data",
+            "name": "Set Data",
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 1,
+            "position": [460, 300]
+          }
+        ],
+        "connections": {
+          "When clicking Test workflow": {
+            "main": [
+              [
+                {
+                  "node": "Set Data",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        }
+      }
+      ```
+  - Import Workflow
+
+    * **Method A:** Web UI (Easy)
+      * Open http://localhost:5678
+      * Click New Workflow
+      * Click three dots → Import from file
+      * Upload JSON or paste content
+    * **Method B:** Copy-Paste
+      * Open New Workflow
+      * Press Ctrl+A → Ctrl+V (paste your JSON)
+      * Press Enter
+
+    * **Method C:** API Import (Advanced)
+      ```bash
+      curl -X POST http://localhost:5678/rest/workflows \
+      -H "Content-Type: application/json" \
+      -H "X-N8N-API-KEY: your-api-key" \
+      -d @sample-workflow.json
+      ```
+  - Run Your First Workflow
+
+    * Click Test workflow
+    * Execute the manual trigger
+    * View results as nodes execute
+---
+#### B. Cloud (n8n.io)
 - Sign up at [n8n Cloud](https://app.n8n.cloud)
 - Click **Create New Workflow → Template** to browse and import
-
----
-
-### 🔧 Installation Methods
-
-#### Docker Compose (with PostgreSQL)
-
-```yaml
-# docker-compose.yml
-services:
-  n8n:
-    image: n8nio/n8n:latest
-    ports: ["5678:5678"]
-    environment:
-      - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=${POSTGRES_USER}
-      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
-      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-      - N8N_TEMPLATES_ENABLED=true
-    volumes:
-      - n8n_data:/home/node/.n8n
-  postgres:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-volumes:
-  n8n_data:
-  postgres_data:
-```
 
 ---
 
@@ -168,15 +230,6 @@ QUEUE_BULL_REDIS_HOST=redis
 
 ---
 
-### 🧪 Add Your Own Templates
-
-#### Creator Program
-- Join at [n8n.io/creators](https://n8n.io/creators)
-- Submit workflows via docs portal
-- Get listed and earn via affiliate program
-
----
-
 ### 🔍 Troubleshooting
 
 #### Common Fixes
@@ -235,10 +288,11 @@ n8n-automation/
 
 ---
 
-### Next Steps
+### 🧪 Add Your Own Templates
 
-1. Set up n8n (Docker is best)
-2. Configure `.env` and volumes
-3. Import or build workflows
-4. Run and customize
-5. Share your templates 
+#### Creator Program
+- Join at [n8n.io/creators](https://n8n.io/creators)
+- Submit workflows via docs portal
+- Get listed and earn via affiliate program
+
+
