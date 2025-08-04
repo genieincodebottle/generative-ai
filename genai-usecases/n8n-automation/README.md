@@ -35,12 +35,31 @@
 
 ### 🛠 Getting Started
 
-#### A. Local (Self-Hosted)
-  - **Method 1: Try instantly** with NPX:
+#### A. Prerequisites
 
-    ```bash
-    npx n8n@latest
-    ```
+  - Before starting, ensure you have:
+    * **Node.js** (version 18.10 or higher) - [Link](https://nodejs.org/)
+    * **Docker** (recommended method) - [Link](https://www.docker.com/get-started/)
+    * **Git** (to clone workflows from GitHub) - [Link](https://git-scm.com/)
+    * A code editor like **VS Code** (optional but helpful)
+
+#### B. Local (Self-Hosted)
+  - **Method 1: Try instantly** with NPX: 
+  
+    * **Step 1:** Install and Run n8n
+
+      ```bash
+      npx n8n@latest
+      ```
+      * This will:
+        * Download and install n8n automatically
+        * Start the n8n server
+        * Open your browser to http://localhost:5678
+    * **Step 2:** Initial Setup
+      * Create an admin account when prompted
+      * Set your email and password
+      * You'll see the n8n dashboard
+
     - **Common NPX Fixes for**
 
       **Error:** Cannot find module 'ajv/dist/core' or any other issue
@@ -64,16 +83,27 @@
         npm create n8n@latest
         ```
   - **Method 2: Run with Docker (Best for Production)**:
+    * **Step 1:** Run n8n with Docker
+     
+      ```bash
+      docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
+      ```
+    * **Step 2:** Access n8n
+      * Open your browser and go to: http://localhost:5678
 
-    ```bash
-    docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
-    ```
-  - **Access n8n UI at:** http://localhost:5678
+  - Finding and Using JSON Workflow Templates
 
-  - Use JSON Workflow Templates
+    * **Step 1:** Find JSON Templates
 
-    * **Step 1:** Get Sample JSON
-      Create a file sample-workflow.json:
+      Popular sources for n8n workflow templates:
+      * Official n8n Templates: https://n8n.io/workflows/
+      * GitHub Repositories:
+        * https://github.com/n8n-io/n8n-workflow-template-examples
+        * https://github.com/n8n-io/n8n/tree/master/packages/cli/templates
+      * Community Templates: Search GitHub for "n8n workflow json"
+    * **Step 2:** Download a Sample JSON Template
+    
+      Let's use a simple example. Create a file called sample-workflow.json with this content:
 
       ```bash
       {
@@ -120,7 +150,7 @@
         }
       }
       ```
-  - Import Workflow
+  - Importing JSON Workflows into n8n
 
     * **Method A:** Web UI (Easy)
       * Open http://localhost:5678
@@ -145,7 +175,7 @@
     * Execute the manual trigger
     * View results as nodes execute
 ---
-#### B. Cloud (n8n.io)
+#### C. Cloud (n8n.io)
 - Sign up at [n8n Cloud](https://app.n8n.cloud)
 - Click **Create New Workflow → Template** to browse and import
 
