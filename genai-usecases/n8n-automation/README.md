@@ -48,7 +48,7 @@
     * **Step 1:** Install and Run n8n
 
       ```bash
-      npx n8n@latest
+      npx n8n
       ```
       * This will:
         * Download and install n8n automatically
