@@ -23,6 +23,11 @@
 
 ---
 
+### ▶️ Run first workflow
+- [n8n video walkthrough](./n8n.mp4)
+
+---
+
 ### 📚 Template Library
 
 - **4,200+ Official Templates**: Browse the full n8n template library - spanning categories like AI, sales, marketing, document ops, support, and more → [n8n.io/workflows](https://n8n.io/workflows)

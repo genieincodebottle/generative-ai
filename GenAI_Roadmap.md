@@ -56,7 +56,7 @@ Each phase is split by week and builds progressively.
 | Mixture of Experts (MoE)  | [YT - What is Mixture of Experts?](https://www.youtube.com/watch?v=sYDlVVyJYn4) <br> [Blog - Visual Guide to MoE](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-mixture-of-experts) | [Blog - Huggingface MoE](https://huggingface.co/blog/moe) ||
 | Open Weight LLMs (HF & Ollama) | [YT - Huggingface LLMs Locally](https://www.youtube.com/watch?v=Ay5K4tog5NQ) <br> [YT - Ollama](https://www.youtube.com/watch?v=h_GTxRFYETY) || [GitHub-HF](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb) <br> [GitHub-Ollama](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama) |
 | AI Frameworks             | [LangChain](https://python.langchain.com/docs/introduction/) <br> [LlamaIndex](https://docs.llamaindex.ai/en/stable/) |||
-| Prompt Engineering        | [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering) | [Kaggle Whitepaper](https://www.kaggle.com/whitepaper-prompt-engineering) | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) <br> [Colab Notebook](https://colab.research.google.com/drive/1xZ_QyAFtg2pGv_USPAfdfHRiVu1a1cFb?usp=sharing) |
+| Prompt Engineering        | [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering) | [Kaggle Whitepaper](https://www.kaggle.com/whitepaper-prompt-engineering) | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 
 </details>
 
