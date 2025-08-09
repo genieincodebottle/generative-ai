@@ -29,9 +29,11 @@ with st.sidebar:
     st.header("Configuration")
     # Model selection
     model_options = [
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-20250514",
         "claude-sonnet-4-20250514",
-        "claude-3-5-sonnet-20241022",
-        "claude-3-haiku-20240307"
+        "claude-3-7-sonnet-20250219",
+        "claude-3-5-haiku-20241022"
     ]
     selected_model = st.selectbox("Select Claude Model:", model_options)
     

@@ -28,6 +28,7 @@ with st.sidebar:
     st.header("Configuration")
     # Model selection
     model_options = [
+        "gpt-5-2025-08-07",
         "gpt-4.5",
         "gpt-4.1",
         "gpt-4o"
