@@ -24,7 +24,7 @@
 ---
 
 ### ▶️ Run first workflow
-- [n8n video walkthrough](./n8n.mp4)
+- [n8n video walkthrough](https://x.com/zero2nn/status/1952697313241280706/video/1)
 
 ---
 
