@@ -6,9 +6,11 @@ import asyncio
 import argparse
 import logging
 from typing import Any, Dict
-from fastmcp import FastMCP
 from dotenv import load_dotenv
+
+from fastmcp import FastMCP
 from serpapi.google_search import GoogleSearch
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

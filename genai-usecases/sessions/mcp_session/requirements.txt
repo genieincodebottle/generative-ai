@@ -1,0 +1,15 @@
+fastapi>=0.116.1 
+uvicorn>=0.35.0
+langchain>=0.3.27
+langchain-google-genai>=2.1.9
+requests>=2.32.4
+python-dotenv>=1.0.1
+
+asyncio>=3.4.3
+aiohttp>=3.12.13
+python-dotenv>=1.1.0
+google-search-results>=2.4.2 #For Serpesearch API
+fastmcp>=2.8.1
+mcp>=1.9.4
+streamlit>=1.45.1
+google-genai>=1.20.0
