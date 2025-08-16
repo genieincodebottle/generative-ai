@@ -1,12 +1,12 @@
-## 🧪 Agentic Tool Calls, ⚡ API Integrations & 🔗 MCP Server-Based LLM Integration
+## Experimenting with Agentic Tool Calls, REST API & MCP Server based LLM Integration
+
+<img src="./images/mcp.gif" width="660" height="420">
 
 This codebase is used to demo how to integrate LLMs with API calls and MCP (Model Context Protocol) for tool-based reasoning. You will experiment with:
 
    🌐 REST API integrations with FastAPI, enabling agentic tool calls where LLMs dynamically invoke functions or tools and trigger REST APIs.
 
    🔗 MCP server integrations using Anthropic’s Model Context Protocol (MCP) and the FastMCP library for rapid MCP server and client development.
-
-<img src="./images/mcp.gif" width="660" height="420">
 
 ### 📑 Resources
 
@@ -16,6 +16,7 @@ This codebase is used to demo how to integrate LLMs with API calls and MCP (Mode
 * [FastMCP Official Doc](https://gofastmcp.com/getting-started/welcome)
 * [FastAPI MCP GitHub](https://github.com/tadata-org/fastapi_mcp)
 * [Streamlit UI Official Doc](https://streamlit.io/)
+* [MCP Security Issue](https://www.docker.com/blog/mcp-security-issues-threatening-ai-infrastructure/)
 
 ### ⚙️ Installation
 
