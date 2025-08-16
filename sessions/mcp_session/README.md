@@ -2,9 +2,9 @@
 
 This codebase is used to demo how to integrate LLMs with API calls and MCP (Model Context Protocol) for tool-based reasoning. You will experiment with:
 
-* 🌐 REST API integrations with FastAPI, enabling agentic tool calls where LLMs dynamically invoke functions or tools and trigger REST APIs.
+   🌐 REST API integrations with FastAPI, enabling agentic tool calls where LLMs dynamically invoke functions or tools and trigger REST APIs.
 
-* 🔗 MCP server integrations using Anthropic’s Model Context Protocol (MCP) and the FastMCP library for rapid MCP server and client development.
+   🔗 MCP server integrations using Anthropic’s Model Context Protocol (MCP) and the FastMCP library for rapid MCP server and client development.
 
 <img src="./images/mcp.gif" width="660" height="420">
 
