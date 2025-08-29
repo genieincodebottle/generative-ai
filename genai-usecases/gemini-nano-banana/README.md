@@ -1,4 +1,4 @@
-### Gemini-2.5 Flash Image Generator -> Code name: nano banana :)
+### Gemini-2.5 Flash Image Generator -> Aka nano banana :)
 
 <img src="./images/image.png"/>
 
