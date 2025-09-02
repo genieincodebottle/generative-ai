@@ -1,5 +1,5 @@
 <div align="center">
-   <img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/ai_workflow.png" alt="Agents" />
+   <img src="../../../images/ai_workflow.png" alt="Agents" />
 </div>
 
 ### ⚙️ Setup Instructions
@@ -14,16 +14,41 @@
       git clone https://github.com/genieincodebottle/generative-ai.git
       cd generative-ai/genai-usecases/agentic-ai/ai_workflow
       ```
-   2. Create a virtual environment:
+   2. Open the Project in VS Code or any code editor.
+   3. Create a virtual environment by running the following command in the terminal:
       ```bash
-      python -m venv venv
-      venv\Scripts\activate # On Linux -> source venv/bin/activate
+      pip install uv #if uv not installed
+      uv venv
+      .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
-   3. Install dependencies:
+   4. Create a requirements.txt file and add the following libraries:
+      
       ```bash
-      pip install -r requirements.txt
+        streamlit>=1.47.1 
+        langchain>=0.3.27 
+        langchain-google-genai>=2.1.8 
+        langchain-chroma>=0.2.5 
+        langchain-community>=0.3.27
+        nest-asyncio>=1.6.0
+        pypdf>=5.9.0
+        python-dotenv>=1.0.1
+        flashrank>=0.2.10
+        rank_bm25>=0.2.2
       ```
-   4. Rename `.env.example` to `.env` and update with appropriate values.
+   5 Install dependencies:
+      ```bash
+      uv pip install -r requirements.txt
+      ```
+   6. Configure Environment
+      * Rename .env.example → .env
+      * Update with your keys:
+
+      ```bash
+      GROQ_API_KEY=your_api_key
+      OPENAI_API_KEY=your_api_key
+      GOOGLE_API_KEY=your_api_key
+      ANTHROPIC_API_KEY=your_api_key
+      ```
       - For **GROQ_API_KEY** follow this -> https://console.groq.com/keys
       - For **OPENAI_API_KEY** follow this -> https://platform.openai.com/api-keys
       - For **GOOGLE_API_KEY** follow this -> https://ai.google.dev/gemini-api/docs/api-key
@@ -52,7 +77,7 @@ Reference: [Anthropic's Guide to Building Effective Agents](https://www.anthropi
    -  Generate code → Review for errors → Optimize for performance.
 <br>
 
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/prompt_chaining.png" alt="Prompt Chaining" />
+<img src="../../../images/prompt_chaining.png" alt="Prompt Chaining" />
 
 ### 🔀 Parallelization 
 - Concurrent analysis tasks
@@ -65,7 +90,7 @@ Reference: [Anthropic's Guide to Building Effective Agents](https://www.anthropi
    -  **Voting**: Multiple LLM calls review code for vulnerabilities or assess content moderation thresholds.
 <br>
 
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/parallelization.png" alt="Parallelization" />
+<img src="../../../images/parallelization.png" alt="Parallelization" />
 
 ### 📡 Query Routing
 - Dynamic task distribution
@@ -75,7 +100,7 @@ Reference: [Anthropic's Guide to Building Effective Agents](https://www.anthropi
    - Send simple queries to smaller models and complex ones to larger models for cost and speed optimization.
 <br>
 
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/routing.png" alt="Query Routing" />
+<img src="../../../images/routing.png" alt="Query Routing" />
 
 ### 📈 Evaluator/Optimizer
 - Quality control and improvement
@@ -85,7 +110,7 @@ Reference: [Anthropic's Guide to Building Effective Agents](https://www.anthropi
    - Enhancing complex searches by assessing results and determining if further searches are needed.
 <br>
 
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/eval.png" alt="Evaluator and Optimizer" />
+<img src="../../../images/eval.png" alt="Evaluator and Optimizer" />
 
 ### 🎼 Orchestrator 
 - Complex workflow management
@@ -95,7 +120,7 @@ Reference: [Anthropic's Guide to Building Effective Agents](https://www.anthropi
    -  Conduct searches across various sources, analyzing and synthesizing relevant information.
 <br>
 
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/orchestrator.png" alt="Orchestartor" />
+<img src="../../../images/orchestrator.png" alt="Orchestartor" />
 
 ### 📞 Tool Calling 
 - External tool integration
@@ -105,4 +130,4 @@ Reference: [Anthropic's Guide to Building Effective Agents](https://www.anthropi
    - Fetching real-time data (weather, stock prices, database queries) via APIs to enhance responses.
 <br>
 
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/tool_calling.png" alt="Tool Calling" />
+<img src="../../../images/tool_calling.png" alt="Tool Calling" />

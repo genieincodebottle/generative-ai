@@ -1,2 +1,10 @@
-dspy-ai==3.0.0b2
-elysia-ai
+langchain>=0.3.0
+langchain-google-genai>=2.1.10
+langchain-community>=0.3.0
+langgraph>=0.2.45
+langchain-chroma>=0.1.4
+chromadb>=0.5.20
+tavily-python>=0.5.0
+beautifulsoup4>=4.12.3
+pypdf>=4.3.1
+python-dotenv>=1.0.1
