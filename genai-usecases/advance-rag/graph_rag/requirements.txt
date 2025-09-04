@@ -1,0 +1,24 @@
+# Core LangChain and Graph RAG
+langchain>=0.3.27
+langchain-core>=0.3.75
+langchain-community>=0.3.29
+langchain-graph-retriever>=0.8.0
+langchain-huggingface>=0.3.1
+langchain-google-genai>=2.1.10
+langgraph>=0.6.6
+
+# Graph RAG specific
+graph_rag_example_helpers>=0.8.0
+
+# Embeddings
+sentence-transformers>=5.1.0
+
+# Document Processing
+pypdf>=3.0.0
+
+# Streamlit Interface
+streamlit>=1.49.1
+pandas>=2.3.2
+
+# Utilities
+python-dotenv>=1.1.1

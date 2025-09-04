@@ -8,30 +8,32 @@ Retrieval Augmented Generation (RAG) is a technique that enhances language model
 RAG integrates a retrieval system with a generative language model. When given a query, it first retrieves relevant information from a knowledge base, then uses this information to generate a more informed and accurate response.
 
 
-
-
 ### Key components of RAG
 
-#### ✓ Knowledge base: 
+#### Knowledge base: 
 The external data source serves as the repository of information that the RAG system can rely on.
 
-#### ✓ Retrieval system: 
+#### Retrieval system: 
 The retrieval system typically consists of two main parts:
 
   * A vector database to efficiently store and search through embeddings
 
   * An embedding model to convert queries and documents into vector representations
 
-#### ✓ Language model: 
+#### Language model: 
 RAG systems use Large Language Models (LLMs) to generate responses based on the retrieved information and the original query.
 
 RAG is essential for building accurate and context-aware GenAI applications. As queries become more complex and information increases, basic RAG may not be enough. Advanced RAG techniques, including agentic RAG, improve the retrieval and generation process, leading to more relevant, accurate, and adaptable responses.
 
-### A. To run each RAG type on Google Colab, use the notebook codes below 👇
+### A. To run advanced Graph RAG 👇
+
+[Graph RAG](graph_rag/)
+
+### B To run other RAG techniques on Google Colab, use the notebook codes below 👇
 
 [Notebooks](notebooks/)
 
-### B. To run each RAG type individually, follow this process 👇
+### C. To run other RAG techniques individually, follow this process 👇
 
 ### 🛠️ Setup Instructions
 
@@ -82,7 +84,7 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
       ```
       * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
 
-   9. Run the different RAG implementations located in ```genai-usecases\advance-rag```
+   9. Run the different RAG implementations located in ```genai-usecases\advance-rag\rag_techniques```
    
       * [basic_rag](./basic_rag.py) 
 
