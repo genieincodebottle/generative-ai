@@ -12,6 +12,7 @@ graph_rag_example_helpers>=0.8.0
 
 # Embeddings
 sentence-transformers>=5.1.0
+hf-xet>= 1.1.9
 
 # Document Processing
 pypdf>=3.0.0

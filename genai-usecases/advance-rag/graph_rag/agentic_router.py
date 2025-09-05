@@ -200,18 +200,32 @@ class AgenticRetrieverRouter:
         try:
             final_state = self.workflow.invoke(initial_state)
             
+            # Handle case where workflow returns dict instead of RouterState object
+            if isinstance(final_state, dict):
+                # Convert dict to RouterState-like object access
+                selected_strategy = final_state.get('selected_strategy')
+                confidence = final_state.get('confidence', 0.5)
+                reasoning = final_state.get('reasoning', 'No reasoning provided')
+                query_analysis = final_state.get('query_analysis', 'No analysis provided')
+            else:
+                # Normal RouterState object
+                selected_strategy = final_state.selected_strategy
+                confidence = final_state.confidence
+                reasoning = final_state.reasoning
+                query_analysis = final_state.query_analysis
+            
             # Select the appropriate retriever
-            if final_state.selected_strategy == RetrievalStrategy.TRAVERSAL:
+            if selected_strategy == RetrievalStrategy.TRAVERSAL:
                 selected_retriever = self.traversal_retriever
             else:
                 selected_retriever = self.standard_retriever
             
             # Prepare routing information
             routing_info = {
-                "strategy": final_state.selected_strategy.value,
-                "confidence": final_state.confidence,
-                "reasoning": final_state.reasoning,
-                "analysis": final_state.query_analysis
+                "strategy": selected_strategy.value if hasattr(selected_strategy, 'value') else str(selected_strategy),
+                "confidence": confidence,
+                "reasoning": reasoning,
+                "analysis": query_analysis
             }
             
             return selected_retriever, routing_info

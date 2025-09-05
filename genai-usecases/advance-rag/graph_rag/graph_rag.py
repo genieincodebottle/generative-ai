@@ -232,13 +232,15 @@ class GraphRAGSystem:
     def format_docs(self, docs: List[Document]) -> str:
         return "\n\n".join(f"Content: {doc.page_content}\nMetadata: {doc.metadata}" for doc in docs)
     
-    def query(self, question: str, retriever_type: RetrieverType = RetrieverType.TRAVERSAL) -> str:
+    def query(self, question: str, retriever_type: RetrieverType = RetrieverType.TRAVERSAL, return_details: bool = False) -> str | Dict[str, Any]:
         print(f"Starting query: {question}")
         
         if not self.vector_store:
             raise ValueError("System not initialized. Please load documents first.")
         
         try:
+            routing_info = None  # Initialize routing_info
+            
             # Select retriever
             if retriever_type == RetrieverType.TRAVERSAL:
                 retriever = self.traversal_retriever
@@ -288,7 +290,34 @@ class GraphRAGSystem:
                 result = str(response)
             
             print("Query completed successfully")
-            return result
+            
+            if return_details:
+                # Return detailed query information
+                query_details = {
+                    "answer": result,
+                    "retrieved_documents": [
+                        {
+                            "content": doc.page_content,
+                            "metadata": doc.metadata,
+                            "source": doc.metadata.get("source", "Unknown"),
+                            "content_preview": doc.page_content[:200] + "..." if len(doc.page_content) > 200 else doc.page_content
+                        } for doc in docs
+                    ],
+                    "retrieval_info": {
+                        "retriever_type": retriever_type.value,
+                        "num_documents": len(docs),
+                        "context_length": len(context)
+                    },
+                    "question": question
+                }
+                
+                # Add routing info if hybrid was used
+                if retriever_type == RetrieverType.HYBRID:
+                    query_details["routing_info"] = routing_info
+                    
+                return query_details
+            else:
+                return result
             
         except Exception as e:
             print(f"Error in query: {e}")
