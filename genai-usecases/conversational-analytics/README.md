@@ -1,15 +1,12 @@
-<img src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/conversational-analytics.png">
+<img src="../../genai-usecases//conversational-analytics/images/conversational-analytics.png">
 
-Welcome to the fullstack **Conversational Analytics** Generative AI application. This simple application lets customers send feedback while our system identifies Key Topics, Overall Sentiment, and Emerging Trends using a Large Language Model (LLM). 
+Welcome to the fullstack Conversational Analytics Generative AI application. This app allows customers to share feedback while the system automatically detects Key Topics, Overall Sentiment, and Emerging Trends using a Large Language Model (LLM).
 
-The application is still in development, but the basic features are ready for you to use, experiment and extend. Currently, it combines analytics for all users, but in the next update, I will separate the analytics for each user and add more important features related to conversational analytics. 
-
-Feel free to use this repo for your experiments and customize it to meet your needs.
-
+Feel free to use this repo for your own experiments and customize it to fit your needs.
 ## 🎥 YouTube
 [![YouTube Video](https://img.youtube.com/vi/fzkM-qkibpM/0.jpg)](https://www.youtube.com/watch?v=fzkM-qkibpM)
 
-## 🚀 Project Details
+## Project Details
 
 This project enables conversational analytics by analyzing customer feedback to uncover important topics, sentiment and emerging-trends. It leverages the power of Google's free Gemini-pro LLM API, providing valuable insights to help you understand your customers better. You can replace gemini-pro LLM API endpoint with any other LLM at main.py file.
 
@@ -24,7 +21,7 @@ This project enables conversational analytics by analyzing customer feedback to 
     Overall Sentiments: Mixed (Positive | Negative)
 
     Emerging Trends: Limited self-service options
-
+---
 
 ### 🔥 Key Features
 
@@ -32,9 +29,9 @@ This project enables conversational analytics by analyzing customer feedback to 
 - Topic detection and categorization
 - Trend identification and tracking
 - Role-based access control (Admin and User roles)
-- More...Work in Progress .........
 
-## 🛠️ Technology | Tool Stack
+---
+### 🛠️ Technology | Tool Stack
 
 - **Frontend**: React
 - **Backend**: Python, FastAPI, uvicorn
@@ -43,7 +40,9 @@ This project enables conversational analytics by analyzing customer feedback to 
 - **Containerization**: Docker (Need to install at your laptop/desktop)
 - **Authentication**: Custom JWT implementation
 - **Postman**: To create Admin user using rest api call with X-Admin-Key (SECRET_KEY). You can use CURL command as well if you have access to CURL at your system
-## 📂 Project Structure
+
+---
+### 📂 Project Structure
 ```
 Conversational-analytics/
 ├── backend/
@@ -87,31 +86,32 @@ Conversational-analytics/
 ├── README.md
 └── secret_key_generation.py
 ```
+---
+### Getting Started
 
-## 🚀 Getting Started
-
-### Prerequisites
+#### Prerequisites
 
 - [Git](https://git-scm.com/downloads)
 - [Docker Desktop](https://docs.docker.com/engine/install/)
 - [Postman (for API testing)](https://www.postman.com/downloads/)
-- [Free Google API Key](https://makersuite.google.com/app/apikey)
+- [Free Google's Gemini API Key](https://makersuite.google.com/app/apikey)
 
-### Installation
+#### Installation
 
 1. Clone the repository and open the folder at your IDE or terminal:
 
     ```bash
     git clone https://github.com/genieincodebottle/generative-ai.git
-    cd generative-ai/genai-usecases/conversational-analytics
+    cd generative-ai\genai-usecases\conversational-analytics
     ```
-2. Set up your Google Gemini-pro API key:
-    - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-    - Create a new API key
-    - Add the key to your `.env` file: 
-    
-        `GOOGLE_API_KEY=<your_api_key_here>`
-    - [![YouTube](https://img.shields.io/badge/YouTube-Video-green)](https://www.youtube.com/watch?v=ZHX7zxvDfoc) - How to setup Google's free Gemini Pro API Key
+2. Configure Environment
+      * Rename .env.example → .env
+      * Update with your keys:
+
+        ```bash
+        GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+        ```
+        * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
 
 3. Generate a secret key to create Admin User in other step:
 
@@ -144,9 +144,9 @@ Conversational-analytics/
     - Send the request to create an admin user
     - Screenshots
     <br>
-    <img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/postman-1.png">
+    <img width="400" src="../../genai-usecases/conversational-analytics/images/postman-1.png">
     <br>
-    <img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/postman-2.png">
+    <img width="400" src="../../genai-usecases/conversational-analytics/images/postman-2.png">
 
     Note: If you want to use curl command instead of postman then run following curl command after changing X-Admin-key value and username & password
     ```bash
@@ -163,45 +163,42 @@ Conversational-analytics/
     - Frontend: `http://localhost:3000/login`
     - Backend API: `http://localhost:8000`
 
-## 👥 User Roles
+---
+### 👥 User Roles
 
 1. **Admin**: Full access to analytics and feedback management
 2. **User**: Can submit feedback through the user interface
 
-## 🔄 Development Workflow
+---
+### 🔄 Development Workflow
 
 1. Make changes to the codebase as per your requirement like adding SECRET_KEY, GOOGLE_API_KEY
 2. Rebuild and restart containers: `docker-compose up --build`
 3. Test your changes
 
-## 📸 Screenshots
+---
+### 📸 Screenshots
 
 1. Login <br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/login.png">
+<img width="400" src="../../genai-usecases/conversational-analytics/images/login.png">
 
 2. Register<br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/register.png">
+<img width="400" src="../../genai-usecases/conversational-analytics/images/register.png">
 
 3. User Home Page<br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/user-home.png">
+<img width="400" src="../../genai-usecases/conversational-analytics/images/user-home.png">
 
 4. Admin Home Page<br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/admin-home.png">
+<img width="400" src="../../genai-usecases/conversational-analytics/images/admin-home.png">
 
 5. User Feedback<br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/user-feedback.png">
+<img width="400" src="../../genai-usecases/conversational-analytics/images/user-feedback.png">
 
 6. Analytics<br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/analytics.png">
+<img width="400" src="../../genai-usecases/conversational-analytics/images/analytics.png">
 
 7. Feedback Details<br>
-<img width="400" src="https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/conversational-analytics/images/feedback-details.png">
-
-## 🛣️ Roadmap
-
-- [ ] Multi-user support with segregated feedback
-- [ ] Enhanced analytics capabilities
-- [ ] Streaming ......
+<img width="400" src="../../genai-usecases/conversational-analytics/images/feedback-details.png">
 
 ---
 

@@ -6,28 +6,7 @@ This app is a unified Streamlit interface that brings together conversational AI
 
 ### 🔗 Dependencies
 
-```bash
-streamlit>=1.43.2 
-groq>=0.22.0
-python-dotenv>=1.1.0
-langchain-groq>=0.3.2
-langchain-huggingface>=0.1.2
-langchain-community>=0.0.27
-langchain>=0.0.27
-python-dotenv>=1.0.0
-pypdf>=4.0.0
-faiss-cpu>=1.7.4
-pillow>=10.2.0
-streamlit-chat>=0.1.1
-sentence-transformers>=2.2.2
-crewai>=0.28.5
-crewai-tools
-google-genai>=1.5.0
-plotly
-ragas>=0.1.0
-datasets>=2.0.0
-pandas>=1.0.0
-```
+
 
 ### ⚙️ Setup Instructions
 
@@ -41,17 +20,42 @@ pandas>=1.0.0
       git clone https://github.com/genieincodebottle/generative-ai.git
       cd genai-usecases\llama-4-multi-function-app
       ```
-   2. Create a virtual environment:
+   2. Open the Project in VS Code or any code editor.
+   3. Create a virtual environment:
       ```bash
       pip install uv #if uv not installed
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
-   3. Install dependencies:
+   4. Create a requirements.txt file and add the following libraries:
+      
+      ```bash
+      streamlit>=1.43.2 
+      groq>=0.22.0
+      python-dotenv>=1.1.0
+      langchain-groq>=0.3.2
+      langchain-huggingface>=0.1.2
+      langchain-community>=0.0.27
+      langchain>=0.0.27
+      python-dotenv>=1.0.0
+      pypdf>=4.0.0
+      faiss-cpu>=1.7.4
+      pillow>=10.2.0
+      streamlit-chat>=0.1.1
+      sentence-transformers>=2.2.2
+      crewai>=0.28.5
+      crewai-tools
+      google-genai>=1.5.0
+      plotly
+      ragas>=0.1.0
+      datasets>=2.0.0
+      pandas>=1.0.0
+      ```
+   5. Install dependencies:
       ```bash
       uv pip install -r requirements.txt
       ```
-   4. Set up environment variables
+   6. Set up environment variables
       * Rename .env.example to .env
       * Update the file with your API keys:
       
@@ -65,6 +69,6 @@ pandas>=1.0.0
       
       For **GOOGLE_API_KEY** follow this -> https://aistudio.google.com/app/apikey
 
-6. Run App
-   
-   `streamlit run app.py`
+   7. Run App
+      
+      `streamlit run app.py`

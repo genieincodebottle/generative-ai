@@ -1,8 +1,8 @@
-### Ollama: Download, Pull Models, and Run Guide
+## Ollama: Simple Guide to Download, Pull Models, and Run
 
-Ollama is a lightweight tool for running various large language models (LLMs) locally on your machine. Here's a comprehensive guide to get you started:
+Ollama is a lightweight tool that lets you run large language models (LLMs) locally on your computer. This guide will help you install Ollama, download models & run them easily.
 
-### Installation
+### 🔹 Installation
 
 #### 🪟 Windows
 1. Download the Windows installer from [ollama.ai](https://ollama.ai)
@@ -19,7 +19,9 @@ curl -fsSL https://ollama.ai/install.sh | sh
 2. Open the downloaded file and follow the installation prompts
 3. Ollama will be installed and started automatically
 
-### Pulling Models
+---
+
+### 🔹 Pulling Models
 
 Once installed, you can pull (download) models using the following command:
 
@@ -42,53 +44,88 @@ For specific model versions, use:
 ollama pull llama3.1:8b
 ollama pull deepseek-r1:8b
 ```
+---
 
-### Running Models
+### 🔹 Running Models
 
-#### Command Line Interface
-Run a model in the terminal:
-```bash
-ollama run llallama3.1:8b
-```
+  #### ▶️ Command Line Interface
+  Run a model in the terminal:
+  ```bash
+  ollama run llallama3.1:8b
+  ```
 
-This will start an interactive chat session. Type your prompt and press Enter.
+  This will start an interactive chat session. Type your prompt and press Enter.
 
-#### API Usage
-Ollama also provides a local API that you can use:
+  #### ▶️ API Usage
+  Ollama also provides a local API that you can use:
 
-```bash
-# Start the Ollama service if not already running
-ollama serve
-```
+  ```bash
+  # Start the Ollama service if not already running
+  ollama serve
+  ```
 
-Then you can query models using curl:
-```bash
-curl -X POST http://localhost:11434/api/generate -d '{
-  "model": "llama3.1:8b",
-  "prompt": "Explain quantum computing in simple terms"
-}'
-```
+  Then you can query models using curl:
+  ```bash
+  curl -X POST http://localhost:11434/api/generate -d '{
+    "model": "llama3.1:8b",
+    "prompt": "Explain quantum computing in simple terms"
+  }'
+  ```
 
-#### Custom Parameters
-You can customize model parameters:
+  #### ▶️ Custom Parameters
+  You can customize model parameters:
 
-```bash
-ollama run llama3.1:8b --temperature 0.7 --top_p 0.9
-```
+  ```bash
+  ollama run llama3.1:8b --temperature 0.7 --top_p 0.9
+  ```
+---
 
-### Managing Models
+### 🔹 Managing Models
 
-List downloaded models:
-```bash
-ollama list
-```
+  List downloaded models:
+  ```bash
+  ollama list
+  ```
 
-Remove a model:
-```bash
-ollama rm <modelname>
-```
+  Remove a model:
+  ```bash
+  ollama rm <modelname>
+  ```
+---
 
-### Resources for Learning More
+### 🔹 Example: Run Ollama App
+
+   1. Clone the repository:
+
+      ```bash
+      git clone https://github.com/genieincodebottle/generative-ai.git
+      cd genai-usecases\llm-providers\local_llms\ollama
+      ```
+   2. Open the Project in VS Code or any code editor.
+   3. Create a virtual environment by running the following command in the terminal:
+   
+      ```bash
+      pip install uv #if uv not installed
+      uv venv
+      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+      ```
+   4. Create a requirements.txt file and add the following libraries:
+      
+      ```bash
+        langchain-ollama
+      ```
+   5. Install dependencies:
+      
+      ```bash
+      uv pip install -r requirements.txt
+      ```
+   6. Run the ollama based local LLM app
+   
+       ```bash
+      python ollama_example.py
+      ```
+---
+### 🔹 Learn More
 
 * Official documentation: [Ollama Documentation](https://github.com/ollama/ollama/blob/main/README.md)
 * Check GitHub for the latest updates: [Ollama GitHub](https://github.com/ollama/ollama)

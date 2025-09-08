@@ -1,22 +1,32 @@
-## 🧠 LLM Providers
+## 🧠  Run & Experiment with LLMs  
 
-Explore how to use different LLM APIs and local LLMs.
+Explore and run different LLM APIs (OpenAI, Google, Anthropic, Groq) as well as local LLMs (Ollama, HuggingFace).
 
-### A. Run on Google Colab
+---
 
-Use the following notebooks to run LLM provider APIs on Google Colab:
+## Options to Run
+
+### A. Run each LLM API on Google Colab
+
+Easily try out LLM providers using given Colab notebooks:
 
 👉 [Colab Notebooks](notebooks/)
 
+---
+
 ### B. Run Local LLMs
 
-To run local LLMs using Ollama or HuggingFace, follow the steps in:
+Set up and run models locally with **Ollama** and **HuggingFace**:
 
-👉 [Local LLM Guide](./local_llms/)
+👉 [Ollama](./local_llms/ollama/)
 
-### C. Run Individual LLM APIs
+👉 [HuggingFace](./local_llms/huggingface/)
 
-Use the guide below to set up and run each LLM provider API individually.
+---
+
+### C. Run each LLM API with UI
+
+You can run each LLM provider independently using dedicated Streamlit UI scripts available in the `python_scripts` folder.
 
 ### 🛠️ Setup Instructions
 
@@ -29,7 +39,17 @@ Use the guide below to set up and run each LLM provider API individually.
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases\llm-providers
+      cd genai-usecases\llm-providers\python_scripts
+      ```   
+   2. Open the Project in VS Code or any code editor. 
+   3. Create a virtual environment by running the following command in the terminal:
+   
+      ```bash
+      pip install uv #if uv not installed
+      uv venv
+      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+      ```
+   4. Create a requirements.txt file and add the following libraries:
       
       ```bash
         streamlit>=1.47.1
@@ -63,21 +83,23 @@ Use the guide below to set up and run each LLM provider API individually.
         * 🔑 [GOOGLE_API_KEY](https://aistudio.google.com/apikey)
 
 
-   9. Run the different RAG implementations located in ```genai-usecases\advance-rag```
+   7. Run the different LLM API located in ```genai-usecases\llm-providers\python_scripts```
    
-      * [Claude](./claude.py) 
-
-        `streamlit run claude.py`
-    
-      * [gemini](./gemini.py)
+      * [gemini (free-tier)](./python_scripts/gemini.py)
       
         `streamlit run gemini.py`
 
-      * [openai](./openai.py)
+      * [groq (free-tier)](./python_scripts/groq_api.py)
+      
+        `streamlit run groq.py`
+
+      * [Claude (paid)](./python_scripts/claude.py) 
+
+        `streamlit run claude.py`
+    
+      * [openai (paid)](./python_scripts/openai.py)
       
         `streamlit run openai.py`
 
-      * [groq](./groq_api.py)
-      
-        `streamlit run groq.py`
+
 
