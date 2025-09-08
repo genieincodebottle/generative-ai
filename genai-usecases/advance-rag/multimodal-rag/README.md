@@ -4,7 +4,6 @@ A Streamlit app that unifies text and images in a Multimodal RAG system with Goo
 
 ![Multimodal RAG System](https://img.shields.io/badge/Multimodal-RAG-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Framework-red) ![Google-Gemini](https://img.shields.io/badge/Google-Gemini-green)
 
----
 ## 🌟 Key Features
 
 - **📄 Document Processing**: PDF text extraction and analysis
@@ -12,7 +11,6 @@ A Streamlit app that unifies text and images in a Multimodal RAG system with Goo
 - **🧠 Multi-Vector Retrieval**: Separate processing for text, tables, and images
 - **⚡ Auto-Persist**: Vector database automatically saves progress
 
----
 ## 🛠️ Installation
 
 ### Prerequisites
@@ -69,7 +67,6 @@ A Streamlit app that unifies text and images in a Multimodal RAG system with Goo
          ```
       * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
 
----
 ## Running the Application
 
 ### Start the Streamlit app:
@@ -79,7 +76,6 @@ streamlit run streamlit_app.py
 
 The application will open in your browser at `http://localhost:8501`
 
----
 ## 📋 Usage Guide
 
 ### 1. **Configure Models & Parameters**
@@ -118,7 +114,6 @@ The application will open in your browser at `http://localhost:8501`
    - View current model configuration
    - See query statistics
 
----
 ## 📁 Supported File Types
 
 ### Documents:
@@ -138,7 +133,6 @@ The application will open in your browser at `http://localhost:8501`
 3. **Technical Documentation**: Analyze manuals with diagrams and specifications
 4. **Business Intelligence**: Combine reports, presentations, and data visualizations
 
----
 ## 🔧 Advanced Features
 
 ### Multi-Vector Retrieval
@@ -157,7 +151,6 @@ The application will open in your browser at `http://localhost:8501`
 - Overlap optimization for continuity
 - Metadata preservation
 
----
 ## 🐛 Troubleshooting
 
 ### Common Issues:
@@ -182,7 +175,6 @@ The application will open in your browser at `http://localhost:8501`
    - Check file size (reasonable limits recommended)
    - Verify files are not corrupted
 
----
 ## 📊 Performance Tips
 
 1. **Model Selection**: Use `gemini-2.5-flash` for best speed/quality balance
@@ -193,7 +185,6 @@ The application will open in your browser at `http://localhost:8501`
 6. **Query Specificity**: More specific questions yield better results
 7. **Mixed Content**: Combine text documents with relevant images for richer context
 
----
 ## 🔐 Security Notes
 
 - Never commit your .env file to version control
