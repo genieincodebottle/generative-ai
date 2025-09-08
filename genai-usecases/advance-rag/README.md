@@ -1,39 +1,45 @@
 ## 📚 Advance RAG
 
-![alt text](images/rag.png)
-**Source:** LangChain
+![alt text](images/rag.gif)
 
-Retrieval Augmented Generation (RAG) is a technique that enhances language models by combining them with external knowledge retrieval.
+---
+**Retrieval-Augmented Generation (RAG)** enhances Large Language Models (LLMs) by combining them with an external knowledge retrieval system.
 
-RAG integrates a retrieval system with a generative language model. When given a query, it first retrieves relevant information from a knowledge base, then uses this information to generate a more informed and accurate response.
+When you send a query:
 
+1. The retrieval system fetches the most relevant data from a knowledge base.
 
-### Key components of RAG
+2. The LLM uses both the query and the retrieved data to generate a more accurate, context-aware response.
 
-#### Knowledge base: 
-The external data source serves as the repository of information that the RAG system can rely on.
+This makes RAG essential for building reliable GenAI applications. As queries and data grow in complexity, advanced RAG techniques, like agentic RAG, Graph RAG, Corrective RAG, Reranking RAG etc further improve accuracy, adaptability & relevance.
 
-#### Retrieval system: 
-The retrieval system typically consists of two main parts:
+---
+## 🔑 Core Components of RAG
 
-  * A vector database to efficiently store and search through embeddings
+   - **Knowledge Base**: External data source (e.g. documents, databases) that the system relies on.
 
-  * An embedding model to convert queries and documents into vector representations
+   - **Retrieval System**:
 
-#### Language model: 
-RAG systems use Large Language Models (LLMs) to generate responses based on the retrieved information and the original query.
+      - **Vector Database** for storing and searching embeddings.
 
-RAG is essential for building accurate and context-aware GenAI applications. As queries become more complex and information increases, basic RAG may not be enough. Advanced RAG techniques, including agentic RAG, improve the retrieval and generation process, leading to more relevant, accurate, and adaptable responses.
+      - **Embedding Model** to convert queries and documents into vector representations.
 
-### A. To run advanced Graph RAG 👇
+   - **Language Model (LLM)**: Generates responses using both retrieved data and the query.
 
-[Graph RAG](graph_rag/)
+---
+## 🧪 Exploring Advanced RAG
 
-### B To run other RAG techniques on Google Colab, use the notebook codes below 👇
+### A. Run Graph RAG
 
-[Notebooks](notebooks/)
+👉 [Graph RAG](graph_rag/)
 
-### C. To run other RAG techniques individually, follow this process 👇
+---
+### B. Try Advanced RAG Techniques in Google Colab
+
+👉 [Notebooks](notebooks/)
+
+---
+### C. Try Advanced RAG Techniques in Streamlit UI
 
 ### 🛠️ Setup Instructions
 
@@ -46,7 +52,7 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases\advance-rag
+      cd genai-usecases\advance-rag\rag_techniques
       ```
    2. Open the Project in VS Code or any code editor.
    3. Create a virtual environment by running the following command in the terminal:
@@ -56,7 +62,7 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
-   4. Create a requirements.txt file and add the following libraries:
+   4. Create a `requirements.txt` file and add the following libraries:
       
       ```bash
         streamlit>=1.47.1 
@@ -79,33 +85,34 @@ RAG is essential for building accurate and context-aware GenAI applications. As 
       * Rename .env.example → .env
       * Update with your keys:
 
-      ```bash
-      GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
-      ```
+         ```bash
+         GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+         ```
       * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
 
-   9. Run the different RAG implementations located in ```genai-usecases\advance-rag\rag_techniques```
+   9. Run RAG implementations in ```genai-usecases\advance-rag\rag_techniques```
    
-      * [basic_rag](./basic_rag.py) 
+      * [basic_rag](./rag_techniques/basic_rag.py) 
 
         `streamlit run basic_rag.py`
     
-      * [adaptive_rag](./adaptive_rag.py)
+      * [adaptive_rag](./rag_techniques/adaptive_rag.py)
       
         `streamlit run adaptive_rag.py`
 
-      * [corrective_rag](./corrective_rag.py)
+      * [corrective_rag](./rag_techniques/corrective_rag.py)
       
         `streamlit run corrective_rag.py`
 
-      * [re_ranking_rag](./re_ranking_rag.py)
+      * [re_ranking_rag](./rag_techniques/re_ranking_rag.py)
       
         `streamlit run re_ranking_rag.py`
 
-      * [hybrid_search_rag](./hybrid_search_rag.py)
+      * [hybrid_search_rag](./rag_techniques/hybrid_search_rag.py)
       
         `streamlit run hybrid_search_rag.py`
 
-### C. RAG with MCP Server as Web Search for Agentic RAG on AWS Cloud 👇
+---
+### D. RAG with MCP Server (Agentic RAG on AWS)
 
-[RAG Application build & deployed on AWS with MCP Server integration](https://github.com/genieincodebottle/rag-app-on-aws)
+[RAG Application with AWS & MCP Server Integration](https://github.com/genieincodebottle/rag-app-on-aws)
