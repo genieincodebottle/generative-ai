@@ -31,16 +31,20 @@ This makes RAG essential for building reliable GenAI applications. As queries an
 
 ### A. Try Graph RAG
 
-👉 [Graph RAG](graph_rag/)
+👉 [Graph RAG](graph-rag/)
 
 ---
+### B. Try Multimodal RAG
 
-### B. Try Agentic RAG
+👉 [Multimodal RAG](multimodal-rag/)
+
+---
+### C. Try Agentic RAG
 
 👉 [Agentic RAG](agentic-rag/)
 
 ---
-### C. Try Advanced RAG Techniques in Google Colab
+### D. Try Advanced RAG Techniques in Google Colab
 
 👉 [Notebooks](notebooks/)
 
@@ -55,7 +59,7 @@ This makes RAG essential for building reliable GenAI applications. As queries an
    - [Self Adaptive RAG](notebooks/self-adaptive-rag.ipynb)
 
 ---
-### D. Try Advanced RAG Techniques in Streamlit UI
+### E. Try Advanced RAG Techniques in Streamlit UI
 
 ### 🛠️ Setup Instructions
 
@@ -129,6 +133,6 @@ This makes RAG essential for building reliable GenAI applications. As queries an
         `streamlit run hybrid_search_rag.py`
 
 ---
-### E. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)
+### F. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)
 
 [RAG Application with AWS & MCP Server Integration](https://github.com/genieincodebottle/rag-app-on-aws)
