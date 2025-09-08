@@ -27,6 +27,13 @@ This makes RAG essential for building reliable GenAI applications. As queries an
    - **Language Model (LLM)**: Generates responses using both retrieved data and the query.
 
 ---
+## 🧭 RAG Decision Flow
+
+- [View Pdf](./docs/advance-rag-decision-flow-chart.pdf)
+
+A quick reference guide to choose the right RAG technique for your use case.
+
+---
 ## 🧪 Exploring Advanced RAG
 
 ### A. Try Graph RAG
