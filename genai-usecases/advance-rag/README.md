@@ -29,17 +29,33 @@ This makes RAG essential for building reliable GenAI applications. As queries an
 ---
 ## 🧪 Exploring Advanced RAG
 
-### A. Run Graph RAG
+### A. Try Graph RAG
 
 👉 [Graph RAG](graph_rag/)
 
 ---
-### B. Try Advanced RAG Techniques in Google Colab
+
+### B. Try Agentic RAG
+
+👉 [Agentic RAG](agentic-rag/)
+
+---
+### C. Try Advanced RAG Techniques in Google Colab
 
 👉 [Notebooks](notebooks/)
 
+   - [Basic RAG](notebooks/basic-rag.ipynb)
+   - [Corrective RAG](notebooks/corrective-rag.ipynb)
+   - [Re-ranking RAG](notebooks/re_ranking_rag.ipynb)
+   - [Hybrid Search RAG](notebooks/hybrid-search-rag.ipynb)
+   - [Hypothetical Doucment Embedding RAG](notebooks/hypothetical-document-embedding-rag.ipynb)
+   - [Multi-index RAG](notebooks/multi-index-rag.ipynb)
+   - [Query Expansion RAG](notebooks/query-expansion-rag.ipynb)
+   - [Adaptive RAG](notebooks/adaptive-rag.ipynb)
+   - [Self Adaptive RAG](notebooks/self-adaptive-rag.ipynb)
+
 ---
-### C. Try Advanced RAG Techniques in Streamlit UI
+### D. Try Advanced RAG Techniques in Streamlit UI
 
 ### 🛠️ Setup Instructions
 
@@ -113,6 +129,6 @@ This makes RAG essential for building reliable GenAI applications. As queries an
         `streamlit run hybrid_search_rag.py`
 
 ---
-### D. RAG with MCP Server (Agentic RAG on AWS)
+### E. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)
 
 [RAG Application with AWS & MCP Server Integration](https://github.com/genieincodebottle/rag-app-on-aws)
