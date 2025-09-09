@@ -1,5 +1,15 @@
 # Agentic RAG System
 
+
+![Agentic RAG](https://img.shields.io/badge/Agentic-RAG-blue)
+[![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/downloads/)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI_Framework-ff4b4b)
+![Gemini LLM](https://img.shields.io/badge/Gemini-LLM_&_Embedding_Model-00bfa5)
+[![LangChain](https://img.shields.io/badge/LangChain-AI_Framework-0e76a8.svg)](https://langchain.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agent_Framework-f39c12.svg)](https://langchain.com/langgraph)
+![ChromaDB](https://img.shields.io/badge/Chroma-Vector_DB-9b59b6)
+
+
 ![Agentic RAG](./images/agentic-rag.png)
 
 An **Agentic Retrieval-Augmented Generation (RAG)** system built with LangChain, LangGraph, and Google's Gemini LLM. This system implements advanced multi-agent workflows for intelligent question answering with adaptive reasoning strategies.
@@ -22,6 +32,7 @@ An **Agentic Retrieval-Augmented Generation (RAG)** system built with LangChain,
 - **Interactive Web Interface**: Professional tabbed interface with real-time updates
 
 ### 🔧 Tech Stack
+
 - **LangGraph**: State-of-the-art agent workflow orchestration
 - **Gemini LLM API**: Google's AI models (2.0-flash, 2.0-pro, 2.5-pro, 2.5-flash)
 - **Tavily Search**: Advanced web search integration

@@ -2,7 +2,15 @@
 
 A Streamlit app that unifies text and images in a Multimodal RAG system with Google’s Gemini models
 
-![Multimodal RAG System](https://img.shields.io/badge/Multimodal-RAG-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Framework-red) ![Google-Gemini](https://img.shields.io/badge/Google-Gemini-green)
+![Multimodal RAG](https://img.shields.io/badge/Multimodal-RAG-blue)
+[![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/downloads/)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI_Framework-ff4b4b)
+![Gemini LLM](https://img.shields.io/badge/Gemini-LLM_&_Embedding_Model-00bfa5)
+[![LangChain](https://img.shields.io/badge/LangChain-AI_Framework-0e76a8.svg)](https://langchain.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agent_Framework-f39c12.svg)](https://langchain.com/langgraph)
+![ChromaDB](https://img.shields.io/badge/Chroma-Vector_DB-9b59b6)
+
+![Multimodal RAG](./images/multimodal-rag.png)
 
 ## 🌟 Key Features
 

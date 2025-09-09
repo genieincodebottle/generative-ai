@@ -1,9 +1,14 @@
 # Graph RAG System with Agentic Router
 
-An advanced Retrieval-Augmented Generation (RAG) system that combines graph based document retrieval with intelligent routing using LangGraph.
+![Graph RAG](https://img.shields.io/badge/Graph-RAG-blue)
+[![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/downloads/)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI_Framework-ff4b4b)
+![Gemini LLM](https://img.shields.io/badge/Gemini-LLM_&_Embedding_Model-00bfa5)
+[![LangChain](https://img.shields.io/badge/LangChain-AI_Framework-0e76a8.svg)](https://langchain.com/)
 
 <img src="./images/architecture.png">
 
+An advanced Retrieval-Augmented Generation (RAG) system that combines graph based document retrieval with intelligent routing using LangGraph.
 
 ## ✨ Features
 
