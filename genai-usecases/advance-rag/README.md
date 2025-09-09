@@ -140,6 +140,11 @@ A quick reference guide to choose the right RAG technique for your use case.
         `streamlit run hybrid_search_rag.py`
 
 ---
-### F. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)
+### F. Local LLM Powered Multi-Function App (RAG Included)
+
+[Local LLM RAG App Powered by Llama](../llama-4-multi-function-app/)
+
+---
+### G. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)
 
 [RAG Application with AWS & MCP Server Integration](https://github.com/genieincodebottle/rag-app-on-aws)

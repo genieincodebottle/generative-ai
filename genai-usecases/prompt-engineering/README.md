@@ -24,39 +24,41 @@
 
 ### 📌 Important Prompt Techniques
 
-  1. **[Chain of Thought (CoT)](./chain_of_thought_CoT.ipynb)** - A strategy to enhance reasoning by articulating intermediate steps.
+  1. **[basic Prompt Engineering](./basic_prompt_engineering.ipynb)** - Basic Prompt Engineering
+  
+  2. **[Chain of Thought (CoT)](./chain_of_thought_CoT.ipynb)** - A strategy to enhance reasoning by articulating intermediate steps.
 
-  2. **[Zero-Shot Chain of Thought (Zero-Shot-CoT)](./zero_shot_chain_of_thought.ipynb)** - Applying CoT without prior examples or training on similar tasks.
+  3. **[Zero-Shot Chain of Thought (Zero-Shot-CoT)](./zero_shot_chain_of_thought.ipynb)** - Applying CoT without prior examples or training on similar tasks.
 
-  3. **[Few-Shot Chain of Thought  (Few-Shot-CoT)](./few_shot_chain_of_thought.ipynb)** - Using a few examples to guide the reasoning process.
+  4. **[Few-Shot Chain of Thought  (Few-Shot-CoT)](./few_shot_chain_of_thought.ipynb)** - Using a few examples to guide the reasoning process.
 
-  4. **[ReAct (Reasoning and Acting)](./reasoning_and_acting_ReAct.ipynb)** - Combining reasoning with action to improve responses.
+  5. **[Prompt Chaining](./prompt_chaining.ipynb)** - Connecting multiple prompts to create a coherent narrative.
 
-  5. **[Tree of Thoughts (ToT)](./tree_of_thoughts_ToT.ipynb)** - Organizing thoughts hierarchically for better decision-making.
+  6. **[ReAct (Reasoning and Acting)](./reasoning_and_acting_ReAct.ipynb)** - Combining reasoning with action to improve responses.
 
-  6. **[Self-Consistency](./self_consistency.ipynb)** - Ensuring responses are stable and consistent across queries.
+  7. **[Tree of Thoughts (ToT)](./tree_of_thoughts_ToT.ipynb)** - Organizing thoughts hierarchically for better decision-making.
 
-  7. **[Hypothetical Document Embeddings (HyDE)](./hypothetical_document_embeddings_HyDE.ipynb)** - Leveraging embeddings to represent potential documents for reasoning.
+  8. **[Self-Consistency](./self_consistency.ipynb)** - Ensuring responses are stable and consistent across queries.
 
-  8. **[Least-to-Most Prompting](./least_to_most_prompting.ipynb)** - Starting with simpler prompts and gradually increasing complexity.
+  9. **[Hypothetical Document Embeddings (HyDE)](./hypothetical_document_embeddings_HyDE.ipynb)** - Leveraging embeddings to represent potential documents for reasoning.
 
-  9. **[Prompt Chaining](./prompt_chaining.ipynb)** - Connecting multiple prompts to create a coherent narrative.
+  10. **[Least-to-Most Prompting](./least_to_most_prompting.ipynb)** - Starting with simpler prompts and gradually increasing complexity.
+  
+  11. **[Graph Prompting](./graph_prompting.ipynb)** - Using graph structures to represent complex relationships.
 
-  10. **[Graph Prompting](./graph_prompting.ipynb)** - Using graph structures to represent complex relationships.
+  12. **[Recursive Prompting](./recursive_prompting.ipynb)** - Iteratively refining prompts to enhance results.
 
-  11. **[Recursive Prompting](./recursive_prompting.ipynb)** - Iteratively refining prompts to enhance results.
+  13. **Generated Knowledge** - Utilizing generated content as a basis for further reasoning.
 
-  12. **Generated Knowledge** - Utilizing generated content as a basis for further reasoning.
+  14. **[Automatic Reasoning and Tool-Use (ART)](./automatic_reasoning_and_tool_use.ipynb)** - Automating reasoning processes and tool interactions.
 
-  13. **[Automatic Reasoning and Tool-Use (ART)](./automatic_reasoning_and_tool_use.ipynb)** - Automating reasoning processes and tool interactions.
+  15. **[Automatic Prompt Engineer (APE)](./automatic_prompt_engineer_APE.ipynb)** - Tools to automatically generate and refine prompts.
 
-  14. **[Automatic Prompt Engineer (APE)](./automatic_prompt_engineer_APE.ipynb)** - Tools to automatically generate and refine prompts.
-
-  15. **Reflexion**: Reflecting on past responses to improve future prompts.
+  16. **Reflexion**: Reflecting on past responses to improve future prompts.
     
-  16. **Prompt Ensembling**: Combining multiple prompts for enhanced results.
+  17. **Prompt Ensembling**: Combining multiple prompts for enhanced results.
     
-  17. **Directional Stimulus Prompting**: Guiding responses with targeted prompts.
+  18. **Directional Stimulus Prompting**: Guiding responses with targeted prompts.
 
 ---
 
