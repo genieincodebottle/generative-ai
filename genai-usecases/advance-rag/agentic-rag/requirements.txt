@@ -1,10 +1,29 @@
-langchain>=0.3.0
+# LangGraph for agent workflows
+langgraph>=0.6.7
+
+# Core LangChain packages
+langchain-core>=0.3.75
 langchain-google-genai>=2.1.10
-langchain-community>=0.3.0
-langgraph>=0.2.45
-langchain-chroma>=0.1.4
-chromadb>=0.5.20
-tavily-python>=0.5.0
-beautifulsoup4>=4.12.3
-pypdf>=4.3.1
-python-dotenv>=1.0.1
+langchain-community>=0.3.29
+langchain-text-splitters>=0.3.11
+langchain-chroma>=0.2.5
+
+# Vector store and embeddings
+chromadb>=1.0.20
+
+# Web search capabilities
+tavily-python>=0.7.11
+
+# Document processing
+pypdf>=6.0.0
+
+# Streamlit app dependencies
+streamlit>=1.49.1
+plotly>=6.3.0
+pandas>=2.3.2
+
+# Structured outputs
+pydantic>=2.11.7
+
+# Environment and utilities
+python-dotenv>=1.1.1

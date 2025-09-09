@@ -41,14 +41,14 @@ A quick reference guide to choose the right RAG technique for your use case.
 👉 [Graph RAG](graph-rag/)
 
 ---
-### B. Try Multimodal RAG
-
-👉 [Multimodal RAG](multimodal-rag/)
-
----
-### C. Try Agentic RAG
+### B. Try Agentic RAG
 
 👉 [Agentic RAG](agentic-rag/)
+
+---
+### C. Try Multimodal RAG
+
+👉 [Multimodal RAG](multimodal-rag/)
 
 ---
 ### D. Try Advanced RAG Techniques in Google Colab

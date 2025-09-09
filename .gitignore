@@ -50,4 +50,6 @@ dist/**
 package.nls.*.json
 l10n/
 python-env-tools/**
-**/chroma_db/**
+**/chroma_db**
+**/temp_uploads**
+**.claude
