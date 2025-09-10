@@ -3,7 +3,7 @@
 ![alt text](images/rag.gif)
 
 ---
-**Retrieval-Augmented Generation (RAG)** enhances Large Language Models (LLMs) by combining them with an external knowledge retrieval system.
+<strong>**Retrieval-Augmented Generation (RAG)**</strong> enhances Large Language Models (LLMs) by combining them with an external knowledge retrieval system.
 
 When you send a query:
 
@@ -16,15 +16,15 @@ This makes RAG essential for building reliable GenAI applications. As queries an
 ---
 ## 🔑 Core Components of RAG
 
-   - **Knowledge Base**: External data source (e.g. documents, databases) that the system relies on.
+   - <strong>**Knowledge Base**</strong>: External data source (e.g. documents, databases) that the system relies on.
 
-   - **Retrieval System**:
+   - <strong>**Retrieval System**</strong>:
 
-      - **Vector Database** for storing and searching embeddings.
+      - <strong>**Vector Database**</strong> for storing and searching embeddings.
 
-      - **Embedding Model** to convert queries and documents into vector representations.
+      - <strong>**Embedding Model**</strong> to convert queries and documents into vector representations.
 
-   - **Language Model (LLM)**: Generates responses using both retrieved data and the query.
+   - <strong>**Language Model (LLM)**</strong>: Generates responses using both retrieved data and the query.
 
 ---
 ## 🧭 RAG Decision Flow
@@ -36,22 +36,22 @@ A quick reference guide to choose the right RAG technique for your use case.
 ---
 ## 🧪 Exploring Advanced RAG
 
-### A. Try Graph RAG
+<strong>A. Try Graph RAG</strong>
 
 👉 [Graph RAG](graph-rag/)
 
 ---
-### B. Try Agentic RAG
+<strong>B. Try Agentic RAG</strong>
 
 👉 [Agentic RAG](agentic-rag/)
 
 ---
-### C. Try Multimodal RAG
+<strong>C. Try Multimodal RAG</strong>
 
 👉 [Multimodal RAG](multimodal-rag/)
 
 ---
-### D. Try Advanced RAG Techniques in Google Colab
+<strong>D. Try Advanced RAG Techniques in Google Colab</strong>
 
 👉 [Notebooks](notebooks/)
 
@@ -66,15 +66,15 @@ A quick reference guide to choose the right RAG technique for your use case.
    - [Self Adaptive RAG](notebooks/self-adaptive-rag.ipynb)
 
 ---
-### E. Try Advanced RAG Techniques in Streamlit UI
+<strong>E. Try Advanced RAG Techniques in Streamlit UI</strong>
 
-### 🛠️ Setup Instructions
+<strong>🛠️ Setup Instructions</strong>
 
-#### ✅ Prerequisites
+<strong>✅ Prerequisites</strong>
    - Python 3.10 or higher
    - pip (Python package installer)
 
-#### 📦 Installation & Running App
+<strong>📦 Installation & Running App</strong>
    1. Clone the repository:
 
       ```bash
@@ -140,11 +140,11 @@ A quick reference guide to choose the right RAG technique for your use case.
         `streamlit run hybrid_search_rag.py`
 
 ---
-### F. Local LLM Powered Multi-Function App (RAG Included)
+<strong>F. Local LLM Powered Multi-Function App (RAG Included)</strong>
 
 [Local LLM RAG App Powered by Llama](../llama-4-multi-function-app/)
 
 ---
-### G. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)
+<strong>G. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)</strong>
 
 [RAG Application with AWS & MCP Server Integration](https://github.com/genieincodebottle/rag-app-on-aws)

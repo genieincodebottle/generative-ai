@@ -5,78 +5,68 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-UI_Framework-ff4b4b)
 ![Gemini LLM](https://img.shields.io/badge/Gemini-LLM_&_Embedding_Model-00bfa5)
 [![LangChain](https://img.shields.io/badge/LangChain-AI_Framework-0e76a8.svg)](https://langchain.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agent_Framework-f39c12.svg)](https://langchain.com/langgraph)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-Embeddings-orange)
 
-<img src="./images/architecture.png">
+![Graph RAG Architecture](./images/architecture.png)
 
-An advanced Retrieval-Augmented Generation (RAG) system that combines graph based document retrieval with intelligent routing using LangGraph.
+An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system leverages graph relationships between documents to provide enhanced context retrieval through intelligent routing strategies.
 
 ## ✨ Features
 
-### Core Capabilities
-- **Graph-based Retrieval**: Leverages document relationships for enhanced context retrieval
-- **Agentic Router**: AI-powered decision system that chooses optimal retrieval strategy
-- **Multiple Retrievers**: 
-  - **Traversal Retriever**: Explores graph relationships (depth-based traversal)
-  - **Standard Retriever**: Direct vector similarity search
-  - **Hybrid Router**: Intelligent selection based on query analysis
+- 🧠 **Graph-Based Intelligence**
+   - **Graph Retrieval**: Leverages document relationships for enhanced contextual understanding
+   - **Smart Edge Detection**: Automatically identifies relationships based on metadata and content patterns
+   - **Traversal Strategies**: Explores connected documents through graph relationships with configurable depth
+   - **Relationship Mapping**: Builds connections between documents for improved retrieval accuracy
 
-### Document Support
-- **PDF Files**: Extract text from PDF documents
-- **Text Files**: Plain text file processing
-- **CSV Files**: Structured data import
-- **Word Documents**: DOC/DOCX support
-- **Direct Text Input**: Paste text directly into interface
+- 🤖 **Agentic Router System**
+   - **LangGraph Workflow**: Advanced AI-powered decision system using LangGraph state management
+   - **Query Analysis**: Intelligent analysis of query characteristics and requirements
+   - **Strategy Selection**: Automatic selection between traversal and standard retrieval approaches
+   - **Confidence Scoring**: Provides transparency in routing decisions with confidence metrics
 
-### Streamlit Interface
-- **Interactive Web UI**: User-friendly document upload and querying
-- **Real-time Configuration**: Adjust model parameters on-the-fly
-- **Retriever Comparison**: Side-by-side comparison of different retrieval strategies
-- **Chat Interface**: Conversational interaction with documents
-- **Analytics Dashboard**: Usage statistics and system metrics
+- 🔧 **Multiple Retrieval Strategies**
+   - **Traversal Retriever**: Explores graph relationships using configurable depth-based traversal
+   - **Standard Retriever**: Direct vector similarity search for straightforward queries
+   - **Hybrid Routing**: Intelligent selection based on query complexity analysis
 
-## 📋 Installation
+- 📄 **Multi-Format Document Support**
+   - **PDF Files**: Full text extraction and processing
+   - **TXT Files**: Plain text document processing
+   - **CSV Files**: Structured data import and processing
+   - **Default Dataset**: Built-in animal dataset for testing and demonstration
 
-   1. Clone the repository:
+### 🔧 Tech Stack
+
+- **Python**: Programming Language
+- **LangGraph**: State-of-the-art agent workflow orchestration  
+- **LangChain**: Core AI framework for document processing and retrieval
+- **Graph Retriever**: Advanced graph-based document retrieval system
+- **Gemini LLM API (Free tier)**: Google's AI models for intelligent routing and generation
+- **HuggingFace Embeddings**: sentence-transformers/all-mpnet-base-v2 for document embeddings
+- **Streamlit**: Interactive web interface for system interaction
+
+## ⚡ Quick Start
+
+### 📋 Installation & Running App
+
+   1. Prerequisites
+      - Python 3.10 or higher
+      - pip (Python package installer)
+   2. Clone the repository:
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
       cd genai-usecases\advance-rag\graph-rag
       ```
-   2. Open the Project in VS Code or any code editor.
-   3. Create a virtual environment by running the following command in the terminal:
+   3. Open the Project in VS Code or any code editor.
+   4. Create a virtual environment by running the following command in the terminal:
    
       ```bash
       pip install uv #if uv not installed
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
-      ```
-   4. Create a requirements.txt file and add the following libraries:
-      
-      ```bash
-       # Core LangChain and Graph RAG
-        langchain>=0.3.27
-        langchain-core>=0.3.75
-        langchain-community>=0.3.29
-        langchain-graph-retriever>=0.8.0
-        langchain-huggingface>=0.3.1
-        langchain-google-genai>=2.1.10
-        langgraph>=0.6.6
-
-        # Graph RAG specific
-        graph_rag_example_helpers>=0.8.0
-
-        # Embeddings
-        sentence-transformers>=5.1.0
-
-        # Document Processing
-        pypdf>=3.0.0
-
-        # Streamlit Interface
-        streamlit>=1.49.1
-        pandas>=2.3.2
-
-        # Utilities
-        python-dotenv>=1.1.1
       ```
    5. Install dependencies:
       
@@ -87,64 +77,131 @@ An advanced Retrieval-Augmented Generation (RAG) system that combines graph base
       * Rename .env.example → .env
       * Update with your keys:
 
-      ```bash
-      GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
-      ```
+        ```bash
+        GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+        ```
       * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
 
-## 🎯 Usage
+   7. Running the Application. Start the Streamlit app:
 
-### Streamlit Web Interface
+      ```bash
+      streamlit run streamlit_app.py
+      ```
 
-**Start the Application**
-```bash
-streamlit run streamlit_app.py
-```
+      The application will open in your browser at `http://localhost:8501`
 
-Then open your browser to `http://localhost:8501`
+## 📋 Usage Guide
 
-<img src="./images/app.png">
-<img src="./images/app_2.png">
+1. **Initialize the System**
+   - **Option 1 - Default Data**: Click "Load Default Animal Dataset" to get started quickly
+   - **Option 2 - Upload Files**: Upload your own PDF, TXT, or CSV documents
+   - **Option 3 - Text Input**: Paste text directly into the system
+   
+2. **Choose Your Retrieval Strategy**
+   - **🌐 Traversal Retriever**: Best for queries about relationships, connections, or when you need context from related documents
+   - **📊 Standard Retriever**: Ideal for direct factual questions and straightforward information lookup
+   - **🤖 Smart Router**: Let the AI automatically choose the best strategy based on your question
 
+3. **Query Your Documents**
+   - Ask questions in natural language
+   - The system will analyze your query and route it appropriately
+   - View detailed results including confidence scores and routing decisions
+   
+4. **Compare Retrieval Strategies**
+   - Use the comparison feature to see how different retrievers perform on the same query
+   - Understand which strategy works best for different types of questions
+   
+5. **Review Results & Sources**
+   - Examine retrieved documents and their metadata
+   - View detected graph relationships
+   - Analyze routing decisions and confidence scores
 
-**Features Available in Web Interface:**
+## 📁 Supported File Types
 
-1. **📄 Document Upload Tab**
-   - Upload multiple files (PDF, TXT, CSV, DOC, DOCX)
-   - Load default animal dataset
-   - Direct text input
-   - View file information and detected relationships
+1. **Documents**:
+   - **PDF**: Full text extraction and processing
+   - **TXT**: Plain text files
+   - **CSV**: Structured data files
 
-2. **💬 Chat Interface Tab**
-   - Single Answer mode with retriever selection
-   - Retriever Comparison mode (side-by-side results)
-   - Interactive Chat mode with history
-   - Progress indicators for long-running queries
+2. **Content Processing**:
+   - **Text Chunks**: Intelligent splitting with configurable size and overlap
+   - **Embeddings**: Vector representations using HuggingFace sentence-transformers
+   - **Graph Relationships**: Auto-detected based on metadata and content patterns
 
-3. **📊 Analytics Tab**
-   - Usage statistics and query counts
-   - Retriever usage metrics
-   - Current configuration display
+## 🎯 Sample Use Cases
+
+1. **Research & Analysis**: Upload research papers, technical documents, and academic materials for intelligent querying
+2. **Business Intelligence**: Process company documents, reports, and policies with relationship-aware retrieval
+3. **Knowledge Management**: Organize and query interconnected documentation with graph-based context
+4. **Educational Support**: Study materials, textbooks, and reference documents with intelligent routing
+5. **Content Exploration**: Explore relationships between different topics and concepts in your document collections
 
 ## 📊 System Architecture
 
-### Core Components
+The web interface provides **4 intuitive sections**:
 
-1. **DocumentProcessor**: Handles file loading and text splitting
-2. **GraphRAGSystem**: Main system orchestrator
-3. **AgenticRetrieverRouter**: LangGraph-based intelligent routing
-4. **StreamlitApp**: Web interface for user interaction
+### 📁 Document Management
+- Upload PDF, TXT, and CSV documents
+- Load default animal dataset for testing
+- Process documents into vector database with relationship detection
 
-### Data Flow
+### 💬 Query Interface
+- Natural language query input
+- Real-time answer generation with strategy selection
+- Confidence scoring and routing transparency
+- Performance metrics display
+
+### 🔍 Retriever Comparison
+- Side-by-side comparison of all three retrieval strategies
+- Visual comparison of results and context
+- Strategy performance analysis
+
+### 🧠 System Configuration
+- Configurable system parameters
+- View detected graph relationships
+- Monitor system status and settings
+
+## 🏗️ System Process Flow
+
 ```
-Documents → Processing → Vector Store → Graph Edges → Retrievers
-                                                    ↓
-Query → Agentic Router → Selected Retriever → LLM → Answer
+Documents → Text Splitting → Vector Embeddings → Edge Detection
+                                                      ↓
+Query → LangGraph Router → Strategy Analysis → Retriever Selection
+                                                      ↓
+Selected Retriever → Graph Traversal/Vector Search → Context → LLM → Answer
 ```
+
+## 🔍 Query Routing Logic
+
+The Agentic Router uses LangGraph to analyze queries and make intelligent routing decisions:
+
+1. **Query Analysis**: LLM analyzes query characteristics and requirements
+2. **Strategy Selection**: Chooses between TRAVERSAL or STANDARD based on query type
+3. **Confidence Scoring**: Provides transparency in routing decisions
+4. **Execution**: Routes to selected retriever with detailed reasoning
+
+## 🔍 Example Queries
+
+Try these sample queries to explore the Graph RAG system's capabilities:
+
+1. **Traversal Retriever Best For**
+   - "What animals share similar habitats and how are they related?"
+   - "Compare animals from different origins and their characteristics."
+   - "Find connections between different animal categories."
+
+2. **Standard Retriever Best For**
+   - "What is a capybara?"
+   - "List all mammals in the dataset."
+   - "Where do elephants live?"
+
+3. **Smart Router Examples**
+   - "How do habitat preferences vary across different animal species?" (→ Traversal)
+   - "What type of animal is a penguin?" (→ Standard)
+   - "Analyze the relationship between animal size and habitat." (→ Traversal)
 
 ## 📈 Advanced Features
 
-### Automatic Edge Detection
+### 🧠 Automatic Edge Detection
 
 The system intelligently detects graph relationships based on your data:
 
@@ -181,9 +238,9 @@ content_patterns = {
 }
 ```
 
-### Retrieval Strategies
+### ⚙️ Retrieval Strategy Configuration
 
-**Traversal Retriever Configuration:**
+**Traversal Retriever:**
 ```python
 GraphRetriever(
     store=vector_store,
@@ -196,7 +253,7 @@ GraphRetriever(
 )
 ```
 
-**Standard Retriever Configuration:**
+**Standard Retriever:**
 ```python
 GraphRetriever(
     store=vector_store, 
@@ -209,185 +266,62 @@ GraphRetriever(
 )
 ```
 
-### Document Processing Pipeline
+### 🔧 Configurable Parameters
 
-**Supported File Types:**
-```python
-def _load_single_file(self, file_path: str) -> List[Document]:
-    file_extension = Path(file_path).suffix.lower()
-    
-    if file_extension == '.pdf':
-        loader = PyPDFLoader(file_path)        # PDF documents
-    elif file_extension == '.txt':
-        loader = TextLoader(file_path)         # Plain text files
-    elif file_extension == '.csv':
-        loader = CSVLoader(file_path)          # CSV data files
-    else:
-        raise ValueError(f"Unsupported file format: {file_extension}")
-```
+- **Chunk Size**: Default 1000 characters (configurable in GraphRAGConfig)
+- **Chunk Overlap**: Default 200 characters for context continuity
+- **K Retrieval**: Default 5 documents retrieved per query
+- **Max Depth**: Default 2 levels for graph traversal
+- **Embedding Model**: sentence-transformers/all-mpnet-base-v2
 
-**Text Splitting Configuration:**
-```python
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=config.chunk_size,      # Default: 1000 characters
-    chunk_overlap=config.chunk_overlap  # Default: 200 characters overlap
-)
-```
+## 🔧 Troubleshooting
 
-## 🔧 Customization
+### 🛑 Common Issues
 
-### Adding New Document Loaders
+1. **Google API Key Error**
+   ```
+   Error: GOOGLE_API_KEY environment variable not set
+   ```
+   **Solution**: Ensure your Google API key is properly set in the `.env` file
 
-**Extend the DocumentProcessor:**
-```python
-def _load_single_file(self, file_path: str) -> List[Document]:
-    file_extension = Path(file_path).suffix.lower()
-    
-    if file_extension == '.pdf':
-        loader = PyPDFLoader(file_path)
-    elif file_extension == '.txt':
-        loader = TextLoader(file_path)
-    elif file_extension == '.csv':
-        loader = CSVLoader(file_path)
-    elif file_extension == '.docx':
-        # Add Word document support
-        from langchain_community.document_loaders import Docx2txtLoader
-        loader = Docx2txtLoader(file_path)
-    elif file_extension == '.json':
-        # Add JSON support
-        from langchain_community.document_loaders import JSONLoader
-        loader = JSONLoader(file_path)
-    else:
-        raise ValueError(f"Unsupported file format: {file_extension}")
-```
+2. **Document Loading Failures**
+   ```
+   Error: No documents could be loaded from files
+   ```
+   **Solution**: Ensure document files exist and are in supported formats (PDF, TXT, CSV)
 
-### Custom Edge Detection
+3. **Memory Issues with Large Documents**
+   ```
+   ChromaDB memory error or slow processing
+   ```
+   **Solution**: Reduce `chunk_size` in GraphRAGConfig or process documents in smaller batches
 
-**Override the edge detection logic:**
-```python
-class CustomGraphRAGSystem(GraphRAGSystem):
-    def _detect_edges(self, documents: List[Document]) -> List[tuple]:
-        """Custom edge detection based on your domain"""
-        edges = []
-        
-        # Your custom logic here
-        for doc in documents:
-            metadata = doc.metadata
-            
-            # Example: Connect documents by custom fields
-            if 'project_id' in metadata:
-                edges.append(('project_id', 'project_id'))
-            if 'team' in metadata:
-                edges.append(('team', 'team'))
-                
-        return edges
-```
+4. **No Graph Relationships Detected**
+   ```
+   Warning: No edges detected, using default relationships
+   ```
+   **Solution**: Ensure documents have meaningful metadata or content patterns for relationship detection
 
-### Custom Smart Router
+5. **Router Decision Errors**
+   ```
+   Error in routing workflow
+   ```
+   **Solution**: Check LLM connectivity and ensure proper initialization of both retrievers
 
-**Enhanced routing logic:**
-```python
-def _get_smart_retriever(self, question: str) -> BaseRetriever:
-    """Enhanced smart routing with domain-specific rules"""
-    question_lower = question.lower()
-    
-    # Relationship indicators
-    relationship_words = ["related", "similar", "connected", "with"]
-    
-    # Domain-specific routing
-    if "compare" in question_lower or "difference" in question_lower:
-        return self.traversal_retriever
-    elif "definition" in question_lower or "what is" in question_lower:
-        return self.standard_retriever
-    elif any(word in question_lower for word in relationship_words):
-        return self.traversal_retriever
-    else:
-        return self.standard_retriever
-```
+## ⚡ Performance Tips
 
-### Complete Custom Implementation Example
+1. **For Better Speed**: Use smaller chunk sizes (500-800) for faster processing
+2. **For Better Context**: Use larger chunk sizes (1200-2000) for comprehensive retrieval
+3. **Graph Traversal**: Set `max_depth=1` for faster queries, `max_depth=2` for comprehensive exploration
+4. **Retrieval Count**: Use `k_retrieval=3-5` for balanced performance
+5. **Smart Routing**: Let the agentic router choose the optimal strategy automatically
+6. **File Organization**: Group related documents for better relationship detection
+7. **Query Specificity**: More specific questions yield better routing and retrieval results
 
-```python
-from graph_rag import GraphRAGSystem, GraphRAGConfig, RetrieverType
+## 🔐 Security Notes
 
-class DomainSpecificRAG(GraphRAGSystem):
-    def __init__(self, domain_config=None):
-        # Custom configuration for your domain
-        config = GraphRAGConfig(
-            embedding_model="sentence-transformers/all-MiniLM-L6-v2",
-            llm_model="gemini-2.0-flash",
-            chunk_size=800,
-            k_retrieval=7,
-            max_depth=3
-        )
-        super().__init__(config)
-        self.domain_config = domain_config
-    
-    def _detect_edges(self, documents):
-        # Your custom edge detection
-        return [("custom_field", "custom_field")]
-    
-    def preprocess_query(self, query: str) -> str:
-        # Add domain-specific query preprocessing
-        query = query.replace("our company", "AcmeCorp")
-        return query
-    
-    def query(self, question: str, retriever_type=None):
-        processed_question = self.preprocess_query(question)
-        return super().query(processed_question, retriever_type)
+- Never commit your .env file to version control
+- Keep your Google API key secure
 
-# Usage
-domain_rag = DomainSpecificRAG()
-domain_rag.initialize_with_files(['company_docs.pdf'])
-answer = domain_rag.query("How does our company handle customers?")
-```
-
-## 🐛 Troubleshooting
-
-### Common Issues & Solutions
-
-**1. API Key Errors**
-```bash
-# Error: GOOGLE_API_KEY environment variable not set
-# Solution: Create .env file with your key
-echo "GOOGLE_API_KEY=your_actual_key_here" > .env
-
-# Or set environment variable directly
-export GOOGLE_API_KEY=your_actual_key_here
-```
-
-**2. Document Loading Failures**  
-```python
-# Error: "Unsupported file format"
-# Solution: Check supported formats
-supported_formats = ['.pdf', '.txt', '.csv']
-
-# Error: "No documents could be loaded from files" 
-# Solution: Verify file paths exist
-import os
-for file_path in file_paths:
-    if not os.path.exists(file_path):
-        print(f"File not found: {file_path}")
-```
-
-**3. Memory Issues with Large Documents**
-```python
-# Solution: Reduce chunk size and increase overlap
-config = GraphRAGConfig(
-    chunk_size=500,        # Reduced from 1000
-    chunk_overlap=100,     # Reduced from 200
-    k_retrieval=3          # Reduced from 5
-)
-```
-
-**4. No Relevant Documents Found**
-```python
-# Check if documents were loaded properly
-if rag_system.vector_store is None:
-    print("Vector store not initialized - load documents first")
-
-# Check detected relationships
-relationships = rag_system.get_detected_relationships()
-print(f"Detected relationships: {relationships}")
-```
-
+---
+<strong>RAG On.. 🔥</strong>
