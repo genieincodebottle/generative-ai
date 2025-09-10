@@ -43,7 +43,7 @@ Each phase is split by week and builds progressively.
 |------------------------------|---------------|-----------------------|------|
 | NLP Basics                   | [YT - What is NLP?](https://www.youtube.com/watch?v=fLvJ8VdHLA0) |||
 | Inside the Transformer       | [YT - Transformer Explained Visually by 3b1b](https://www.youtube.com/watch?v=wjZofJX0v4M) <br> [Blog - The Illustrated Transformer by Jay Alammar](https://jalammar.github.io/illustrated-transformer/) |||
-| Tokenization & Embeddings    | [Blog - BPE Explainer (HuggingFace)](https://huggingface.co/learn/llm-course/en/chapter6/5) | [Blog - Embedding Explained](https://qdrant.tech/articles/what-are-embeddings/) <br> [Blog - Vector Db Explained](https://www.pinecone.io/learn/vector-database/) | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb) |
+| Tokenization & Embeddings    | [Blog - BPE Explainer (HuggingFace)](https://huggingface.co/learn/llm-course/en/chapter6/5) | [Blog - Embedding Explained](https://qdrant.tech/articles/what-are-embeddings/) <br> [Blog - Vector Db Explained](https://www.pinecone.io/learn/vector-database/) | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/embedding_models.ipynb) |
 
 </details>
 
@@ -131,7 +131,7 @@ Each phase is split by week and builds progressively.
 | Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
-| Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/how-to-choose-embedding-models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
+| Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/embedding_models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
 
 
 ### 📘 Imp Research Papers
