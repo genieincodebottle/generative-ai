@@ -27,7 +27,7 @@ This makes RAG essential for building reliable GenAI applications. As queries an
    - <strong>**Language Model (LLM)**</strong>: Generates responses using both retrieved data and the query.
 
 ---
-## 📚 Very Useful Resources  
+## 📚 Super Handy Resources 
 
 | Resource | Link | Description |
 |----------|------|-------------|
