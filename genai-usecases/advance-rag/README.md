@@ -27,11 +27,13 @@ This makes RAG essential for building reliable GenAI applications. As queries an
    - <strong>**Language Model (LLM)**</strong>: Generates responses using both retrieved data and the query.
 
 ---
-## 🧭 RAG Decision Flow
+## 📚 Very Useful Resources  
 
-- [View Pdf](./docs/advance-rag-decision-flow-chart.pdf)
-
-A quick reference guide to choose the right RAG technique for your use case.
+| Resource | Link | Description |
+|----------|------|-------------|
+| **Embedding Models • Vector Stores • Vector Embeddings (Guide)** | [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/vector-embeddings-guide.pdf) | Guide covering embedding models, vector stores, and embeddings explained with examples |
+| **RAG Decision Flow** | [PDF](./docs/advance-rag-decision-flow-chart.pdf) | Quick reference flowchart to select the right **RAG technique** for your use case |
+| **Advanced Snapshot-Based PDF Parsing** | [GitHub](https://github.com/genieincodebottle/parsemypdf) | End-to-end parsing using **Docling, Markitdown, Gemini, Llama 4, Claude, GPT-4 & more** |
 
 ---
 ## 🧪 Exploring Advanced RAG
