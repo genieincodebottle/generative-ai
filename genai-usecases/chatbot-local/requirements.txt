@@ -1,0 +1,10 @@
+langchain==0.1.20
+langchain-community==0.0.38
+langchain_experimental==0.0.58
+
+google-generativeai==0.5.2
+langchain-google-genai==1.0.3
+
+streamlit==1.34.0
+streamlit_chat==0.1.1
+retrying

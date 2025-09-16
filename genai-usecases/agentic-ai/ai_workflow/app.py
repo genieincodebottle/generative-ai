@@ -2,7 +2,7 @@ import streamlit as st
 from utils.llm import LLM_CONFIGS
 
 # Importing all level of AI Workflow
-from prompt_chaining import render_prompt_chain_medical_analysis
+from prompt_chaining import render_prompt_chain_business_analysis
 from parallelization import render_parallelization_medical_analysis
 from query_routing import render_query_routing_medical_analysis
 from evaluator_and_optimizer import render_eval_and_optimize_medical_analysis
@@ -11,7 +11,7 @@ from tool_calling import render_tool_calling_medical_analysis
 
 # Set page config as the first command
 st.set_page_config(
-        page_title="Agentic-Workflow based Healthcare system",
+        page_title="Agentic Workflow - Business Intelligence System",
         page_icon="🤖",
         layout="wide"
     )
@@ -81,9 +81,10 @@ def render_llm_configuration():
     
     st.markdown("""
     ### Capabilities
-    - Medical terminology processing
-    - Clinical reasoning
-    - Evidence-based analysis
+    - Business document analysis
+    - Financial metrics processing
+    - Strategic insights generation
+    - Performance trend analysis
     """)
 
 def main():
@@ -96,7 +97,7 @@ def main():
         
         # Workflow Selection with improved spacing
         selected_workflow = st.selectbox(
-            "Select Workflow for Medical Analysis",
+            "Select Workflow Pattern",
             ["Prompt Chaining", 
              "Parallelization",
              "Routing",
@@ -129,12 +130,12 @@ def main():
         """)
     
     # Main content area
-    st.header("🏥 Healthcare System")
+    st.header("📊 Business Intelligence System")
     
     try:
         # Route to appropriate Agentic Level Workflow
         workflow_mapping = {
-            "Prompt Chaining": render_prompt_chain_medical_analysis,
+            "Prompt Chaining": render_prompt_chain_business_analysis,
             "Parallelization": render_parallelization_medical_analysis,
             "Routing": render_query_routing_medical_analysis,
             "Evaluator and Optimizers": render_eval_and_optimize_medical_analysis,

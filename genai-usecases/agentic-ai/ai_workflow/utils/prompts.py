@@ -1,4 +1,4 @@
-# Prompt Chaining related Prompt
+# Prompt Chaining related Prompt - Legacy Medical Reports
 MEDICAL_REPORT_STEPS = [
     """Extract key clinical findings from the medical report.
     Format as:
@@ -31,6 +31,48 @@ MEDICAL_REPORT_STEPS = [
 [Specific follow-up steps and timeline]
 
 Note: Ensure each section has proper spacing and formatting."""
+]
+
+# Prompt Chaining related Prompt - Business Document Analysis
+BUSINESS_DOCUMENT_ANALYSIS_STEPS = [
+    """Extract and organize key business information from the document.
+    Format as:
+    - Financial Metrics: Revenue, profit margins, costs, growth rates
+    - Performance KPIs: Customer acquisition, retention, conversion rates, operational metrics  
+    - Market Data: Market position, competitive landscape, opportunities
+    - Operational Insights: Department performance, efficiency metrics, resource utilization
+    - Strategic Elements: Goals, initiatives, challenges, risks""",
+
+    """Analyze the extracted information to identify patterns, trends, and insights:
+    1. Performance Trends: What patterns emerge from the data?
+    2. Strengths & Weaknesses: What is performing well vs. areas of concern?
+    3. Strategic Gaps: What opportunities or risks are highlighted?
+    4. Comparative Analysis: How do metrics compare to benchmarks/previous periods?
+    5. Root Cause Analysis: What factors drive the key results?""",
+
+    """Generate a comprehensive business analysis report with clear sections:
+
+# Business Document Analysis
+
+## Executive Summary
+[Provide a concise overview of the document's key findings, performance highlights, and critical insights]
+
+## Key Findings  
+[Summarize the most important discoveries, trends, and performance indicators from the analysis]
+
+## Performance Analysis
+[Detailed breakdown of financial, operational, and strategic performance with specific metrics and comparisons]
+
+## Strategic Recommendations
+[Actionable recommendations based on the analysis, prioritized by impact and feasibility]
+
+## Risk Assessment
+[Identify potential risks, challenges, and mitigation strategies based on the data]
+
+## Action Items
+[Specific, measurable next steps with suggested timelines and ownership]
+
+Note: Ensure each section is well-structured with clear headings and data-driven insights."""
 ]
 
 # Parallelization related Prompt
