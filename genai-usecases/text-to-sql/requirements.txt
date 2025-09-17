@@ -1,4 +1,7 @@
-langchain==0.1.2
-google-generativeai==0.5.2
-langchain-google-genai==1.0.3
-pandas==2.0.3
+streamlit>=1.49.1
+langchain>=0.3.27
+langchain-google-genai>=2.1.12
+langchain-groq>=0.3.8
+langchain-community>=0.3.29
+pandas>=2.3.2
+python-dotenv>=1.0.0
