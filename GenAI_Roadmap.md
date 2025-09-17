@@ -32,7 +32,7 @@ Each phase is split by week and builds progressively.
 |--------|------|-------|------|
 | AI vs ML vs DL vs GenAI | [Video](https://www.youtube.com/watch?v=qYNweeDHiyU) | [GenAI Essential Terms](https://github.com/genieincodebottle/generative-ai/blob/main/docs/essential-terms-genai.pdf)||
 | GenAI Intro | [GenAI in Nutshell](https://www.youtube.com/watch?v=2IK3DFHRFfw), [LLMs by 3b1b](https://youtu.be/LPZh9BOjkQs) | [LLM Blog](https://cohere.com/blog/llm-parameters-best-outputs-language-ai) ||
-| Python Basics | [Crash Course](https://www.youtube.com/watch?v=kqtD5dpn9C8), [ML Crash](https://www.youtube.com/watch?v=7eh4d6sabA0) |||
+| Python Basics | [Crash Course](https://www.youtube.com/watch?v=kqtD5dpn9C8), [ML Crash](https://www.youtube.com/watch?v=7eh4d6sabA0) |[GitHub - Awesome Python](https://github.com/vinta/awesome-python)||
 | ML & DL Basics | [ML 101](https://www.youtube.com/watch?v=i_LwzRVP7bg), [Neural Networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) | [Crash DL](https://www.youtube.com/watch?v=VyWAvY2CF9c) ||
 </details>
 
