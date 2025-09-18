@@ -1,4 +1,4 @@
-# PDF Chat Bot with Ollama
+## PDF Chatbot with Memory powered by Ollama
 
 A beginner friendly GenAI based chatbot that provides a conversational interface for PDF documents using Ollama based local open models.
 
@@ -6,7 +6,9 @@ A beginner friendly GenAI based chatbot that provides a conversational interface
 
 - 🤖 **Multiple Local Models** - Support for various Ollama based open models (Llama, Gemma, DeepSeek, gpt-oss, phi etc.)
 - 📚 **Multiple PDF Support** - Upload and query multiple documents simultaneously
-- 💬 **Conversational Interface** - Maintains chat history for context-aware responses
+- 💬 **Advanced Memory System** - Latest LangChain 0.3+ conversational memory with context-aware responses
+- 🧠 **RAG Implementation** - Retrieval-Augmented Generation using PDF documents as knowledge base
+- 🔄 **Session-based Memory** - Isolated conversation threads with persistent chat history
 - ⚙️ **UI-Based Configuration** - All settings configurable through the sidebar interface
 
 ## 📊 Application Flow
@@ -18,16 +20,30 @@ A beginner friendly GenAI based chatbot that provides a conversational interface
 ### Prerequisites
 
 1. **Install Ollama**
-   - Download from [ollama.com](https://ollama.com)
-   - Follow installation instructions for your operating system
+   - Download from [ollama.com](https://ollama.com/download)
+   - Follow installation instructions for your operating system (macOS, Linux, Windows)
 
-2. **Pull Local Open Model**
+   Check Ollama based open models -> https://ollama.com/search32. 
 
+2. **After Ollama installtion. Pull Local Open Model based on your choice and system capacity**
    ```bash
    ollama pull llama3.2:1b # Options: gpt-oss:20b, llama3.2:1b, llama3.2:3b, llama3.1:8b, deepseek-r1:1.5b, deepseek-r1:7b, deepseek-r1:8b, gemma3:1b, gemma3:4b, gemma3:12b, phi3:3.8b
    ```
-   Check Ollama based open models -> https://ollama.com/search
-3. **Start Ollama Service** (if needed)
+   Reference guide for memory requirement 
+   - **llama3.2:1b** (1B parameters) - ~0.7GB RAM
+   - **llama3.2:3b** (3B parameters) - ~2GB RAM
+   - **llama3.1:8b** (8B parameters) - ~4.5GB RAM
+   - **gemma3:1b** (1B parameters) - ~0.7GB RAM
+   - **gemma3:4b** (4B parameters) - ~2.5GB RAM
+
+   **Note**: Ollama uses Q4_0 quantization (~0.5-0.7GB per billion parameters)
+
+3. **Run the following command to list the local open models available in Ollama**
+
+   ```bash
+   ollama list
+   ```
+4. **Start Ollama Service** (if needed)
    ```bash
    ollama serve  # Only needed if Ollama isn't running automatically
    ```
@@ -40,7 +56,7 @@ A beginner friendly GenAI based chatbot that provides a conversational interface
 
    ```bash
    git clone https://github.com/genieincodebottle/generative-ai.git
-   cd genai-usecases\chatbot
+   cd genai-usecases\chatbot-with-memory
    ```
 
 2. Open the Project in VS Code or any code editor.
@@ -68,6 +84,8 @@ A beginner friendly GenAI based chatbot that provides a conversational interface
    requests>=2.32.5
    ```
 
+   **Note**: The application now uses the latest LangChain 0.3+ memory patterns with `RunnableWithMessageHistory` and `InMemoryChatMessageHistory` for enhanced conversational AI capabilities.
+
 5. Install dependencies:
 
    ```bash
@@ -89,15 +107,7 @@ All configuration is done through the **sidebar interface** - no configuration f
 - **Setup Guide**: Expandable instructions when Ollama is not running
 
 ### 🎛️ Essential Settings
-- **🤖 Model**: Choose from available models based on your system memory:
-  - **llama3.2:1b** (1B parameters) - ~0.7GB RAM
-  - **llama3.2:3b** (3B parameters) - ~2GB RAM
-  - **llama3.1:8b** (8B parameters) - ~4.5GB RAM
-  - **gemma3:1b** (1B parameters) - ~0.7GB RAM
-  - **gemma3:4b** (4B parameters) - ~2.5GB RAM
-
-  **Note**: Ollama uses Q4_0 quantization (~0.5-0.7GB per billion parameters)
-
+- **🤖 Model**: Choose from available models based on your system memory.
 - **🎛️ Temperature**: Controls response creativity (0 = focused, 1 = creative)
 
 ### 🔧 Advanced Settings (Expandable)
@@ -117,7 +127,14 @@ All configuration is done through the **sidebar interface** - no configuration f
 4. **Upload PDF files** - Use the sidebar file uploader
 5. **Wait for processing** - You'll see a toast notification when ready
 6. **Start chatting** - Ask questions in the main chat interface
-7. **Get AI responses** - Contextual answers based on your documents
+7. **Get AI responses** - Contextual answers based on your PDF documents with memory-enabled conversations
+
+### 🧠 Memory & Context Features:
+- **Conversation Continuity**: Remembers previous questions and answers within the session
+- **Context-Aware Responses**: References earlier parts of the conversation naturally
+- **Document-Based Answers**: All responses are grounded in the uploaded PDF content
+- **Session Isolation**: Each conversation maintains its own memory thread
+- **Clear History**: Reset both UI and memory with the "Clear Chat History" button
 
 ### Configuration Tips:
 - **Smaller models** (1b-3b): Faster responses, less resource usage
@@ -153,3 +170,24 @@ All configuration is done through the **sidebar interface** - no configuration f
    - Use the "Reset to Defaults" button in the sidebar
    - Refresh the page to reload settings
    - Check that all required fields are filled
+
+6. **Memory/Conversation Issues**
+   - Use "Clear Chat History" to reset conversation memory
+   - Refresh the page if memory seems inconsistent
+   - Check that PDF content is properly indexed before starting conversations
+
+## 🔧 Technical Architecture
+
+### Memory Implementation
+- **LangChain 0.3+ Patterns**: Uses `RunnableWithMessageHistory`
+- **Conversational RAG**: Implements context-aware retrieval with chat history integration
+- **Session Management**: Each user session maintains isolated conversation memory
+- **History-Aware Retrieval**: Questions are contextualized using previous conversation before document retrieval
+
+### Document Processing Pipeline
+1. **PDF Loading**: `PyPDFLoader` extracts text from uploaded PDFs
+2. **Text Chunking**: `RecursiveCharacterTextSplitter` creates manageable document chunks
+3. **Embeddings**: `HuggingFaceEmbeddings` generates vector representations
+4. **Vector Storage**: `FAISS` stores and enables similarity search
+5. **Retrieval**: Context-aware retriever finds relevant document sections
+6. **Generation**: LLM generates responses using retrieved context and conversation history
