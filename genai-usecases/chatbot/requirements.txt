@@ -1,14 +1,16 @@
-langchain==0.1.20
-langchain-community==0.0.38
+langchain>=0.3.27
+langchain-community>=0.3.29
+langchain-ollama>=0.3.8
+langchain-huggingface>=0.3.1
 
-sentence-transformers==2.7.0
+sentence-transformers>=5.1.0
 
-llama-cpp-python==0.2.73
+faiss-cpu>=1.12.0
 
-faiss-cpu==1.8.0
+streamlit>=1.49.1
 
-streamlit==1.34.0
-streamlit_chat==0.1.1
+pypdf>=6.0.0
 
-pypdf==4.2.0
-tqdm==4.66.4
+# Ollama support
+requests>=2.32.5
+

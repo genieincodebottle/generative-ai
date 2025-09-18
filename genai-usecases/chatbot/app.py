@@ -1,170 +1,368 @@
-#Streamlit is a free, open-source Python library that helps developers 
-#and data scientists create interactive web applications for machine learning 
-#and data science
+"""
+PDF Chat Bot with Ollama based local LLM
+=====================================
+A simple Streamlit application for chatting with PDF documents using local Ollama.
+Configuration is done through the UI sidebar
+
+"""
+
 import streamlit as st
-from streamlit_chat import message
+import os
+import requests
+from typing import Optional
 
-#ConversationalRetrievalChain is designed to process queries and generate responses by leveraging 
-#information extracted from the associated documents. 
-#It represents a form of Retrieval-Augmented Generation (RAG), offering a method to 
-#enhance the quality of generated responses through retrieved documents.
-from langchain.chains import ConversationalRetrievalChain
+# LangChain imports
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_ollama import OllamaLLM
+from langchain.chains import RetrievalQA
 
-#Conversational memory is the mechanism that empowers a chatbot to respond 
-#coherently to multiple queries, providing a chat-like experience. 
-#It ensures continuity in the conversation, allowing the chatbot to consider 
-#past interactions and provide contextually relevant responses.
-from langchain.memory import ConversationBufferMemory
+# ================================
+# DEFAULT CONFIGURATION VALUES
+# ================================
+DEFAULT_CONFIG = {
+    "ollama_base_url": "http://localhost:11434",
+    "ollama_model": "llama3.2:1b",
+    "ollama_temperature": 0.3,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_size": 4000,
+    "chunk_overlap": 10,
+    "max_history_length": 50,
+    "retriever_k": 2
+}
 
-# All utility functions
-import utils
 
-from PIL import Image
+# ================================
+# BACKEND CODE - BUSINESS LOGIC
+# ================================
 
-def initialize_session_state():
+def check_ollama_status(base_url: str) -> bool:
+    """BACKEND: Check if Ollama server is running and accessible"""
+    try:
+        response = requests.get(f"{base_url}/api/tags", timeout=5)
+        return response.status_code == 200
+    except:
+        return False
+
+
+def initialize_llm(base_url: str, model: str, temperature: float) -> Optional[OllamaLLM]:
+    """BACKEND: Initialize Ollama LLM with given configuration"""
+    try:
+        llm = OllamaLLM(
+            base_url=base_url,
+            model=model,
+            temperature=temperature
+        )
+        # Test the connection
+        llm.invoke("Hello")
+        return llm
+    except Exception as e:
+        st.error(f"Failed to initialize LLM: {str(e)}")
+        return None
+
+
+def process_pdfs(pdf_files, embedding_model: str, chunk_size: int, chunk_overlap: int) -> Optional[FAISS]:
+    """BACKEND: Process uploaded PDF files and create vector store"""
+    try:
+        documents = []
+
+        # Process each PDF file
+        for pdf_file in pdf_files:
+            # Save uploaded file temporarily
+            temp_path = f"temp_{pdf_file.name}"
+            with open(temp_path, "wb") as f:
+                f.write(pdf_file.getvalue())
+
+            # Load and process PDF
+            loader = PyPDFLoader(temp_path)
+            docs = loader.load()
+            documents.extend(docs)
+
+            # Clean up temp file
+            os.remove(temp_path)
+
+        if not documents:
+            st.error("No content found in the uploaded PDFs")
+            return None
+
+        # Split documents into chunks
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            length_function=len
+        )
+        chunks = text_splitter.split_documents(documents)
+
+        # Create embeddings
+        embeddings = HuggingFaceEmbeddings(
+            model_name=embedding_model,
+            model_kwargs={'device': 'cpu'}
+        )
+
+        # Create vector store
+        vectorstore = FAISS.from_documents(chunks, embeddings)
+
+        return vectorstore
+
+    except Exception as e:
+        st.error(f"Error processing PDFs: {str(e)}")
+        return None
+
+
+def create_chat_chain(llm, vectorstore, max_history: int, retriever_k: int):
+    """BACKEND: Create retrieval QA chain (modern approach without deprecated memory)"""
+    try:
+        # Create retriever
+        retriever = vectorstore.as_retriever(
+            search_kwargs={"k": retriever_k}
+        )
+
+        # Create simple retrieval QA chain
+        chain = RetrievalQA.from_chain_type(
+            llm=llm,
+            chain_type="stuff",
+            retriever=retriever,
+            return_source_documents=True
+        )
+
+        return chain
+
+    except Exception as e:
+        st.error(f"Error creating chat chain: {str(e)}")
+        return None
+
+
+# ================================
+# UI CODE - USER INTERFACE
+# ================================
+
+def setup_page():
+    """UI: Setup Streamlit page configuration"""
+    st.set_page_config(
+        page_title="PDF Chat Bot",
+        page_icon="🤖",
+        layout="wide"
+    )
+
+    # Hide Streamlit style
+    hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
     """
-    Session State is a way to share variables between reruns, for each user session.
-    """
-
-    st.session_state.setdefault('history', [])
-    st.session_state.setdefault('generated', ["Hello! I am here to provide answers to questions extracted from uploaded PDF files."])
-    st.session_state.setdefault('past', ["Hello Buddy!"])
-
-def create_conversational_chain(llm, vector_store):
-    """
-    Creating conversational chain using Mistral 7B LLM instance and vector store instance
-
-    Args:
-    - llm: Instance of Mistral 7B GGUF
-    - vector_store: Instance of FAISS Vector store having all the PDF document chunks 
-    """
-
-    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-    
-    chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff',
-                                                 retriever=vector_store.as_retriever(search_kwargs={"k": 2}),
-                                                 memory=memory)
-    return chain
-
-def display_chat(conversation_chain):
-    """
-    Streamlit relatde code wher we are passing conversation_chain instance created earlier
-    It creates two containers
-    container: To group our chat input form
-    reply_container: To group the generated chat response
-
-    Args:
-    - conversation_chain: Instance of LangChain ConversationalRetrievalChain
-    """
-    #In Streamlit, a container is an invisible element that can hold multiple 
-    #elements together. The st.container function allows you to group multiple 
-    #elements together. For example, you can use a container to insert multiple 
-    #elements into your app out of order.
-    reply_container = st.container()
-    container = st.container()
-
-    with container:
-        with st.form(key='chat_form', clear_on_submit=True):
-            user_input = st.text_input("Question:", placeholder="Ask me questions from uploaded PDF", key='input')
-            submit_button = st.form_submit_button(label='Send ⬆️')
-        
-        #Check if user submit question with user input and generate response of the question
-        if submit_button and user_input:
-            generate_response(user_input, conversation_chain)
-    
-    #Display generated response to streamlit web UI
-    display_generated_responses(reply_container)
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
-def generate_response(user_input, conversation_chain):
-    """
-    Generate LLM response based on the user question by retrieving data from Vector Database
-    Also, stores information to streamlit session states 'past' and 'generated' so that it can
-    have memory of previous generation for converstational type of chats (Like chatGPT)
+def render_header():
+    """UI: Render page header"""
+    st.title("🤖 PDF Chat Bot")
+    st.markdown("Upload PDFs and ask questions about their content")
 
-    Args
-    - user_input(str): User input as a text
-    - conversation_chain: Instance of ConversationalRetrievalChain 
-    """
+def render_sidebar():
+    """UI: Render sidebar with essential configuration"""
+    st.sidebar.title("⚙️ Settings")
 
-    with st.spinner('Spinning a snazzy reply...'):
-        output = conversation_chat(user_input, conversation_chain, st.session_state['history'])
+    # Initialize session state for config
+    if 'config' not in st.session_state:
+        st.session_state.config = DEFAULT_CONFIG.copy()
 
-    st.session_state['past'].append(user_input)
-    st.session_state['generated'].append(output)
+    # Status section
+    st.sidebar.header("📊 Status")
 
-def conversation_chat(user_input, conversation_chain, history):
-    """
-    Returns LLM response after invoking model through conversation_chain
+    # Check Ollama status and show in sidebar
+    if check_ollama_status(st.session_state.config.get("ollama_base_url", DEFAULT_CONFIG["ollama_base_url"])):
+        st.sidebar.success("✅ Ollama running")
+    else:
+        st.sidebar.error("❌ Ollama not running")
+        with st.sidebar.expander("🚀 Setup Instructions"):
+            st.markdown("""
+            **Quick setup:**
+            1. Install from [ollama.com](https://ollama.com)
+            2. Run: `ollama serve`
+            3. Pull model: `ollama pull llama3.2:1b`
+            4. Refresh this page
+            """)
 
-    Args:
-    - user_input(str): User input
-    - conversation_chain: Instance of ConversationalRetrievalChain
-    - history: Previous response history
-    returns:
-    - result["answer"]: Response generated from LLM
-    """
-    result = conversation_chain.invoke({"question": user_input, "chat_history": history})
-    history.append((user_input, result["answer"]))
-    return result["answer"]
+    # Essential settings only
+    st.session_state.config["ollama_model"] = st.sidebar.selectbox(
+        "🤖 Model",
+        options=["llama3.2:1b", "llama3.2:3b", "llama3.1:8b", "gemma3:1b", "gemma3:4b"],
+        index=0,
+        help="Choose model based on your RAM"
+    )
 
+    st.session_state.config["ollama_temperature"] = st.sidebar.slider(
+        "🎛️ Temperature",
+        min_value=0.0,
+        max_value=1.0,
+        value=st.session_state.config["ollama_temperature"],
+        step=0.1,
+        help="0 = focused, 1 = creative"
+    )
 
-def display_generated_responses(reply_container):
-    """
-    Display generated LLM response to Streamlit Web UI
+    # Advanced settings in expander
+    with st.sidebar.expander("🔧 Advanced Settings"):
+        st.session_state.config["ollama_base_url"] = st.text_input(
+            "Ollama URL",
+            value=st.session_state.config["ollama_base_url"]
+        )
 
-    Args:
-    - reply_container: Streamlit container created at previous step
-    """
-    if st.session_state['generated']:
-        with reply_container:
-            for i in range(len(st.session_state['generated'])):
-                message(st.session_state["past"][i], is_user=True, key=f"{i}_user", avatar_style="adventurer")
-                message(st.session_state["generated"][i], key=str(i), avatar_style="bottts")
+        st.session_state.config["chunk_size"] = st.number_input(
+            "Chunk Size",
+            min_value=1000,
+            max_value=8000,
+            value=st.session_state.config["chunk_size"],
+            step=1000
+        )
+
+        st.session_state.config["chunk_overlap"] = st.number_input(
+            "Chunk Overlap",
+            min_value=0,
+            max_value=500,
+            value=st.session_state.config["chunk_overlap"],
+            step=50,
+            help="Overlap between text chunks"
+        )
+
+    # PDF upload in sidebar
+    st.sidebar.header("📄 Upload PDFs")
+    pdf_files = st.sidebar.file_uploader(
+        "Choose PDF files",
+        accept_multiple_files=True,
+        type=['pdf'],
+        help="Upload PDF documents to chat with"
+    )
+
+    return st.session_state.config, pdf_files
+
 
 def main():
-    """
-    First function to call when we start streamlit app
-    """
-    # Step 1: Initialize session state
-    initialize_session_state()
-    
-    st.title("Chat Bot")
+    """UI: Main application function - orchestrates the entire app"""
+    # Setup page
+    setup_page()
+    render_header()
 
-    image = Image.open('chatbot.jpg')
-    st.image(image, width=150)
-    
-    hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
+    # Initialize session state
+    if 'chat_history' not in st.session_state:
+        st.session_state.chat_history = []
+    if 'vectorstore' not in st.session_state:
+        st.session_state.vectorstore = None
+    if 'chain' not in st.session_state:
+        st.session_state.chain = None
+    if 'llm' not in st.session_state:
+        st.session_state.llm = None
 
-            """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+    # Render sidebar and get configuration and uploaded files
+    config, pdf_files = render_sidebar()
 
-    # Step 2: Initialize Streamlit
-    st.sidebar.title("Upload Pdf")
-    #file_uploader, the data are copied to the Streamlit backend via the browser, 
-    #and contained in a BytesIO buffer in Python memory (i.e. RAM, not disk).
-    pdf_files = st.sidebar.file_uploader("", accept_multiple_files=True)
-    
-    # Step 3: Create instance of Mistral 7B GGUF file format using llama.cpp    
-    llm = utils.create_llm()
+    # Check Ollama status (stop if not running, but don't show main page message)
+    if not check_ollama_status(config["ollama_base_url"]):
+        st.error("❌ Ollama not running. Check sidebar for setup instructions.")
+        st.stop()
 
-    #Step 4: Create Vector Store and store uploaded Pdf file to in-mempry Vector Database FAISS
-    # and return instance of vector store
-    vector_store = utils.create_vector_store(pdf_files)
+    # Initialize LLM if not done or config changed
+    current_llm_config = f"{config['ollama_base_url']}_{config['ollama_model']}_{config['ollama_temperature']}"
+    if (st.session_state.llm is None or
+        st.session_state.get('llm_config') != current_llm_config):
+        with st.spinner(f"⚡ Initializing {config['ollama_model']}..."):
+            st.session_state.llm = initialize_llm(
+                config["ollama_base_url"],
+                config["ollama_model"],
+                config["ollama_temperature"]
+            )
+            if st.session_state.llm is None:
+                st.stop()
+            st.session_state.llm_config = current_llm_config
+        st.toast("✅ Model initialized!", icon="🤖")
 
-    if vector_store:
-        #Step 5: If Vetor Store created successful with chunks of PDF files
-        # then Create the chain object
-        chain = create_conversational_chain(llm, vector_store)
+    # Process PDFs if uploaded
+    if pdf_files:
+        # Check if we need to reprocess (new files uploaded)
+        current_files = [f.name for f in pdf_files]
+        if ('processed_files' not in st.session_state or
+            st.session_state.processed_files != current_files):
 
-        #Step 6 - Display Chat to Web UI
-        display_chat(chain)
+            with st.spinner(f"📄 Processing {len(pdf_files)} PDF file(s)..."):
+                st.session_state.vectorstore = process_pdfs(
+                    pdf_files,
+                    config["embedding_model"],
+                    config["chunk_size"],
+                    config["chunk_overlap"]
+                )
+                st.session_state.processed_files = current_files
+
+                if st.session_state.vectorstore is None:
+                    st.stop()
+
+            # Create chat chain
+            with st.spinner("🔗 Setting up chat system..."):
+                st.session_state.chain = create_chat_chain(
+                    st.session_state.llm,
+                    st.session_state.vectorstore,
+                    config["max_history_length"],
+                    config["retriever_k"]
+                )
+                if st.session_state.chain is None:
+                    st.stop()
+
+            st.toast(f"✅ Processed {len(pdf_files)} PDF(s)!", icon="📄")
+
+        # Chat interface
+        st.subheader("💬 Chat with your documents")
+
+        # Display chat history
+        for message in st.session_state.chat_history:
+            with st.chat_message(message["role"]):
+                st.write(message["content"])
+
+        # Chat input
+        if prompt := st.chat_input("Ask me anything about your documents..."):
+            # Add user message to chat history
+            st.session_state.chat_history.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.write(prompt)
+
+            # Generate response
+            with st.chat_message("assistant"):
+                with st.spinner("🤖 Thinking..."):
+                    try:
+                        # Create context from recent chat history
+                        recent_history = st.session_state.chat_history[-config["max_history_length"]:]
+                        context = "\n".join([f"{msg['role']}: {msg['content']}" for msg in recent_history[-4:]])
+
+                        # Enhanced prompt with conversation context
+                        enhanced_prompt = f"""Previous conversation:
+{context}
+
+Current question: {prompt}
+
+Please answer the current question based on the provided documents and the conversation context."""
+
+                        response = st.session_state.chain.invoke({"query": enhanced_prompt})
+                        answer = response["result"]
+
+                        st.write(answer)
+
+                        # Add assistant response to chat history
+                        st.session_state.chat_history.append({"role": "assistant", "content": answer})
+
+                    except Exception as e:
+                        error_msg = f"Error generating response: {str(e)}"
+                        st.error(error_msg)
+                        st.session_state.chat_history.append({"role": "assistant", "content": error_msg})
+
+        # Clear chat button
+        if st.button("🧹 Clear Chat History"):
+            st.session_state.chat_history = []
+            st.rerun()
+
     else:
-        print('Initialzed App.')
+        # Simple instructions when no files uploaded
+        st.info("📄 Upload PDF files in the sidebar to start chatting!")
+
 
 if __name__ == "__main__":
     main()
