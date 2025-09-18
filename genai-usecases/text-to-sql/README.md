@@ -1,10 +1,11 @@
-# Text-to-SQL Query Demo App
+# Text-to-SQL Query App
 
-An app that converts natural language questions into SQL queries using free-tier Google Gemini or Groq APIs. Query the sample Chinook database using plain English and get results in multiple organized formats.
+![alt text](./images/architecture.png)
+A demo app that converts natural language questions into SQL queries using free-tier Google Gemini or Groq APIs. Query the sample Chinook database using plain English and get results in multiple organized formats.
 
 ## Features
 
-- 🤖 **Multiple AI Providers**: Choose between Google Gemini and Groq APIs
+- 🤖 **Multiple AI Providers**: Choose between Google Gemini & Groq APIs (Open models)
 - 🗃️ **Natural Language to SQL**: Ask questions in plain English
 - 📑 **Tabbed Results**: Organized display with Answer, Generated SQL, Raw Results, and Formatted Results tabs
 - 🔍 **Query Visualization**: See the generated SQL queries with copy functionality
