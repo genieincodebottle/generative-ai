@@ -2,6 +2,7 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import os
+import warnings
 from dotenv import load_dotenv
 from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
@@ -31,7 +32,7 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # Sidebar for API configuration
-st.sidebar.header("🔑 API Configuration")
+st.sidebar.header("🛠️ API Configuration")
 
 # Check which APIs are available based on environment variables
 available_providers = []
@@ -147,7 +148,7 @@ if llm:
 
     # Query input
     question = st.text_area(
-        "🤔 Enter your question about the database:",
+        "Enter your question about the database:",
         placeholder="e.g., How many employees are there? or Which country's customers spent the most?",
         height=100
     )
@@ -341,7 +342,7 @@ else:
     st.markdown("""
     ## Environment Setup Required
 
-    To use this application, you need to set up environment variables for API keys:
+    To use this application, you need to set up environment variables for API keys (as per provider you choose):
 
     1. **Create a `.env` file** in the project directory
     2. **Add your API keys** to the `.env` file:
