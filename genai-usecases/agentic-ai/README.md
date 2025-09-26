@@ -10,21 +10,22 @@
 
 ## Table of Contents
 
-- [What is Agentic AI?](#what-is-agentic-ai?)
-- [Core Characteristics](#core-characteristics)
-- [How Agentic AI Differs from Traditional AI](#how-agentic-ai-differs-from-traditional-ai)
-- [Key Components of Agentic Systems](#key-components-of-agentic-systems)
-- [Summary of Use Cases](#summary-of-use-cases)
-- [Installation & Running App](#installation-&-running-app)
-- [Frameworks & Use Cases](#frameworks-&-use-cases)
+- [🤔 What is Agentic AI?](#🤔-what-is-agentic-ai)
+- [🎯 Core Characteristics](#🎯-core-characteristics)
+- [🔄 How Agentic AI Differs from Traditional AI](#🔄-how-agentic-ai-differs-from-traditional-ai)
+- [🏗️ Key Components of Agentic Systems](#🏗️-key-components-of-agentic-systems)
+- [✨ Summary of Use Cases](#✨-summary-of-use-cases)
+- [⚙️ Installation and Running App](#⚙️-installation-and-running-app)
+- [🎮 Frameworks and Use Cases](#🎮-frameworks-and-use-cases)
 
-## **What is Agentic AI?**
+## 🤔 What is Agentic AI?
 
 **Agentic AI** represents a major evolution from traditional, task specific AI systems to autonomous, goal driven agents capable of reasoning, planning multi step actions, making intelligent decisions and adapting dynamically to achieve complex goals. 
 
 Unlike conventional models that merely respond to prompts, these agents can collaborate with others, use tools and APIs, learn from feedback and orchestrate workflows.
 
-## 🎯 **Core Characteristics**
+## 🎯 Core Characteristics
+
 - **Autonomy**: Operate independently with minimal human intervention (fully autonomous systems are still rare because they’re complex.)
 - **Goal-Oriented**: Work towards specific objectives and outcomes
 - **Reactive**: Respond dynamically to environmental changes
@@ -32,7 +33,7 @@ Unlike conventional models that merely respond to prompts, these agents can coll
 - **Social**: Collaborate and communicate with other agents
 - **Learning**: Adapt and improve from experience
 
-## 🔄 **How Agentic AI Differs from Traditional AI**
+## 🔄 How Agentic AI Differs from Traditional AI
 
 | Traditional AI | Agentic AI |
 |---|---|
@@ -42,7 +43,7 @@ Unlike conventional models that merely respond to prompts, these agents can coll
 | **Tool User**: Relies on predefined functions | **Tool Creator**: Selects and combines tools dynamically |
 | **Human-Directed**: Requires explicit instructions | **Goal-Directed**: Works towards objectives autonomously |
 
-## 🏗️ **Key Components of Agentic Systems**
+## 🏗️ Key Components of Agentic Systems
 
 ###  🤖 **Agents**
 - **Definition:** Autonomous entities with specific roles, capable of perceiving, reasoning, planning, acting and adapting.
@@ -102,7 +103,7 @@ Unlike conventional models that merely respond to prompts, these agents can coll
 - **Evaluation Metrics:** Success rate, task latency, resource usage, collaboration efficacy
 - **Human-in-the-loop / Oversight:** Interventions, human correction, fallback
 
-## ✨ **Summary of Use Cases**
+## ✨ Summary of Use Cases
 
 | Framework / Workflow | Key Focus | Code |
 |----------------------|-----------|---------------|
@@ -110,7 +111,7 @@ Unlike conventional models that merely respond to prompts, these agents can coll
 | **LangGraph** | Customer Support, Document Processing, Task Planning | [`agentic_frameworks\langgraph\...`](./agentic_frameworks/langgraph/) |
 | **Workflows** | Query routing, Parallel Execution, Prompt Chaining, Event Driven, Tool Orchestration | [`agentic_workflows\...`](./agentic_workflows/) |
 
-## ⚙️ **Installation & Running App**
+## ⚙️ Installation and Running App
 
 Get up and running in under 5 minutes:
 
@@ -194,7 +195,7 @@ Get up and running in under 5 minutes:
     streamlit run agentic_ai_platform.py
     ```
 
-## 🎮 **Frameworks & Use Cases**
+## 🎮 Frameworks and Use Cases
 
 ### 🤖 CrewAI Framework
 > **Location**: [`agentic_frameworks\crewai\`](./agentic_frameworks/crewai/)

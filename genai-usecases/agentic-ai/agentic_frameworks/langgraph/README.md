@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [LangGraph Architecture](#langgraph-architecture)
-- [Available LangGraph Usecases](#available-langgraph-usecases)
-- [Use Cases](#use-cases)
-- [Advanced Features](#advanced-features)
+- [🌟 Overview](#🌟-overview)
+- [⚙️ Installation](#⚙️-installation)
+- [🕸️ LangGraph Architecture](#🕸️-langgraph-architecture)
+- [🌐 Available LangGraph Usecases](#🌐-available-langgraph-usecases)
+- [💡 Use Cases](#💡-use-cases)
+- [✨ Advanced Features](#✨-advanced-features)
 
-## Overview
+## 🌟 Overview
 
 **LangGraph** represents the cutting edge of graph based agent orchestration, where state driven workflows enable sophisticated control flows, conditional routing and dynamic decision-making. Unlike traditional sequential workflows, LangGraph provides graph based execution with type-safe state management, checkpointing, and human-in-the-loop capabilities.
 

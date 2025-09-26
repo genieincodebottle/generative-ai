@@ -10,11 +10,11 @@
 
 ## 📋 Table of Contents
 
-- [🌟 Overview](#-overview)
-- [⚙️ Installation](#️-installation)
-- [🏗️ Workflow Patterns](#️-workflow-patterns)
-- [💼 Use Cases](#-use-cases)
-- [📚 Learning Resources](#-learning-resources)
+- [🌟 Overview](#🌟-overview)
+- [⚙️ Installation](#️⚙️-installation)
+- [🏗️ Workflow Patterns](#️🏗️-workflow-patterns)
+- [💡 Use Cases](#💡-use-cases)
+- [📚 Learning Resources](#📚-learning-resources)
 
 ## 🌟 Overview
 
@@ -295,7 +295,7 @@ Intelligently coordinate multiple tools and APIs to accomplish complex objective
 5. Customer Onboarding: Collect Data → Verify → Setup → Train
 ```
 
-## 💼 Use Cases
+## 💡 Use Cases
 
 ### 🏢 Business Applications
 - **Customer Support Automation**: Route, prioritize, and resolve customer inquiries

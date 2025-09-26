@@ -9,14 +9,14 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [CrewAI Architecture](#crewai-architecture)
-- [Available Crews](#available-crews)
-- [Use Cases](#use-cases)
-- [Advanced Features](#advanced-features)
+- [🌟 Overview](#🌟-overview)
+- [⚙️ Installation](#⚙️-installation)
+- [🏗️ CrewAI Architecture](#🏗️-crewai-architecture)
+- [🤖 Available CrewAI based Usecases](#🤖-available-crewai-based-usecases)
+- [💡 Use Cases](#💡-use-cases)
+- [✨ Advanced Features](#✨-advanced-features)
 
-## Overview
+## 🌟 Overview
 
 **CrewAI** represents the next generation of multi-agent collaboration, where specialized AI agents operate like a professional crew to accomplish complex tasks. Unlike single-agent systems, CrewAI enables sophisticated workflows through intelligent task delegation, role-based specialization, and collaborative decision-making.
 
@@ -117,7 +117,7 @@ Get up and running in under 5 minutes:
     streamlit run agentic_frameworks\crewai\research_assistant_crew\research_assistant_crew.py
     ```
 
-## CrewAI Architecture
+## 🏗️ CrewAI Architecture
 
 ### Core Components
 
@@ -151,7 +151,7 @@ crew_name/
 
 ![crewai-sequence](../../images/crewai-sequence.png)
 
-## Available CrewAI based Usecases
+## 🤖 Available CrewAI based Usecases
 
 ### 1. **Data Analysis Crew**
 > **Collaborative data insights through specialized agent roles**
