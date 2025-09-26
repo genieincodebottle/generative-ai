@@ -10,14 +10,14 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Orchestration Architecture](#orchestration-architecture)
-- [Available Patterns](#available-patterns)
-- [Use Cases](#use-cases)
-- [Advanced Features](#advanced-features)
+- [🌟 Overview](#-overview)
+- [⚙️ Installation](#-installation)
+- [🎼 Orchestration Architecture](#-orchestration-architecture)
+- [🧩 Available Patterns](#-available-patterns)
+- [💡 Use Cases](#-use-cases)
+- [✨ Advanced Features](#-advanced-features)
 
-## Overview
+## 🌟 Overview
 
 **Multi-Agent Orchestration** is the top level of AI teamwork, multiple frameworks working together to handle complex problems. This setup shows advanced patterns like hierarchical coordination, cross-framework integration and event-driven agents that adapt, collaborate and scale.
 
@@ -116,7 +116,7 @@ Get up and running in under 5 minutes:
     streamlit run multi_agent_orchestration\multi_agent_orchestration.py
     ```
 
-## Orchestration Architecture
+## 🎼 Orchestration Architecture
 
 ### Core Components
 
@@ -309,7 +309,7 @@ Implement sophisticated event-driven coordination where agents react to real-tim
 4. Opportunity Detection: Market signals -> Opportunity analysis -> Competitive assessment -> Strategic evaluation -> Investment recommendations
 ```
 
-## Use Cases
+## 💡 Use Cases
 
 ### Business Applications
 - **Strategic Planning**: Multi-framework analysis with comprehensive market intelligence
@@ -335,7 +335,7 @@ Implement sophisticated event-driven coordination where agents react to real-tim
 - **Quality Assurance**: Comprehensive quality management with hierarchical review
 - **Process Improvement**: Continuous improvement with intelligent process analysis
 
-## Advanced Features
+## ✨ Advanced Features
 
 ### Cross-Framework Orchestration
 - **Seamless Integration**: Natural coordination between CrewAI and LangGraph

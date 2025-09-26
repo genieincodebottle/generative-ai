@@ -9,12 +9,12 @@
 
 ## Table of Contents
 
-- [🌟 Overview](#🌟-overview)
-- [⚙️ Installation](#⚙️-installation)
-- [🏗️ CrewAI Architecture](#🏗️-crewai-architecture)
-- [🤖 Available CrewAI based Usecases](#🤖-available-crewai-based-usecases)
-- [💡 Use Cases](#💡-use-cases)
-- [✨ Advanced Features](#✨-advanced-features)
+- [🌟 Overview](#-overview)
+- [⚙️ Installation](#-installation)
+- [🏗️ CrewAI Architecture](#-crewai-architecture)
+- [🤖 Available CrewAI based Usecases](#-available-crewai-based-usecases)
+- [💡 Use Cases](#-use-cases)
+- [✨ Advanced Features](#-advanced-features)
 
 ## 🌟 Overview
 

@@ -10,12 +10,12 @@
 
 ## Table of Contents
 
-- [🌟 Overview](#🌟-overview)
-- [⚙️ Installation](#⚙️-installation)
-- [🕸️ LangGraph Architecture](#🕸️-langgraph-architecture)
-- [🌐 Available LangGraph Usecases](#🌐-available-langgraph-usecases)
-- [💡 Use Cases](#💡-use-cases)
-- [✨ Advanced Features](#✨-advanced-features)
+- [🌟 Overview](#-overview)
+- [⚙️ Installation](#-installation)
+- [🕸️ LangGraph Architecture](#-langgraph-architecture)
+- [🌐 Available LangGraph Usecases](#-available-langgraph-usecases)
+- [💡 Use Cases](#-use-cases)
+- [✨ Advanced Features](#-advanced-features)
 
 ## 🌟 Overview
 
