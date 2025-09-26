@@ -8,6 +8,16 @@
 
 > Hands-on multi-agent implementations showcasing cutting-edge patterns, best practices, and orchestration techniques in autonomous agent development using CrewAI and LangGraph.
 
+## Table of Contents
+
+- [What is Agentic AI?](#what-is-agentic-ai?)
+- [Core Characteristics](#core-characteristics)
+- [How Agentic AI Differs from Traditional AI](#how-agentic-ai-differs-from-traditional-ai)
+- [Key Components of Agentic Systems](#key-components-of-agentic-systems)
+- [Summary of Use Cases](#summary-of-use-cases)
+- [Installation & Running App](#installation-&-running-app)
+- [Frameworks & Use Cases](#frameworks-&-use-cases)
+
 ## **What is Agentic AI?**
 
 **Agentic AI** represents a major evolution from traditional, task specific AI systems to autonomous, goal driven agents capable of reasoning, planning multi step actions, making intelligent decisions and adapting dynamically to achieve complex goals. 
@@ -100,7 +110,7 @@ Unlike conventional models that merely respond to prompts, these agents can coll
 | **LangGraph** | Customer Support, Document Processing, Task Planning | [`agentic_frameworks\langgraph\...`](./agentic_frameworks/langgraph/) |
 | **Workflows** | Query routing, Parallel Execution, Prompt Chaining, Event Driven, Tool Orchestration | [`agentic_workflows\...`](./agentic_workflows/) |
 
-## ⚙️ **Installation**
+## ⚙️ **Installation & Running App**
 
 Get up and running in under 5 minutes:
 
@@ -131,15 +141,19 @@ Get up and running in under 5 minutes:
 
         1. **Ollama** - Run open models locally with zero API costs:
 
-            ```bash
-            # Install Ollama from https://ollama.ai
-            curl -fsSL https://ollama.ai/install.sh | sh
+            - **Windows/MacOS:** Download Ollama models from here -> https://ollama.com/download
+            - **Linux:** Install with command:
+            
+                ```bash
+                # Install Ollama from https://ollama.ai
+                curl -fsSL https://ollama.ai/install.sh | sh
+                ```
+            - Pull a lightweight models as per your system memory availability 
+                ```bash
+                ollama pull llama3.2:3b # Options: gpt-oss:20b, llama3.2:1b, llama3.2:3b, llama3.1:8b, deepseek-r1:1.5b, deepseek-r1:7b, deepseek-r1:8b, gemma3:1b, gemma3:4b, gemma3:12b, phi3:3.8b
 
-            # Pull a lightweight models as per your system memory availability 
-            ollama pull llama3.2:3b # Options: gpt-oss:20b, llama3.2:1b, llama3.2:3b, llama3.1:8b, deepseek-r1:1.5b, deepseek-r1:7b, deepseek-r1:8b, gemma3:1b, gemma3:4b, gemma3:12b, phi3:3.8b
-
-            # No API keys needed..
-            ```
+                # No API keys needed..
+                ```
             Reference guide for memory requirement 
             - **llama3.2:1b** (1B parameters) - ~0.7GB RAM
             - **llama3.2:3b** (3B parameters) - ~2GB RAM

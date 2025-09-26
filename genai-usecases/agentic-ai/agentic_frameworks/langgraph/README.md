@@ -62,15 +62,19 @@ Get up and running in under 5 minutes:
 
         1. **Ollama** - Run open models locally with zero API costs:
 
-            ```bash
-            # Install Ollama from https://ollama.ai
-            curl -fsSL https://ollama.ai/install.sh | sh
+            - **Windows/MacOS:** Download Ollama models from here -> https://ollama.com/download
+            - **Linux:** Install with command:
+            
+                ```bash
+                # Install Ollama from https://ollama.ai
+                curl -fsSL https://ollama.ai/install.sh | sh
+                ```
+            - Pull a lightweight models as per your system memory availability 
+                ```bash
+                ollama pull llama3.2:3b # Options: gpt-oss:20b, llama3.2:1b, llama3.2:3b, llama3.1:8b, deepseek-r1:1.5b, deepseek-r1:7b, deepseek-r1:8b, gemma3:1b, gemma3:4b, gemma3:12b, phi3:3.8b
 
-            # Pull a lightweight models as per your system memory availability
-            ollama pull llama3.2:3b # Options: gpt-oss:20b, llama3.2:1b, llama3.2:3b, llama3.1:8b, deepseek-r1:1.5b, deepseek-r1:7b, deepseek-r1:8b, gemma3:1b, gemma3:4b, gemma3:12b, phi3:3.8b
-
-            # No API keys needed..
-            ```
+                # No API keys needed..
+                ```
             Reference guide for memory requirement
             - **llama3.2:1b** (1B parameters) - ~0.7GB RAM
             - **llama3.2:3b** (3B parameters) - ~2GB RAM
