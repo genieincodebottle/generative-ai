@@ -10,13 +10,13 @@
 
 ## Table of Contents
 
-- [🤔 What is Agentic AI?](#🤔-what-is-agentic-ai)
-- [🎯 Core Characteristics](#🎯-core-characteristics)
-- [🔄 How Agentic AI Differs from Traditional AI](#🔄-how-agentic-ai-differs-from-traditional-ai)
-- [🏗️ Key Components of Agentic Systems](#🏗️-key-components-of-agentic-systems)
-- [✨ Summary of Use Cases](#✨-summary-of-use-cases)
-- [⚙️ Installation and Running App](#⚙️-installation-and-running-app)
-- [🎮 Frameworks and Use Cases](#🎮-frameworks-and-use-cases)
+- [🤔 What is Agentic AI?](#-what-is-agentic-ai)
+- [🎯 Core Characteristics](#-core-characteristics)
+- [🔄 How Agentic AI Differs from Traditional AI](#-how-agentic-ai-differs-from-traditional-ai)
+- [🏗️ Key Components of Agentic Systems](#-key-components-of-agentic-systems)
+- [✨ Summary of Use Cases](#-summary-of-use-cases)
+- [⚙️ Installation and Running App](#-installation-and-running-app)
+- [🎮 Frameworks and Use Cases](#-frameworks-and-use-cases)
 
 ## 🤔 What is Agentic AI?
 

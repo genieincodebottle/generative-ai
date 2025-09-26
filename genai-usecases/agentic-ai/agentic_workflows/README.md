@@ -10,8 +10,8 @@
 
 ## 📋 Table of Contents
 
-- [🌟 Overview](#🌟-overview)
-- [⚙️ Installation](#️⚙️-installation)
+- [🌟 Overview](#-🌟-overview)
+- [⚙️ Installation](#️-⚙️-installation)
 - [🏗️ Workflow Patterns](#️🏗️-workflow-patterns)
 - [💡 Use Cases](#💡-use-cases)
 - [📚 Learning Resources](#📚-learning-resources)
