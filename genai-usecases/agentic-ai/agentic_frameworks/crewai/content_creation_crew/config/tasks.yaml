@@ -1,0 +1,98 @@
+# Content Creation Crew - Task Configuration
+# YAML-based task definitions for content creation workflow
+
+content_strategy_task:
+  description: >
+    Quickly develop content strategy for {content_topic} targeting {target_audience}.
+
+    Create a concise strategy including:
+    1. Audience analysis
+    2. Content objectives
+    3. Key messaging themes
+    4. Brand voice guidelines
+
+    Focus on practical, actionable strategy elements.
+  expected_output: >
+    Concise content strategy document with audience analysis, objectives, messaging themes, and brand voice guidelines.
+  agent: content_strategist
+  tools: true
+  async_execution: false
+  context: []
+  output_file: "agentic_frameworks/crewai/content_creation_crew/output/content_strategy.md"
+  human_input: false
+
+content_creation_task:
+  description: >
+    Create {content_type} content for {content_topic} targeting {target_audience}.
+
+    Requirements:
+    - Tone: {tone_style}
+    - Length: {word_count} words
+    - Include compelling headline and introduction
+    - Well-structured body with clear flow
+    - Strong conclusion with call-to-action
+
+    Focus on engaging, valuable content that serves the audience efficiently.
+  expected_output: >
+    Ready-to-publish content with engaging headline, structured body, and compelling call-to-action.
+  agent: content_writer
+  tools: false
+  async_execution: false
+  context:
+    - content_strategy_task
+  output_file: "agentic_frameworks/crewai/content_creation_crew/output/content_draft.md"
+  human_input: false
+
+seo_optimization_task:
+  description: >
+    Optimize content for SEO while maintaining quality.
+
+    Topic: {content_topic}
+    Keywords: {target_keywords}
+
+    Apply:
+    1. Strategic keyword integration
+    2. Optimized headers (H1, H2, H3)
+    3. Meta title and description
+    4. Readability improvements
+
+    Balance SEO with user experience efficiently.
+  expected_output: >
+    SEO-optimized content with integrated keywords, optimized headers, meta title/description, and maintained readability.
+  agent: seo_specialist
+  tools: true
+  async_execution: false
+  context:
+    - content_strategy_task
+    - content_creation_task
+  output_file: "agentic_frameworks/crewai/content_creation_crew/output/seo_optimized_content.md"
+  human_input: false
+
+quality_review_task:
+  description: >
+    Review and finalize the content provided by the previous agents in this workflow.
+
+    You are working on content about {content_topic}. The content strategist, content writer,
+    and SEO specialist have already worked on this content. Use their outputs as your input.
+
+    Your specific tasks:
+    - Take the SEO-optimized content from the previous task
+    - Review grammar, spelling, and readability
+    - Ensure brand voice consistency throughout
+    - Verify content accuracy and logical flow
+    - Polish the final version for publication
+    - Make any necessary improvements while preserving the SEO optimization
+
+    Important: Use the content provided by previous tasks as your starting point.
+    Do not ask for additional content - work with what has been created.
+  expected_output: >
+    Final publication-ready content with polished grammar, consistent brand voice, improved readability, and quality assurance approval.
+  agent: quality_reviewer
+  tools: false
+  async_execution: false
+  context:
+    - content_strategy_task
+    - content_creation_task
+    - seo_optimization_task
+  output_file: "agentic_frameworks/crewai/content_creation_crew/output/final_content.md"
+  human_input: false

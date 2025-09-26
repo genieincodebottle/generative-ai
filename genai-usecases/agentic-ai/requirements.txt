@@ -1,0 +1,39 @@
+# Core Dependencies
+streamlit>=1.49.1
+pydantic>=2.11.9
+python-dotenv==1.0.1
+
+# Data Processing and Visualization
+plotly>=6.3.0
+pandas>=2.3.2
+numpy>=2.3.3
+matplotlib>=3.10.6
+seaborn>=0.13.2
+
+# LangChain and LangGraph
+langchain>=0.3.27
+langchain-core>=0.3.76
+langchain-openai>=0.3.33
+langchain-anthropic>=0.3.20
+langchain-google-genai>=2.1.12
+langchain-groq==0.2.1
+langchain-ollama>=0.3.8
+langgraph>=0.6.7
+
+# CrewAI Framework
+crewai>=0.193.0
+crewai-tools>=0.73.0
+scipy==1.15.0
+xlsxwriter==3.2.0
+
+# Memory and Vector Stores
+chromadb>=0.5.23
+
+# Configuration
+pyyaml>=6.0.2
+
+# Data fetching and processing
+yfinance>=0.2.18
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+feedparser>=6.0.10

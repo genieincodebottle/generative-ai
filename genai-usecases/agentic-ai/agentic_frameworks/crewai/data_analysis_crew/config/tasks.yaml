@@ -1,0 +1,162 @@
+# Data Analysis Crew - Task Configuration
+# YAML-based task definitions with conditional execution and structured outputs
+
+data_analysis_task:
+  description: >
+    Perform comprehensive statistical analysis on the provided dataset including:
+
+    1. Data Quality Assessment:
+       - Missing value analysis and treatment recommendations
+       - Outlier detection and impact assessment
+       - Data distribution analysis and normality tests
+       - Correlation analysis between variables
+
+    2. Descriptive Analytics:
+       - Statistical summaries for all variables
+       - Trend analysis and seasonal patterns
+       - Segmentation analysis where applicable
+       - Performance metrics calculation
+
+    3. Advanced Analytics:
+       - Predictive modeling opportunities identification
+       - Causal inference analysis where possible
+       - Risk factor identification
+       - Performance benchmarking
+
+    Use the dataset context: {data_context}
+
+    Provide specific insights with supporting statistical evidence.
+  expected_output: >
+    A comprehensive data analysis report containing:
+    - Executive summary with key findings
+    - Detailed statistical analysis with specific metrics
+    - Data quality assessment with actionable recommendations
+    - Pattern analysis with supporting visualizations
+    - Risk and opportunity identification
+    - Technical appendix with methodology details
+  agent: data_analyst
+  tools: true
+  async_execution: false
+  context: []
+  output_file: "agentic_frameworks/crewai/data_analysis_crew/output/data_analysis_report.md"
+  human_input: false
+
+business_insights_task:
+  description: >
+    Transform the data analysis findings into strategic business insights including:
+
+    1. Strategic Implications:
+       - Business impact assessment of key findings
+       - Competitive advantage opportunities
+       - Market positioning insights
+       - Customer behavior analysis
+
+    2. Actionable Recommendations:
+       - Short-term tactical actions (1-3 months)
+       - Medium-term strategic initiatives (3-12 months)
+       - Long-term vision and planning (1-3 years)
+       - Resource allocation recommendations
+
+    3. Implementation Roadmap:
+       - Priority ranking of recommendations
+       - Success metrics and KPIs
+       - Risk mitigation strategies
+       - Change management considerations
+
+    Base your insights on the data analysis findings from the previous task.
+  expected_output: >
+    A strategic business insights report containing:
+    - Executive summary with key business implications
+    - Prioritized recommendations with clear rationale
+    - Implementation roadmap with timelines
+    - Success metrics and measurement framework
+    - Risk assessment and mitigation strategies
+    - ROI projections where applicable
+  agent: business_intelligence_specialist
+  tools: false
+  async_execution: false
+  context:
+    - data_analysis_task
+  output_file: "agentic_frameworks/crewai/data_analysis_crew/output/business_insights_report.md"
+  human_input: false
+
+visualization_task:
+  description: >
+    Create comprehensive data visualizations and dashboard recommendations:
+
+    1. Chart Selection and Design:
+       - Appropriate chart types for different data patterns
+       - Interactive visualization recommendations
+       - Dashboard layout and user experience design
+       - Color schemes and accessibility considerations
+
+    2. Storytelling Through Data:
+       - Visual narrative structure
+       - Key message highlighting techniques
+       - Audience-specific visualization strategies
+       - Progressive disclosure patterns
+
+    3. Technical Implementation:
+       - Recommended visualization tools and platforms
+       - Data refresh and automation strategies
+       - Performance optimization techniques
+       - Mobile and responsive design considerations
+
+    Use insights from previous analysis and business insights.
+  expected_output: >
+    A comprehensive visualization strategy document containing:
+    - Dashboard mockups and wireframes
+    - Chart specifications and design guidelines
+    - Interactive feature recommendations
+    - Implementation technical requirements
+    - User training and adoption strategies
+    - Maintenance and update procedures
+  agent: data_visualization_expert
+  tools: false
+  async_execution: false
+  context:
+    - data_analysis_task
+    - business_insights_task
+  output_file: "agentic_frameworks/crewai/data_analysis_crew/output/visualization_strategy.md"
+  human_input: false
+
+quality_assurance_task:
+  description: >
+    Conduct comprehensive quality assurance review of all analysis outputs:
+
+    1. Accuracy Verification:
+       - Statistical calculation validation
+       - Data integrity checks
+       - Methodology review and validation
+       - Result consistency verification
+
+    2. Compliance Assessment:
+       - Industry standard compliance
+       - Regulatory requirement adherence
+       - Data privacy and security validation
+       - Bias detection and mitigation
+
+    3. Quality Enhancement:
+       - Recommendation refinement
+       - Clarity and communication improvement
+       - Documentation completeness review
+       - Actionability assessment
+
+    Review all previous outputs from the analysis, insights, and visualization tasks.
+  expected_output: >
+    A quality assurance report containing:
+    - Accuracy validation results
+    - Compliance checklist and status
+    - Quality improvement recommendations
+    - Risk assessment and mitigation plans
+    - Final approval status and sign-off
+    - Continuous improvement suggestions
+  agent: quality_assurance_specialist
+  tools: false
+  async_execution: false
+  context:
+    - data_analysis_task
+    - business_insights_task
+    - visualization_task
+  output_file: "agentic_frameworks/crewai/data_analysis_crew/output/quality_assurance_report.md"
+  human_input: false  # Controlled by UI configuration

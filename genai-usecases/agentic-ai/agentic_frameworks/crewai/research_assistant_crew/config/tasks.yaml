@@ -1,0 +1,170 @@
+# Research Assistant Crew - Task Configuration
+# YAML-based task definitions for comprehensive research workflow
+
+research_planning_task:
+  description: >
+    Create a comprehensive research plan for the topic: {research_topic}
+
+    Requirements:
+    - Research depth: {research_depth}
+    - Output format: {output_format}
+    - Target sources: {target_sources}
+    - Special requirements: {special_requirements}
+
+    Develop a structured research approach including:
+    1. Key research questions and sub-questions
+    2. Information sources and databases to explore
+    3. Research methodology and approach
+    4. Timeline and milestones
+    5. Quality assurance checkpoints
+    6. Success criteria and deliverables
+
+    Ensure the plan covers all aspects comprehensively and efficiently.
+  expected_output: >
+    A detailed research plan containing:
+    - Research objectives and scope definition
+    - Methodology and approach framework
+    - Source identification and prioritization
+    - Timeline with key milestones
+    - Quality control measures
+    - Resource requirements assessment
+  agent: research_coordinator
+  tools: false
+  async_execution: false
+  context: []
+  output_file: "agentic_frameworks/crewai/research_assistant_crew/output/research_plan.md"
+  human_input: false
+
+information_gathering_task:
+  description: >
+    Execute comprehensive information gathering based on the research plan:
+
+    Research Topic: {research_topic}
+    Target Sources: {target_sources}
+    Research Depth: {research_depth}
+
+    Gather information from multiple sources including:
+    1. Academic databases and peer-reviewed journals
+    2. Industry reports and market research
+    3. Government publications and statistical data
+    4. Expert interviews and authoritative sources
+    5. Recent developments and current trends
+    6. Historical context and background information
+
+    Ensure comprehensive coverage while maintaining source quality and credibility.
+  expected_output: >
+    A comprehensive information collection containing:
+    - Organized source materials by category
+    - Key findings and data points
+    - Source credibility assessments
+    - Information gaps identification
+    - Preliminary insights and patterns
+    - Bibliography with proper citations
+  agent: information_gatherer
+  tools: true
+  async_execution: false
+  context:
+    - research_planning_task
+  output_file: "agentic_frameworks/crewai/research_assistant_crew/output/information_collection.md"
+  human_input: false
+
+fact_verification_task:
+  description: >
+    Verify the accuracy and credibility of gathered information:
+
+    Review all collected information for:
+    1. Source credibility and authority assessment
+    2. Cross-reference verification across multiple sources
+    3. Fact accuracy and consistency checks
+    4. Bias detection and neutrality assessment
+    5. Currency and relevance validation
+    6. Methodology evaluation for studies and reports
+
+    Flag any questionable information and provide confidence ratings.
+  expected_output: >
+    A fact verification report containing:
+    - Source credibility ratings and assessments
+    - Fact accuracy verification results
+    - Bias and reliability analysis
+    - Confidence ratings for key claims
+    - Flagged items requiring additional verification
+    - Recommendations for information usage
+  agent: fact_checker
+  tools: true
+  async_execution: false
+  context:
+    - research_planning_task
+    - information_gathering_task
+  output_file: "agentic_frameworks/crewai/research_assistant_crew/output/fact_verification_report.md"
+  human_input: false
+
+research_analysis_task:
+  description: >
+    Analyze verified information to generate insights and conclusions:
+
+    Research Focus: {research_topic}
+    Analysis Requirements: {research_depth}
+
+    Conduct comprehensive analysis including:
+    1. Pattern identification and trend analysis
+    2. Comparative analysis across sources and perspectives
+    3. Gap analysis and areas for further investigation
+    4. Synthesis of key findings and insights
+    5. Implications and significance assessment
+    6. Recommendations and next steps
+
+    Focus on generating actionable insights and strategic value.
+  expected_output: >
+    A research analysis report containing:
+    - Key findings and insights synthesis
+    - Pattern and trend identification
+    - Comparative analysis results
+    - Strategic implications assessment
+    - Recommendations and action items
+    - Areas for further research
+  agent: research_analyst
+  tools: false
+  async_execution: false
+  context:
+    - research_planning_task
+    - information_gathering_task
+    - fact_verification_task
+  output_file: "agentic_frameworks/crewai/research_assistant_crew/output/research_analysis.md"
+  human_input: false
+
+report_writing_task:
+  description: >
+    Create a comprehensive research report in the requested format:
+
+    Output Format: {output_format}
+    Target Audience: Professional stakeholders
+    Research Topic: {research_topic}
+
+    Compile all research phases into a professional report including:
+    1. Executive summary with key findings
+    2. Methodology and approach description
+    3. Detailed findings and analysis
+    4. Conclusions and recommendations
+    5. Supporting data and evidence
+    6. References and bibliography
+    7. Appendices with supplementary information
+
+    Ensure clarity, professionalism, and actionable insights throughout.
+  expected_output: >
+    A comprehensive research report containing:
+    - Executive summary with key insights
+    - Structured findings and analysis
+    - Evidence-based conclusions
+    - Actionable recommendations
+    - Professional formatting and presentation
+    - Complete citations and references
+  agent: report_writer
+  tools: true
+  async_execution: false
+  context:
+    - research_planning_task
+    - information_gathering_task
+    - fact_verification_task
+    - research_analysis_task
+  output_file: "agentic_frameworks/crewai/research_assistant_crew/output/final_research_report.md"
+  human_input: false  # Controlled by UI configuration

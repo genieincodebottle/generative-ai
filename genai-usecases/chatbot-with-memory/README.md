@@ -4,12 +4,13 @@ A beginner friendly GenAI based chatbot that provides a conversational interface
 
 ## Features
 
-- 🤖 **Multiple Local Models** - Support for various Ollama based open models (Llama, Gemma, DeepSeek, gpt-oss, phi etc.)
+- 🤖 **Multiple Local Models** - Support for various [Ollama](https://ollama.com/) based open models (Llama, Gemma, DeepSeek, gpt-oss, phi etc.)
 - 📚 **Multiple PDF Support** - Upload and query multiple documents simultaneously
-- 💬 **Advanced Memory System** - Latest LangChain 0.3+ conversational memory with context-aware responses
+- 💬 **Advanced Memory System** - Latest [LangChain](https://python.langchain.com/docs/introduction/) 0.3+ conversational memory with context-aware responses
 - 🧠 **RAG Implementation** - Retrieval-Augmented Generation using PDF documents as knowledge base
 - 🔄 **Session-based Memory** - Isolated conversation threads with persistent chat history
 - ⚙️ **UI-Based Configuration** - All settings configurable through the sidebar interface
+
 
 ## 📊 Application Flow
 
@@ -179,7 +180,7 @@ All configuration is done through the **sidebar interface** - no configuration f
 ## 🔧 Technical Architecture
 
 ### Memory Implementation
-- **LangChain 0.3+ Patterns**: Uses `RunnableWithMessageHistory`
+- **LangChain Patterns**: Uses `RunnableWithMessageHistory`
 - **Conversational RAG**: Implements context-aware retrieval with chat history integration
 - **Session Management**: Each user session maintains isolated conversation memory
 - **History-Aware Retrieval**: Questions are contextualized using previous conversation before document retrieval

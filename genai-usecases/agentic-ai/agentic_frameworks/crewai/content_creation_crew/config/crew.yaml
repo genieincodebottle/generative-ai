@@ -1,0 +1,63 @@
+# Content Creation Crew - Crew Configuration
+# Sequential process configuration for content creation workflow
+
+crew_config:
+  name: "Content Creation Crew"
+  description: "Optimized content creation crew for efficient content development"
+  process: "sequential"  # sequential process for content creation
+  verbose: false
+  memory: false
+  cache: true
+  max_rpm: 150
+  language: "en"
+
+  # Manager LLM configuration (optimized for speed)
+  manager_llm:
+    temperature: 0.1
+    max_tokens: 2000
+    timeout: 60
+
+  # Planning disabled for speed
+  planning: false
+  planning_llm:
+    temperature: 0.2
+    max_tokens: 2000
+
+  # Memory and knowledge management
+  memory_config:
+    provider: "long_term_memory"
+    storage:
+      type: "chroma"
+      collection_name: "content_creation_memory"
+
+  # Error handling and resilience
+  error_handling:
+    max_retries: 3
+    retry_delay: 5
+    fallback_strategy: "graceful_degradation"
+
+  # Human-in-the-loop configuration (disabled for speed)
+  human_input:
+    enabled: false
+    approval_required: []
+    timeout: 300  # 5 minutes for human response
+
+  # Output configuration
+  output:
+    format: "markdown"
+    include_metadata: true
+    version_control: true
+    backup_enabled: true
+
+  # Performance optimization (optimized for speed)
+  performance:
+    parallel_execution: false
+    max_concurrent_tasks: 3
+    task_timeout: 180  # 3 minutes per task
+
+  # Security and compliance
+  security:
+    data_encryption: false
+    audit_logging: true
+    access_control: false
+    privacy_mode: false

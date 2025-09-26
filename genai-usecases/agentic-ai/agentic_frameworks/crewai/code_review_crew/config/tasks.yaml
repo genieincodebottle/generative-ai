@@ -1,0 +1,85 @@
+# Code Review Crew - Task Configuration
+# Efficient multi-agent task workflow for code review
+
+security_analysis_task:
+  description: >
+    Perform rapid security analysis of the provided {programming_language} code.
+
+    Analyze for:
+    - SQL injection vulnerabilities
+    - XSS potential
+    - Input validation gaps
+    - Authentication issues
+    - Data exposure risks
+
+    Provide a concise security report in markdown format with:
+    1. Security issues found (if any)
+    2. Risk levels (High/Medium/Low)
+    3. Quick fix recommendations
+
+    Keep analysis focused and actionable. Complete this analysis efficiently.
+  expected_output: >
+    Concise security analysis in markdown format with identified issues,
+    risk levels, and specific remediation steps. If no issues found, state "No critical security issues identified."
+  agent: security_analyst
+  tools: true
+  async_execution: false
+  context: []
+  output_file: "agentic_frameworks/crewai/code_review_crew/output/security_analysis.md"
+  human_input: false
+
+quality_analysis_task:
+  description: >
+    Perform rapid code quality assessment of the provided {programming_language} code.
+
+    Check for:
+    - Code readability issues
+    - Naming convention problems
+    - Code smells and anti-patterns
+    - Performance inefficiencies
+    - Error handling gaps
+
+    Provide a concise quality report in markdown format with:
+    1. Quality issues found (if any)
+    2. Priority levels (High/Medium/Low)
+    3. Improvement suggestions
+
+    Complete this assessment efficiently with practical recommendations.
+  expected_output: >
+    Concise code quality report in markdown format with issues identified,
+    priority levels, and actionable improvement suggestions. If code quality is good, state "Code quality is acceptable."
+  agent: code_quality_expert
+  tools: true
+  async_execution: false
+  context: []
+  output_file: "agentic_frameworks/crewai/code_review_crew/output/quality_analysis.md"
+  human_input: false
+
+comprehensive_review_task:
+  description: >
+    Create final code review summary by consolidating security and quality findings.
+
+    Tasks:
+    1. Review security analysis results
+    2. Review quality analysis results
+    3. Prioritize all findings (High/Medium/Low)
+    4. Create implementation roadmap
+
+    Provide a final markdown report with:
+    - Executive summary
+    - Top priority issues
+    - Action items
+    - Overall assessment
+
+    Be concise and actionable. Complete this synthesis efficiently.
+  expected_output: >
+    Final comprehensive code review report in markdown format with executive summary,
+    prioritized findings, and clear action items. Include overall code health score.
+  agent: senior_reviewer
+  tools: false
+  async_execution: false
+  context:
+    - security_analysis_task
+    - quality_analysis_task
+  output_file: "agentic_frameworks/crewai/code_review_crew/output/comprehensive_review.md"
+  human_input: false
