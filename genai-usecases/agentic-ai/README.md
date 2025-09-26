@@ -8,6 +8,8 @@
 
 > Hands-on multi-agent implementations showcasing cutting-edge patterns, best practices, and orchestration techniques in autonomous agent development using CrewAI and LangGraph.
 
+🌟 **[Agentic AI Interview Q&A](../../docs/agentic-ai-interview-questions.pdf)**
+
 ## Table of Contents
 
 - [🤔 What is Agentic AI?](#-what-is-agentic-ai)
@@ -17,6 +19,7 @@
 - [✨ Summary of Use Cases](#-summary-of-use-cases)
 - [⚙️ Installation and Running App](#-installation-and-running-app)
 - [🎮 Frameworks and Use Cases](#-frameworks-and-use-cases)
+- [📚 Learning Resources](#-learning-resources)
 
 ## 🤔 What is Agentic AI?
 
@@ -348,3 +351,18 @@ streamlit run agentic_workflows\event_driven.py
 streamlit run agentic_workflows\tool_orchestration.py
 ```
 
+### 🏗️ Agentic RAG
+
+An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system implements advanced multi-agent workflows for intelligent question answering with adaptive reasoning strategies.
+
+> **Path**: [`advance-rag\agentic-rag`](../advance-rag/agentic-rag/)
+
+---
+## 📚 Learning Resources
+
+- [Agentic AI Interview Q&A (PDF)](../../docs/agentic-ai-interview-questions.pdf) - Comprehensive guide covering common questions and answers for Agentic AI concepts.
+- [Blog - Building Agents (Claude)](https://www.anthropic.com/research/building-effective-agents)
+- [Huggingface Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
+- [Blog - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html) 
+- [Google Whitepaper](https://www.kaggle.com/whitepaper-agents) 
+- [Agentic Design Pattern](https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0#heading=h.pxcur8v2qagu)
