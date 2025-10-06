@@ -16,6 +16,7 @@
 - [🎯 Core Characteristics](#-core-characteristics)
 - [🔄 How Agentic AI Differs from Traditional AI](#-how-agentic-ai-differs-from-traditional-ai)
 - [🏗️ Key Components of Agentic Systems](#-key-components-of-agentic-systems)
+- [🧩 Agentic AI SDK and Frameworks](#-agentic-ai-sdk-and-frameworks)
 - [✨ Summary of Use Cases](#-summary-of-use-cases)
 - [⚙️ Installation and Running App](#-installation-and-running-app)
 - [🎮 Frameworks and Use Cases](#-frameworks-and-use-cases)
@@ -105,6 +106,20 @@ Unlike conventional models that merely respond to prompts, these agents can coll
 - **Verification & Monitoring:** Logging, auditing, observability
 - **Evaluation Metrics:** Success rate, task latency, resource usage, collaboration efficacy
 - **Human-in-the-loop / Oversight:** Interventions, human correction, fallback
+
+## 🧩 Agentic AI SDK and Frameworks
+
+- **[LangChain](https://python.langchain.com/api_reference/core/agents.html)** - A powerful framework for building LLM-powered agents by chaining tools, memory, and reasoning capabilities together for complex workflows.  
+- **[LangGraph](https://langchain-ai.github.io/langgraph/concepts/why-langgraph/)** - A graph-based extension of LangChain focused on building **stateful, multi-step agent workflows** with clear control flow and better observability.  
+- **[CrewAI](https://docs.crewai.com/)** - A multi-agent orchestration framework that lets you **coordinate teams of specialized AI agents** to collaboratively solve tasks.  
+- **[LlamaIndex](https://developers.llamaindex.ai/python/framework/use_cases/agents/)** - Provides agent capabilities tightly integrated with data retrieval, enabling **context-aware reasoning** and **RAG-powered agent systems**.  
+- **[Agent Development Kit (ADK)](https://google.github.io/adk-docs/)** - Google’s toolkit for building **production-ready, event-driven AI agents**, with strong emphasis on composability and tool integration.  
+- **[OpenAI Agent SDK](https://openai.github.io/openai-agents-python/)** - Official SDK for creating **tool-using OpenAI agents**, supporting function calls, memory, and action orchestration out-of-the-box.  
+- **[Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview)** - Anthropic’s SDK for building **Claude-powered agents** with tool access, planning, and long-term reasoning capabilities.  
+- **[Microsoft Agent Framework](https://github.com/microsoft/agent-framework)** - A modular, open-source platform to **design, deploy, and manage autonomous agents** with integration into Microsoft’s AI ecosystem.  
+- **[AWS Strands Agents](https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/)** - AWS’s open-source SDK for creating **scalable, distributed AI agents** that interact with cloud services and external APIs.  
+- **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)** - An open protocol that enables **seamless communication between LLM agents and external tools/APIs**, making agent capabilities more composable and interoperable.  
+- **[A2A (Agent2Agent)](https://github.com/google-a2a/A2A)** - An open protocol initiated by Google to enable **secure, framework-agnostic communication and collaboration between autonomous agents**. Agents can discover each other’s capabilities, negotiate interaction modalities, and jointly coordinate tasks without revealing their internal memory or tools.
 
 ## ✨ Summary of Use Cases
 
