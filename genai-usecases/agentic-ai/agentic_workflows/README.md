@@ -107,6 +107,11 @@ Get up and running in under 5 minutes:
                 ANTHROPIC_API_KEY=your-anthropic-key
                 OPENAI_API_KEY=your-openai-key-here
                 ```
+                
+                * Get **GEMINI_API_KEY** here -> https://aistudio.google.com/app/apikey
+                * Get **GROQ_API_KEY** here -> https://console.groq.com/keys
+                * Get **ANTHROPIC_API_KEY** here -> https://console.anthropic.com/settings/keys
+                * Get **OPENAI_API_KEY** here -> https://platform.openai.com/api-keys
 
 6. Run any pattern
 
