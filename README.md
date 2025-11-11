@@ -15,7 +15,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 ## 📚 Table of Contents
 - [Documentation & Learning Resources](#-documentation--learning-resources)
-- [Practical Use Cases and Projects](#-practical-use-cases-and-projects)
+- [Practical Use Cases & Projects](#-practical-use-cases--projects)
 - [Contributing](#-contributing)
 
 ---
@@ -55,7 +55,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 ---
 
-## 🛠️ Practical Use Cases and Projects
+## 🛠️ Practical Use Cases & Projects
 
 ### 🔍 Retrieval-Augmented Generation (RAG)
 - **[Advanced RAG](./genai-usecases/advance-rag/)** - Comprehensive RAG techniques including agentic, graph, multimodal, and 9 advanced patterns (corrective RAG, hybrid search, query expansion, etc.)
@@ -104,7 +104,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 <hr>
 
-### 🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome. To add useful resources or code:
 
