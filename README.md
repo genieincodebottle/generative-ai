@@ -16,7 +16,6 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ## 📚 Table of Contents
 - [Documentation & Learning Resources](#-documentation--learning-resources)
 - [Practical Use Cases & Projects](#-practical-use-cases--projects)
-- [Contributing](#-contributing)
 
 ---
 
