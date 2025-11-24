@@ -569,20 +569,20 @@ class QueryUnderstanding:
         self.intent_prompt = PromptTemplate(
             input_variables=["query"],
             template="""Analyze this code search query and extract:
-1. Intent: Is it asking "how to" (implementation), "what is" (explanation), or "show me" (examples)?
-2. Key entities: Programming concepts, libraries, patterns mentioned
-3. Expanded terms: Synonyms and related terms
+            1. Intent: Is it asking "how to" (implementation), "what is" (explanation), or "show me" (examples)?
+            2. Key entities: Programming concepts, libraries, patterns mentioned
+            3. Expanded terms: Synonyms and related terms
 
-Query: {query}
+            Query: {query}
 
-Respond in JSON format:
-{{
-    "intent": "how_to|what_is|show_me",
-    "entities": ["entity1", "entity2"],
-    "expanded_terms": ["term1", "term2"],
-    "language_hint": "python|javascript|any"
-}}"""
-        )
+            Respond in JSON format:
+            {{
+                "intent": "how_to|what_is|show_me",
+                "entities": ["entity1", "entity2"],
+                "expanded_terms": ["term1", "term2"],
+                "language_hint": "python|javascript|any"
+            }}"""
+                    )
     
     def analyze_query(self, query: str) -> Dict[str, Any]:
         """Analyze and expand the query"""
@@ -698,13 +698,13 @@ class CodeRetriever:
         rerank_prompt = PromptTemplate(
             input_variables=["query", "code"],
             template="""Rate how well this code answers the query on a scale of 1-10.
-Consider: semantic relevance, code quality, completeness, and clarity.
+            Consider: semantic relevance, code quality, completeness, and clarity.
 
-Query: {query}
-Code: {code}
+            Query: {query}
+            Code: {code}
 
-Respond with only a number 1-10."""
-        )
+            Respond with only a number 1-10."""
+                    )
 
         scored_docs = []
         for i, doc in enumerate(documents[:self.config.top_k_rerank], 1):
@@ -741,24 +741,24 @@ class ResponseGenerator:
         self.response_prompt = PromptTemplate(
             input_variables=["query", "code_examples", "metadata"],
             template="""You are a helpful coding assistant. Based on the code examples provided, 
-answer the developer's question with clear explanations and relevant code.
+            answer the developer's question with clear explanations and relevant code.
 
-Developer Question: {query}
+            Developer Question: {query}
 
-Retrieved Code Examples:
-{code_examples}
+            Retrieved Code Examples:
+            {code_examples}
 
-Metadata:
-{metadata}
+            Metadata:
+            {metadata}
 
-Instructions:
-1. First, briefly explain the pattern or approach
-2. Show the most relevant code example with syntax highlighting
-3. Explain key parts of the code
-4. Mention any important considerations or alternatives
+            Instructions:
+            1. First, briefly explain the pattern or approach
+            2. Show the most relevant code example with syntax highlighting
+            3. Explain key parts of the code
+            4. Mention any important considerations or alternatives
 
-Response:"""
-        )
+            Response:"""
+                    )
     
     def generate(self, query: str, documents: List[Document]) -> str:
         """Generate a helpful response"""
@@ -776,14 +776,14 @@ Response:"""
         for i, doc in enumerate(documents, 1):
             meta = doc.metadata
             code_examples.append(f"""
-Example {i} - {meta.get('name', 'Unknown')} ({meta.get('language', 'unknown')})
-Repository: {meta.get('repo_name', 'unknown')}
-File: {meta.get('file_path', 'unknown')}
+            Example {i} - {meta.get('name', 'Unknown')} ({meta.get('language', 'unknown')})
+            Repository: {meta.get('repo_name', 'unknown')}
+            File: {meta.get('file_path', 'unknown')}
 
-```{meta.get('language', '')}
-{meta.get('raw_content', doc.page_content)[:800]}
-```
-""")
+            ```{meta.get('language', '')}
+            {meta.get('raw_content', doc.page_content)[:800]}
+            ```
+            """)
             metadata_info.append(
                 f"- {meta.get('name')}: {meta.get('chunk_type')} in {meta.get('repo_name')}"
             )
@@ -1216,43 +1216,3 @@ def create_database_connection(host: str, port: int, database: str, user: str, p
     for key, value in stats.items():
         print(f"   - {key}: {value}")
 
-
-# =============================================================================
-# 10. COMMAND LINE INTERFACE
-# =============================================================================
-
-def main():
-    """Main entry point"""
-    import argparse
-    
-    parser = argparse.ArgumentParser(description="RAG Code Search System")
-    parser.add_argument("--demo", action="store_true", help="Run demo with sample code")
-    parser.add_argument("--index", type=str, help="Path to repository to index")
-    parser.add_argument("--search", type=str, help="Search query")
-    parser.add_argument("--language", type=str, help="Filter by language")
-    
-    args = parser.parse_args()
-    
-    if args.demo:
-        demo()
-    elif args.index:
-        if not os.getenv("GOOGLE_API_KEY"):
-            print("Error: GOOGLE_API_KEY not set")
-            return
-        system = RAGCodeSearchSystem()
-        count = system.index_repository(args.index)
-        print(f"Indexed {count} code chunks")
-    elif args.search:
-        if not os.getenv("GOOGLE_API_KEY"):
-            print("Error: GOOGLE_API_KEY not set")
-            return
-        system = RAGCodeSearchSystem()
-        filters = {'language': args.language} if args.language else None
-        result = system.search(args.search, filters)
-        print(result)
-    else:
-        parser.print_help()
-
-
-if __name__ == "__main__":
-    main()
