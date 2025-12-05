@@ -1,0 +1,247 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# Environment Variables & Secrets
+# ═══════════════════════════════════════════════════════════════════════════════
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+**/.env
+backend/.env
+frontend/.env
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Python Backend
+# ═══════════════════════════════════════════════════════════════════════════════
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+backend/venv/
+backend/.venv/
+
+# ML Models Cache
+models_cache/
+backend/models_cache/
+*.pkl
+*.pth
+*.bin
+*.safetensors
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Node.js / React Frontend
+# ═══════════════════════════════════════════════════════════════════════════════
+# Dependencies
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Production build
+build/
+dist/
+frontend/build/
+frontend/dist/
+
+# Testing
+coverage/
+frontend/coverage/
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# npm
+package-lock.json
+yarn.lock
+.pnp
+.pnp.js
+
+# Next.js (if used)
+.next/
+out/
+
+# Nuxt.js (if used)
+.nuxt
+dist
+
+# Gatsby files (if used)
+.cache/
+public
+
+# Vite (if used)
+frontend/.vite/
+
+# Storybook
+storybook-static
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# IDE / Editors
+# ═══════════════════════════════════════════════════════════════════════════════
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Operating System
+# ═══════════════════════════════════════════════════════════════════════════════
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Logs
+# ═══════════════════════════════════════════════════════════════════════════════
+logs/
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Temporary Files
+# ═══════════════════════════════════════════════════════════════════════════════
+*.tmp
+*.temp
+*.bak
+*.swp
+.cache/
+tmp/
+temp/
+nul
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Security & Credentials
+# ═══════════════════════════════════════════════════════════════════════════════
+*.pem
+*.key
+*.cert
+*.crt
+credentials.json
+secrets.json
+config/secrets.yml
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Miscellaneous
+# ═══════════════════════════════════════════════════════════════════════════════
+*.orig
+*.rej
+.eslintcache
+.stylelintcache
