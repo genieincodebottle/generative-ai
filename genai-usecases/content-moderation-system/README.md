@@ -50,9 +50,16 @@ The platform includes a full-stack React web application serving six distinct us
 - **Git Installed** ([Get one here](https://git-scm.com/install/))
 - **Google Gemini API Key (free-tier)** ([Get one here](https://aistudio.google.com/app/apikey))
 
+
+
 ### Backend Setup (In one terminal)
 
-**Step 1: Clone Repo**
+**Step 1: Clone the repository and open it in VS Code (or any IDE/terminal of your choice)**
+
+If you're using VS Code, you can split the terminal and run both the backend and frontend side-by-side in one window.
+
+![alt text](images/split-terminal.png)
+
 ```bash
 git clone https://github.com/genieincodebottle/generative-ai.git
 cd generative-ai\genai-usecases\agentic-ai\content-moderation-system\backend
