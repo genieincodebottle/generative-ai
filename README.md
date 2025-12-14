@@ -47,6 +47,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 💼 Career & Interview Preparation
 - **[GenAI Interview Q&A](./docs/genai-interview-questions.pdf)** - Common interview questions
 - **[Agentic AI Interview Q&A](./docs/agentic-ai-interview-questions.pdf)** - Agent-specific interview prep
+- **[90+ Multi-Agentic AI Interview Q&A](./docs/multi-agentic-interview-que-latest.pdf)** - Multi-Agentic specific interview prep
 - **[AI Roles & Important Topics](./docs/ai-roles-important-topics.pdf)** - Career paths and topics
 
 ### 🚀 Production & Enterprise
@@ -64,6 +65,8 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 - **[Agentic AI](./genai-usecases/agentic-ai/)** - Multi-agent systems with CrewAI & LangGraph frameworks
 - **[AI Patterns](./genai-usecases/ai-patterns/)** - 25 advanced reasoning patterns (Chain-of-Thought, ReAct, Tree-of-Thought, Meta-Prompting, etc.)
 - **[MCP - Model Context Protocol](./genai-usecases/mcp/)** - Standard protocol for LLM tool interoperability with web search
+- **[Multi-Agentic Prod Grade Content Moderation System](./genai-usecases/content-moderation-system/)** - AI-Powered Multi-Agentic Content Moderation System with React Frontend
+- **[Handling Latency in Multi-Agentic System](./docs/handling-latency-in-multi-agentic-systems.pdf)** - How to handle Latency in Multi-Agentic System 
 
 ### 💬 Conversational AI
 - **[Chatbot with Memory](./genai-usecases/chatbot-with-memory/)** - PDF chatbot using local models with persistent conversation memory
