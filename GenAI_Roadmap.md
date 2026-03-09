@@ -8,7 +8,7 @@
     <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-11.5K-blue"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai"></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/53K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>&nbsp;
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/53K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/genieincodebottle/"></a>&nbsp;
     <a target="_blank" href="https://medium.com/@raj-srivastava"><img src="https://img.shields.io/badge/Medium-12100E?style=round-square&style=for-the-badge&logo=medium"></a>&nbsp;
     <a target="_blank" href="https://x.com/zero2nn"><img src="https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=%20%40zero2nn"></a>
 </div>
@@ -54,7 +54,7 @@ Each phase is split by week and builds progressively.
 |---------------------------|---------------|-----------------------|------|
 | Multimodal LLMs Basics    | [YT - How do Multimodal AI models work?](https://www.youtube.com/watch?v=WkoytlA3MoQ) |||
 | Mixture of Experts (MoE)  | [1. YT - What is Mixture of Experts?](https://www.youtube.com/watch?v=sYDlVVyJYn4) <br> [2. Blog - Visual Guide to MoE](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-mixture-of-experts) | [Blog - Huggingface MoE](https://huggingface.co/blog/moe) ||
-| Open Weight LLMs (HF & Ollama) | [1. YT - Huggingface LLMs Locally](https://www.youtube.com/watch?v=Ay5K4tog5NQ) <br> [2. YT - Ollama](https://www.youtube.com/watch?v=h_GTxRFYETY) || [1. GitHub-HF](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb) <br> [2. GitHub-Ollama](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama) |
+| Open Weight LLMs (HF & Ollama) | [1. YT - Huggingface LLMs Locally](https://www.youtube.com/watch?v=Ay5K4tog5NQ) <br> [2. YT - Ollama](https://www.youtube.com/watch?v=h_GTxRFYETY) || [1. GitHub-HF](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/local_llms/huggingface/huggingface_models.ipynb) <br> [2. GitHub-Ollama](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/local_llms/ollama) |
 | AI Frameworks             | [1. LangChain](https://python.langchain.com/docs/introduction/) <br> [2. LlamaIndex](https://docs.llamaindex.ai/en/stable/) |||
 | Prompt Engineering        | [Coursera Specialization](https://www.coursera.org/specializations/prompt-engineering) | [Kaggle Whitepaper](https://www.kaggle.com/whitepaper-prompt-engineering) | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 
@@ -100,9 +100,9 @@ Each phase is split by week and builds progressively.
 |------------|----------------|
 | IDE & Dev Playground  |[Colab NoteBook](https://colab.research.google.com/notebooks/basic_features_overview.ipynb), [Kaggle Notebook](https://www.kaggle.com/code), [VSCode](https://code.visualstudio.com/docs/introvideos/basics), [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview)||
 | LLM Aggregators  |[litellm](https://github.com/BerriAI/litellm), [Openrouter](https://openrouter.ai/docs/quickstart), [Aisuite](https://github.com/andrewyng/aisuite)||
-| Agentic AI Framewords |[CrewAI](https://docs.crewai.com/introduction), [Relevenve AI](https://relevanceai.com/), [LangGraph](https://langchain-ai.github.io/langgraph/tutorials/introduction/), [SuperAGI](https://superagi.com/), [SmolAgent](https://huggingface.co/blog/smolagents), [OpenAI Agent SDK](https://openai.github.io/openai-agents-python/), [Google's ADK](https://google.github.io/adk-docs/)||
+| Agentic AI Frameworks |[CrewAI](https://docs.crewai.com/introduction), [Relevance AI](https://relevanceai.com/), [LangGraph](https://langchain-ai.github.io/langgraph/tutorials/introduction/), [SuperAGI](https://superagi.com/), [SmolAgent](https://huggingface.co/blog/smolagents), [OpenAI Agent SDK](https://openai.github.io/openai-agents-python/), [Google's ADK](https://google.github.io/adk-docs/)||
 | AI Automation (Workflow + AI Integration)  |[n8n](https://n8n.io/), [Zapier](https://zapier.com/), [Make](https://www.make.com/en)||
-| Cloud Agentic Framework  |[Microsoft Agent](https://github.com/microsoft/Agents), [AWS Bedrok Agent](https://aws.amazon.com/bedrock/agents/)||
+| Cloud Agentic Framework  |[Microsoft Agent](https://github.com/microsoft/Agents), [AWS Bedrock Agent](https://aws.amazon.com/bedrock/agents/)||
 | Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM) <br> [Official Claude Doc](https://modelcontextprotocol.io/introduction) <br> [GitHub-Awsome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)||
 | Agent2Agent Protocol (A2A) |[Video - Demo](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) <br> [Specification](https://google.github.io/A2A/) <br> [GitHub](https://github.com/google/A2A)||
 | AI Coding Assistants |[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/), [Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) ||
@@ -119,16 +119,16 @@ Each phase is split by week and builds progressively.
 | Advanced Snapshot-Based PDF Parsing using Docling, Markitdown, Gemini, Llama 4, Claude, GPT-4 & more |[YouTube](https://www.youtube.com/watch?v=26thuRsxiUc) <br> [GitHub](https://github.com/genieincodebottle/parsemypdf)|
 | Optical Character Recognition Using Advanced Vision-Language Models |[GitHub](https://github.com/genieincodebottle/parsemypdf/tree/main/vlm_ocr)|
 | Chat with Neo4j Graph DB  |[YouTube](https://www.youtube.com/watch?v=PJTxPW5He7w) <br> [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/graph-qa)|
-| LLM-Based Chatbot for SQL Data Interaction |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/archived/text-to-sql)|
-|  LLM-Driven Chatbot to Interact with CSV Data |[YouTube](https://www.youtube.com/watch?v=c7mwwfsBGZ8) <br> [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/archived/csv-rag)|
-| Cache-Augmented Generation (CAG) |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/cache_augmeted_generation) |
+| LLM-Based Chatbot for SQL Data Interaction |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/archive_legacy/text-to-sql)|
+|  LLM-Driven Chatbot to Interact with CSV Data |[YouTube](https://www.youtube.com/watch?v=c7mwwfsBGZ8) <br> [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/archive_legacy/csv-rag)|
+| Cache-Augmented Generation (CAG) |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/cache_augmented_generation) |
 | AI Chat Analyzer for ChatGPT & Claud |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/your_ai_chat_analytics) |
 
 ### 📘 Misc Useful References
 
 | Category | Links |
 |-------------|---------|
-| Prompt Engineeing       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
+| Prompt Engineering       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
 | RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
 | Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/embedding_models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |

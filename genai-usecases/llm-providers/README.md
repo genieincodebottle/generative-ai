@@ -39,7 +39,7 @@ You can run each LLM provider independently using dedicated Streamlit UI scripts
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases\llm-providers\python_scripts
+      cd genai-usecases/llm-providers/python_scripts
       ```   
    2. Open the Project in VS Code or any code editor. 
    3. Create a virtual environment by running the following command in the terminal:
@@ -83,7 +83,7 @@ You can run each LLM provider independently using dedicated Streamlit UI scripts
         * 🔑 [GOOGLE_API_KEY](https://aistudio.google.com/apikey)
 
 
-   7. Run the different LLM API located in ```genai-usecases\llm-providers\python_scripts```
+   7. Run the different LLM API located in `genai-usecases/llm-providers/python_scripts`
    
       * [gemini (free-tier)](./python_scripts/gemini.py)
       

@@ -4,7 +4,7 @@
 <br/>
 <div align="center">
    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-11.5K-blue"></a>&nbsp;
-   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai   "></a>&nbsp;
+   <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai"></a>&nbsp;
    <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/53K-C13584?style=round-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>&nbsp;
    <a target="_blank" href="https://medium.com/@raj-srivastava"><img src="https://img.shields.io/badge/Medium-12100E?style=round-square&style=for-the-badge&logo=medium"></a>&nbsp;
@@ -47,7 +47,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 💼 Career & Interview Preparation
 - **[GenAI Interview Q&A](./docs/genai-interview-questions.pdf)** - Common interview questions
 - **[Agentic AI Interview Q&A](./docs/agentic-ai-interview-questions.pdf)** - Agent-specific interview prep
-- **[90+ Multi-Agentic AI Interview Q&A](./docs/multi-agentic-interview-que-latest.pdf)** - Multi-Agentic specific interview prep
+- **[90+ Multi-Agentic AI Interview Q&A](./docs/multi-agentic-interview-qna-latest.pdf)** - Multi-Agentic specific interview prep
 - **[AI Roles & Important Topics](./docs/ai-roles-important-topics.pdf)** - Career paths and topics
 
 ### 🚀 Production & Enterprise
@@ -59,7 +59,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 ### 🔍 Retrieval-Augmented Generation (RAG)
 - **[Advanced RAG](./genai-usecases/advance-rag/)** - Comprehensive RAG techniques including agentic, graph, multimodal, and 9 advanced patterns (corrective RAG, hybrid search, query expansion, etc.)
-- **[Cache-Augmented Generation](./genai-usecases/cache_augmeted_generation/)** - Alternative to RAG using context caching for faster responses
+- **[Cache-Augmented Generation](./genai-usecases/cache_augmented_generation/)** - Alternative to RAG using context caching for faster responses
 
 ### 🤖 Agentic AI & Orchestration
 - **[Agentic AI](./genai-usecases/agentic-ai/)** - Multi-agent systems with CrewAI & LangGraph frameworks
