@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import PromptTemplate
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_community.retrievers import BM25Retriever
 from langchain.retrievers import EnsembleRetriever
 import tempfile
@@ -82,18 +82,21 @@ class HybridSearchRAG:
 
     def load_pdfs(self, pdf_files):
         all_docs = []
-        for pdf_file in pdf_files:
-            # Save uploaded file temporarily
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                tmp_file.write(pdf_file.read())
+        for uploaded_file in pdf_files:
+            is_txt = uploaded_file.name.lower().endswith(".txt")
+            suffix = ".txt" if is_txt else ".pdf"
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+                tmp_file.write(uploaded_file.read())
                 tmp_file_path = tmp_file.name
 
-            # Load PDF
-            loader = PyPDFLoader(tmp_file_path)
+            if is_txt:
+                loader = TextLoader(tmp_file_path, encoding="utf-8")
+            else:
+                loader = PyPDFLoader(tmp_file_path)
+
             docs = loader.load()
             all_docs.extend([doc.page_content for doc in docs])
-
-            # Clean up temp file
             os.unlink(tmp_file_path)
 
         # Create chunks
@@ -236,6 +239,12 @@ with st.expander("🔀 How Hybrid Search RAG Works"):
     - **Improved Recall**: Captures documents that might be missed by single methods
     - **Configurable Weights**: Adjust the balance between keyword and semantic search
     - **Robust Performance**: Works well across different types of queries
+
+    ---
+    **⬆️ How this improves on Basic RAG:**
+    Basic RAG uses only vector similarity, which can miss chunks containing specific technical terms or abbreviations.
+    Hybrid Search adds BM25 keyword matching so both *meaning* and *exact words* contribute to retrieval.
+    Next: [Re-ranking RAG](re_ranking_rag.py) — adds a second-pass scoring model to promote the most relevant chunks from the retrieved set.
     """)
 
 # Additional Information Section
@@ -369,12 +378,17 @@ with st.sidebar:
         help="Characters shared between adjacent chunks. Prevents sentences from being cut at chunk boundaries. ~10% of chunk size is a good default."
     )
 
-# PDF Upload
-uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+# Document Upload
+uploaded_files = st.file_uploader(
+    "Upload documents (PDF or TXT)",
+    type=["pdf", "txt"],
+    accept_multiple_files=True,
+    help="Sample TXT documents for testing are in the rag_techniques/sample_docs/ folder — no PDF needed to get started."
+)
 
 # Query
 query = st.text_input(
-    "Ask a question about your PDFs",
+    "Ask a question about your documents",
     placeholder="e.g. What are the main findings of this research?"
 )
 
@@ -391,7 +405,7 @@ with st.expander("💡 Example questions to try"):
 if st.button("Ask"):
     if model_name and uploaded_files and query and (bm25_weight + vector_weight > 0):
         try:
-            with st.spinner("Processing PDFs and running Hybrid Search RAG... (this may take 15–30 seconds)"):
+            with st.spinner("Processing documents and running Hybrid Search RAG... (this may take 15–30 seconds)"):
                 rag = HybridSearchRAG(model_name, temperature, chunk_size, chunk_overlap, bm25_weight, vector_weight, provider)
                 rag.load_pdfs(uploaded_files)
                 result = rag.run(query)

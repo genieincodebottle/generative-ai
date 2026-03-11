@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 import tempfile
 import os
 import nest_asyncio
@@ -78,18 +78,21 @@ class CorrectiveRAG:
 
     def load_pdfs(self, pdf_files):
         all_docs = []
-        for pdf_file in pdf_files:
-            # Save uploaded file temporarily
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                tmp_file.write(pdf_file.read())
+        for uploaded_file in pdf_files:
+            is_txt = uploaded_file.name.lower().endswith(".txt")
+            suffix = ".txt" if is_txt else ".pdf"
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+                tmp_file.write(uploaded_file.read())
                 tmp_file_path = tmp_file.name
 
-            # Load PDF
-            loader = PyPDFLoader(tmp_file_path)
+            if is_txt:
+                loader = TextLoader(tmp_file_path, encoding="utf-8")
+            else:
+                loader = PyPDFLoader(tmp_file_path)
+
             docs = loader.load()
             all_docs.extend([doc.page_content for doc in docs])
-
-            # Clean up temp file
             os.unlink(tmp_file_path)
 
         # Create vector store
@@ -171,6 +174,12 @@ with st.expander("🔧 How Corrective RAG Works"):
     similar to how a human writer would draft, review, and revise.
 
     **Best for:** Questions where accuracy matters and you want the model to double-check itself.
+
+    ---
+    **⬆️ How this improves on Re-ranking RAG:**
+    Re-ranking improves *which chunks* go into the context. Corrective RAG goes further — it also checks
+    *the generated answer* for errors or missing information, then retrieves additional context to fix them.
+    Next: [Adaptive RAG](adaptive_rag.py) — classifies the query first, then chooses the right retrieval depth automatically.
     """)
 
 with st.expander("⚡ Performance Tips"):
@@ -249,12 +258,17 @@ with st.sidebar:
         help="Characters shared between adjacent chunks. Prevents sentences from being cut at chunk boundaries. ~10% of chunk size is a good default."
     )
 
-# PDF Upload
-uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+# Document Upload
+uploaded_files = st.file_uploader(
+    "Upload documents (PDF or TXT)",
+    type=["pdf", "txt"],
+    accept_multiple_files=True,
+    help="Sample TXT documents for testing are in the rag_techniques/sample_docs/ folder — no PDF needed to get started."
+)
 
 # Query
 query = st.text_input(
-    "Ask a question about your PDFs",
+    "Ask a question about your documents",
     placeholder="e.g. What are the key conclusions of this document?"
 )
 
@@ -271,7 +285,7 @@ with st.expander("💡 Example questions to try"):
 if st.button("Ask"):
     if model_name and uploaded_files and query:
         try:
-            with st.spinner("Processing PDFs and running Corrective RAG... (makes 3 LLM calls — may take 30–60 seconds)"):
+            with st.spinner("Processing documents and running Corrective RAG... (makes 3 LLM calls — may take 30–60 seconds)"):
                 rag = CorrectiveRAG(model_name, temperature, chunk_size, chunk_overlap, provider)
                 rag.load_pdfs(uploaded_files)
                 result = rag.run(query)
@@ -295,4 +309,4 @@ if st.button("Ask"):
         except Exception as e:
             show_error(e)
     else:
-        st.warning("Please upload at least one PDF and enter a question before clicking Ask.")
+        st.warning("Please upload at least one document and enter a question before clicking Ask.")

@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 import tempfile
 import os
 import nest_asyncio
@@ -79,18 +79,21 @@ class BasicRAG:
 
     def load_pdfs(self, pdf_files):
         all_docs = []
-        for pdf_file in pdf_files:
-            # Save uploaded file temporarily
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                tmp_file.write(pdf_file.read())
+        for uploaded_file in pdf_files:
+            is_txt = uploaded_file.name.lower().endswith(".txt")
+            suffix = ".txt" if is_txt else ".pdf"
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+                tmp_file.write(uploaded_file.read())
                 tmp_file_path = tmp_file.name
 
-            # Load PDF
-            loader = PyPDFLoader(tmp_file_path)
+            if is_txt:
+                loader = TextLoader(tmp_file_path, encoding="utf-8")
+            else:
+                loader = PyPDFLoader(tmp_file_path)
+
             docs = loader.load()
             all_docs.extend([doc.page_content for doc in docs])
-
-            # Clean up temp file
             os.unlink(tmp_file_path)
 
         # Create text splitter
@@ -196,6 +199,10 @@ with st.expander("📚 How Basic RAG Works"):
     - **Generator**: Language model that creates the final answer
     - **Vector Store**: Database for efficient similarity search
     - **Embeddings**: Vector representations of text for semantic search
+
+    ---
+    **This is the baseline technique — all other RAG apps in this folder build on it.**
+    Next: [Hybrid Search RAG](hybrid_search_rag.py) — adds BM25 keyword search alongside vector search for better recall on exact terms.
     """)
 
 # Additional Information Section
@@ -324,12 +331,17 @@ with st.sidebar:
         help="How many chunks to retrieve and pass to the LLM. More chunks = more context but higher cost and latency."
     )
 
-# PDF Upload
-uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+# Document Upload
+uploaded_files = st.file_uploader(
+    "Upload documents (PDF or TXT)",
+    type=["pdf", "txt"],
+    accept_multiple_files=True,
+    help="Sample TXT documents for testing are in the rag_techniques/sample_docs/ folder — no PDF needed to get started."
+)
 
 # Query
 query = st.text_input(
-    "Ask a question about your PDFs",
+    "Ask a question about your documents",
     placeholder="e.g. What are the key findings of this document?"
 )
 
@@ -346,7 +358,7 @@ with st.expander("💡 Example questions to try"):
 if st.button("Ask"):
     if model_name and uploaded_files and query:
         try:
-            with st.spinner("Processing PDFs and running Basic RAG... (this may take 15–30 seconds)"):
+            with st.spinner("Processing documents and running Basic RAG... (this may take 15–30 seconds)"):
                 rag = BasicRAG(model_name, temperature, chunk_size, chunk_overlap, top_k, provider)
                 rag.load_pdfs(uploaded_files)
                 result = rag.run(query)
@@ -439,4 +451,4 @@ if st.button("Ask"):
         except Exception as e:
             show_error(e)
     else:
-        st.warning("Please upload at least one PDF and enter a question before clicking Ask.")
+        st.warning("Please upload at least one document and enter a question before clicking Ask.")

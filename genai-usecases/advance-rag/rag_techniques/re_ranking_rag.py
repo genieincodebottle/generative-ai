@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain.retrievers import ContextualCompressionRetriever
 import tempfile
 import os
@@ -80,18 +80,21 @@ class ReRankingRAG:
 
     def load_pdfs(self, pdf_files):
         all_docs = []
-        for pdf_file in pdf_files:
-            # Save uploaded file temporarily
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
-                tmp_file.write(pdf_file.read())
+        for uploaded_file in pdf_files:
+            is_txt = uploaded_file.name.lower().endswith(".txt")
+            suffix = ".txt" if is_txt else ".pdf"
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+                tmp_file.write(uploaded_file.read())
                 tmp_file_path = tmp_file.name
 
-            # Load PDF
-            loader = PyPDFLoader(tmp_file_path)
+            if is_txt:
+                loader = TextLoader(tmp_file_path, encoding="utf-8")
+            else:
+                loader = PyPDFLoader(tmp_file_path)
+
             docs = loader.load()
             all_docs.extend([doc.page_content for doc in docs])
-
-            # Clean up temp file
             os.unlink(tmp_file_path)
 
         # Create vector store
@@ -275,6 +278,13 @@ with st.expander("🔄 How Re-ranking RAG Works"):
     - **LLM Listwise Rerank**: Uses the selected LLM for zero-shot reranking
     - **LLM Chain Extractor**: Extracts relevant content using the selected LLM
     - **Embeddings Filter**: Filters based on embedding similarity threshold
+
+    ---
+    **⬆️ How this improves on Hybrid Search RAG:**
+    Hybrid Search retrieves a good set of candidates using both keyword and semantic search.
+    Re-ranking adds a second-pass scoring model that looks at each candidate *in relation to the query* —
+    promoting the most relevant chunks and demoting less relevant ones for higher precision answers.
+    Next: [Corrective RAG](corrective_rag.py) — adds a self-critique loop to fix errors in the generated answer itself.
     """)
 
 # Additional Information Section
@@ -375,12 +385,17 @@ with st.sidebar:
         help="Characters shared between adjacent chunks. Prevents sentences from being cut at chunk boundaries. ~10% of chunk size is a good default."
     )
 
-# PDF Upload
-uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
+# Document Upload
+uploaded_files = st.file_uploader(
+    "Upload documents (PDF or TXT)",
+    type=["pdf", "txt"],
+    accept_multiple_files=True,
+    help="Sample TXT documents for testing are in the rag_techniques/sample_docs/ folder — no PDF needed to get started."
+)
 
 # Query
 query = st.text_input(
-    "Ask a question about your PDFs",
+    "Ask a question about your documents",
     placeholder="e.g. What are the key recommendations in this document?"
 )
 
@@ -397,7 +412,7 @@ with st.expander("💡 Example questions to try"):
 if st.button("Ask"):
     if model_name and uploaded_files and query:
         try:
-            with st.spinner(f"Processing PDFs and running Re-ranking RAG with {reranker_type}... (this may take 20–45 seconds)"):
+            with st.spinner(f"Processing documents and running Re-ranking RAG with {reranker_type}... (this may take 20–45 seconds)"):
                 rag = ReRankingRAG(model_name, temperature, chunk_size, chunk_overlap, reranker_type, provider)
                 rag.load_pdfs(uploaded_files)
                 result = rag.run(query)
@@ -450,4 +465,4 @@ if st.button("Ask"):
         except Exception as e:
             show_error(e)
     else:
-        st.warning("Please upload at least one PDF and enter a question before clicking Ask.")
+        st.warning("Please upload at least one document and enter a question before clicking Ask.")
