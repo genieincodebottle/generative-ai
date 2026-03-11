@@ -12,7 +12,7 @@
 </div>
 <br>
 <div align="center">
-    <a target="_blank" href="https://aimlcompanion.com/"><img src="https://img.shields.io/badge/🚀%20AI--ML%20Companion-Live%20Now!%20Interactive%20Learning%20Platform%20⭐-0EA5E9?style=for-the-badge&labelColor=0D1117"></a>
+    <a target="_blank" href="https://aimlcompanion.ai/"><img src="https://img.shields.io/badge/🚀%20AI--ML%20Companion-Live%20Now!%20Interactive%20Learning%20Platform%20⭐-0EA5E9?style=for-the-badge&labelColor=0D1117"></a>
 </div>
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
@@ -28,7 +28,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🎯 Getting Started
 - **[GenAI Roadmap](./GenAI_Roadmap.md)** - Your complete learning path for GenAI
 - **[AI/ML Roadmap](./docs/ai_ml_roadmap.pdf)** - Comprehensive AI/ML learning guide
-- **[AI-ML Companion](https://aimlcompanion.com/)** - Interactive AI/ML learning platform with 17 tracks, 250+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)
+- **[AI-ML Companion](https://aimlcompanion.ai/)** - Interactive AI/ML learning platform with 17 tracks, 250+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)
 - **[Essential GenAI Terms](./docs/essential-terms-genai.pdf)** - Key terminology and concepts
 - **[LLM Fundamentals](./docs/llm_fundamentals.pdf)** - Core concepts of Large Language Models
 
@@ -103,7 +103,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🔗 Quick Access Links
 | Category | Resources |
 |----------|-----------|
-| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.com/) — Interactive AI/ML learning with 17 tracks, 250+ modules, quizzes & coding |
+| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.ai/) — Interactive AI/ML learning with 17 tracks, 250+ modules, quizzes & coding |
 | **Learning Path** | [GenAI Roadmap](./GenAI_Roadmap.md) • [AI/ML Roadmap](./docs/ai_ml_roadmap.pdf) |
 | **Fundamentals** | [Essential Terms](./docs/essential-terms-genai.pdf) • [LLM Fundamentals](./docs/llm_fundamentals.pdf) • [Embeddings Guide](./docs/vector-embeddings-guide.pdf) |
 | **Cloud Platforms** | [AWS](./docs/genai-with-aws-cloud.pdf) • [Azure](./docs/genai-with-azure-cloud.pdf) • [VertexAI](./docs/genai-with-vertexai.pdf) |

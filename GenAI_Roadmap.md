@@ -14,7 +14,7 @@
 </div>
 <br>
 <div align="center">
-    <a target="_blank" href="https://aimlcompanion.com/"><img src="https://img.shields.io/badge/🚀%20AI--ML%20Companion-Live%20Now!%20Interactive%20Learning%20Platform%20⭐-0EA5E9?style=for-the-badge&labelColor=0D1117"></a>
+    <a target="_blank" href="https://aimlcompanion.ai/"><img src="https://img.shields.io/badge/🚀%20AI--ML%20Companion-Live%20Now!%20Interactive%20Learning%20Platform%20⭐-0EA5E9?style=for-the-badge&labelColor=0D1117"></a>
 </div>
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
@@ -110,7 +110,7 @@ Each phase is split by week and builds progressively.
 | Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM) <br> [Official Claude Doc](https://modelcontextprotocol.io/introduction) <br> [GitHub-Awsome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)||
 | Agent2Agent Protocol (A2A) |[Video - Demo](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) <br> [Specification](https://github.com/google/A2A) <br> [GitHub](https://github.com/google/A2A)||
 | AI Coding Assistants |[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/), [Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) ||
-| Learning Platform  |[AI-ML Companion](https://aimlcompanion.com/) - Interactive AI/ML learning platform with 17 tracks, 250+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)||
+| Learning Platform  |[AI-ML Companion](https://aimlcompanion.ai/) - Interactive AI/ML learning platform with 17 tracks, 250+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)||
 
 ### 💡 GenAI Use Cases
 
