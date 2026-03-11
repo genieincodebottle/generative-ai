@@ -3,7 +3,7 @@
 ![alt text](images/rag.gif)
 
 ---
-<strong>**Retrieval-Augmented Generation (RAG)**</strong> enhances Large Language Models (LLMs) by combining them with an external knowledge retrieval system.
+**Retrieval-Augmented Generation (RAG)** enhances Large Language Models (LLMs) by combining them with an external knowledge retrieval system.
 
 When you send a query:
 
@@ -16,45 +16,108 @@ This makes RAG essential for building reliable GenAI applications. As queries an
 ---
 ## 🔑 Core Components of RAG
 
-   - <strong>**Knowledge Base**</strong>: External data source (e.g. documents, databases) that the system relies on.
+   - **Knowledge Base**: External data source (e.g. documents, databases) that the system relies on.
 
-   - <strong>**Retrieval System**</strong>:
+   - **Retrieval System**:
 
-      - <strong>**Vector Database**</strong> for storing and searching embeddings.
+      - **Vector Database** for storing and searching embeddings.
 
-      - <strong>**Embedding Model**</strong> to convert queries and documents into vector representations.
+      - **Embedding Model** to convert queries and documents into vector representations.
 
-   - <strong>**Language Model (LLM)**</strong>: Generates responses using both retrieved data and the query.
+   - **Language Model (LLM)**: Generates responses using both retrieved data and the query.
 
 ---
-## 📚 Super Handy Resources 
+## 📚 Super Handy Resources
 
 | Resource | Link | Description |
 |----------|------|-------------|
 | **Embedding Models • Vector Stores • Vector Embeddings (Guide)** | [PDF](https://github.com/genieincodebottle/generative-ai/blob/main/docs/vector-embeddings-guide.pdf) | Guide covering embedding models, vector stores, and embeddings explained with examples |
 | **RAG Decision Flow** | [PDF](./docs/advance-rag-decision-flow-chart.pdf) | Quick reference flowchart to select the right **RAG technique** for your use case |
 | **Advanced Snapshot-Based PDF Parsing** | [GitHub](https://github.com/genieincodebottle/parsemypdf) | End-to-end parsing using **Docling, Markitdown, Gemini, Llama 4, Claude, GPT-4 & more** |
-| **Uber's Usecase -> Enhanced Agentic-RAG: What If Chatbots Could Deliver Near-Human Precision?** | [Blog](https://lnkd.in/eGz5a9xm) | Genie is Uber’s internal on-call copilot in Slack, delivering real-time, cited answers from internal docs and boosting on-call engineers’ and SMEs’ productivity by handling common queries efficiently. |
+| **Uber's Usecase -> Enhanced Agentic-RAG: What If Chatbots Could Deliver Near-Human Precision?** | [Blog](https://lnkd.in/eGz5a9xm) | Genie is Uber's internal on-call copilot in Slack, delivering real-time, cited answers from internal docs and boosting on-call engineers' and SMEs' productivity by handling common queries efficiently. |
+
+---
+## 🗺️ Recommended Learning Path
+
+If you are new to RAG, work through the techniques in this order to build understanding progressively:
+
+| Step | Technique | Where to run |
+|------|-----------|--------------|
+| 1 | **Basic RAG** — core retrieve-then-generate loop | [Notebook](notebooks/basic-rag.ipynb) · [Streamlit](rag_techniques/basic_rag.py) |
+| 2 | **Hybrid Search RAG** — combine keyword (BM25) + semantic search | [Notebook](notebooks/hybrid-search-rag.ipynb) · [Streamlit](rag_techniques/hybrid_search_rag.py) |
+| 3 | **Re-ranking RAG** — improve relevance with a reranker | [Notebook](notebooks/re_ranking_rag.ipynb) · [Streamlit](rag_techniques/re_ranking_rag.py) |
+| 4 | **Corrective RAG** — self-correct low-quality retrievals | [Notebook](notebooks/corrective-rag.ipynb) · [Streamlit](rag_techniques/corrective_rag.py) |
+| 5 | **Adaptive RAG** — route queries to the best strategy | [Notebook](notebooks/adaptive-rag.ipynb) · [Streamlit](rag_techniques/adaptive_rag.py) |
+| 6 | **Agentic RAG** — multi-agent workflow with LangGraph | [App](agentic-rag/) |
+| 7 | **Graph RAG** — relationship-aware retrieval over a document graph | [App](graph-rag/) |
+| 8 | **Multimodal RAG** — add image understanding to your pipeline | [App](multimodal-rag/) |
+| 9 | **Code Search RAG** — semantic search over a code repository | [App](code-search-rag/) |
+
+> **Tip:** Refer to the [RAG Decision Flow PDF](./docs/advance-rag-decision-flow-chart.pdf) to quickly choose the right technique for your use case.
 
 ---
 ## 🧪 Exploring Advanced RAG
 
-<strong>A. Try Graph RAG</strong>
+**A. Try Graph RAG**
 
-👉 [Graph RAG](graph-rag/)
+Knowledge-graph based retrieval using LangGraph, HuggingFace embeddings, and ChromaDB. Understands relationships between concepts in your documents — not just keyword matches.
 
----
-<strong>B. Try Agentic RAG</strong>
+👉 [Full setup instructions →](graph-rag/README.md)
 
-👉 [Agentic RAG](agentic-rag/)
-
----
-<strong>C. Try Multimodal RAG</strong>
-
-👉 [Multimodal RAG](multimodal-rag/)
+```bash
+# After completing setup in graph-rag/README.md:
+cd graph-rag
+streamlit run streamlit_app.py
+```
 
 ---
-<strong>D. Try Advanced RAG Techniques in Google Colab</strong>
+**B. Try Agentic RAG**
+
+Multi-agent workflow with five specialized agents (Planner, Retriever, Research, Synthesizer, Validator). Uses LangGraph for orchestration and optionally Tavily for live web search.
+
+👉 [Full setup instructions →](agentic-rag/README.md)
+
+```bash
+# After completing setup in agentic-rag/README.md:
+cd agentic-rag
+streamlit run streamlit_app.py
+```
+
+---
+**C. Try Multimodal RAG**
+
+Processes both PDF text and images. Uses Gemini Vision to describe images and stores text, tables, and image descriptions in separate vector stores for richer retrieval.
+
+> **Entry point:** Always run `streamlit_app.py` — not `app.py`. The `app.py` file is the backend and is not meant to be executed directly.
+
+👉 [Full setup instructions →](multimodal-rag/README.md)
+
+```bash
+# After completing setup in multimodal-rag/README.md:
+cd multimodal-rag
+streamlit run streamlit_app.py
+```
+
+---
+**D. Try Code Search RAG**
+
+Semantic search over code repositories using Tree-sitter AST parsing. Understands code structure — functions, classes, imports — not just raw text.
+
+👉 [Full setup instructions →](code-search-rag/README.md)
+
+```bash
+# After completing setup in code-search-rag/README.md:
+cd code-search-rag
+streamlit run app.py
+```
+
+---
+**E. Try Advanced RAG Techniques in Google Colab**
+
+> ⚠️ **Different tech stack from the Streamlit apps (Section F) below:**
+> The notebooks run on **Groq API** (free LLMs) + **HuggingFace Embeddings** + **FAISS**.
+> You will need a free [Groq API key](https://console.groq.com/keys) and a [HuggingFace token](https://huggingface.co/settings/tokens) — **not** a Google API key.
+> Each notebook has an **Open in Colab** button at the top — click it to run without any local setup.
 
 👉 [Notebooks](notebooks/)
 
@@ -62,92 +125,93 @@ This makes RAG essential for building reliable GenAI applications. As queries an
    - [Corrective RAG](notebooks/corrective-rag.ipynb)
    - [Re-ranking RAG](notebooks/re_ranking_rag.ipynb)
    - [Hybrid Search RAG](notebooks/hybrid-search-rag.ipynb)
-   - [Hypothetical Doucment Embedding RAG](notebooks/hypothetical-document-embedding-rag.ipynb)
+   - [Hypothetical Document Embedding RAG](notebooks/hypothetical-document-embedding-rag.ipynb)
    - [Multi-index RAG](notebooks/multi-index-rag.ipynb)
    - [Query Expansion RAG](notebooks/query-expansion-rag.ipynb)
    - [Adaptive RAG](notebooks/adaptive-rag.ipynb)
    - [Self Adaptive RAG](notebooks/self-adaptive-rag.ipynb)
 
 ---
-<strong>E. Try Advanced RAG Techniques in Streamlit UI</strong>
+**F. Try Advanced RAG Techniques in Streamlit UI**
 
-<strong>🛠️ Setup Instructions</strong>
+> 🔑 **Tech stack:** Google Gemini API (LLM + Embeddings) + ChromaDB. Requires a free `GOOGLE_API_KEY` — **not** a Groq key. See step 5 below.
 
-<strong>✅ Prerequisites</strong>
+**🛠️ Setup Instructions**
+
+**✅ Prerequisites**
    - Python 3.10 or higher
    - pip (Python package installer)
 
-<strong>📦 Installation & Running App</strong>
+**📦 Installation & Running App**
    1. Clone the repository:
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
+
+      # Windows
       cd genai-usecases\advance-rag\rag_techniques
+
+      # Linux / macOS
+      cd genai-usecases/advance-rag/rag_techniques
       ```
-   2. Open the Project in VS Code or any code editor.
-   3. Create a virtual environment by running the following command in the terminal:
-   
+   2. Open the project in VS Code or any code editor.
+   3. Create a virtual environment:
+
       ```bash
-      pip install uv #if uv not installed
+      # uv is a fast Python package manager — it replaces both pip and venv
+      pip install uv  # skip if uv is already installed
       uv venv
-      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+
+      # Windows
+      .venv\Scripts\activate
+
+      # Linux / macOS
+      source .venv/bin/activate
       ```
-   4. Create a `requirements.txt` file and add the following libraries:
-      
-      ```bash
-        streamlit>=1.47.1 
-        langchain>=0.3.27 
-        langchain-google-genai>=2.1.8 
-        langchain-chroma>=0.2.5 
-        langchain-community>=0.3.27
-        nest-asyncio>=1.6.0
-        pypdf>=5.9.0
-        python-dotenv>=1.0.1
-        flashrank>=0.2.10
-        rank_bm25>=0.2.2
-      ```
-   5. Install dependencies:
-      
+   4. Install dependencies (a `requirements.txt` is already included in this folder):
+
       ```bash
       uv pip install -r requirements.txt
       ```
-   6. Configure Environment
-      * Rename .env.example → .env
-      * Update with your keys:
+   5. Configure environment — **never commit the `.env` file to version control**:
+      * Rename `.env.example` → `.env`
+      * Add your API key:
 
          ```bash
-         GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+         GOOGLE_API_KEY=your_key_here
          ```
-      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
+      * Get a free **GOOGLE_API_KEY** at https://aistudio.google.com/app/apikey
 
-   9. Run RAG implementations in ```genai-usecases\advance-rag\rag_techniques```
-   
-      * [basic_rag](./rag_techniques/basic_rag.py) 
+   6. Run any RAG implementation from inside the `rag_techniques` folder:
+
+      * [basic_rag](./rag_techniques/basic_rag.py)
 
         `streamlit run basic_rag.py`
-    
+
       * [adaptive_rag](./rag_techniques/adaptive_rag.py)
-      
+
         `streamlit run adaptive_rag.py`
 
       * [corrective_rag](./rag_techniques/corrective_rag.py)
-      
+
         `streamlit run corrective_rag.py`
 
       * [re_ranking_rag](./rag_techniques/re_ranking_rag.py)
-      
+
         `streamlit run re_ranking_rag.py`
 
       * [hybrid_search_rag](./rag_techniques/hybrid_search_rag.py)
-      
+
         `streamlit run hybrid_search_rag.py`
 
+      The app opens at `http://localhost:8501`
+
 ---
-<strong>F. Local LLM Powered Multi-Function App (RAG Included)</strong>
+**G. Local LLM Powered Multi-Function App (RAG Included)**
 
 [Local LLM RAG App Powered by Llama](../llama-4-multi-function-app/)
 
 ---
-<strong>G. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)</strong>
+**H. RAG with MCP Server (Fullstack Agentic RAG on AWS Cloud)**
 
 [RAG Application with AWS & MCP Server Integration](https://github.com/genieincodebottle/rag-app-on-aws)

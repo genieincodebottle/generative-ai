@@ -10,7 +10,19 @@
 
 ![Graph RAG Architecture](./images/architecture.png)
 
+*Architecture: documents are split into chunks, embedded, and stored in an in-memory vector store. An agentic router (LangGraph) analyses each query and selects either Traversal retrieval (following graph edges through related documents) or Standard retrieval (direct vector similarity search). The chosen retriever feeds context to the Gemini LLM to produce the final answer.*
+
 An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system leverages graph relationships between documents to provide enhanced context retrieval through intelligent routing strategies.
+
+## 📁 File Overview
+
+| File | Role |
+|------|------|
+| `graph_rag.py` | Core backend — document loading, graph construction, vector store, and both retriever types |
+| `agentic_router.py` | LangGraph workflow that analyses a query and decides which retrieval strategy to use |
+| `streamlit_app.py` | Frontend UI — Streamlit app that ties everything together |
+| `requirements.txt` | All Python dependencies |
+| `.env.example` | Template for environment variables — copy to `.env` and add your key |
 
 ## ✨ Features
 
@@ -40,12 +52,15 @@ An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> sy
 ### 🔧 Tech Stack
 
 - **Python**: Programming Language
-- **LangGraph**: State-of-the-art agent workflow orchestration  
+- **LangGraph**: State-of-the-art agent workflow orchestration
 - **LangChain**: Core AI framework for document processing and retrieval
-- **Graph Retriever**: Advanced graph-based document retrieval system
+- **`langchain-graph-retriever`**: Graph-based document retrieval with edge-traversal support
+- **`graph_rag_example_helpers`**: Companion package that ships a ready-made animal dataset used for the built-in demo (installed automatically via `requirements.txt`)
 - **Gemini LLM API (Free tier)**: Google's AI models for intelligent routing and generation
-- **HuggingFace Embeddings**: sentence-transformers/all-mpnet-base-v2 for document embeddings
+- **HuggingFace Embeddings** (`sentence-transformers/all-mpnet-base-v2`): Used here because `langchain-graph-retriever` stores embeddings inside LangChain's `InMemoryVectorStore`, which requires embeddings that are available locally without an API call. HuggingFace sentence-transformers run fully offline after the first download (~420 MB, cached automatically).
 - **Streamlit**: Interactive web interface for system interaction
+
+> **First-run note:** On the very first run the `sentence-transformers/all-mpnet-base-v2` model (~420 MB) is downloaded from HuggingFace and cached locally. Subsequent runs load it from cache. Ensure you have internet access and sufficient disk space for the initial download.
 
 ## ⚡ Quick Start
 
@@ -58,31 +73,41 @@ An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> sy
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
+
+      # Windows
       cd genai-usecases\advance-rag\graph-rag
+
+      # Linux / macOS
+      cd genai-usecases/advance-rag/graph-rag
       ```
-   3. Open the Project in VS Code or any code editor.
-   4. Create a virtual environment by running the following command in the terminal:
-   
+   3. Open the project in VS Code or any code editor.
+   4. Create a virtual environment:
+
       ```bash
-      pip install uv #if uv not installed
+      pip install uv  # skip if uv is already installed
       uv venv
-      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+
+      # Windows
+      .venv\Scripts\activate
+
+      # Linux / macOS
+      source .venv/bin/activate
       ```
-   5. Install dependencies:
-      
+   5. Install dependencies (a `requirements.txt` is already included in this folder):
+
       ```bash
       uv pip install -r requirements.txt
       ```
-   6. Configure Environment
-      * Rename .env.example → .env
-      * Update with your keys:
+   6. Configure environment — **never commit the `.env` file to version control**:
+      * Rename `.env.example` → `.env`
+      * Add your API key:
 
         ```bash
-        GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+        GOOGLE_API_KEY=your_key_here
         ```
-      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
+      * Get a free **GOOGLE_API_KEY** at https://aistudio.google.com/app/apikey
 
-   7. Running the Application. Start the Streamlit app:
+   7. Start the Streamlit app:
 
       ```bash
       streamlit run streamlit_app.py
@@ -93,10 +118,10 @@ An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> sy
 ## 📋 Usage Guide
 
 1. **Initialize the System**
-   - **Option 1 - Default Data**: Click "Load Default Animal Dataset" to get started quickly
-   - **Option 2 - Upload Files**: Upload your own PDF, TXT, or CSV documents
-   - **Option 3 - Text Input**: Paste text directly into the system
-   
+   - **Option 1 — Default Data**: Click "Load Default Animal Dataset" to get started quickly
+   - **Option 2 — Upload Files**: Upload your own PDF, TXT, or CSV documents
+   - **Option 3 — Text Input**: Paste text directly into the system
+
 2. **Choose Your Retrieval Strategy**
    - **🌐 Traversal Retriever**: Best for queries about relationships, connections, or when you need context from related documents
    - **📊 Standard Retriever**: Ideal for direct factual questions and straightforward information lookup
@@ -106,11 +131,11 @@ An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> sy
    - Ask questions in natural language
    - The system will analyze your query and route it appropriately
    - View detailed results including confidence scores and routing decisions
-   
+
 4. **Compare Retrieval Strategies**
    - Use the comparison feature to see how different retrievers perform on the same query
    - Understand which strategy works best for different types of questions
-   
+
 5. **Review Results & Sources**
    - Examine retrieved documents and their metadata
    - View detected graph relationships
@@ -125,7 +150,7 @@ An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> sy
 
 2. **Content Processing**:
    - **Text Chunks**: Intelligent splitting with configurable size and overlap
-   - **Embeddings**: Vector representations using HuggingFace sentence-transformers
+   - **Embeddings**: Vector representations using HuggingFace sentence-transformers (local, offline after first download)
    - **Graph Relationships**: Auto-detected based on metadata and content patterns
 
 ## 🎯 Sample Use Cases
@@ -136,14 +161,14 @@ An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> sy
 4. **Educational Support**: Study materials, textbooks, and reference documents with intelligent routing
 5. **Content Exploration**: Explore relationships between different topics and concepts in your document collections
 
-## 📊 System Architecture
+## 🎨 User Interface
 
 The web interface provides **4 intuitive sections**:
 
 ### 📁 Document Management
 - Upload PDF, TXT, and CSV documents
 - Load default animal dataset for testing
-- Process documents into vector database with relationship detection
+- Process documents into vector store with relationship detection
 
 ### 💬 Query Interface
 - Natural language query input
@@ -210,7 +235,7 @@ The system intelligently detects graph relationships based on your data:
 # Automatically detects these relationships
 edges = [
     ("habitat", "habitat"),    # Animals sharing habitats
-    ("origin", "origin"),      # Geographic connections  
+    ("origin", "origin"),      # Geographic connections
     ("category", "category")   # Type-based groupings (mammal, bird, etc.)
 ]
 ```
@@ -222,9 +247,9 @@ relationship_patterns = {
     'source': 'source',        # Document source relationships
     'author': 'author',        # Same author connections
     'category': 'category',    # Category-based links
-    'topic': 'topic',         # Topic similarity
-    'location': 'location',   # Geographic connections
-    'date': 'date',           # Temporal relationships
+    'topic': 'topic',          # Topic similarity
+    'location': 'location',    # Geographic connections
+    'date': 'date',            # Temporal relationships
     'department': 'department' # Organizational links
 }
 
@@ -232,7 +257,7 @@ relationship_patterns = {
 content_patterns = {
     'person': ['person', 'people', 'individual', 'name'],
     'organization': ['company', 'organization', 'corp'],
-    'location': ['city', 'country', 'state', 'region'], 
+    'location': ['city', 'country', 'state', 'region'],
     'technology': ['software', 'system', 'platform'],
     'concept': ['concept', 'idea', 'theory', 'method']
 }
@@ -256,7 +281,7 @@ GraphRetriever(
 **Standard Retriever:**
 ```python
 GraphRetriever(
-    store=vector_store, 
+    store=vector_store,
     edges=detected_edges,
     strategy=Eager(
         k=5,           # Documents to retrieve
@@ -268,11 +293,11 @@ GraphRetriever(
 
 ### 🔧 Configurable Parameters
 
-- **Chunk Size**: Default 1000 characters (configurable in GraphRAGConfig)
+- **Chunk Size**: Default 1000 characters (configurable in `GraphRAGConfig`)
 - **Chunk Overlap**: Default 200 characters for context continuity
 - **K Retrieval**: Default 5 documents retrieved per query
 - **Max Depth**: Default 2 levels for graph traversal
-- **Embedding Model**: sentence-transformers/all-mpnet-base-v2
+- **Embedding Model**: `sentence-transformers/all-mpnet-base-v2` (HuggingFace, local)
 
 ## 🔧 Troubleshooting
 
@@ -284,25 +309,31 @@ GraphRetriever(
    ```
    **Solution**: Ensure your Google API key is properly set in the `.env` file
 
-2. **Document Loading Failures**
+2. **HuggingFace Model Download Hangs or Fails**
+   ```
+   OSError: Can't load tokenizer for 'sentence-transformers/all-mpnet-base-v2'
+   ```
+   **Solution**: Ensure you have internet access on first run. The model (~420 MB) is downloaded once and then cached. If download fails midway, delete the cache folder (`~/.cache/huggingface/`) and retry.
+
+3. **Document Loading Failures**
    ```
    Error: No documents could be loaded from files
    ```
    **Solution**: Ensure document files exist and are in supported formats (PDF, TXT, CSV)
 
-3. **Memory Issues with Large Documents**
+4. **Memory Issues with Large Documents**
    ```
    ChromaDB memory error or slow processing
    ```
-   **Solution**: Reduce `chunk_size` in GraphRAGConfig or process documents in smaller batches
+   **Solution**: Reduce `chunk_size` in `GraphRAGConfig` or process documents in smaller batches
 
-4. **No Graph Relationships Detected**
+5. **No Graph Relationships Detected**
    ```
    Warning: No edges detected, using default relationships
    ```
    **Solution**: Ensure documents have meaningful metadata or content patterns for relationship detection
 
-5. **Router Decision Errors**
+6. **Router Decision Errors**
    ```
    Error in routing workflow
    ```
@@ -320,8 +351,8 @@ GraphRetriever(
 
 ## 🔐 Security Notes
 
-- Never commit your .env file to version control
-- Keep your Google API key secure
+- Never commit your `.env` file to version control
+- Keep your API keys secure and rotate them if accidentally exposed
 
 ---
 <strong>RAG On.. 🔥</strong>

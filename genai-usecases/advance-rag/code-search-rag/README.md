@@ -2,13 +2,23 @@
 
 End-to-end RAG pipeline for code search combining semantic embeddings, intelligent reranking, and Tree-sitter AST parsing for structural code understanding.
 
+## 📁 File Overview
+
+| File | Role |
+|------|------|
+| `app.py` | **Entry point** — Streamlit web application; run this file to start the UI |
+| `rag.py` | Core backend — code parsing, chunking, vector indexing, semantic search, response generation |
+| `test_oauth2_examples.py` | Sample code used as **demo data** (not a test file — do not run with pytest). Index it via the app to explore code search with realistic OAuth2 examples. |
+| `requirements.txt` | All Python dependencies |
+| `.env.example` | Template for environment variables — copy to `.env` and add your key |
+
 ## Features
 
 ### 📥 Index Code (Vector Storage)
 - **Direct Code Input**: Paste code snippets directly
 - **Upload Files**: Upload individual code files (.py, .js, .ts, etc.)
 - **Index Directory**: Index entire local directories
-- **Clone from GitHub**: Clone and index GitHub repositories
+- **Clone from GitHub**: Clone and index GitHub repositories (requires `git` CLI installed)
 - **Import from JSON**: Bulk import from JSON files
 
 ### 🔎 Search Code (Retrieval)
@@ -31,38 +41,49 @@ End-to-end RAG pipeline for code search combining semantic embeddings, intellige
 <strong>✅ Prerequisites</strong>
    - Python 3.10 or higher
    - pip (Python package installer)
+   - `git` CLI (only needed if you want to clone GitHub repositories from within the app)
 
 <strong>📦 Installation & Running App</strong>
    1. Clone the repository:
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases\advance-rag\rag-with-code
+
+      # Windows
+      cd genai-usecases\advance-rag\code-search-rag
+
+      # Linux / macOS
+      cd genai-usecases/advance-rag/code-search-rag
       ```
-   2. Open the Project in VS Code or any code editor.
-   3. Create a virtual environment by running the following command in the terminal:
-   
+   2. Open the project in VS Code or any code editor.
+   3. Create a virtual environment:
+
       ```bash
-      pip install uv #if uv not installed
+      pip install uv  # skip if uv is already installed
       uv venv
-      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+
+      # Windows
+      .venv\Scripts\activate
+
+      # Linux / macOS
+      source .venv/bin/activate
       ```
-   4. Install dependencies:
-      
+   4. Install dependencies (a `requirements.txt` is already included in this folder):
+
       ```bash
       uv pip install -r requirements.txt
       ```
-   5. Configure Environment
-      * Rename .env.example → .env
-      * Update with your keys:
+   5. Configure environment — **never commit the `.env` file to version control**:
+      * Rename `.env.example` → `.env`
+      * Add your API key:
 
          ```bash
-         GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+         GOOGLE_API_KEY=your_key_here
          ```
-      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
+      * Get a free **GOOGLE_API_KEY** at https://aistudio.google.com/app/apikey
 
-   9. Run App
-      
+   6. Start the Streamlit app:
+
       ```bash
       streamlit run app.py
       ```
@@ -150,14 +171,15 @@ End-to-end RAG pipeline for code search combining semantic embeddings, intellige
 - **Vector Database**: ChromaDB
 - **Framework**: LangChain
 - **UI**: Streamlit
-- **Code Parsing**: Tree-sitter, Regex
+- **Code Parsing**: Tree-sitter (AST-based), Regex (fallback)
 
 ## File Structure
 
 ```
-rag-code/
-├── app.py                     # Streamlit UI application
+code-search-rag/
+├── app.py                     # Streamlit UI application (entry point)
 ├── rag.py                     # Core RAG system
+├── test_oauth2_examples.py    # Sample OAuth2 code for demo indexing (not a pytest file)
 ├── requirements.txt           # Python dependencies
 ├── .env.example               # Environment variables template
 ├── .env                       # Your API keys (not committed)
@@ -183,7 +205,7 @@ In the sidebar, expand "Advanced Settings" to configure:
 ### Indexing Issues
 - Verify file paths are correct and accessible
 - Ensure files are in supported formats
-- Check that git is installed for GitHub cloning
+- Check that the `git` CLI is installed for GitHub cloning
 
 ### Search Issues
 - Ensure you have indexed some code first
@@ -192,13 +214,15 @@ In the sidebar, expand "Advanced Settings" to configure:
 
 ## Examples
 
-### OAuth2 Authentication Example Code
+### Using the Included OAuth2 Demo Code
 
-The repository includes comprehensive OAuth2 implementation examples in [test_oauth2_examples.py](test_oauth2_examples.py). This file demonstrates:
+> **What is `test_oauth2_examples.py`?**
+> This file contains realistic OAuth2 authentication examples (Authorization Code, PKCE, Client Credentials, token validation, middleware). Its name begins with `test_` only because it was originally written in a test-file style — **it is not a pytest test file**. Its purpose here is to serve as meaningful sample code that you can index into the RAG system to explore how code search works on real-world patterns.
+
+The file demonstrates five OAuth2 patterns:
 
 **1. Authorization Code Flow (Web Applications)**
 ```python
-# Initialize OAuth2 client for web apps
 client = OAuth2Client(
     client_id="my-web-app",
     client_secret="super-secret-key",
@@ -206,35 +230,25 @@ client = OAuth2Client(
     auth_url="https://provider.com/oauth/authorize",
     token_url="https://provider.com/oauth/token"
 )
-
-# Generate authorization URL
 auth_url = client.get_authorization_url(scope="profile email")
-
-# Exchange authorization code for token
 token_data = client.exchange_code_for_token(authorization_code)
-
-# Make authenticated requests
 response = client.make_authenticated_request("https://api.provider.com/user/profile")
 ```
 
 **2. PKCE Flow (Mobile/Single-Page Apps)**
 ```python
-# Initialize PKCE client for mobile apps
 client = OAuth2PKCEClient(
     client_id="my-mobile-app",
     redirect_uri="myapp://callback",
     auth_url="https://provider.com/oauth/authorize",
     token_url="https://provider.com/oauth/token"
 )
-
-# Generate PKCE pair and authorization URL
 verifier, challenge = client.generate_pkce_pair()
 auth_url = client.get_authorization_url(scope="profile")
 ```
 
 **3. Client Credentials Flow (Service-to-Service)**
 ```python
-# Authenticate service-to-service
 token_data = authenticate_client_credentials(
     client_id="my-service",
     client_secret="secret-key",
@@ -245,7 +259,6 @@ token_data = authenticate_client_credentials(
 
 **4. Token Validation and Introspection**
 ```python
-# Validate OAuth2 tokens
 validator = OAuth2TokenValidator(
     introspection_url="https://auth.example.com/oauth/introspect",
     client_id="client-id",
@@ -256,7 +269,6 @@ result = validator.validate_token(access_token)
 
 **5. OAuth2 Middleware for Web Frameworks**
 ```python
-# Protect routes with OAuth2
 middleware = OAuth2Middleware(
     introspection_url="https://auth.example.com/oauth/introspect",
     client_id="client-id",
@@ -266,10 +278,10 @@ middleware = OAuth2Middleware(
 token_info = middleware.validate_request(authorization_header)
 ```
 
-To index these OAuth2 examples:
+To index and search these OAuth2 examples:
 1. Navigate to "Index Code" tab
-2. Select "Upload File" or "Index Directory"
-3. Upload/index [test_oauth2_examples.py](test_oauth2_examples.py)
+2. Select "Upload File"
+3. Upload `test_oauth2_examples.py`
 4. Search using queries like:
    - "How to implement OAuth2 with PKCE?"
    - "OAuth2 token validation"
@@ -277,7 +289,7 @@ To index these OAuth2 examples:
 
 ### Sample Searches
 
-After indexing authentication-related code:
+After indexing:
 - "How to validate JWT tokens?"
 - "OAuth2 authentication flow"
 - "API key middleware implementation"
@@ -287,4 +299,3 @@ After indexing authentication-related code:
 - **Batch Indexing**: Use directory or GitHub indexing for large codebases
 - **Chunk Size**: Adjust based on your code structure (smaller for functions, larger for modules)
 - **Top K Results**: Increase for more comprehensive results, decrease for faster responses
-

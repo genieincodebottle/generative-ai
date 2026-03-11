@@ -30,7 +30,7 @@ import google.generativeai as genai
 class MultimodalRAGSystem:
   
     def __init__(self, google_api_key: str, persist_directory: str = "./chroma_db_v2", 
-                 main_model: str = "gemini-1.5-pro", vision_model: str = "gemini-1.5-flash", 
+                 main_model: str = "gemini-2.5-pro", vision_model: str = "gemini-2.5-flash",
                  embedding_model: str = "models/text-embedding-004", temperature: float = 0.1, 
                  max_tokens: int = 8192):
         """

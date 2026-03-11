@@ -6,9 +6,13 @@
    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-11.5K-blue"></a>&nbsp;
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai"></a>&nbsp;
    <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-   <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/53K-C13584?style=round-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>&nbsp;
+   <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/55.5K-C13584?style=round-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>&nbsp;
    <a target="_blank" href="https://medium.com/@raj-srivastava"><img src="https://img.shields.io/badge/Medium-12100E?style=round-square&style=for-the-badge&logo=medium"></a>&nbsp;
     <a target="_blank" href="https://x.com/zero2nn"><img src="https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=%20%40zero2nn"></a>
+</div>
+<br>
+<div align="center">
+    <a target="_blank" href="https://aimlcompanion.com/"><img src="https://img.shields.io/badge/🚀%20AI--ML%20Companion-Live%20Now!%20Interactive%20Learning%20Platform%20⭐-0EA5E9?style=for-the-badge&labelColor=0D1117"></a>
 </div>
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
@@ -24,6 +28,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🎯 Getting Started
 - **[GenAI Roadmap](./GenAI_Roadmap.md)** - Your complete learning path for GenAI
 - **[AI/ML Roadmap](./docs/ai_ml_roadmap.pdf)** - Comprehensive AI/ML learning guide
+- **[AI-ML Companion](https://aimlcompanion.com/)** - Interactive AI/ML learning platform with 17 tracks, 250+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)
 - **[Essential GenAI Terms](./docs/essential-terms-genai.pdf)** - Key terminology and concepts
 - **[LLM Fundamentals](./docs/llm_fundamentals.pdf)** - Core concepts of Large Language Models
 
@@ -98,6 +103,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🔗 Quick Access Links
 | Category | Resources |
 |----------|-----------|
+| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.com/) — Interactive AI/ML learning with 17 tracks, 250+ modules, quizzes & coding |
 | **Learning Path** | [GenAI Roadmap](./GenAI_Roadmap.md) • [AI/ML Roadmap](./docs/ai_ml_roadmap.pdf) |
 | **Fundamentals** | [Essential Terms](./docs/essential-terms-genai.pdf) • [LLM Fundamentals](./docs/llm_fundamentals.pdf) • [Embeddings Guide](./docs/vector-embeddings-guide.pdf) |
 | **Cloud Platforms** | [AWS](./docs/genai-with-aws-cloud.pdf) • [Azure](./docs/genai-with-azure-cloud.pdf) • [VertexAI](./docs/genai-with-vertexai.pdf) |

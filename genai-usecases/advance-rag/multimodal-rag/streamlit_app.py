@@ -58,14 +58,14 @@ def main():
         st.markdown("**🤖 Model Selection**")
         main_model = st.selectbox(
             "Main LLM Model",
-            ["gemini-2.0-flash", "gemini-2.5-pro","gemini-2.5-flash", "gemini-1.5-pro", "gemini-1.5-flash"],
+            ["gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.5-flash-lite"],
             index=0,
             help="Model for text generation and reasoning"
         )
-        
+
         vision_model = st.selectbox(
-            "Vision Model", 
-            ["gemini-2.0-flash", "gemini-2.5-flash", "gemini-1.5-flash", "gemini-1.5-pro"],
+            "Vision Model",
+            ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.5-flash-lite"],
             index=0,
             help="Model for image processing and analysis"
         )

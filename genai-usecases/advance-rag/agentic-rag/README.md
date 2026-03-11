@@ -14,9 +14,18 @@
 
 An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system implements advanced multi-agent workflows for intelligent question answering with adaptive reasoning strategies.
 
+## 📁 File Overview
+
+| File | Role |
+|------|------|
+| `agentic_rag_system.py` | Core backend — defines all five agents, the LangGraph workflow, document loading, and query processing logic |
+| `streamlit_app.py` | Frontend UI — Streamlit web application that wraps `agentic_rag_system.py` and exposes all features through a browser interface |
+| `requirements.txt` | All Python dependencies |
+| `.env.example` | Template for environment variables — copy to `.env` and add your keys |
+
 ## ✨ Features
 
-- 🧠 **Multi Agent Architecture**
+- 🧠 **Multi-Agent Architecture**
    - **Planner Agent**: Analyzes queries and creates intelligent execution plans
    - **Retriever Agent**: Performs semantic document retrieval from vector database
    - **Research Agent**: Conducts web searches for current information
@@ -29,8 +38,8 @@ An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built wi
 
 - 🔮 **Advanced Capabilities**
    - **Adaptive Query Planning**: Automatically detects query complexity and selects optimal strategies
-   - **Multi-Modal Processing**: Handles text, PDFs & CSV document formats
-   - **Web Augmented RAG**: Combines document knowledge with real time web search
+   - **Multi-Format Document Support**: Handles PDF, TXT, and CSV file formats
+   - **Web-Augmented RAG**: Combines document knowledge with real-time web search via Tavily
    - **Confidence Scoring**: Provides transparency in answer reliability
    - **Source Tracking**: Detailed citation of information sources
 
@@ -38,10 +47,10 @@ An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built wi
 
 - **Python**: Programming Language
 - **LangGraph**: State-of-the-art agent workflow orchestration
-- **Gemini LLM API (Free tier)**: Google's AI models (gemini-2.0-flash, gemini-2.0-pro, gemini-2.5-pro, gemini-2.5-flash & Gemini Embedding Models)
+- **Gemini LLM API (Free tier)**: Google's AI models (gemini-2.5-pro, gemini-2.5-flash, gemini-2.5-flash-lite & Gemini Embedding Models)
 - **Tavily Search API (Free Tier)**: Advanced web search integration
 - **ChromaDB (Open Source)**: High performance open-source vector database
-- **Streamlit**: Interactive python based web interface
+- **Streamlit**: Interactive Python-based web interface
 
 ## ⚡ Quick Start
 
@@ -54,59 +63,44 @@ An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built wi
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
+
+      # Windows
       cd genai-usecases\advance-rag\agentic-rag
+
+      # Linux / macOS
+      cd genai-usecases/advance-rag/agentic-rag
       ```
-   3. Open the Project in VS Code or any code editor.
-   4. Create a virtual environment by running the following command in the terminal:
-   
+   3. Open the project in VS Code or any code editor.
+   4. Create a virtual environment:
+
       ```bash
-      pip install uv #if uv not installed
+      pip install uv  # skip if uv is already installed
       uv venv
-      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+
+      # Windows
+      .venv\Scripts\activate
+
+      # Linux / macOS
+      source .venv/bin/activate
       ```
-   5. Create a `requirements.txt` file and add the following libraries:
-      
-      ```bash
-      # LangGraph for agent workflows
-      langgraph>=0.6.7
-      # Core LangChain packages
-      langchain-core>=0.3.75
-      langchain-google-genai>=2.1.10
-      langchain-community>=0.3.29
-      langchain-text-splitters>=0.3.11
-      langchain-chroma>=0.2.5
-      # Vector store and embeddings
-      chromadb>=1.0.20
-      # Web search capabilities
-      tavily-python>=0.7.11
-      # Document processing
-      pypdf>=6.0.0
-      # Streamlit app dependencies
-      streamlit>=1.49.1
-      plotly>=6.3.0
-      pandas>=2.3.2
-      # Structured outputs
-      pydantic>=2.11.7
-      # Environment and utilities
-      python-dotenv>=1.1.1
-      ```
-   6. Install dependencies:
-      
+   5. Install dependencies (a `requirements.txt` is already included in this folder):
+
       ```bash
       uv pip install -r requirements.txt
       ```
-   7. Configure Environment
-      * Rename .env.example → .env
-      * Update with your keys:
+   6. Configure environment — **never commit the `.env` file to version control**:
+      * Rename `.env.example` → `.env`
+      * Add your API keys:
 
         ```bash
-        GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
-        TAVILY_API_KEY=your_key_here # Optional- For Web Search
+        GOOGLE_API_KEY=your_key_here   # Required — free tier
+        TAVILY_API_KEY=your_key_here   # Optional — only needed for Research-type queries
         ```
-      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
-      * Get **TAVILY_API_KEY** here (Optional- For Web Search)-> https://tavily.com/home
+      * Get **GOOGLE_API_KEY** here → https://aistudio.google.com/app/apikey
+      * Get **TAVILY_API_KEY** here → https://tavily.com/home
+        *(Optional — only needed for **Research** complexity queries that require current web information. Simple, Moderate, and Complex queries work fine without it.)*
 
-   8. Running the Application. Start the Streamlit app:
+   7. Start the Streamlit app:
 
       ```bash
       streamlit run streamlit_app.py
@@ -118,16 +112,16 @@ An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built wi
 
 1. **Configure Models & Parameters**
    Configure your settings in the sidebar before initializing:
-   
+
    **🤖 Model Selection:**
-   - **Main LLM Model**: Choose from different Gemini LLMs (gemini-2.0-flash, gemini-2.0-pro, gemini-2.5-pro, gemini-2.5-flash)
+   - **Main LLM Model**: Choose from different Gemini LLMs (gemini-2.5-pro, gemini-2.5-flash, gemini-2.5-flash-lite)
    - **Embedding Model**: Select between `text-embedding-004` or `text-embedding-003`
-   
+
    **⚙️ Model Parameters:**
    - **Temperature** (0.0-1.0): Control creativity (0=focused, 1=creative)
    - **Max Tokens** (1024-8192): Maximum response length
    - **Max Iterations** (5-15): Maximum agent workflow iterations
-   
+
    **📝 Processing Settings:**
    - **Chunk Size** (500-2000): Size of text chunks for processing
    - **Chunk Overlap** (50-400): Overlap between chunks for continuity
@@ -150,7 +144,7 @@ An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built wi
 
 4. **Explore Different Query Types**
    - **Simple**: Direct factual questions
-   - **Moderate**: Analysis or comparison questions  
+   - **Moderate**: Analysis or comparison questions
    - **Complex**: Multi-faceted synthesis queries
    - **Research**: Current information requiring web search
 
@@ -176,7 +170,7 @@ An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built wi
 ## 🎯 Sample Use Cases
 
 1. **Business Intelligence**: Upload financial reports, market research, and business documents
-2. **Research Analysis**: Process academic papers, research data, and technical documentation  
+2. **Research Analysis**: Process academic papers, research data, and technical documentation
 3. **Knowledge Management**: Organize company documents, policies, and procedures
 4. **Due Diligence**: Analyze legal documents, contracts, and compliance materials
 5. **Educational Support**: Study materials, textbooks, and reference documents
@@ -191,14 +185,14 @@ The web interface is organized into **5 intuitive tabs**:
 
 ### 💬 Ask Questions
 - Natural language query input
-- Real time answer generation
+- Real-time answer generation
 - Confidence scoring with visual gauge
 - Performance metrics display
 - New conversation threading
 
 ### 🧠 Query Analysis
 - Query complexity analysis (Simple, Moderate, Complex, Research)
-- Sub questions breakdown
+- Sub-questions breakdown
 - Execution steps and logs
 - Strategy selection details
 
@@ -250,7 +244,7 @@ Try these sample queries to explore the Agentic RAG's capabilities:
    - "Analyze the relationship between AI development and climate change solutions."
    - "What are the synergies between renewable energy and AI technologies?"
 
-4. **Research Queries (requires web search)**
+4. **Research Queries (requires Tavily web search)**
    - "What are the latest breakthroughs in AI safety research in 2025?"
    - "Recent developments in quantum computing applications."
 
@@ -268,7 +262,7 @@ Try these sample queries to explore the Agentic RAG's capabilities:
    ```
    Warning: Tavily API key not configured
    ```
-   **Solution**: Add your Tavily API key to enable web search capabilities
+   **Solution**: Add your Tavily API key to `.env` to enable web search for **Research** complexity queries. Simple, Moderate, and Complex queries work without it — only Research-type queries (which need current information from the web) require Tavily.
 
 3. **Document Loading Fails**
    ```
@@ -282,9 +276,9 @@ Try these sample queries to explore the Agentic RAG's capabilities:
    ```
    **Solution**: Reduce `chunk_size` in configuration or process documents in batches
 
-## ⚡️Performance Tips
+## ⚡️ Performance Tips
 
-1. **Use smaller models** like `gemini-2.0-flash` for better speed
+1. **Use smaller models** like `gemini-2.5-flash-lite` for best speed
 2. **Chunk Size**: 1500+ for comprehensive documents, 800-1200 for focused content
 3. **Retrieval Count**: 6-8 for balanced results, 10+ for comprehensive search
 4. **Temperature**: 0.1-0.3 for factual questions, 0.5-1.0 for creative tasks
@@ -297,8 +291,8 @@ Try these sample queries to explore the Agentic RAG's capabilities:
 
 ## 🔐 Security Notes
 
-- Never commit your .env file to version control
-- Keep your Google API key secure
+- Never commit your `.env` file to version control
+- Keep your API keys secure and rotate them if accidentally exposed
 
 ---
 <strong>RAG On.. 🔥</strong>

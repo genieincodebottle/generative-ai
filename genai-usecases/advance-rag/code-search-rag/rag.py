@@ -61,7 +61,7 @@ class Config:
     
     # Model settings
     embedding_model: str = "models/gemini-embedding-001"
-    llm_model: str = "gemini-2.0-flash"
+    llm_model: str = "gemini-2.5-flash"
     
     # Chunking settings
     chunk_size: int = 500  # tokens

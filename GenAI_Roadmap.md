@@ -8,9 +8,13 @@
     <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-11.5K-blue"></a>&nbsp;
     <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai"></a>&nbsp;
     <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/53K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/genieincodebottle/"></a>&nbsp;
+    <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/55.5K-C13584?style=flat-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/genieincodebottle/"></a>&nbsp;
     <a target="_blank" href="https://medium.com/@raj-srivastava"><img src="https://img.shields.io/badge/Medium-12100E?style=round-square&style=for-the-badge&logo=medium"></a>&nbsp;
     <a target="_blank" href="https://x.com/zero2nn"><img src="https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=%20%40zero2nn"></a>
+</div>
+<br>
+<div align="center">
+    <a target="_blank" href="https://aimlcompanion.com/"><img src="https://img.shields.io/badge/🚀%20AI--ML%20Companion-Live%20Now!%20Interactive%20Learning%20Platform%20⭐-0EA5E9?style=for-the-badge&labelColor=0D1117"></a>
 </div>
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
@@ -65,8 +69,8 @@ Each phase is split by week and builds progressively.
 
 | Topics                      | Core Material | Additional Resources | Code |
 |----------------------------|---------------|-----------------------|------|
-| Retrieval-Augmented Generation (RAG) | [1. Blog - Advance RAG Techniques](https://8738733.fs1.hubspotusercontent-na1.net/hubfs/8738733/eBooks/Weaviate-Advanced-RAG-Techniques-ebook.pdf) <br/> [2. PDF - RAG Decisions](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) || [1. GitHub - Advanced RAG (Graph RAG, Agentic RAG, Multimodal RAG etc)](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/advance-rag) <br/> [2. GitHub - Microsoft's Agentic RAG](https://github.com/microsoft/ai-agents-for-beginners/blob/main/05-agentic-rag/README.md) |
-| Agentic AI                 | [1. Blog - Building Agents (Claude)](https://www.anthropic.com/research/building-effective-agents) <br> [2. Huggingface Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) | [1. Blog - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html) <br/> [2. Google Whitepaper](https://www.kaggle.com/whitepaper-agents) | [1. GitHub-Agentic AI](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) <br/>  [2. GitHub-NirDimant](https://github.com/NirDiamant/GenAI_Agents) <br/> [3. LangGraph](https://github.com/langchain-ai/langgraph/tree/main/docs/docs/tutorials/multi_agent) |
+| Retrieval-Augmented Generation (RAG) | [1. Blog - Advance RAG Techniques](https://8738733.fs1.hubspotusercontent-na1.net/hubfs/8738733/eBooks/Weaviate-Advanced-RAG-Techniques-ebook.pdf) <br/> [2. PDF - RAG Decisions](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/docs/advance-rag-decision-flow-chart.pdf) || [1. GitHub - Advanced RAG (Graph RAG, Agentic RAG, Multimodal RAG etc)](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/advance-rag) <br/> [2. GitHub - Microsoft's Agentic RAG](https://github.com/microsoft/ai-agents-for-beginners/blob/main/05-agentic-rag/README.md) |
+| Agentic AI                 | [1. Blog - Building Agents (Claude)](https://www.anthropic.com/research/building-effective-agents) <br> [2. Huggingface Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) | [1. Blog - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html) <br/> [2. Google Whitepaper](https://www.kaggle.com/whitepaper-agents) | [1. GitHub-Agentic AI](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) <br/>  [2. GitHub-NirDimant](https://github.com/NirDiamant/GenAI_Agents) <br/> [3. LangGraph](https://github.com/langchain-ai/langgraph/tree/main/examples/multi_agent) |
 
 </details>
 
@@ -87,7 +91,7 @@ Each phase is split by week and builds progressively.
 | Topics                      | Core Material | Additional Resources | Code |
 |----------------------------|---------------|-----------------------|------|
 | LLMOps                     | [1. Coursera Specialization](https://www.coursera.org/specializations/large-language-model-operations) <br> [2. Deeplearning AI Course](https://www.deeplearning.ai/short-courses/llmops/) |||
-| GenAI in Production        | [YT - Explaining Code](https://www.youtube.com/watch?v=x2P4Ee6PYNg) || [GitHub Code](https://github.com/genieincodebottle/rag-app-on-aws) |
+| GenAI in Production        | [YT - RAG App on AWS](https://www.youtube.com/watch?v=x2P4Ee6PYNg) || [GitHub Code](https://github.com/genieincodebottle/rag-app-on-aws) |
 | Safety & Alignment         | [1. LlamaGuard](https://cloudyuga.guru/blogs/securing-ai-applications-with-llamaguard/) <br> [2. Prompt Guard](https://www.llama.com/llama-protections/) | [Constitutional AI](https://arxiv.org/html/2501.09004v1) | Work in Progress |
 | LLM Leaderboard            | [1. Chatbot Arena](https://lmarena.ai/?leaderboard) <br> [2. Artificial Analysis AI](https://artificialanalysis.ai/leaderboards/models) <br> [3. Aider](https://aider.chat/docs/leaderboards/) |||
 
@@ -98,21 +102,22 @@ Each phase is split by week and builds progressively.
 
 | Category  | Link  | 
 |------------|----------------|
-| IDE & Dev Playground  |[Colab NoteBook](https://colab.research.google.com/notebooks/basic_features_overview.ipynb), [Kaggle Notebook](https://www.kaggle.com/code), [VSCode](https://code.visualstudio.com/docs/introvideos/basics), [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview)||
+| IDE & Dev Playground  |[Colab NoteBook](https://colab.research.google.com/notebooks/basic_features_overview.ipynb), [Kaggle Notebook](https://www.kaggle.com/code), [VSCode](https://code.visualstudio.com/docs/introvideos/basics), [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)||
 | LLM Aggregators  |[litellm](https://github.com/BerriAI/litellm), [Openrouter](https://openrouter.ai/docs/quickstart), [Aisuite](https://github.com/andrewyng/aisuite)||
 | Agentic AI Frameworks |[CrewAI](https://docs.crewai.com/introduction), [Relevance AI](https://relevanceai.com/), [LangGraph](https://langchain-ai.github.io/langgraph/tutorials/introduction/), [SuperAGI](https://superagi.com/), [SmolAgent](https://huggingface.co/blog/smolagents), [OpenAI Agent SDK](https://openai.github.io/openai-agents-python/), [Google's ADK](https://google.github.io/adk-docs/)||
 | AI Automation (Workflow + AI Integration)  |[n8n](https://n8n.io/), [Zapier](https://zapier.com/), [Make](https://www.make.com/en)||
 | Cloud Agentic Framework  |[Microsoft Agent](https://github.com/microsoft/Agents), [AWS Bedrock Agent](https://aws.amazon.com/bedrock/agents/)||
 | Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM) <br> [Official Claude Doc](https://modelcontextprotocol.io/introduction) <br> [GitHub-Awsome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)||
-| Agent2Agent Protocol (A2A) |[Video - Demo](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) <br> [Specification](https://google.github.io/A2A/) <br> [GitHub](https://github.com/google/A2A)||
+| Agent2Agent Protocol (A2A) |[Video - Demo](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) <br> [Specification](https://github.com/google/A2A) <br> [GitHub](https://github.com/google/A2A)||
 | AI Coding Assistants |[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/), [Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) ||
+| Learning Platform  |[AI-ML Companion](https://aimlcompanion.com/) - Interactive AI/ML learning platform with 17 tracks, 250+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)||
 
 ### 💡 GenAI Use Cases
 
 | Usecase  | Link  | 
 |------------|----------------|
-| Example Code for Running API-Based LLM | [Groq](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/groq.ipynb), [Claude](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/claude.ipynb), [OpenAI](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/openai.ipynb), [Gemini](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/gemini.ipynb), [DeepSeek](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/deepseek.ipynb), [Cohere](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/cohere.ipynb) |
-| Example Code for Running LLMs Locally | [Huggingace](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/huggingface_models.ipynb), [Ollama Local](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/ollama), [Ollama at Colab](https://colab.research.google.com/drive/1TrB6dLCSBdSDXcauQ1lofgWDiiEbQXHw?usp=sharing), [LMStudio](https://lmstudio.ai/) |
+| Example Code for Running API-Based LLM | [Groq](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/notebooks/groq.ipynb), [Claude](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/notebooks/claude.ipynb), [OpenAI](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/notebooks/openai.ipynb), [Gemini](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/notebooks/gemini.ipynb), [DeepSeek](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/notebooks/deepseek.ipynb), [Cohere](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/notebooks/cohere.ipynb) |
+| Example Code for Running LLMs Locally | [HuggingFace](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/llm-providers/local_llms/huggingface/huggingface_models.ipynb), [Ollama Local](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/llm-providers/local_llms/ollama), [Ollama at Colab](https://colab.research.google.com/drive/1TrB6dLCSBdSDXcauQ1lofgWDiiEbQXHw?usp=sharing), [LMStudio](https://lmstudio.ai/) |
 | Run FastMCP based Websearch Remote MCP Server Locally |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/mcp)|
 | Production-Grade GenAI on AWS: RAG with Remote MCP Server |[YouTube](https://www.youtube.com/watch?v=x2P4Ee6PYNg) <br/> [GitHub](https://github.com/genieincodebottle/rag-app-on-aws)|
 | Llama 4 Scout – All-in-One App for Chat, OCR, RAG & Agentic AI with CrewAI |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/llama-4-multi-function-app)|
@@ -124,17 +129,17 @@ Each phase is split by week and builds progressively.
 | Cache-Augmented Generation (CAG) |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/cache_augmented_generation) |
 | AI Chat Analyzer for ChatGPT & Claud |[GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/your_ai_chat_analytics) |
 
-### 📘 Misc Useful References
+### 🔖 Key Downloads
 
 | Category | Links |
 |-------------|---------|
 | Prompt Engineering       | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/prompt-engineering) |
-| RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/advance-rag-decision-flow-chart.pdf) |
+| RAG   | [Pdf](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/docs/advance-rag-decision-flow-chart.pdf) |
 | Agentic AI   | [GitHub](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) |
 | Misc   | [Embedding Models](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/embedding_models.ipynb), [GenAI Project Lifecycle](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-project-lifecycle.pdf) |
 
 
-### 📘 Imp Research Papers
+### 📄 Imp Research Papers
 
 | Title | Links |
 |-------------|---------|

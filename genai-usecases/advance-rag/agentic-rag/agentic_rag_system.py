@@ -149,7 +149,7 @@ class WebSearchTool(BaseTool):
 class AgenticRAGConfig:
     """Configuration for the Agentic RAG system"""
     # Model configurations
-    llm_model: str = "gemini-2.0-flash"
+    llm_model: str = "gemini-2.5-flash"
     embedding_model: str = "models/text-embedding-004"
     temperature: float = 0.1
     max_tokens: int = 8192

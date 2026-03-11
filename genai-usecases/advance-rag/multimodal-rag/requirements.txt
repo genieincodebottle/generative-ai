@@ -1,21 +1,21 @@
 # Core Streamlit dependency
-streamlit
+streamlit>=1.38.0
 
 # Google AI and LangChain dependencies
-google-generativeai
-langchain
-langchain-google-genai
-langchain-chroma
-langchain-community
-langchain-core
-langchain-text-splitters
+google-generativeai>=0.8.0
+langchain>=0.3.0
+langchain-google-genai>=2.0.0
+langchain-chroma>=0.2.0
+langchain-community>=0.3.0
+langchain-core>=0.3.0
+langchain-text-splitters>=0.3.0
 
 # Vector Database
-chromadb
+chromadb>=0.5.0
 
 # Document Processing
-pypdf
-pymupdf
+pypdf>=4.0.0
+pymupdf>=1.24.0
 
 # Environment and Configuration
-python-dotenv
+python-dotenv>=1.0.0

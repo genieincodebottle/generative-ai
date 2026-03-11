@@ -9,23 +9,36 @@
 
 ![Multimodal RAG](./images/multimodal-rag.png)
 
+*Architecture: PDF and image files are split into text chunks, tables, and image descriptions. Each content type is embedded separately and stored in ChromaDB. At query time, a multi-vector retriever searches all three stores and combines the most relevant text, table, and image context before passing it to the Gemini LLM.*
+
 A Multimodal RAG system that integrates text and images with Google Gemini LLMs and Embedding model, built using LangChain, ChromaDB and Streamlit.
+
+## 📁 File Overview
+
+| File | Role |
+|------|------|
+| `streamlit_app.py` | **Entry point** — the Streamlit web application to run |
+| `app.py` | Core backend logic (document loading, image extraction, vector store, retrieval, response generation) — imported by `streamlit_app.py` |
+| `requirements.txt` | All Python dependencies |
+| `.env.example` | Template for environment variables — copy to `.env` and add your key |
+
+> **Which file should I run?** Always run `streamlit run streamlit_app.py`. The `app.py` file contains the backend classes and is not meant to be executed directly.
 
 ## 🌟 Features
 - **📄 Document Processing**: PDF text extraction and analysis
-- **🖼️ Advanced Image Analysis**: Visual content description and OCR text extraction
-- **🧠 Multi Vector Retrieval**: Separate processing for text, tables and images
+- **🖼️ Advanced Image Analysis**: Visual content description and OCR text extraction using Gemini Vision
+- **🧠 Multi-Vector Retrieval**: Separate processing and retrieval for text, tables, and images
 
 ## 🔧 Tech Stack
 - **Python**: Programming Language
 - **LangChain**: AI Framework
-- **Gemini LLM API (Free tier)**: Google's AI models (gemini-2.0-flash, gemini-2.0-pro, gemini-2.5-pro, gemini-2.5-flash & Gemini Embedding Models)
+- **Gemini LLM API (Free tier)**: Google's AI models (gemini-2.5-pro, gemini-2.5-flash, gemini-2.5-flash-lite & Gemini Embedding Models)
 - **ChromaDB (Open Source)**: High performance open-source vector database
-- **Streamlit**: Interactive python based web interface
+- **Streamlit**: Interactive Python-based web interface
 
 ## ⚡ Quick Start
 ### 📦 Installation & Running App
-   
+
    1. Prerequisites
       - Python 3.10 or higher
       - pip (Python package installer)
@@ -33,53 +46,42 @@ A Multimodal RAG system that integrates text and images with Google Gemini LLMs 
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
+
+      # Windows
       cd genai-usecases\advance-rag\multimodal-rag
+
+      # Linux / macOS
+      cd genai-usecases/advance-rag/multimodal-rag
       ```
-   3. Open the Project in VS Code or any code editor.
-   4. Create a virtual environment by running the following command in the terminal:
-   
+   3. Open the project in VS Code or any code editor.
+   4. Create a virtual environment:
+
       ```bash
-      pip install uv #if uv not installed
+      pip install uv  # skip if uv is already installed
       uv venv
-      .venv\Scripts\activate # On Linux -> source venv/bin/activate
+
+      # Windows
+      .venv\Scripts\activate
+
+      # Linux / macOS
+      source .venv/bin/activate
       ```
-   5. Create a `requirements.txt` file and add the following libraries:
-      
-      ```bash
-      # Core Streamlit dependency
-      streamlit
-      # Google AI and LangChain dependencies
-      google-generativeai
-      langchain
-      langchain-google-genai
-      langchain-chroma
-      langchain-community
-      langchain-core
-      langchain-text-splitters
-      # Vector Database
-      chromadb
-      # Document Processing
-      pypdf
-      pymupdf
-      # Environment and Configuration
-      python-dotenv
-      ```
-   6. Install dependencies:
-      
+   5. Install dependencies (a `requirements.txt` is already included in this folder):
+
       ```bash
       uv pip install -r requirements.txt
       ```
-   7. Configure Environment
-      * Rename .env.example → .env
-      * Update with your keys:
+   6. Configure environment — **never commit the `.env` file to version control**:
+      * Rename `.env.example` → `.env`
+      * Add your API key:
 
          ```bash
-         GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
+         GOOGLE_API_KEY=your_key_here
          ```
-      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
+      * Get a free **GOOGLE_API_KEY** at https://aistudio.google.com/app/apikey
 
-   8. Running the Application. Start the Streamlit app:
-      
+   7. Start the Streamlit app:
+
       ```bash
       streamlit run streamlit_app.py
       ```
@@ -90,16 +92,16 @@ A Multimodal RAG system that integrates text and images with Google Gemini LLMs 
 
 1. **Configure Models & Parameters**
    Configure your settings in the sidebar before initializing:
-   
+
    **🤖 Model Selection:**
    - **Main LLM Model**: Choose from different Gemini LLMs
-   - **Vision Model**: Select model for image processing and analysis  
+   - **Vision Model**: Select model for image processing and analysis
    - **Embedding Model**: Pick between `text-embedding-004` or `text-embedding-003`
-   
+
    **⚙️ Model Parameters:**
    - **Temperature** (0.0-1.0): Control creativity (0=focused, 1=creative)
    - **Max Tokens** (1024-8192): Maximum response length
-   
+
    **📝 Processing Settings:**
    - **Chunk Size** (500-3000): Size of text chunks for processing
    - **Retrieval Count** (3-15): Number of relevant chunks to retrieve
@@ -127,7 +129,7 @@ A Multimodal RAG system that integrates text and images with Google Gemini LLMs 
 
 2. **Images**:
    - **PNG, JPG, JPEG**: Visual analysis and OCR text extraction
-   - **Charts/Graphs**: Data extraction and description  
+   - **Charts/Graphs**: Data extraction and description
    - **Diagrams**: Technical analysis and interpretation
    - **PDF Images**: Automatically extracted and processed
 
@@ -151,7 +153,7 @@ A Multimodal RAG system that integrates text and images with Google Gemini LLMs 
    - Chart and graph data extraction
 
 3. **Smart Chunking**
-   - Context aware text splitting
+   - Context-aware text splitting
    - Overlap optimization for continuity
    - Metadata preservation
 
@@ -160,23 +162,23 @@ A Multimodal RAG system that integrates text and images with Google Gemini LLMs 
 ### 🛑 Common Issues:
 
 1. **"API Key Error"**
-   - Verify your Google API key in `.env` file
+   - Verify your Google API key in the `.env` file
    - Ensure you have access to Gemini API
    - Try regenerating your API key
 
 2. **"ChromaDB/Vector Database Error"**
    - Check write permissions in the project directory
-   - Delete `chroma_db` folder and rebuild database
+   - Delete the `chroma_db` folder and rebuild the database
    - Ensure sufficient disk space
 
-3. **"File Upload Issues"**  
+3. **"File Upload Issues"**
    - Supported formats: PDF, TXT, PNG, JPG, JPEG
    - Check file size (reasonable limits recommended)
    - Verify files are not corrupted
 
-## ⚡️Performance Tips
+## ⚡️ Performance Tips
 
-1. **Use smaller models** like `gemini-2.0-flash` for better speed
+1. **Use smaller models** like `gemini-2.5-flash-lite` for best speed
 2. **Chunk Size**: 1500+ for comprehensive documents, 800-1200 for focused content
 3. **Retrieval Count**: 6-8 for balanced results, 10+ for comprehensive search
 4. **Temperature**: 0.1-0.3 for factual questions, 0.5-1.0 for creative tasks
@@ -186,8 +188,8 @@ A Multimodal RAG system that integrates text and images with Google Gemini LLMs 
 
 ## 🔐 Security Notes
 
-- Never commit your .env file to version control
-- Keep your Google API key secure
+- Never commit your `.env` file to version control
+- Keep your API keys secure and rotate them if accidentally exposed
 
 ---
 <strong>RAG On.. 🔥</strong>

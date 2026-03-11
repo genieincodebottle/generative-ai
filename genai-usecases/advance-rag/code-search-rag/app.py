@@ -96,7 +96,7 @@ def init_session_state():
     if 'embedding_model' not in st.session_state:
         st.session_state.embedding_model = "models/embedding-001"
     if 'llm_model' not in st.session_state:
-        st.session_state.llm_model = "gemini-2.0-flash"
+        st.session_state.llm_model = "gemini-2.5-flash"
 
     if 'rag_system' not in st.session_state:
         st.session_state.rag_system = None
@@ -171,7 +171,7 @@ with st.sidebar:
     )
     llm_model = st.selectbox(
         "LLM Model",
-        ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.5-flash-lite", "gemini-2.5-pro", "gemini-3-pro-preview","gemini-2.5-flash"],
+        ["gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.5-flash-lite"],
         index=0,
         help="Model for generating responses"
     )

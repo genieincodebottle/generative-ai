@@ -18,7 +18,7 @@ from langchain_community.document_loaders import (
     TextLoader, 
     CSVLoader
 )
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from graph_retriever.strategies import Eager
 from graph_rag_example_helpers.datasets.animals import fetch_documents
 from agentic_router import create_agentic_router
@@ -38,7 +38,7 @@ class RetrieverType(Enum):
 @dataclass
 class GraphRAGConfig:
     embedding_model: str = "sentence-transformers/all-mpnet-base-v2"
-    llm_model: str = "gemini-2.0-flash"
+    llm_model: str = "gemini-2.5-flash"
     llm_provider: str = "google_genai"
     chunk_size: int = 1000
     chunk_overlap: int = 200
