@@ -1,7 +1,7 @@
 
 <div align="center">
 <a href="https://www.instagram.com/genieincodebottle/"><img src="images/genie_logo.png"></a>
-<h1>Generative AI Roadmap - 2025</h1>
+<h1>Generative AI Roadmap - 2026</h1>
 </div>
 
 <div align="center">
