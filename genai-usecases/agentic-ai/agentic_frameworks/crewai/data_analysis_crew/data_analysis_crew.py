@@ -1340,11 +1340,15 @@ def render_crew_interface():
         - Error handling and data validation
         """)
 
+    # Performance warning
+    st.info("⏱️ **Expect 2–5 minutes per analysis.** CrewAI runs 4 agents sequentially — each makes multiple LLM calls. Use **Groq** (`llama-3.1-8b-instant`) for the fastest experience.")
+
     # File upload
     uploaded_file = st.file_uploader(
         "Upload Dataset (CSV)",
         type=['csv'],
-        key='data_file_upload'
+        key='data_file_upload',
+        help="Upload any CSV file. The agents will automatically detect columns, data types, and suggest analyses."
     )
 
     if uploaded_file:
@@ -1466,8 +1470,20 @@ def render_crew_interface():
                     temp_path.unlink()
 
             except Exception as e:
-                st.error(f"❌ Error during analysis: {str(e)}")
-                st.exception(e)
+                msg = str(e)
+                if any(k in msg for k in ["API_KEY", "api_key", "API key", "credentials", "UNAUTHENTICATED", "authentication"]):
+                    st.error("❌ API Key Error — your key is missing or invalid.")
+                    st.info(f"Set `{llm_provider.upper()}_API_KEY` in your `.env` file.")
+                elif any(k in msg.lower() for k in ["quota", "rate limit", "resource exhausted", "429"]):
+                    st.error("❌ Rate Limit — too many requests. Wait a moment, or switch to Ollama (no rate limits).")
+                elif any(k in msg.lower() for k in ["connection", "refused", "timeout", "unreachable"]):
+                    st.error("❌ Connection Error — cannot reach the LLM provider.")
+                    if llm_provider == "Ollama":
+                        st.info("Make sure Ollama is running: `ollama serve`")
+                else:
+                    st.error(f"❌ Error during analysis: {msg}")
+                with st.expander("🔍 Full error details"):
+                    st.exception(e)
 
 # ============================================================================
 # BACKEND: UTILITY FUNCTIONS FOR FILE MANAGEMENT AND RESULT PROCESSING

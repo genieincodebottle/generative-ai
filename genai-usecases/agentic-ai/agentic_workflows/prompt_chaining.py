@@ -507,7 +507,8 @@ def render_prompt_chaining_interface():
                 "parallel": "Parallel Chain (Concurrent)",
                 "custom_lcel": "Custom LCEL Chain (Advanced)"
             }[x],
-            key='execution_type'
+            key='execution_type',
+            help="Sequential = each step feeds the next. Parallel = steps run concurrently. Custom LCEL = LangChain Expression Language."
         )
 
         # -------------------------------------------------------------------------
@@ -766,8 +767,21 @@ def render_prompt_chaining_interface():
                     st.error(f"❌ Chain execution failed: {result.get('error', 'Unknown error')}")
 
         except Exception as e:
-            st.error(f"❌ Error creating chain: {str(e)}")
-            st.info("💡 Make sure your API keys are configured and the selected model is available.")
+            msg = str(e)
+            if any(k in msg for k in ["API_KEY", "api_key", "API key", "credentials", "UNAUTHENTICATED", "authentication"]):
+                st.error("❌ API Key Error — your key is missing or invalid.")
+                st.info(f"Set `{llm_provider.upper()}_API_KEY` in your `.env` file.")
+            elif any(k in msg.lower() for k in ["quota", "rate limit", "resource exhausted", "429"]):
+                st.error("❌ Rate Limit — chains make multiple LLM calls. Wait a moment or switch to Ollama.")
+            elif any(k in msg.lower() for k in ["connection", "refused", "timeout", "unreachable"]):
+                st.error("❌ Connection Error — cannot reach the LLM provider.")
+                if llm_provider == "Ollama":
+                    st.info("Make sure Ollama is running: `ollama serve`")
+            else:
+                st.error(f"❌ Error creating chain: {msg}")
+            with st.expander("🔍 Full error details"):
+                import traceback
+                st.code(traceback.format_exc())
 
     # LangChain features info
     with st.expander("🆕 LangChain Features", expanded=False):

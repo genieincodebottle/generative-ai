@@ -8,8 +8,64 @@
 
 > Advanced state-driven workflows showcasing LangGraph's graph-based agent orchestration, type-safe state management, and sophisticated control flow patterns.
 
+## 🚀 Start Here
+
+> **Prerequisites:** Complete the [Workflow Patterns](../../agentic_workflows/) first — especially Query Routing and Prompt Chaining.
+
+### Recommended first app: Customer Support Agent
+
+```bash
+cd genai-usecases\agentic-ai
+streamlit run agentic_frameworks\langgraph\customer_support_agent.py
+```
+
+Select a provider, type a support question (e.g. "I can't log in to my account"), and watch the agent route through intake → resolution → escalation → quality check.
+
+### What is LangGraph?
+
+LangGraph lets you build **state-driven agent workflows as graphs**. Each step (node) reads from and writes to a shared state object. Edges connect nodes — some are conditional ("if sentiment is negative, escalate").
+
+### Key concept: State
+
+In LangGraph, **state** is just a Python dictionary (defined as a `TypedDict`) that every node can read and update:
+
+```python
+from typing import TypedDict, Annotated
+from langgraph.graph import add_messages
+
+class SupportState(TypedDict):
+    messages: Annotated[list, add_messages]  # Chat history (auto-appends)
+    customer_name: str                        # Set once, reused by all nodes
+    sentiment: str                            # Updated by intake agent
+    escalation_level: int                     # Checked by conditional edges
+```
+
+- **`Annotated[list, add_messages]`** means "when a node returns new messages, append them to the list" (not replace).
+- Each node is just a function that takes state and returns updated state.
+- **Conditional edges** route to different nodes based on state values (e.g. `if state["escalation_level"] > 2: goto escalation_manager`).
+
+### How it differs from CrewAI
+
+| | LangGraph | CrewAI |
+|---|---|---|
+| **Config** | Python code (programmatic) | YAML files (declarative) |
+| **State** | Explicit TypedDict shared across all nodes | Implicit — agents pass context via task output |
+| **Routing** | Conditional edges in a graph | Sequential or hierarchical process |
+| **Best for** | Workflows with complex branching logic | Teams of role-based specialists |
+
+### Recommended order for the 3 apps
+
+| # | App | Difficulty | What you'll learn |
+|---|-----|-----------|-------------------|
+| 1 | **Customer Support Agent** | Beginner | State management, conditional routing, escalation |
+| 2 | **Document Processing Pipeline** | Intermediate | Multi-format processing, structured outputs, checkpoints |
+| 3 | **Task Planning System** | Advanced | Dynamic decomposition, resource allocation, replanning |
+
+---
+
 ## Table of Contents
 
+- [🚀 Start Here](#-start-here)
 - [🌟 Overview](#-overview)
 - [⚙️ Installation](#-installation)
 - [🕸️ LangGraph Architecture](#-langgraph-architecture)

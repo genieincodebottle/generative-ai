@@ -707,7 +707,8 @@ def render_customer_support_interface():
         llm_provider = st.selectbox(
             "LLM Provider",
             ["Gemini", "Ollama", "Groq", "Anthropic", "OpenAI"],
-            key='support_llm_provider'
+            key='support_llm_provider',
+            help="Ollama = free/local. Groq = free/fastest. Gemini = free tier. Anthropic & OpenAI = paid."
         )
 
         model_options = {
@@ -726,7 +727,8 @@ def render_customer_support_interface():
         model = st.selectbox(
             "Model",
             model_options[llm_provider],
-            key='support_model'
+            key='support_model',
+            help="Larger models give more natural, empathetic support responses. Smaller models are faster."
         )
 
         # Ollama-specific configuration
@@ -835,6 +837,17 @@ def render_customer_support_interface():
             with st.chat_message("assistant"):
                 st.markdown(msg["content"])
 
+    # Example queries for beginners
+    if not st.session_state.support_conversation:
+        with st.expander("💡 Example questions to try"):
+            st.markdown("""
+            - *I can't log in to my account*
+            - *My payment failed and I was still charged*
+            - *How do I reset my password?*
+            - *I want to cancel my subscription and get a refund*
+            - *The app keeps crashing on my phone* (triggers escalation)
+            """)
+
     # Customer input
     customer_message = st.chat_input("Describe your issue or ask a question...")
 
@@ -903,7 +916,21 @@ def render_customer_support_interface():
                 st.rerun()
 
             except Exception as e:
-                st.error(f"Support processing error: {str(e)}")
+                msg = str(e)
+                if any(k in msg for k in ["API_KEY", "api_key", "API key", "credentials", "UNAUTHENTICATED", "authentication"]):
+                    st.error("❌ API Key Error — your key is missing or invalid.")
+                    st.info(f"Set `{llm_provider.upper()}_API_KEY` in your `.env` file.")
+                elif any(k in msg.lower() for k in ["quota", "rate limit", "resource exhausted", "429"]):
+                    st.error("❌ Rate Limit — too many requests. Wait a moment and try again, or switch to Ollama.")
+                elif any(k in msg.lower() for k in ["connection", "refused", "timeout", "unreachable"]):
+                    st.error("❌ Connection Error — cannot reach the LLM provider.")
+                    if llm_provider == "Ollama":
+                        st.info("Make sure Ollama is running: `ollama serve`")
+                else:
+                    st.error(f"❌ Support processing error: {msg}")
+                with st.expander("🔍 Full error details"):
+                    import traceback
+                    st.code(traceback.format_exc())
 
     # Support dashboard
     if st.session_state.support_state["issue_category"]:

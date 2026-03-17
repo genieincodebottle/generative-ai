@@ -8,8 +8,27 @@
 
 > A collection of advanced AI workflow patterns for building intelligent systems that can think, decide and act independently.
 
+## 🚀 Start Here
+
+**This is the best place to begin learning Agentic AI.** Each pattern is a standalone Streamlit app — no YAML files, no complex state management. Just pick a provider (Groq is free and fastest) and run.
+
+### Recommended order
+
+| # | Pattern | What you'll learn | Run command |
+|---|---------|-------------------|-------------|
+| 1 | **Query Routing** | How an LLM classifies queries and routes them to specialized handlers | `streamlit run agentic_workflows\query_routing.py` |
+| 2 | **Parallel Execution** | Running multiple LLM tasks concurrently for speed | `streamlit run agentic_workflows\parallel_execution.py` |
+| 3 | **Prompt Chaining** | Multi-step reasoning where each step builds on the last | `streamlit run agentic_workflows\prompt_chaining.py` |
+| 4 | **Event-Driven** | Reactive systems where agents respond to events in real-time | `streamlit run agentic_workflows\event_driven.py` |
+| 5 | **Tool Orchestration** | Coordinating multiple tools/APIs to accomplish a goal | `streamlit run agentic_workflows\tool_orchestration.py` |
+
+> After completing these, move on to [LangGraph](../agentic_frameworks/langgraph/) (adds state management) and then [CrewAI](../agentic_frameworks/crewai/) (adds multi-agent teams).
+
+---
+
 ## 📋 Table of Contents
 
+- [🚀 Start Here](#-start-here)
 - [🌟 Overview](#-overview)
 - [⚙️ Installation](#-installation)
 - [🏗️ Workflow Patterns](#-workflow-patterns)

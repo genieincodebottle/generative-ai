@@ -10,8 +10,69 @@
 
 🌟 **[Agentic AI Interview Q&A](../../docs/agentic-ai-interview-questions.pdf)**
 
+## 🚀 Start Here — Learning Path for Beginners
+
+If you're new to Agentic AI, **don't try to learn everything at once**. Follow this path:
+
+### Step 1: Workflow Patterns (start here — simplest)
+These are standalone Streamlit apps that teach one pattern each. No YAML, no complex state management.
+
+```bash
+cd genai-usecases\agentic-ai
+
+# 1️⃣ Start with Query Routing — see how an LLM classifies and routes queries
+streamlit run agentic_workflows\query_routing.py
+
+# 2️⃣ Parallel Execution — run multiple LLM tasks concurrently
+streamlit run agentic_workflows\parallel_execution.py
+
+# 3️⃣ Prompt Chaining — multi-step reasoning where each step builds on the last
+streamlit run agentic_workflows\prompt_chaining.py
+```
+
+### Step 2: LangGraph (state-driven agents)
+LangGraph adds **state management** — agents pass structured data between steps via a shared state object.
+
+```bash
+# 4️⃣ Customer Support Agent — best intro to LangGraph's state + conditional routing
+streamlit run agentic_frameworks\langgraph\customer_support_agent.py
+```
+
+### Step 3: CrewAI (multi-agent teams)
+CrewAI lets you define **teams of specialized agents** via YAML config files. Each agent has a role, goal, and backstory.
+
+```bash
+# 5️⃣ Data Analysis Crew — 4 agents collaborate to analyze your CSV data
+streamlit run agentic_frameworks\crewai\data_analysis_crew\data_analysis_crew.py
+```
+
+> **⚠️ Performance note:** CrewAI crews run 4+ agents sequentially, so expect **2–5 minutes per run**. This is normal — each agent makes multiple LLM calls. Use Groq (`llama-3.1-8b-instant`) for the fastest experience.
+
+### Step 4: Multi-Agent Orchestration (advanced)
+Combines CrewAI + LangGraph in hybrid workflows. **Do this last** — it builds on everything above.
+
+```bash
+# 6️⃣ Hybrid orchestration — cross-framework coordination
+streamlit run multi_agent_orchestration\multi_agent_orchestration.py
+```
+
+### Which LLM provider should I use?
+
+| Provider | Cost | Speed | Best for |
+|----------|------|-------|----------|
+| **Ollama** | Free (local) | Moderate | Learning without API costs. Needs 2-8 GB RAM. |
+| **Groq** | Free tier | Fastest | Quick iteration. Get key: https://console.groq.com/keys |
+| **Gemini** | Free tier | Fast | Good quality + free quota. Get key: https://aistudio.google.com/app/apikey |
+| **Anthropic** | Paid | Good | Highest quality reasoning. Get key: https://console.anthropic.com/settings/keys |
+| **OpenAI** | Paid | Good | GPT models. Get key: https://platform.openai.com/api-keys |
+
+> **Recommendation for beginners:** Use **Groq** (free, fastest) or **Ollama** (free, no API key needed). You only need ONE provider to get started — not all five.
+
+---
+
 ## Table of Contents
 
+- [🚀 Start Here — Learning Path](#-start-here--learning-path-for-beginners)
 - [🤔 What is Agentic AI?](#-what-is-agentic-ai)
 - [🎯 Core Characteristics](#-core-characteristics)
 - [🔄 How Agentic AI Differs from Traditional AI](#-how-agentic-ai-differs-from-traditional-ai)
@@ -20,6 +81,7 @@
 - [✨ Summary of Use Cases](#-summary-of-use-cases)
 - [⚙️ Installation and Running App](#-installation-and-running-app)
 - [🎮 Frameworks and Use Cases](#-frameworks-and-use-cases)
+- [🔧 Troubleshooting](#-troubleshooting)
 - [📚 Learning Resources](#-learning-resources)
 
 ## 🤔 What is Agentic AI?
@@ -376,6 +438,29 @@ streamlit run agentic_workflows\tool_orchestration.py
 An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system implements advanced multi-agent workflows for intelligent question answering with adaptive reasoning strategies.
 
 > **Path**: [`advance-rag\agentic-rag`](../advance-rag/agentic-rag/)
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| `No module named 'crewai'` | Dependencies not installed | `uv pip install -r requirements.txt` |
+| `No module named 'crewai_tools'` | crewai-tools not installed | `uv pip install crewai-tools` |
+| `Connection refused` (Ollama) | Ollama service not running | Start Ollama: `ollama serve` or open the Ollama desktop app |
+| `Model not found` (Ollama) | Model not pulled yet | `ollama pull llama3.2:3b` (or whichever model you selected) |
+| `API key not found` | Missing `.env` file | Copy `.env.example` to `.env` and add your key |
+| `UNAUTHENTICATED` / `Invalid API key` | Wrong or expired key | Double-check the key at the provider's dashboard |
+| `Rate limit exceeded` (Groq) | Too many requests on free tier | Wait 60 seconds, or switch to Ollama (no rate limits) |
+| CrewAI runs for 5+ minutes | Normal — each agent makes multiple LLM calls | Use Groq (`llama-3.1-8b-instant`) for fastest results |
+| `asyncio` / `event loop` error | Nested async on Windows | Already patched in most files. If not: `pip install nest-asyncio` |
+| Streamlit blank page | Import error hidden by Streamlit | Run `python <filename>.py` directly to see the full traceback |
+
+### Still stuck?
+
+1. Run the file directly with Python to see the full error: `python agentic_workflows\query_routing.py`
+2. Check that your virtual environment is activated: `.venv\Scripts\activate`
+3. Check Ollama status: visit `http://localhost:11434` in your browser
 
 ---
 ## 📚 Learning Resources

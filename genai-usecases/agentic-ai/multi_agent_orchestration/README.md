@@ -8,6 +8,13 @@
 
 > Advanced multi-agent coordination patterns showcasing cross-framework integration, hybrid orchestration strategies, and sophisticated inter-agent communication protocols.
 
+> **⚠️ Advanced — Do this last.** This module combines CrewAI + LangGraph in hybrid workflows. Complete these first:
+> 1. [Workflow Patterns](../agentic_workflows/) — core patterns (query routing, parallel execution, etc.)
+> 2. [LangGraph](../agentic_frameworks/langgraph/) — state-driven agents with conditional routing
+> 3. [CrewAI](../agentic_frameworks/crewai/) — multi-agent teams with YAML configuration
+>
+> Once you understand both frameworks individually, this module shows how to **combine them** for enterprise-grade coordination.
+
 ## Table of Contents
 
 - [🌟 Overview](#-overview)

@@ -365,7 +365,8 @@ def render_parallel_execution_interface():
         llm_provider = st.selectbox(
             "LLM Provider",
             ["Gemini", "Ollama", "Groq", "Anthropic", "OpenAI"],
-            key='parallel_llm_provider'
+            key='parallel_llm_provider',
+            help="Ollama = free/local. Groq = free/fastest. Gemini = free tier. Anthropic & OpenAI = paid."
         )
 
         model_options = {
@@ -384,7 +385,8 @@ def render_parallel_execution_interface():
         model = st.selectbox(
             "Model",
             model_options[llm_provider],
-            key='parallel_model'
+            key='parallel_model',
+            help="Smaller models (1b-3b) are faster. Larger models give better analysis quality."
         )
 
         # Ollama-specific configuration
@@ -682,7 +684,21 @@ def render_parallel_execution_interface():
                         st.write(f"• **{status.title()}**: {count}")
 
             except Exception as e:
-                st.error(f"Parallel execution error: {str(e)}")
+                msg = str(e)
+                if any(k in msg for k in ["API_KEY", "api_key", "API key", "credentials", "UNAUTHENTICATED", "authentication"]):
+                    st.error("❌ API Key Error — your key is missing or invalid.")
+                    st.info(f"Set `{llm_provider.upper()}_API_KEY` in your `.env` file.")
+                elif any(k in msg.lower() for k in ["quota", "rate limit", "resource exhausted", "429"]):
+                    st.error("❌ Rate Limit — parallel execution sends multiple requests at once. Reduce max workers or switch to Ollama.")
+                elif any(k in msg.lower() for k in ["connection", "refused", "timeout", "unreachable"]):
+                    st.error("❌ Connection Error — cannot reach the LLM provider.")
+                    if llm_provider == "Ollama":
+                        st.info("Make sure Ollama is running: `ollama serve`")
+                else:
+                    st.error(f"❌ Parallel execution error: {msg}")
+                with st.expander("🔍 Full error details"):
+                    import traceback
+                    st.code(traceback.format_exc())
 
 # =============================================================================
 # APPLICATION ENTRY POINT

@@ -7,8 +7,71 @@
 
 > Advanced multi-agent implementations showcasing CrewAI's collaborative intelligence, hierarchical task delegation and sophisticated agent coordination patterns.
 
+## 🚀 Start Here
+
+> **Prerequisites:** Complete the [Workflow Patterns](../../agentic_workflows/) and [LangGraph](../langgraph/) sections first — CrewAI builds on those concepts.
+
+### Recommended first crew: Data Analysis Crew
+
+```bash
+cd genai-usecases\agentic-ai
+streamlit run agentic_frameworks\crewai\data_analysis_crew\data_analysis_crew.py
+```
+
+Upload a CSV file, select a provider (Groq is fastest), and watch 4 specialized agents collaborate to analyze your data.
+
+> **⚠️ Expect 2–5 minutes per run.** CrewAI runs agents sequentially — each makes multiple LLM calls. This is normal. Use **Groq** (`llama-3.1-8b-instant`) for the fastest experience.
+
+### What is CrewAI?
+
+CrewAI is a framework for **multi-agent teams**. You define agents (who they are), tasks (what they do), and a crew (how they collaborate) — all via YAML config files. Think of it as assembling a team of specialists who pass work to each other.
+
+### Understanding the YAML config files
+
+Every CrewAI crew has 3 YAML files in its `config/` folder:
+
+**`agents.yaml`** — Who is on the team?
+```yaml
+data_analyst:                    # Agent ID (referenced in tasks.yaml)
+  role: "Senior Data Analyst"    # Job title — shapes the agent's behavior
+  goal: "Analyze datasets..."    # What this agent is trying to achieve
+  backstory: "Expert in..."      # Personality/context — makes responses domain-specific
+  tools: [statistical_tool]      # Which tools this agent can use (defined in Python)
+  verbose: true                  # Show agent's reasoning in the console
+  allow_delegation: false        # Can this agent pass work to others?
+```
+
+**`tasks.yaml`** — What work needs to be done?
+```yaml
+analyze_data:                    # Task ID
+  description: "Analyze the..."  # What the agent should do (can use {variables})
+  expected_output: "A report..." # What the output should look like
+  agent: data_analyst            # Which agent handles this task
+  context: []                    # List of task IDs whose output feeds into this task
+  output_file: "output/report.md" # Save result to file (optional)
+```
+
+**`crew.yaml`** — How does the team work together?
+```yaml
+process: sequential              # sequential = one task at a time; hierarchical = manager delegates
+verbose: true                    # Show detailed execution logs
+max_rpm: 10                      # Rate limit for API calls (requests per minute)
+```
+
+### Recommended order for the 4 crews
+
+| # | Crew | Difficulty | What you'll learn |
+|---|------|-----------|-------------------|
+| 1 | **Data Analysis** | Beginner | Agent roles, task flow, YAML basics |
+| 2 | **Content Creation** | Intermediate | Sequential workflow, context passing, multi-format output |
+| 3 | **Research Assistant** | Intermediate | 5-agent team, fact verification, citation management |
+| 4 | **Code Review** | Advanced | Specialized tools, parallel analysis, security focus |
+
+---
+
 ## Table of Contents
 
+- [🚀 Start Here](#-start-here)
 - [🌟 Overview](#-overview)
 - [⚙️ Installation](#-installation)
 - [🏗️ CrewAI Architecture](#-crewai-architecture)

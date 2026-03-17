@@ -427,7 +427,8 @@ def render_query_routing_interface():
         llm_provider = st.selectbox(
             "LLM Provider",
             ["Gemini", "Ollama", "Groq", "Anthropic", "OpenAI"],
-            key='routing_llm_provider'
+            key='routing_llm_provider',
+            help="Ollama = free/local. Groq = free/fastest. Gemini = free tier. Anthropic & OpenAI = paid."
         )
 
         model_options = {
@@ -446,7 +447,8 @@ def render_query_routing_interface():
         model = st.selectbox(
             "Model",
             model_options[llm_provider],
-            key='routing_model'
+            key='routing_model',
+            help="Smaller models (1b-3b) are faster but less accurate. Larger models give better routing decisions."
         )
 
         # Ollama-specific configuration
@@ -638,7 +640,24 @@ def render_query_routing_interface():
                                 st.write(f"- **{score['name']}**: {score['score']:.3f} (Keywords: {score['keyword_matches']}, Patterns: {score['pattern_matches']})")
 
             except Exception as e:
-                st.error(f"Processing error: {str(e)}")
+                msg = str(e)
+                if any(k in msg for k in ["API_KEY", "api_key", "API key", "credentials", "UNAUTHENTICATED", "authentication"]):
+                    st.error("❌ API Key Error — your key is missing or invalid.")
+                    st.info(f"Set `{llm_provider.upper()}_API_KEY` in your `.env` file.")
+                elif any(k in msg.lower() for k in ["quota", "rate limit", "resource exhausted", "429"]):
+                    st.error("❌ Rate Limit — too many requests. Wait a moment and try again, or switch to Ollama (no limits).")
+                elif any(k in msg.lower() for k in ["connection", "refused", "timeout", "unreachable"]):
+                    st.error("❌ Connection Error — cannot reach the LLM provider.")
+                    if llm_provider == "Ollama":
+                        st.info("Make sure Ollama is running: `ollama serve`")
+                elif any(k in msg.lower() for k in ["no module", "importerror", "cannot import"]):
+                    st.error(f"❌ Missing dependency: {msg}")
+                    st.info("Fix: `uv pip install -r requirements.txt`")
+                else:
+                    st.error(f"❌ Processing error: {msg}")
+                with st.expander("🔍 Full error details"):
+                    import traceback
+                    st.code(traceback.format_exc())
 
     # Routing history
     if show_routing_history and 'query_router' in st.session_state:
