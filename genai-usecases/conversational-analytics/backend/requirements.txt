@@ -1,13 +1,22 @@
-fastapi
-uvicorn
-pymongo
-pydantic
-pyjwt
-passlib[bcrypt]
+# Web Framework
+fastapi>=0.115.0
+uvicorn>=0.34.0
 
-python-multipart
-python-dotenv
+# Database
+pymongo>=4.10.0
 
-langchain
-langchain_core
-langchain-google-genai 
+# Data Validation
+pydantic>=2.10.0
+
+# Authentication
+pyjwt>=2.10.0
+passlib[bcrypt]>=1.7.4
+
+# Request Handling
+python-multipart>=0.0.18
+python-dotenv>=1.0.1
+
+# AI / LLM
+langchain>=0.3.20
+langchain-core>=0.3.20
+langchain-google-genai>=2.1.0

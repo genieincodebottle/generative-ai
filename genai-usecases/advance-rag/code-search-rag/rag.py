@@ -31,8 +31,8 @@ warnings.filterwarnings('ignore')
 # LangChain imports
 from langchain_google_genai import GoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
-from langchain.schema import Document
-from langchain.prompts import PromptTemplate
+from langchain_core.documents import Document
+from langchain_core.prompts import PromptTemplate
 
 # ChromaDB
 import chromadb

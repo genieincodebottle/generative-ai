@@ -1,20 +1,36 @@
-streamlit>=1.43.2 
+# UI
+streamlit>=1.43.2
+
+# LLM Providers
 groq>=0.22.0
-python-dotenv>=1.1.0
+google-genai>=1.5.0
+
+# LangChain
+langchain>=0.3.20
 langchain-groq>=0.3.2
 langchain-huggingface>=0.1.2
-langchain-community>=0.0.27
-langchain>=0.0.27
-python-dotenv>=1.0.0
+langchain-community>=0.3.20
+
+# CrewAI
+crewai>=0.190.0
+crewai-tools>=0.73.0
+
+# Document Processing
 pypdf>=4.0.0
+
+# Vector Store & Embeddings
 faiss-cpu>=1.7.4
+sentence-transformers>=3.0.0
+
+# Evaluation
+ragas>=0.2.0
+datasets>=2.20.0
+
+# Data & Visualization
+pandas>=2.0.0
+plotly>=5.24.0
 pillow>=10.2.0
+
+# Utilities
+python-dotenv>=1.1.0
 streamlit-chat>=0.1.1
-sentence-transformers>=2.2.2
-crewai>=0.28.5
-crewai-tools
-google-genai>=1.5.0
-plotly
-ragas>=0.1.0
-datasets>=2.0.0
-pandas>=1.0.0

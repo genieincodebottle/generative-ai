@@ -1,11 +1,10 @@
 # Core RAG dependencies
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-community>=0.3.0
+langchain>=0.3.20
+langchain-core>=0.3.20
+langchain-community>=0.3.20
 langchain-google-genai>=2.0.0
 langchain-chroma>=0.2.0
 chromadb>=0.5.0
-google-generativeai>=0.8.0
 pydantic>=2.0.0
 
 # Code parsing
@@ -14,7 +13,7 @@ tree-sitter-python>=0.21.0
 tree-sitter-javascript>=0.21.0
 
 # Streamlit UI
-streamlit>=1.38.0
+streamlit>=1.41.0
 
 # Environment variables
 python-dotenv>=1.0.0

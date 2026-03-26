@@ -42,7 +42,7 @@ import os
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda, RunnableParallel
-from langchain.memory import ConversationBufferMemory
+from langchain_core.chat_history import InMemoryChatMessageHistory
 
 # Multi-provider LLM support
 from langchain_openai import ChatOpenAI
@@ -118,10 +118,7 @@ class PromptChain:
         """
         self.llm = llm
         self.parser = StrOutputParser()
-        self.memory = ConversationBufferMemory(
-            memory_key="chat_history",
-            return_messages=True
-        ) if use_memory else None
+        self.memory = InMemoryChatMessageHistory() if use_memory else None
         self.results: List[ChainStepResult] = []
 
     def create_step_chain(self, step_name: str, prompt_template: str) -> Any:

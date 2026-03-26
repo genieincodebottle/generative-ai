@@ -7,9 +7,8 @@ from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, HTTPException, status, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
-from langchain.chains import LLMChain
-from langchain.output_parsers import PydanticOutputParser
-from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from pymongo import MongoClient
 from pydantic import BaseModel, Field
@@ -141,7 +140,7 @@ analyze_prompt = PromptTemplate(
             \n3. Emerging trends (comma-separated)"
 )
 
-analyze_chain = LLMChain(llm=llm, prompt=analyze_prompt)
+analyze_chain = analyze_prompt | llm
 
 # API Routes
 @app.post("/register", response_model=dict)
@@ -247,7 +246,7 @@ async def get_analytics(current_user: dict = Depends(admin_required)):
     if not combined_feedback:
         raise HTTPException(status_code=404, detail="No feedback data available")
 
-    result = analyze_chain.run(feedback=combined_feedback)
+    result = analyze_chain.invoke({"feedback": combined_feedback}).content
     
     topics, sentiment, trends = result.split("\n")
     
