@@ -40,16 +40,8 @@ It outputs a **maliciousness score** between 0.0 (benign) and 1.0 (dangerous).
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
-   4. Create a requirements.txt file and add the following libraries:
-      
-      ```bash
-        streamlit>= 1.47.1 
-        torch>=2.7.1 
-        transformers>=4.54.1 
-        groq>=0.30.0
-        huggingface-hub>=0.34.3
-        python-dotenv>=1.0.1
-      ```
+   4. The `requirements.txt` file contains all necessary dependencies.
+
    5. Install dependencies:
       
       ```bash

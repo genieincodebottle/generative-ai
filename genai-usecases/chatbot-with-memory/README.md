@@ -2,6 +2,8 @@
 
 A beginner friendly GenAI based chatbot that provides a conversational interface for PDF documents using Ollama based local open models.
 
+> **No API keys needed!** This project runs entirely on your local machine using Ollama. No cloud APIs, no credit cards, no sign-ups. Just install Ollama, pull a model, and run.
+
 ## Features
 
 - 🤖 **Multiple Local Models** - Support for various [Ollama](https://ollama.com/) based open models (Llama, Gemma, DeepSeek, gpt-oss, phi etc.)

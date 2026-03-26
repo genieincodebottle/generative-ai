@@ -56,16 +56,8 @@ Or any other information available in the Movie graph database.
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
-   4. Create a requirements.txt file and add the following libraries:
-      ```
-      langchain>=0.3.27
-      langchain-community>=0.2.1
-      langchain-google-genai>=2.1.8
-      neo4j>=5.28.1
-      streamlit>=1.47.1
-      streamlit-chat>=0.1.1
-      python-dotenv==1.1.1
-      ```
+   4. The `requirements.txt` file contains all necessary dependencies.
+
    5. Install dependencies:
       ```bash
       uv pip install -r requirements.txt

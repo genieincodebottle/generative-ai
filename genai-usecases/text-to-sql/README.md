@@ -20,7 +20,7 @@ A demo app that converts natural language questions into SQL queries using free-
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd genai-usecases\advance-rag\text-to-sql
+      cd genai-usecases\text-to-sql
       ```
    2. Open the Project in VS Code or any code editor.
    3. Create a virtual environment by running the following command in the terminal:
@@ -48,14 +48,13 @@ A demo app that converts natural language questions into SQL queries using free-
       ```
    6. Configure Environment
       * Rename .env.example → .env
-      * Update with your keys:
+      * Update with your keys (you only need ONE - either Gemini or Groq):
 
          ```bash
-         GOOGLE_API_KEY=your_key_here # Using the free-tier API Key
-         GROQ_API_KEY=your_key_here # Using the free-tier API Key
+         GOOGLE_API_KEY=your_key_here # Free-tier - Get it at https://aistudio.google.com/app/apikey
+         GROQ_API_KEY=your_key_here   # Free-tier - Get it at https://console.groq.com/
          ```
-      * Get **GOOGLE_API_KEY** here -> https://aistudio.google.com/app/apikey
-      * Get **GROQ_API_KEY** here -> https://console.groq.com/
+      > **Tip:** Start with just `GOOGLE_API_KEY` (free, no credit card). The app auto-detects which keys are set and shows only available providers.
 
    7. Run the Application:
 

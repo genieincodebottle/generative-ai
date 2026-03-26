@@ -62,12 +62,14 @@ If you're using VS Code, you can split the terminal and run both the backend and
 
 ```bash
 git clone https://github.com/genieincodebottle/generative-ai.git
-cd generative-ai\genai-usecases\agentic-ai\content-moderation-system\backend
+cd generative-ai\genai-usecases\content-moderation-system\backend
 ```
 
-**Step 2: Install Python dependencies**
+**Step 2: Create virtual environment and install Python dependencies**
 ```bash
-pip install uv
+pip install uv       # if uv not installed
+uv venv
+.venv\Scripts\activate    # On Linux/Mac: source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
@@ -108,11 +110,11 @@ python main.py
 
 The API will be available at `http://localhost:8000`
 
-### Frontend Setup (In the different terminal)
+### Frontend Setup (In a second terminal)
 
 **Step 1: Install Node dependencies**
 ```bash
-cd content-moderation-system\frontend
+cd generative-ai\genai-usecases\content-moderation-system\frontend
 npm install
 ```
 

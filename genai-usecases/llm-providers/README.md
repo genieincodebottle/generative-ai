@@ -49,15 +49,8 @@ You can run each LLM provider independently using dedicated Streamlit UI scripts
       uv venv
       .venv\Scripts\activate # On Linux -> source venv/bin/activate
       ```
-   4. Create a requirements.txt file and add the following libraries:
-      
-      ```bash
-        streamlit>=1.47.1
-        langchain-anthropic>=0.3.18
-        langchain-google-genai>=2.1.8
-        langchain-groq>=0.3.6
-        python-dotenv>=1.0.1
-      ```
+   4. The `requirements.txt` file contains all necessary dependencies.
+
    5. Install dependencies:
       
       ```bash
@@ -65,22 +58,18 @@ You can run each LLM provider independently using dedicated Streamlit UI scripts
       ```
    6. Configure Environment
       * Rename .env.example → .env
-      * Update with your keys:
+      * **You only need ONE provider key.** Start with a free one:
 
         ```bash
-        ANTHROPIC_API_KEY=your_anthropic_api_key_here
-        GOOGLE_API_KEY=your_google_api_key_here
-        OPENAI_API_KEY=your_openai_api_key_here
-        GROQ_API_KEY=your_groq_api_key_here
+        # --- Free-tier (no credit card) - start here ---
+        GROQ_API_KEY=your_groq_key_here        # Free - https://console.groq.com/keys
+        GOOGLE_API_KEY=your_google_key_here     # Free - https://aistudio.google.com/apikey
+
+        # --- Paid (optional) ---
+        ANTHROPIC_API_KEY=your_anthropic_key    # Paid - https://console.anthropic.com/settings/keys
+        OPENAI_API_KEY=your_openai_key          # Paid - https://platform.openai.com/api-keys
         ```
-      * Get your keys here:
-        * 🔑 [GROQ_API_KEY](https://console.groq.com/keys)
-
-        * 🔑 [ANTHROPIC_API_KEY](https://console.anthropic.com/settings/keys)
-
-        * 🔑 [OPENAI_API_KEY](https://platform.openai.com/api-keys)
-
-        * 🔑 [GOOGLE_API_KEY](https://aistudio.google.com/apikey)
+      > **Recommended for beginners:** Get a free Groq or Google Gemini key. You can add paid providers later.
 
 
    7. Run the different LLM API located in `genai-usecases/llm-providers/python_scripts`

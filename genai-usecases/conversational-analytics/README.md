@@ -92,9 +92,9 @@ Conversational-analytics/
 #### Prerequisites
 
 - [Git](https://git-scm.com/downloads)
-- [Docker Desktop](https://docs.docker.com/engine/install/)
-- [Postman (for API testing)](https://www.postman.com/downloads/)
-- [Free Google's Gemini API Key](https://makersuite.google.com/app/apikey)
+- [Docker Desktop](https://docs.docker.com/engine/install/) - **Required** (MongoDB runs inside Docker, no separate install needed)
+- [Free Google Gemini API Key](https://aistudio.google.com/app/apikey) - Free-tier, no credit card
+- [Postman](https://www.postman.com/downloads/) (optional, for creating admin user - can use curl instead)
 
 #### Installation
 
