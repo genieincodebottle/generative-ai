@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Card, CardContent, Avatar, Chip, Grid } from '@mui/material';
 import { styled } from '@mui/system';
-import { UserRole } from '../types';
+import { UserRole, API_BASE_URL } from '../types';
 import PersonIcon from '@mui/icons-material/Person';
 import WorkIcon from '@mui/icons-material/Work';
-import EmailIcon from '@mui/icons-material/Email';
-import DateRangeIcon from '@mui/icons-material/DateRange';
 
 interface UserData {
   username: string;
   role: UserRole;
-  email: string;
-  joinDate: string;
 }
 
 const PageContainer = styled(Box)(({ theme }) => ({
-  //background: 'linear-gradient(120deg, #e0f7fa 0%, #b2ebf2 100%)',
-  minHeight: 'calc(100vh - 64px - 60px)', // Adjust for header and footer
+  minHeight: 'calc(100vh - 64px - 60px)',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -64,23 +59,17 @@ const Home: React.FC = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token');
-        if (!token) {
-          throw new Error('No token found');
-        }
+        if (!token) throw new Error('No token found');
 
-        const response = await fetch('http://localhost:8000/users/me', {
-          headers: { Authorization: `Bearer ${token}` }
+        const response = await fetch(`${API_BASE_URL}/users/me`, {
+          headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) throw new Error('Failed to fetch user data');
-        const data = await response.json();
-        setUserData({
-          ...data
-        });
+        setUserData(await response.json());
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
-
     fetchUserData();
   }, []);
 
@@ -98,28 +87,20 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Welcome, {userData.username}!
           </Typography>
-          <Chip
-            label={userData.role}
-            color="secondary"
-            icon={<WorkIcon />}
-          />
+          <Chip label={userData.role} color="secondary" icon={<WorkIcon />} />
         </CardHeader>
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <InfoItem>
                 <PersonIcon sx={{ mr: 2, color: 'primary.main' }} />
-                <Typography variant="body1">
-                  Username: {userData.username}
-                </Typography>
+                <Typography variant="body1">Username: {userData.username}</Typography>
               </InfoItem>
             </Grid>
             <Grid item xs={12}>
               <InfoItem>
                 <WorkIcon sx={{ mr: 2, color: 'primary.main' }} />
-                <Typography variant="body1">
-                  Role: {userData.role}
-                </Typography>
+                <Typography variant="body1">Role: {userData.role}</Typography>
               </InfoItem>
             </Grid>
           </Grid>
@@ -127,6 +108,6 @@ const Home: React.FC = () => {
       </StyledCard>
     </PageContainer>
   );
-}
+};
 
 export default Home;

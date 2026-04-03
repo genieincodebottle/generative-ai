@@ -8,15 +8,12 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { keyframes } from '@emotion/react';
+import { API_BASE_URL } from '../types';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#2196f3',
-    },
-    secondary: {
-      main: '#f50057',
-    },
+    primary: { main: '#2196f3' },
+    secondary: { main: '#f50057' },
   },
 });
 
@@ -35,7 +32,7 @@ const Register: React.FC = () => {
     e.preventDefault();
     setError('');
     try {
-      await axios.post('http://localhost:8000/register', { username, password });
+      await axios.post(`${API_BASE_URL}/register`, { username, password });
       navigate('/login');
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {

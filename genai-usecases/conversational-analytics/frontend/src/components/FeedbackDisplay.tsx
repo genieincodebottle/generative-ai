@@ -2,24 +2,15 @@ import React from 'react';
 import { Box, Paper, Typography, List, ListItem, ListItemText, Zoom, Grid, Container } from '@mui/material';
 import { keyframes } from '@emotion/react';
 import FeedbackIcon from '@mui/icons-material/Feedback';
-import { UserRole } from '../types';
+import { FeedbackItem, FeedbackData, UserRole } from '../types';
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
-interface FeedbackItem {
-  feedback: string;
-  timestamp: string;
-  username: string;
-}
-
 interface FeedbackDisplayProps {
-  feedback: {
-    current: FeedbackItem[];
-    historical: FeedbackItem[];
-  } | null;
+  feedback: FeedbackData | null;
   userRole: UserRole | null;
   username: string | null;
 }

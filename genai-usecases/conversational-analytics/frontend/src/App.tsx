@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import { Container, CircularProgress, Box } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { Container, CircularProgress, Box, CssBaseline } from '@mui/material';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -11,36 +11,25 @@ import PrivateRoute from './components/PrivateRoute';
 import FeedbackForm from './components/FeedbackForm';
 import AnalyticsDisplay from './components/AnalyticsDisplay';
 import FeedbackDisplay from './components/FeedbackDisplay';
-import { Analytics, UserRole } from './types';
+import { Analytics, FeedbackData, UserRole, API_BASE_URL } from './types';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#05a6eb',
-    },
-    secondary: {
-      main: '#05a6eb',
-    },
+    primary: { main: '#05a6eb' },
+    secondary: { main: '#05a6eb' },
   },
 });
 
-interface FeedbackItem {
-  feedback: string;
-  timestamp: string;
-  username: string;  // Ensure this line exists
-}
-
 const App: React.FC = () => {
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
-  const [feedback, setFeedback] = useState<{ current: FeedbackItem[], historical: FeedbackItem[] } | null>(null);
+  const [feedback, setFeedback] = useState<FeedbackData | null>(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
   const [userRole, setUserRole] = useState<UserRole | null>(null);
   const [username, setUsername] = useState<string | null>(null);
+
   useEffect(() => {
-    const handleStorageChange = () => {
-      setToken(localStorage.getItem('token'));
-    };
+    const handleStorageChange = () => setToken(localStorage.getItem('token'));
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
@@ -56,15 +45,15 @@ const App: React.FC = () => {
     }
   }, [token]);
 
+  const getAuthHeaders = () => ({
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json',
+  });
+
   const fetchUserData = async () => {
     if (!token) return;
     try {
-      const response = await fetch('http://localhost:8000/users/me', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
+      const response = await fetch(`${API_BASE_URL}/users/me`, { headers: getAuthHeaders() });
       if (!response.ok) throw new Error('Failed to fetch user data');
       const userData = await response.json();
       setUserRole(userData.role);
@@ -90,27 +79,23 @@ const App: React.FC = () => {
   };
 
   const fetchData = async () => {
-    if (!token) {
-      console.log('No token available, user might not be logged in');
-      return;
-    }
+    if (!token) return;
     setLoading(true);
     try {
-      const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      };
-      const [analyticsResponse, feedbackResponse] = await Promise.all([
-        fetch('http://localhost:8000/analytics', { headers }),
-        fetch('http://localhost:8000/feedback', { headers })
-      ]);
-      if (!analyticsResponse.ok || !feedbackResponse.ok) {
-        throw new Error('Failed to fetch data');
+      const headers = getAuthHeaders();
+
+      const feedbackResponse = await fetch(`${API_BASE_URL}/feedback`, { headers });
+      if (feedbackResponse.ok) {
+        setFeedback(await feedbackResponse.json());
       }
-      const analyticsData = await analyticsResponse.json();
-      const feedbackData = await feedbackResponse.json();
-      setAnalytics(analyticsData);
-      setFeedback(feedbackData);
+
+      const storedRole = localStorage.getItem('userRole');
+      if (storedRole === UserRole.ADMIN) {
+        const analyticsResponse = await fetch(`${API_BASE_URL}/analytics`, { headers });
+        if (analyticsResponse.ok) {
+          setAnalytics(await analyticsResponse.json());
+        }
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -119,27 +104,25 @@ const App: React.FC = () => {
   };
 
   const handleFeedbackSubmit = async (feedbackText: string) => {
-    if (!token || !username) {
-      console.log('No token or username available, user might not be logged in');
-      return;
-    }
+    if (!token || !username) return;
     try {
-      const response = await fetch('http://localhost:8000/feedback', {
+      const response = await fetch(`${API_BASE_URL}/feedback`, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ feedback: feedbackText, username: username }),
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ feedback: feedbackText, username }),
       });
-      if (!response.ok) {
-        throw new Error('Failed to submit feedback');
-      }
+      if (!response.ok) throw new Error('Failed to submit feedback');
       fetchData();
     } catch (error) {
       console.error('Error submitting feedback:', error);
     }
   };
+
+  const LoadingSpinner = () => (
+    <Box display="flex" justifyContent="center" my={4}>
+      <CircularProgress size={60} thickness={4} />
+    </Box>
+  );
 
   return (
     <ThemeProvider theme={theme}>
@@ -152,34 +135,18 @@ const App: React.FC = () => {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login setToken={setToken} />} />
               <Route path="/home" element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
+                <PrivateRoute><Home /></PrivateRoute>
               } />
               <Route path="/analytics" element={
                 <PrivateRoute requiredRole={UserRole.ADMIN}>
-                  {loading ? (
-                    <Box display="flex" justifyContent="center" my={4}>
-                      <CircularProgress size={60} thickness={4} />
-                    </Box>
-                  ) : (
-                    <AnalyticsDisplay analytics={analytics} userRole={userRole} />
-                  )}
+                  {loading ? <LoadingSpinner /> : <AnalyticsDisplay analytics={analytics} userRole={userRole} />}
                 </PrivateRoute>
               } />
               <Route path="/feedback" element={
                 <PrivateRoute>
                   <>
-                    {userRole !== UserRole.ADMIN && (
-                      <FeedbackForm onSubmit={handleFeedbackSubmit} />
-                    )}
-                    {loading ? (
-                      <Box display="flex" justifyContent="center" my={4}>
-                        <CircularProgress size={60} thickness={4} />
-                      </Box>
-                    ) : (
-                      <FeedbackDisplay feedback={feedback} userRole={userRole} username={username} />
-                    )}
+                    {userRole !== UserRole.ADMIN && <FeedbackForm onSubmit={handleFeedbackSubmit} />}
+                    {loading ? <LoadingSpinner /> : <FeedbackDisplay feedback={feedback} userRole={userRole} username={username} />}
                   </>
                 </PrivateRoute>
               } />
@@ -191,6 +158,6 @@ const App: React.FC = () => {
       </Router>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

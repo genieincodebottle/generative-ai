@@ -8,15 +8,12 @@ import {
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { keyframes } from '@emotion/react';
+import { API_BASE_URL } from '../types';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#2196f3',
-    },
-    secondary: {
-      main: '#f50057',
-    },
+    primary: { main: '#2196f3' },
+    secondary: { main: '#f50057' },
   },
 });
 
@@ -37,7 +34,7 @@ const Login: React.FC<LoginProps> = ({ setToken }) => {
     e.preventDefault();
     setError('');
     try {
-      const response = await axios.post('http://localhost:8000/token',
+      const response = await axios.post(`${API_BASE_URL}/token`,
         `username=${username}&password=${password}`,
         {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

@@ -16,8 +16,10 @@ services:
       - "8000:8000"
     environment:
       - MONGODB_URI=${MONGODB_URI}
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - SECRET_KEY=${SECRET_KEY}
+      - LLM_PROVIDER=${LLM_PROVIDER}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
     depends_on:
       - mongo
 

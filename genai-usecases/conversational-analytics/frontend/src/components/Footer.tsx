@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
     <FooterContainer component="footer">
       <Container maxWidth="lg">
         <Typography variant="body2" align="center">
-          &copy; 2024 @genieincodebottle
+          &copy; {new Date().getFullYear()} @genieincodebottle
         </Typography>
         <SocialIcons>
           <SocialIcon href="https://github.com/genieincodebottle/generative-ai" target="_blank" rel="noopener noreferrer">

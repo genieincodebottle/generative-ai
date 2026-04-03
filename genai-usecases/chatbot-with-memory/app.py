@@ -1,183 +1,221 @@
 """
-PDF Chat Bot with Ollama based local LLM
-=====================================
-A simple Streamlit application for chatting with PDF documents using local Ollama.
-Configuration is done through the UI sidebar
+PDF Chat Bot with Memory
+========================
+A Streamlit application for chatting with PDF documents using Groq or Gemini LLMs.
+Supports dual LLM providers with RAG (Retrieval-Augmented Generation) and
+conversational memory using LangChain 0.3+ patterns.
 
+Providers:
+  - Primary:   Groq (free API) + HuggingFace Embeddings + FAISS
+  - Secondary: Gemini (free API) + Google Embeddings + FAISS
 """
 
-import streamlit as st
 import os
-import requests
-from typing import Optional
+import tempfile
+import streamlit as st
+from dotenv import load_dotenv
 
-# LangChain imports
+# LangChain core imports
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_ollama import OllamaLLM
 from langchain_core.chat_history import BaseChatMessageHistory, InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
+# Provider imports (graceful — app works even if one provider isn't installed)
+try:
+    from langchain_groq import ChatGroq
+    GROQ_AVAILABLE = True
+except ImportError:
+    GROQ_AVAILABLE = False
+
+try:
+    from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+    GEMINI_AVAILABLE = True
+except ImportError:
+    GEMINI_AVAILABLE = False
+
+try:
+    from langchain_huggingface import HuggingFaceEmbeddings
+    HF_AVAILABLE = True
+except ImportError:
+    HF_AVAILABLE = False
+
+# Search upward for .env (works whether run from this folder or repo root)
+# A local .env in this folder takes priority over the repo-root .env
+load_dotenv()                          # local .env (if present)
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", "..", ".env"), override=False)
+
 # ================================
-# DEFAULT CONFIGURATION VALUES
+# CONFIGURATION
 # ================================
-DEFAULT_CONFIG = {
-    "ollama_base_url": "http://localhost:11434",
-    "ollama_model": "llama3.2:1b",
-    "ollama_temperature": 0.3,
-    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "chunk_size": 2000,
-    "chunk_overlap": 200,
-    "max_history_length": 50,
-    "retriever_k": 2
+
+# Provider-specific settings — eliminates scattered if/else branching
+PROVIDERS = {
+    "Groq": {
+        "available": GROQ_AVAILABLE,
+        "env_key": "GROQ_API_KEY",
+        "models": ["llama-3.1-8b-instant", "llama-3.3-70b-versatile", "meta-llama/llama-4-scout-17b-16e-instruct", "qwen/qwen3-32b"],
+        "model_help": "llama-3.1-8b is fast; llama-3.3-70b & llama-4-scout are more capable",
+    },
+    "Gemini": {
+        "available": GEMINI_AVAILABLE,
+        "env_key": "GOOGLE_API_KEY",
+        "models": ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-pro"],
+        "model_help": "flash models are fast; pro is more capable",
+    },
 }
 
+DEFAULT_CONFIG = {
+    "provider": "Groq",
+    "temperature": 0.3,
+    "chunk_size": 2000,
+    "chunk_overlap": 200,
+    "retriever_k": 3,
+}
+
+# Prompts — extracted here so they're easy to find and modify
+CONTEXTUALIZE_Q_SYSTEM_PROMPT = (
+    "Given a chat history and the latest user question "
+    "which might reference context in the chat history, "
+    "formulate a standalone question which can be understood "
+    "without the chat history. Do NOT answer the question, "
+    "just reformulate it if needed and otherwise return it as is."
+)
+
+QA_SYSTEM_PROMPT = (
+    "You are an assistant for question-answering tasks. "
+    "Use the following pieces of retrieved context to answer "
+    "the question. If you don't know the answer, say that you "
+    "don't know. Keep the answer concise (3 sentences max).\n\n"
+    "{context}"
+)
+
 
 # ================================
-# BACKEND CODE - BUSINESS LOGIC
+# BACKEND — BUSINESS LOGIC
 # ================================
 
-def check_ollama_status(base_url: str) -> bool:
-    """BACKEND: Check if Ollama server is running and accessible"""
-    try:
-        response = requests.get(f"{base_url}/api/tags", timeout=5)
-        return response.status_code == 200
-    except:
-        return False
+def get_api_key(provider: str) -> str:
+    """Get API key for the given provider from environment. Returns empty string if missing."""
+    return os.getenv(PROVIDERS[provider]["env_key"], "")
 
 
-def initialize_llm(base_url: str, model: str, temperature: float) -> Optional[OllamaLLM]:
-    """BACKEND: Initialize Ollama LLM with given configuration"""
+def initialize_llm(provider: str, model: str, temperature: float):
+    """Initialize LLM based on the selected provider."""
+    api_key = get_api_key(provider)
+    if not api_key:
+        st.error(f"{PROVIDERS[provider]['env_key']} not found. Add it to your `.env` file.")
+        return None
+
     try:
-        llm = OllamaLLM(
-            base_url=base_url,
-            model=model,
-            temperature=temperature
-        )
-        # Test the connection
-        llm.invoke("Hello")
+        if provider == "Groq":
+            llm = ChatGroq(model=model, temperature=temperature, api_key=api_key)
+        else:
+            llm = ChatGoogleGenerativeAI(
+                model=model, temperature=temperature, google_api_key=api_key,
+            )
+        llm.invoke("Hi")  # connectivity check
         return llm
     except Exception as e:
-        st.error(f"Failed to initialize LLM: {str(e)}")
+        st.error(f"Failed to initialize LLM: {e}")
         return None
 
 
-def process_pdfs(pdf_files, embedding_model: str, chunk_size: int, chunk_overlap: int) -> Optional[FAISS]:
-    """BACKEND: Process uploaded PDF files and create vector store"""
+def get_embeddings(provider: str):
+    """Return embeddings model based on the selected provider."""
+    if provider == "Groq":
+        if not HF_AVAILABLE:
+            st.error("Install `langchain-huggingface` for Groq embeddings.")
+            return None
+        return HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={"device": "cpu"},
+        )
+
+    # Gemini
+    api_key = get_api_key(provider)
+    if not api_key:
+        st.error(f"{PROVIDERS[provider]['env_key']} not found. Add it to your `.env` file.")
+        return None
+    return GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001", google_api_key=api_key,
+    )
+
+
+def load_pdfs(pdf_files) -> list:
+    """Load text from uploaded PDF files using temp files for safe handling."""
+    documents = []
+    for pdf_file in pdf_files:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
+            tmp.write(pdf_file.getvalue())
+            tmp_path = tmp.name
+        try:
+            documents.extend(PyPDFLoader(tmp_path).load())
+        finally:
+            os.unlink(tmp_path)
+    return documents
+
+
+def process_pdfs(pdf_files, provider: str, chunk_size: int, chunk_overlap: int):
+    """Process uploaded PDFs: extract text → chunk → embed → build FAISS index."""
     try:
-        documents = []
-
-        # Process each PDF file
-        for pdf_file in pdf_files:
-            # Save uploaded file temporarily
-            temp_path = f"temp_{pdf_file.name}"
-            with open(temp_path, "wb") as f:
-                f.write(pdf_file.getvalue())
-
-            # Load and process PDF
-            loader = PyPDFLoader(temp_path)
-            docs = loader.load()
-            documents.extend(docs)
-
-            # Clean up temp file
-            os.remove(temp_path)
-
+        documents = load_pdfs(pdf_files)
         if not documents:
-            st.error("No content found in the uploaded PDFs")
+            st.error("No content found in the uploaded PDFs.")
             return None
 
-        # Split documents into chunks
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap,
-            length_function=len
-        )
-        chunks = text_splitter.split_documents(documents)
+        chunks = RecursiveCharacterTextSplitter(
+            chunk_size=chunk_size, chunk_overlap=chunk_overlap, length_function=len,
+        ).split_documents(documents)
 
-        # Create embeddings
-        embeddings = HuggingFaceEmbeddings(
-            model_name=embedding_model,
-            model_kwargs={'device': 'cpu'}
-        )
+        embeddings = get_embeddings(provider)
+        if embeddings is None:
+            return None
 
-        # Create vector store
-        vectorstore = FAISS.from_documents(chunks, embeddings)
-
-        return vectorstore
+        return FAISS.from_documents(chunks, embeddings)
 
     except Exception as e:
-        st.error(f"Error processing PDFs: {str(e)}")
+        st.error(f"Error processing PDFs: {e}")
         return None
 
 
-def create_chat_chain(llm, vectorstore, max_history: int, retriever_k: int):
-    """BACKEND: Create conversational RAG chain with LangChain memory patterns"""
+def create_chat_chain(llm, vectorstore, retriever_k: int):
+    """Create a conversational RAG chain with LangChain memory."""
     try:
-        # Create retriever
-        retriever = vectorstore.as_retriever(
-            search_kwargs={"k": retriever_k}
-        )
+        retriever = vectorstore.as_retriever(search_kwargs={"k": retriever_k})
 
-        # Create contextualized question prompt
-        contextualize_q_system_prompt = (
-            "Given a chat history and the latest user question "
-            "which might reference context in the chat history, "
-            "formulate a standalone question which can be understood "
-            "without the chat history. Do NOT answer the question, "
-            "just reformulate it if needed and otherwise return it as is."
-        )
+        contextualize_q_prompt = ChatPromptTemplate.from_messages([
+            ("system", CONTEXTUALIZE_Q_SYSTEM_PROMPT),
+            MessagesPlaceholder("chat_history"),
+            ("human", "{input}"),
+        ])
 
-        contextualize_q_prompt = ChatPromptTemplate.from_messages(
-            [
-                ("system", contextualize_q_system_prompt),
-                MessagesPlaceholder("chat_history"),
-                ("human", "{input}"),
-            ]
-        )
-
-        # Create contextualized question chain
+        # Reformulate user question using history, then retrieve relevant docs
         history_aware_retriever = (
             contextualize_q_prompt | llm | StrOutputParser() | retriever
         )
 
-        # Create QA prompt
-        qa_system_prompt = (
-            "You are an assistant for question-answering tasks. "
-            "Use the following pieces of retrieved context to answer "
-            "the question. If you don't know the answer, say that you "
-            "don't know. Use three sentences maximum and keep the "
-            "answer concise.\n\n"
-            "{context}"
-        )
+        qa_prompt = ChatPromptTemplate.from_messages([
+            ("system", QA_SYSTEM_PROMPT),
+            MessagesPlaceholder("chat_history"),
+            ("human", "{input}"),
+        ])
 
-        qa_prompt = ChatPromptTemplate.from_messages(
-            [
-                ("system", qa_system_prompt),
-                MessagesPlaceholder("chat_history"),
-                ("human", "{input}"),
-            ]
-        )
-
-        # Create the chain that formats documents
         def format_docs(docs):
             return "\n\n".join(doc.page_content for doc in docs)
 
-        # Create the conversational RAG chain
         rag_chain = (
-            RunnablePassthrough.assign(
-                context=history_aware_retriever | format_docs
-            )
+            RunnablePassthrough.assign(context=history_aware_retriever | format_docs)
             | qa_prompt
             | llm
             | StrOutputParser()
         )
 
-        # Store chat histories
+        # Session-based memory store
         store = {}
 
         def get_session_history(session_id: str) -> BaseChatMessageHistory:
@@ -185,249 +223,219 @@ def create_chat_chain(llm, vectorstore, max_history: int, retriever_k: int):
                 store[session_id] = InMemoryChatMessageHistory()
             return store[session_id]
 
-        # Create conversational RAG chain with memory
         conversational_rag_chain = RunnableWithMessageHistory(
             rag_chain,
             get_session_history,
             input_messages_key="input",
             history_messages_key="chat_history",
         )
-
         return conversational_rag_chain, store
 
     except Exception as e:
-        st.error(f"Error creating chat chain: {str(e)}")
+        st.error(f"Error creating chat chain: {e}")
         return None, None
 
 
 # ================================
-# UI CODE - USER INTERFACE
+# UI — USER INTERFACE
 # ================================
 
 def setup_page():
-    """UI: Setup Streamlit page configuration"""
-    st.set_page_config(
-        page_title="PDF Chat Bot",
-        page_icon="💬",
-        layout="wide"
+    """Configure Streamlit page."""
+    st.set_page_config(page_title="PDF Chat Bot", page_icon="💬", layout="wide")
+    st.markdown(
+        "<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;}</style>",
+        unsafe_allow_html=True,
     )
-
-    # Hide Streamlit style
-    hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    </style>
-    """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 def render_header():
-    """UI: Render page header"""
-    st.title("💬 PDF Chat Bot")
-    st.markdown("Upload PDFs and ask questions about their content")
+    """Render page header."""
+    st.title("💬 PDF Chat Bot with Memory")
+    st.markdown("Upload PDFs and ask questions — the bot remembers your conversation!")
+
 
 def render_sidebar():
-    """UI: Render sidebar with essential configuration"""
+    """Render sidebar: provider selection, model config, advanced settings, PDF upload."""
     st.sidebar.title("⚙️ Settings")
 
-    # Initialize session state for config
-    if 'config' not in st.session_state:
+    if "config" not in st.session_state:
         st.session_state.config = DEFAULT_CONFIG.copy()
+    config = st.session_state.config
 
-    # Status section
-    st.sidebar.header("📊 Status")
-
-    # Check Ollama status and show in sidebar
-    if check_ollama_status(st.session_state.config.get("ollama_base_url", DEFAULT_CONFIG["ollama_base_url"])):
-        st.sidebar.success("✅ Ollama running")
-    else:
-        st.sidebar.error("❌ Ollama not running")
-        with st.sidebar.expander("🚀 Setup Instructions"):
-            st.markdown("""
-            **Quick setup:**
-            1. Install from [ollama.com](https://ollama.com)
-            2. Run: `ollama serve`
-            3. Pull model: `ollama pull llama3.2:1b`
-            4. Refresh this page
-            """)
-
-    # Essential settings only
-    st.session_state.config["ollama_model"] = st.sidebar.selectbox(
-        "🤖 Model",
-        options=["llama3.2:1b", "llama3.2:3b", "llama3.1:8b", "gemma3:1b", "gemma3:4b"],
-        index=0,
-        help="Choose model based on your RAM"
-    )
-
-    st.session_state.config["ollama_temperature"] = st.sidebar.slider(
-        "🎛️ Temperature",
-        min_value=0.0,
-        max_value=1.0,
-        value=st.session_state.config["ollama_temperature"],
-        step=0.1,
-        help="0 = focused, 1 = creative"
-    )
-
-    # Advanced settings in expander
-    with st.sidebar.expander("🔧 Advanced Settings"):
-        st.session_state.config["ollama_base_url"] = st.text_input(
-            "Ollama URL",
-            value=st.session_state.config["ollama_base_url"]
-        )
-
-        st.session_state.config["chunk_size"] = st.number_input(
-            "Chunk Size",
-            min_value=1000,
-            max_value=8000,
-            value=st.session_state.config["chunk_size"],
-            step=1000
-        )
-
-        st.session_state.config["chunk_overlap"] = st.number_input(
-            "Chunk Overlap",
-            min_value=0,
-            max_value=500,
-            value=st.session_state.config["chunk_overlap"],
-            step=50,
-            help="Overlap between text chunks"
-        )
-
-    # PDF upload in sidebar
-    st.sidebar.header("📄 Upload PDFs")
-    pdf_files = st.sidebar.file_uploader(
-        "Choose PDF files",
-        accept_multiple_files=True,
-        type=['pdf'],
-        help="Upload PDF documents to chat with"
-    )
-
-    return st.session_state.config, pdf_files
-
-
-def main():
-    """UI: Main application function - orchestrates the entire app"""
-    # Setup page
-    setup_page()
-    render_header()
-
-    # Initialize session state
-    if 'chat_history' not in st.session_state:
-        st.session_state.chat_history = []
-    if 'vectorstore' not in st.session_state:
-        st.session_state.vectorstore = None
-    if 'chain' not in st.session_state:
-        st.session_state.chain = None
-    if 'chat_store' not in st.session_state:
-        st.session_state.chat_store = None
-    if 'session_id' not in st.session_state:
-        st.session_state.session_id = "default_session"
-    if 'llm' not in st.session_state:
-        st.session_state.llm = None
-
-    # Render sidebar and get configuration and uploaded files
-    config, pdf_files = render_sidebar()
-
-    # Check Ollama status (stop if not running, but don't show main page message)
-    if not check_ollama_status(config["ollama_base_url"]):
-        st.error("❌ Ollama not running. Check sidebar for setup instructions.")
+    # --- Provider selection ---
+    st.sidebar.header("🔌 LLM Provider")
+    available_providers = [name for name, info in PROVIDERS.items() if info["available"]]
+    if not available_providers:
+        st.sidebar.error("No LLM provider installed! Install langchain-groq or langchain-google-genai.")
         st.stop()
 
-    # Initialize LLM if not done or config changed
-    current_llm_config = f"{config['ollama_base_url']}_{config['ollama_model']}_{config['ollama_temperature']}"
-    if (st.session_state.llm is None or
-        st.session_state.get('llm_config') != current_llm_config):
-        with st.spinner(f"⚡ Initializing {config['ollama_model']}..."):
+    config["provider"] = st.sidebar.radio(
+        "Choose Provider", options=available_providers, index=0,
+        help="Groq is free & fast. Gemini is Google's free-tier model.",
+    )
+
+    # --- API key status ---
+    provider_info = PROVIDERS[config["provider"]]
+    has_key = bool(get_api_key(config["provider"]))
+    if has_key:
+        st.sidebar.success(f"✅ {config['provider']} API key loaded")
+    else:
+        st.sidebar.error(f"❌ {provider_info['env_key']} missing — check your `.env` file")
+
+    # --- Model & temperature ---
+    config["model"] = st.sidebar.selectbox(
+        "🤖 Model", options=provider_info["models"], index=0,
+        help=provider_info["model_help"],
+    )
+    config["temperature"] = st.sidebar.slider(
+        "🎛️ Temperature", 0.0, 1.0, value=config["temperature"], step=0.1,
+        help="0 = focused, 1 = creative",
+    )
+
+    # --- Advanced settings ---
+    with st.sidebar.expander("🔧 Advanced Settings"):
+        config["chunk_size"] = st.number_input(
+            "Chunk Size", min_value=500, max_value=8000,
+            value=config["chunk_size"], step=500,
+        )
+        config["chunk_overlap"] = st.number_input(
+            "Chunk Overlap", min_value=0, max_value=500,
+            value=config["chunk_overlap"], step=50,
+        )
+        config["retriever_k"] = st.number_input(
+            "Retriever K (docs to fetch)", min_value=1, max_value=10,
+            value=config["retriever_k"], step=1,
+        )
+
+    # --- PDF upload ---
+    st.sidebar.header("📄 Upload PDFs")
+    pdf_files = st.sidebar.file_uploader(
+        "Choose PDF files", accept_multiple_files=True, type=["pdf"],
+        help="Upload one or more PDF documents to chat with",
+    )
+    return config, pdf_files
+
+
+def init_session_state():
+    """Initialize all session state keys with defaults."""
+    defaults = {
+        "chat_history": [],
+        "vectorstore": None,
+        "chain": None,
+        "chat_store": None,
+        "session_id": "default_session",
+        "llm": None,
+    }
+    for key, default in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = default
+
+
+def ensure_llm_ready(config):
+    """Initialize or re-initialize the LLM when config changes."""
+    if not get_api_key(config["provider"]):
+        env_key = PROVIDERS[config["provider"]]["env_key"]
+        st.error(f"❌ {env_key} is missing. Add it to your `.env` file and restart.")
+        st.stop()
+
+    llm_fingerprint = f"{config['provider']}_{config['model']}_{config['temperature']}"
+    if st.session_state.llm is None or st.session_state.get("llm_fingerprint") != llm_fingerprint:
+        with st.spinner(f"⚡ Initializing {config['model']}..."):
             st.session_state.llm = initialize_llm(
-                config["ollama_base_url"],
-                config["ollama_model"],
-                config["ollama_temperature"]
+                config["provider"], config["model"], config["temperature"],
             )
             if st.session_state.llm is None:
                 st.stop()
-            st.session_state.llm_config = current_llm_config
-        st.toast("✅ Model initialized!", icon="🤖")
+            st.session_state.llm_fingerprint = llm_fingerprint
+        st.toast("✅ Model ready!", icon="🤖")
 
-    # Process PDFs if uploaded
-    if pdf_files:
-        # Check if we need to reprocess (new files uploaded)
-        current_files = [f.name for f in pdf_files]
-        if ('processed_files' not in st.session_state or
-            st.session_state.processed_files != current_files):
 
-            with st.spinner(f"📄 Processing {len(pdf_files)} PDF file(s)..."):
-                st.session_state.vectorstore = process_pdfs(
-                    pdf_files,
-                    config["embedding_model"],
-                    config["chunk_size"],
-                    config["chunk_overlap"]
-                )
-                st.session_state.processed_files = current_files
+def ensure_pdfs_indexed(config, pdf_files):
+    """Process and index PDFs if new files are uploaded or provider changed."""
+    current_files = sorted(f.name for f in pdf_files)
+    needs_reprocess = (
+        "processed_files" not in st.session_state
+        or st.session_state.processed_files != current_files
+        or st.session_state.get("processed_provider") != config["provider"]
+    )
+    if not needs_reprocess:
+        return
 
-                if st.session_state.vectorstore is None:
-                    st.stop()
+    with st.spinner(f"📄 Processing {len(pdf_files)} PDF(s) with {config['provider']}..."):
+        st.session_state.vectorstore = process_pdfs(
+            pdf_files, config["provider"], config["chunk_size"], config["chunk_overlap"],
+        )
+        if st.session_state.vectorstore is None:
+            st.stop()
+        st.session_state.processed_files = current_files
+        st.session_state.processed_provider = config["provider"]
 
-            # Create chat chain
-            with st.spinner("🔗 Setting up chat system..."):
-                chain_result = create_chat_chain(
-                    st.session_state.llm,
-                    st.session_state.vectorstore,
-                    config["max_history_length"],
-                    config["retriever_k"]
-                )
-                if chain_result[0] is None:
-                    st.stop()
-                st.session_state.chain, st.session_state.chat_store = chain_result
+    with st.spinner("🔗 Setting up chat chain..."):
+        chain, store = create_chat_chain(
+            st.session_state.llm, st.session_state.vectorstore, config["retriever_k"],
+        )
+        if chain is None:
+            st.stop()
+        st.session_state.chain = chain
+        st.session_state.chat_store = store
 
-            st.toast(f"✅ Processed {len(pdf_files)} PDF(s)!", icon="📄")
+    st.toast(f"✅ {len(pdf_files)} PDF(s) indexed!", icon="📄")
 
-        # Chat interface
-        st.subheader("💬 Chat with your documents")
 
-        # Display chat history
-        for message in st.session_state.chat_history:
-            with st.chat_message(message["role"]):
-                st.write(message["content"])
+def render_chat():
+    """Render chat history, handle user input, and display responses."""
+    st.subheader("💬 Chat with your documents")
 
-        # Chat input
-        if prompt := st.chat_input("Ask me anything about your documents..."):
-            # Add user message to chat history
-            st.session_state.chat_history.append({"role": "user", "content": prompt})
-            with st.chat_message("user"):
-                st.write(prompt)
+    # Display existing messages
+    for msg in st.session_state.chat_history:
+        with st.chat_message(msg["role"]):
+            st.write(msg["content"])
 
-            # Generate response
-            with st.chat_message("assistant"):
-                with st.spinner("🤖 Thinking..."):
-                    try:
-                        # Use the conversational RAG chain with memory
-                        response = st.session_state.chain.invoke(
-                            {"input": prompt},
-                            config={"configurable": {"session_id": st.session_state.session_id}}
-                        )
+    # Handle new user input
+    if prompt := st.chat_input("Ask anything about your documents..."):
+        st.session_state.chat_history.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.write(prompt)
 
-                        answer = response
-                        st.write(answer)
+        with st.chat_message("assistant"):
+            with st.spinner("🤖 Thinking..."):
+                try:
+                    answer = st.session_state.chain.invoke(
+                        {"input": prompt},
+                        config={"configurable": {"session_id": st.session_state.session_id}},
+                    )
+                    st.write(answer)
+                    st.session_state.chat_history.append({"role": "assistant", "content": answer})
+                except Exception as e:
+                    error_msg = f"Error generating response: {e}"
+                    st.error(error_msg)
+                    st.session_state.chat_history.append({"role": "assistant", "content": error_msg})
 
-                        # Add assistant response to chat history for UI display
-                        st.session_state.chat_history.append({"role": "assistant", "content": answer})
+    # Clear history button
+    if st.button("🧹 Clear Chat History"):
+        st.session_state.chat_history = []
+        if st.session_state.chat_store and st.session_state.session_id in st.session_state.chat_store:
+            st.session_state.chat_store[st.session_state.session_id].clear()
+        st.rerun()
 
-                    except Exception as e:
-                        error_msg = f"Error generating response: {str(e)}"
-                        st.error(error_msg)
-                        st.session_state.chat_history.append({"role": "assistant", "content": error_msg})
 
-        # Clear chat button
-        if st.button("🧹 Clear Chat History"):
-            st.session_state.chat_history = []
-            # Clear the LangChain memory store as well
-            if st.session_state.chat_store and st.session_state.session_id in st.session_state.chat_store:
-                st.session_state.chat_store[st.session_state.session_id].clear()
-            st.rerun()
+def main():
+    """Main application entry point."""
+    setup_page()
+    render_header()
+    init_session_state()
 
-    else:
-        # Simple instructions when no files uploaded
+    config, pdf_files = render_sidebar()
+
+    ensure_llm_ready(config)
+
+    if not pdf_files:
         st.info("📄 Upload PDF files in the sidebar to start chatting!")
+        return
+
+    ensure_pdfs_indexed(config, pdf_files)
+    render_chat()
 
 
 if __name__ == "__main__":

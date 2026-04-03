@@ -1,37 +1,70 @@
 import streamlit as st
+from utils import get_available_providers, get_models, run_query
 
-import utils
-import logging
+# ── Page config ────────────────────────────────────────────
+st.set_page_config(page_title="Graph QA Chatbot", page_icon="🌐", layout="wide")
+st.markdown(
+    "<style>#MainMenu{visibility:hidden;}footer{visibility:hidden;}</style>",
+    unsafe_allow_html=True,
+)
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(filename='app.log', encoding='utf-8', level=logging.INFO)
 
-# Page configuration
-st.set_page_config(page_title="Graph Search Tool", page_icon="🌐")
-st.header("`Graph Search Tool`")
-st.info("`Graph Search tool designed to explore, understand, and distill insights from Graph Databases with precision and ease.`")
-st.sidebar.image("img/globe.png")
-# Hide Streamlit menu and footer
-hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+# ── Sidebar ────────────────────────────────────────────────
+def render_sidebar():
+    """Draw sidebar widgets and return (provider, model_name)."""
+    st.sidebar.image("img/globe.png")
+    st.sidebar.markdown("### Configuration")
 
-# Container setup
-reply_container = st.container()
-container = st.container()
+    providers = get_available_providers()
+    if not providers:
+        st.error(
+            "No LLM provider configured. "
+            "Add **GROQ_API_KEY** or **GOOGLE_API_KEY** to your `.env` file and restart."
+        )
+        st.stop()
 
-submit_button = None
-user_input = None
-with container:
-    with st.form(key='chat_form', clear_on_submit=True):
-        user_input = st.text_input("`Ask a question:`", key='input')
-        submit_button = st.form_submit_button(label='Send ⬆️')
-    
-    # Response generation
-    if submit_button and user_input:
-        result = utils.main(user_input)    
-        st.info(result)
+    provider = st.sidebar.radio("LLM Provider", providers, index=0)
+    model_name = st.sidebar.selectbox("Model", get_models(provider))
+
+    st.sidebar.markdown("---")
+    st.sidebar.caption(
+        "Uses **Neo4j Movie Database** — ask about actors, movies, "
+        "directors, and their relationships."
+    )
+    return provider, model_name
+
+
+provider, model_name = render_sidebar()
+
+# ── Main area ──────────────────────────────────────────────
+st.header("Graph QA Chatbot")
+st.info(
+    "Ask natural-language questions about the Neo4j Movie Database. "
+    "The app converts your question into a Cypher query, runs it, and returns an answer."
+)
+
+# ── Chat history ───────────────────────────────────────────
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.markdown(msg["content"])
+
+# ── Handle user input ─────────────────────────────────────
+user_input = st.chat_input("Ask a question (e.g., Who acted in The Matrix?)")
+
+if user_input:
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    with st.chat_message("user"):
+        st.markdown(user_input)
+
+    with st.chat_message("assistant"):
+        with st.spinner("Querying graph database..."):
+            try:
+                result = run_query(user_input, provider, model_name)
+            except Exception as e:
+                result = f"Error: {e}"
+        st.markdown(result)
+
+    st.session_state.messages.append({"role": "assistant", "content": result})
