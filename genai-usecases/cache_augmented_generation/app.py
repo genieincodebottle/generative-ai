@@ -11,10 +11,12 @@ from visualization import display_metrics, create_results_dataframe, plot_perfor
 
 def setup_environment():
     """Initialize environment variables."""
-    load_dotenv()
+    # Load .env from the project directory (where app.py lives)
+    env_path = Path(__file__).parent / '.env'
+    load_dotenv(env_path)
     token = os.getenv("HF_TOKEN")
     if not token:
-        raise Exception("HF_TOKEN is not set in .env file")
+        raise Exception("HF_TOKEN is not set in .env file. Copy .env.example to .env and add your Hugging Face token.")
     return token
 
 def render_help_section():
@@ -97,6 +99,7 @@ def process_cache(model: CAGModel, documents: str) -> tuple:
             if i == 50:
                 cache, prep_time = model.prepare_cache(documents)
                 cache_path = Path("./data_cache/cache_knowledges.pt")
+                cache_path.parent.mkdir(parents=True, exist_ok=True)
                 torch.save(cache, cache_path)
                 st.session_state.prep_time = prep_time
         cache_progress.progress(1.0, text="KV Cache Ready!")

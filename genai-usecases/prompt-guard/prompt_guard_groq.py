@@ -94,10 +94,9 @@ def analyze_text(text, model_size, api_key):
 
         return {
             "is_malicious": is_malicious,
-            "confidence": round(score, 3),
             "label": "MALICIOUS" if is_malicious else "BENIGN",
             "inference_time_ms": round(inference_time, 2),
-            "score": score
+            "score": round(score, 3)
         }
         
     except ImportError:

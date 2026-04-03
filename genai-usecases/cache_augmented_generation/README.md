@@ -53,7 +53,7 @@ large datasets.
 
       ```bash
       git clone https://github.com/genieincodebottle/generative-ai.git
-      cd generative-ai\genai-usecases\cache_augumeted_generation
+      cd generative-ai\genai-usecases\cache_augmented_generation
       ```
    2. Create a virtual environment:
 

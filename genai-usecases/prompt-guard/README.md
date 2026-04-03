@@ -53,10 +53,13 @@ It outputs a **maliciousness score** between 0.0 (benign) and 1.0 (dangerous).
 
       ```bash
       GROQ_API_KEY=your_key_here # Using the free-tier API Key
+      HF_TOKEN=your_token_here   # Required for HuggingFace (gated model)
       ```
       * Get **GROQ_API_KEY** here -> https://console.groq.com/keys
+      * Get **HF_TOKEN** here -> https://huggingface.co/settings/tokens
+      * Accept the Llama Prompt Guard 2 license at https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M
 
-   9. Run the App
+   7. Run the App
         * With Groq API
           `streamlit run prompt_guard_groq.py`
         * With Huggingface

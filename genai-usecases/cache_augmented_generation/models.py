@@ -98,7 +98,10 @@ class CAGModel:
                 past_key_values = outputs.past_key_values
                 output_ids = torch.cat([output_ids, next_token], dim=1)
 
-                if next_token.item() in self.model.config.eos_token_id:
+                eos_token_ids = self.model.config.eos_token_id
+                if isinstance(eos_token_ids, int):
+                    eos_token_ids = [eos_token_ids]
+                if next_token.item() in eos_token_ids:
                     break
 
         output = output_ids[:, input_ids.shape[-1]:]
