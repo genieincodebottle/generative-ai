@@ -61,7 +61,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 ### 💼 Career & Interview Preparation
 
-**[Interview Q&A track](https://aimlcompanion.ai/curriculum/interviewScenarios)** - 13 free, always-current Q&A modules across ML, GenAI, and Agentic AI. The PDFs below are downloadable companions to these live modules.
+**[Interview Q&A track](https://aimlcompanion.ai/curriculum/interviewScenarios)** - 13 always-current Q&A modules across ML, GenAI, and Agentic AI (free preview questions, full sets with Pro). The PDFs below are downloadable companions to these live modules.
 
 - **[GenAI & Transformers Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore)** - GenAI and transformer interview prep &nbsp;·&nbsp; [PDF](./docs/genai-interview-questions.pdf)
 - **[RAG, Prompting & Modern GenAI Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivRAGPromptEng)** - Retrieval, prompting and applied GenAI
