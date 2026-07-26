@@ -82,7 +82,7 @@ Each phase is split by week and builds progressively.
 | Fine Tuning                | [YT - Shaw Talebi](https://www.youtube.com/watch?v=eC6Hd1hFvos) || [1. GitHub-ShawhinT](https://github.com/ShawhinT/YouTube-Blog/tree/main/LLMs/fine-tuning) <br> [2. GitHub-Unsloth](https://github.com/unslothai/unsloth?tab=readme-ov-file) |
 | Inference Optimization & Quantization | [1. Course - Quantization in Depth](https://www.deeplearning.ai/short-courses/quantization-in-depth/) <br> [2. Blog - GGUF](https://huggingface.co/docs/hub/en/gguf) <br> [3. Blog - GGML](https://huggingface.co/blog/introduction-to-ggml) | [1. Unsloth](https://github.com/unslothai/unsloth) <br> [2. GPTQModel](https://github.com/ModelCloud/GPTQModel) ||
 | Knowledge Distillation     | [Blog - Huggingface](https://huggingface.co/blog/Kseniase/kd) |||
-| LLM Evaluation             | [1. Guide - LLM Evaluation](https://arize.com/llm-evaluation) <br> [2. Tool - RAGA](https://docs.ragas.io/en/stable/) <br> [3. Tool - Opik](https://www.comet.com/site/products/opik/) <br> [4. Tool - DeepEval](https://www.deepeval.com/) | [Blog](https://research.aimultiple.com/large-language-model-evaluation/) |  |
+| LLM Evaluation             | [1. Guide - LLM Evaluation](https://arize.com/llm-evaluation) <br> [2. Tool - RAGA](https://docs.ragas.io/en/stable/) <br> [3. Tool - Opik](https://www.comet.com/site/products/opik/) <br> [4. Tool - DeepEval](https://www.deepeval.com/) | [1. Blog](https://research.aimultiple.com/large-language-model-evaluation/) <br> [2. Benchmark - StructEval](https://github.com/TIGER-AI-Lab/StructEval) (TMLR 2025; 18 structured-output formats) |  |
 </details>
 
 <details>
