@@ -14,14 +14,14 @@
 </div>
 <br>
 
-> **Learn AI/ML interactively at [AI-ML Companion](https://aimlcompanion.ai/)** - Guided walkthroughs, architecture decisions, hands-on challenges, and narrated overviews for every project.
+> **Learn AI/ML interactively at [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=roadmap&utm_campaign=banner)** - Guided walkthroughs, architecture decisions, hands-on challenges, and narrated overviews for every project.
 
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
 
 
 ### 🔗 Quick Links
- [GenAI Essential Terms](https://aimlcompanion.ai/glossary) | [AI/ML/Agentic AI Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios) | [GenAI Interview Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore) | [Agentic AI Interview Q&A](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep) | [GenAI Usecases](./genai-usecases/) | [n8n Automation](./genai-usecases/n8n-automation/) |  [GenAI on Azure](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) | [GenAI on AWS](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) | [GenAI on VertexAI](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf) |
+ [GenAI Essential Terms](https://aimlcompanion.ai/glossary?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [AI/ML/Agentic AI Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [GenAI Interview Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [Agentic AI Interview Q&A](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [GenAI Usecases](./genai-usecases/) | [n8n Automation](./genai-usecases/n8n-automation/) |  [GenAI on Azure](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) | [GenAI on AWS](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) | [GenAI on VertexAI](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf) |
 
 ### 📦 Comprehensive Prep Resources
 
@@ -34,8 +34,8 @@ Each phase is split by week and builds progressively.
 
 | Topics | Core Material| Additional Resources | Code |
 |--------|------|-------|------|
-| AI vs ML vs DL vs GenAI | [Video](https://www.youtube.com/watch?v=qYNweeDHiyU) | [GenAI Glossary](https://aimlcompanion.ai/glossary) <br> [Essential Terms (PDF)](./docs/essential-terms-genai.pdf)||
-| GenAI Intro | [GenAI in Nutshell](https://www.youtube.com/watch?v=2IK3DFHRFfw), [LLMs by 3b1b](https://youtu.be/LPZh9BOjkQs) | [What is Generative AI (guide)](https://aimlcompanion.ai/guide/generative-ai) <br> [LLM Blog](https://cohere.com/blog/llm-parameters-best-outputs-language-ai) ||
+| AI vs ML vs DL vs GenAI | [Video](https://www.youtube.com/watch?v=qYNweeDHiyU) | [GenAI Glossary](https://aimlcompanion.ai/glossary?utm_source=github&utm_medium=roadmap&utm_campaign=phases) <br> [Essential Terms (PDF)](./docs/essential-terms-genai.pdf)||
+| GenAI Intro | [GenAI in Nutshell](https://www.youtube.com/watch?v=2IK3DFHRFfw), [LLMs by 3b1b](https://youtu.be/LPZh9BOjkQs) | [What is Generative AI (guide)](https://aimlcompanion.ai/guide/generative-ai?utm_source=github&utm_medium=roadmap&utm_campaign=phases) <br> [LLM Blog](https://cohere.com/blog/llm-parameters-best-outputs-language-ai) ||
 | Python Basics | [Crash Course](https://www.youtube.com/watch?v=kqtD5dpn9C8), [ML Crash](https://www.youtube.com/watch?v=7eh4d6sabA0) |[GitHub - Awesome Python](https://github.com/vinta/awesome-python)||
 | ML & DL Basics | [ML 101](https://www.youtube.com/watch?v=i_LwzRVP7bg), [Neural Networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) | [Crash DL](https://www.youtube.com/watch?v=VyWAvY2CF9c) ||
 </details>
@@ -46,7 +46,7 @@ Each phase is split by week and builds progressively.
 | Topics                        | Core Material | Additional Resources | Code |
 |------------------------------|---------------|-----------------------|------|
 | NLP Basics                   | [YT - What is NLP?](https://www.youtube.com/watch?v=fLvJ8VdHLA0) |||
-| Inside the Transformer       | [1. YT - Transformer Explained Visually by 3b1b](https://www.youtube.com/watch?v=wjZofJX0v4M) <br> [2. Blog - The Illustrated Transformer by Jay Alammar](https://jalammar.github.io/illustrated-transformer/) | [Transformer Architecture (guide)](https://aimlcompanion.ai/guide/transformer-architecture) ||
+| Inside the Transformer       | [1. YT - Transformer Explained Visually by 3b1b](https://www.youtube.com/watch?v=wjZofJX0v4M) <br> [2. Blog - The Illustrated Transformer by Jay Alammar](https://jalammar.github.io/illustrated-transformer/) | [Transformer Architecture (guide)](https://aimlcompanion.ai/guide/transformer-architecture?utm_source=github&utm_medium=roadmap&utm_campaign=phases) ||
 | Tokenization & Embeddings    | [Blog - BPE Explainer (HuggingFace)](https://huggingface.co/learn/llm-course/en/chapter6/5) | [1. Blog - Embedding Explained](https://qdrant.tech/articles/what-are-embeddings/) <br> [2. Blog - Vector Db Explained](https://www.pinecone.io/learn/vector-database/) | [GitHub](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/embedding-models/embedding_models.ipynb) |
 
 </details>
@@ -69,8 +69,8 @@ Each phase is split by week and builds progressively.
 
 | Topics                      | Core Material | Additional Resources | Code |
 |----------------------------|---------------|-----------------------|------|
-| Retrieval-Augmented Generation (RAG) | [1. Blog - Advance RAG Techniques](https://8738733.fs1.hubspotusercontent-na1.net/hubfs/8738733/eBooks/Weaviate-Advanced-RAG-Techniques-ebook.pdf) <br/> [2. PDF - RAG Decisions](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/docs/advance-rag-decision-flow-chart.pdf) | [What is RAG (guide)](https://aimlcompanion.ai/guide/what-is-rag) | [1. GitHub - Advanced RAG (Graph RAG, Agentic RAG, Multimodal RAG etc)](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/advance-rag) <br/> [2. GitHub - Microsoft's Agentic RAG](https://github.com/microsoft/ai-agents-for-beginners/blob/main/05-agentic-rag/README.md) |
-| Agentic AI                 | [1. Blog - Building Agents (Claude)](https://www.anthropic.com/research/building-effective-agents) <br> [2. Huggingface Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) | [1. Agentic AI (guide)](https://aimlcompanion.ai/guide/agentic-ai) <br/> [2. Blog - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html) <br/> [3. Google Whitepaper](https://www.kaggle.com/whitepaper-agents) | [1. GitHub-Agentic AI](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) <br/>  [2. GitHub-NirDimant](https://github.com/NirDiamant/GenAI_Agents) <br/> [3. LangGraph](https://github.com/langchain-ai/langgraph/tree/main/examples/multi_agent) |
+| Retrieval-Augmented Generation (RAG) | [1. Blog - Advance RAG Techniques](https://8738733.fs1.hubspotusercontent-na1.net/hubfs/8738733/eBooks/Weaviate-Advanced-RAG-Techniques-ebook.pdf) <br/> [2. PDF - RAG Decisions](https://github.com/genieincodebottle/generative-ai/blob/main/genai-usecases/advance-rag/docs/advance-rag-decision-flow-chart.pdf) | [What is RAG (guide)](https://aimlcompanion.ai/guide/what-is-rag?utm_source=github&utm_medium=roadmap&utm_campaign=phases) | [1. GitHub - Advanced RAG (Graph RAG, Agentic RAG, Multimodal RAG etc)](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/advance-rag) <br/> [2. GitHub - Microsoft's Agentic RAG](https://github.com/microsoft/ai-agents-for-beginners/blob/main/05-agentic-rag/README.md) |
+| Agentic AI                 | [1. Blog - Building Agents (Claude)](https://www.anthropic.com/research/building-effective-agents) <br> [2. Huggingface Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction) | [1. Agentic AI (guide)](https://aimlcompanion.ai/guide/agentic-ai?utm_source=github&utm_medium=roadmap&utm_campaign=phases) <br/> [2. Blog - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html) <br/> [3. Google Whitepaper](https://www.kaggle.com/whitepaper-agents) | [1. GitHub-Agentic AI](https://github.com/genieincodebottle/generative-ai/tree/main/genai-usecases/agentic-ai) <br/>  [2. GitHub-NirDimant](https://github.com/NirDiamant/GenAI_Agents) <br/> [3. LangGraph](https://github.com/langchain-ai/langgraph/tree/main/examples/multi_agent) |
 
 </details>
 
@@ -110,7 +110,7 @@ Each phase is split by week and builds progressively.
 | Model Context Protocol (MCP) |[YT- MCP Clearly Explained](https://www.youtube.com/watch?v=7j_NE6Pjv-E) <br> [YT- MCP Crash Course for Python Developers](https://www.youtube.com/watch?v=5xqFjh56AwM) <br> [Official Claude Doc](https://modelcontextprotocol.io/introduction) <br> [GitHub-Awsome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)||
 | Agent2Agent Protocol (A2A) |[Video - Demo](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) <br> [Specification](https://github.com/google/A2A) <br> [GitHub](https://github.com/google/A2A)||
 | AI Coding Assistants |[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/), [Cursor](https://www.cursor.com/), [Bolt](https://bolt.new/), [Lovable](https://lovable.dev/), [Replit](https://replit.com/), [V0](https://v0.dev/) ||
-| Learning Platform  |[AI-ML Companion](https://aimlcompanion.ai/) - Interactive AI/ML learning platform with 22 tracks, 300+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)||
+| Learning Platform  |[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=roadmap&utm_campaign=tools) - Interactive AI/ML learning platform with 22 tracks, 300+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)||
 
 ### 💡 GenAI Use Cases
 
