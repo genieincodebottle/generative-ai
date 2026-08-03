@@ -20,7 +20,7 @@ I built **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medi
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
 
-**Popular guides:** [Cheatsheets](https://aimlcompanion.ai/cheatsheets?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Full Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=popular) • [GenAI Imp Docs](https://github.com/genieincodebottle/generative-ai/tree/main/docs)
+**Popular guides:** [AI History](https://aimlcompanion.ai/ai-story?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Cheatsheets](https://aimlcompanion.ai/cheatsheets?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Full Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=popular) • [GenAI Imp Docs](https://github.com/genieincodebottle/generative-ai/tree/main/docs) • [ML Project Interactive Visualization](https://aimlcompanion.ai/ml-visualization?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
 
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
