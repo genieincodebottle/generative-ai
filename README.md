@@ -20,7 +20,7 @@ I built **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medi
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
 
-**Popular guides:** [What is RAG](https://aimlcompanion.ai/guide/what-is-rag?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Agentic AI](https://aimlcompanion.ai/guide/agentic-ai?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Transformer Architecture](https://aimlcompanion.ai/guide/transformer-architecture?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Full Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=popular)
+**Popular guides:** [Cheatsheets](https://aimlcompanion.ai/cheatsheets?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Full Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=popular) • [GenAI Imp Docs](https://github.com/genieincodebottle/generative-ai/tree/main/docs)
 
 <br>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
@@ -36,14 +36,11 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🎯 Getting Started
 - **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Interactive AI/ML learning platform with 22 tracks, 300+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)
 - **[GenAI Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Your complete learning path for GenAI (interactive) &nbsp;·&nbsp; [markdown](./GenAI_Roadmap.md)
-- **[AI/ML Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Comprehensive AI/ML learning guide &nbsp;·&nbsp; [PDF](./docs/ai_ml_roadmap.pdf)
-- **[Essential GenAI Terms](https://aimlcompanion.ai/glossary?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Illustrated glossary of key terminology &nbsp;·&nbsp; [PDF](./docs/essential-terms-genai.pdf)
-- **[What is Generative AI](https://aimlcompanion.ai/guide/generative-ai?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Full guide to GenAI foundations
-- **[LLM Fundamentals](https://aimlcompanion.ai/guide/transformer-architecture?utm_source=github&utm_medium=readme&utm_campaign=resources)** - How transformers and LLMs work &nbsp;·&nbsp; [PDF](./docs/llm_fundamentals.pdf)
+- **[AI/ML Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Comprehensive AI/ML learning  &nbsp;·&nbsp; [PDF](./docs/ai_ml_roadmap.pdf)
 
-### 🧠 Core Concepts & Guides
-- **[What is RAG](https://aimlcompanion.ai/guide/what-is-rag?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Retrieval-Augmented Generation explained end to end
-- **[Vector Embeddings Guide](./docs/vector-embeddings-guide.pdf)** - Understanding vector representations (PDF)
+
+### 🧠 Core Concepts & s
+- **[Vector Embeddings ](./docs/vector-embeddings-guide.pdf)** - Understanding vector representations (PDF)
 - **[Prompt Engineering](./docs/prompt_engineering.ipynb)** - Crafting effective prompts (notebook)
 - **[AI Patterns](./docs/ai-patterns.pdf)** - Top 25 AI design patterns (PDF)
 - **[ML Reference Guide](./docs/ml-reference-guide.pdf)** - Machine learning reference (PDF)
@@ -122,7 +119,6 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 |----------|-----------|
 | **Learning Platform** | [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=table) — Interactive AI/ML learning with 22 tracks, 300+ modules, quizzes & coding |
 | **Learning Path** | [GenAI Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=table) • [AI/ML Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=table) |
-| **Fundamentals** | [What is RAG](https://aimlcompanion.ai/guide/what-is-rag?utm_source=github&utm_medium=readme&utm_campaign=table) • [LLM Fundamentals](https://aimlcompanion.ai/guide/transformer-architecture?utm_source=github&utm_medium=readme&utm_campaign=table) • [Glossary](https://aimlcompanion.ai/glossary?utm_source=github&utm_medium=readme&utm_campaign=table) |
 | **Cloud Platforms** | [AWS](./docs/genai-with-aws-cloud.pdf) • [Azure](./docs/genai-with-azure-cloud.pdf) • [VertexAI](./docs/genai-with-vertexai.pdf) |
 | **Interview Prep** | [Interview Q&A track (13 modules)](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=table) • [GenAI](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=readme&utm_campaign=table) • [Agentic AI](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) • [LLM](https://aimlcompanion.ai/module/interviewScenarios/llmInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) |
 | **Popular Projects** | [Advanced RAG](./genai-usecases/advance-rag/) • [Agentic AI](./genai-usecases/agentic-ai/) • [Text-to-SQL](./genai-usecases/text-to-sql/) |
