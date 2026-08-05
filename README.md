@@ -19,7 +19,9 @@ I built **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medi
 **300+ modules • 22 tracks • 9 real-world projects • free to start**
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
-
+<br><br/>
+![New](https://img.shields.io/badge/NEW-brightgreen) [Blog - Inside a Production Multi-Agent GenAI System](https://aimlcompanion.ai/blog/production-multi-agent-genai-architecture-2026?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
+<br><br/>
 **Popular guides:** [AI History](https://aimlcompanion.ai/ai-story?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Cheatsheets](https://aimlcompanion.ai/cheatsheets?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Full Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=popular) • [GenAI Imp Docs](https://github.com/genieincodebottle/generative-ai/tree/main/docs) • [ML Project Interactive Visualization](https://aimlcompanion.ai/ml-visualization?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) • [AI Blogs](https://aimlcompanion.ai/blog?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
 
 <br>
