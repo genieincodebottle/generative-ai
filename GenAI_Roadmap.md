@@ -16,14 +16,11 @@
 
 > **Learn AI/ML interactively at [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=roadmap&utm_campaign=banner)** - Guided walkthroughs, architecture decisions, hands-on challenges, and narrated overviews for every project.
 
-<br>
+<br><br/>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
-<br>
-
+<br><br/>
 ![New](https://img.shields.io/badge/NEW-brightgreen) [Blog - Inside a Production Multi-Agent GenAI System](https://aimlcompanion.ai/blog/production-multi-agent-genai-architecture-2026?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
-
-<br>
-
+<br><br/>
 ### 🔗 Quick Links
  [Interactive Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [AI History](https://aimlcompanion.ai/ai-story?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [Cheatsheets](https://aimlcompanion.ai/cheatsheets?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [AI/ML/Agentic AI Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [GenAI Interview Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [Agentic AI Interview Q&A](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [GenAI Usecases](./genai-usecases/) | [n8n Automation](./genai-usecases/n8n-automation/) |  [GenAI on Azure](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-azure-cloud.pdf) | [GenAI on AWS](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-aws-cloud.pdf) | [GenAI on VertexAI](https://github.com/genieincodebottle/generative-ai/blob/main/docs/genai-with-vertexai.pdf) | [GenAI Imp Docs](https://github.com/genieincodebottle/generative-ai/tree/main/docs) | [ML Project Interactive Visualization](https://aimlcompanion.ai/ml-visualization?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [AI Blogs](https://aimlcompanion.ai/blog?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
 
