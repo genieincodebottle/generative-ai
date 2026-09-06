@@ -141,7 +141,7 @@ that you are comparing single samples of a non-deterministic system.
 | `401 Invalid API Key` | key pasted with a newline | re-copy from the provider console |
 | `429 Too Many Requests` | free-tier rate limit | wait, or lower the sample count in Self-Consistency |
 | `400 Tool choice is none, but model called a tool` | a tool-calling-native model against a text tool protocol | use `qwen/qwen3.6-27b`, as ART does |
-| A cell returns success but prints nothing | some models put everything in a reasoning field | check `response.additional_kwargs`; try another model |
+| A cell returns success but prints nothing | reasoning tokens share the `max_tokens` budget, so a low limit is spent thinking and none is left for the answer | raise `max_tokens`; the reasoning text is in `response.additional_kwargs` |
 | `ImportError: langchain_groq` | first cell skipped | run the install cell |
 | `ImportError` for openai / anthropic / google | that provider is optional | install only the provider you use |
 | Ollama notebook cannot connect | Ollama not running | `ollama serve`, then `ollama pull llama3.2` |

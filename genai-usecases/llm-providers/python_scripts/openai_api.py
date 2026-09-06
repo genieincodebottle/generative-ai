@@ -13,15 +13,31 @@ st.set_page_config(
     layout="wide"
 )
 
-# Ensure the OPENAI_API_KEY is set in the environment
+# OpenAI is paid. Groq exposes an OpenAI-COMPATIBLE endpoint, so the exact
+# same client code runs against a free key by pointing base_url at it - which
+# means you can exercise this app without an OpenAI balance.
+#
+# Set OPENAI_BASE_URL=https://api.groq.com/openai/v1 and put your Groq key in
+# OPENAI_API_KEY, or just set GROQ_API_KEY and this picks it up.
+BASE_URL = os.getenv("OPENAI_BASE_URL")
 api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key and os.getenv("GROQ_API_KEY"):
+    api_key = os.getenv("GROQ_API_KEY")
+    BASE_URL = BASE_URL or "https://api.groq.com/openai/v1"
+
 if not api_key:
     st.error(
-        "OPENAI_API_KEY is not set. Copy .env.example to .env and put your "
-        "key in it, then restart this app.\n\nGet a key at: https://platform.openai.com/api-keys"
+        "No key found. Copy .env.example to .env and set OPENAI_API_KEY "
+        "(paid), or set GROQ_API_KEY to use Groq's free OpenAI-compatible "
+        "endpoint with this same app.\n\n"
+        "OpenAI: https://platform.openai.com/api-keys\n"
+        "Groq (free): https://console.groq.com/keys"
     )
     st.stop()
+
 os.environ["OPENAI_API_KEY"] = api_key
+USING_GROQ = bool(BASE_URL and "groq.com" in BASE_URL)
 
 # Title and description
 st.title("OpenAI Assistant")
@@ -33,13 +49,17 @@ with st.sidebar:
     # Model selection
     # gpt-4.5 was shut down on 2025-07-14 and gpt-5-2025-08-07 is a dated
     # snapshot with a retirement date; neither belongs in a default list.
-    model_options = [
-        "gpt-5.6-sol",
-        "gpt-5.6-terra",
-        "gpt-5.6-luna",
-        "gpt-4.1"
-    ]
-    selected_model = st.selectbox("Select OpenAI Model:", model_options)
+    if USING_GROQ:
+        st.caption("Using Groq's OpenAI-compatible endpoint (free tier)")
+        model_options = ["openai/gpt-oss-120b", "openai/gpt-oss-20b"]
+    else:
+        model_options = [
+            "gpt-5.6-sol",
+            "gpt-5.6-terra",
+            "gpt-5.6-luna",
+            "gpt-4.1"
+        ]
+    selected_model = st.selectbox("Select Model:", model_options)
 
     # Temperature setting
     temperature = st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
@@ -51,7 +71,14 @@ if api_key:
     try:
         llm = ChatOpenAI(
             model=selected_model,
-            temperature=temperature
+            temperature=temperature,
+            # None means "use OpenAI". Anything else is an OpenAI-compatible
+            # endpoint, and the rest of this file does not change.
+            base_url=BASE_URL,
+            # Reasoning tokens come out of this same budget. Leave it low and
+            # the model can spend the whole allowance thinking, returning a
+            # 200 with EMPTY content - which looks like success.
+            max_tokens=2048,
         )
 
         # Problem input

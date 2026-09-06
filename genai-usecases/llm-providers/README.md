@@ -52,6 +52,14 @@ streamlit run openai_api.py    # paid
 **You only need one key.** Each app checks for its own and stops with a
 message naming the key and where to get it, rather than a traceback.
 
+### Running the OpenAI app without paying
+
+Groq exposes an **OpenAI-compatible endpoint**, so `openai_api.py` runs
+unchanged against a free Groq key - only `base_url` differs. Set `GROQ_API_KEY`
+and leave `OPENAI_API_KEY` empty; the app detects that, points itself at Groq
+and offers the `gpt-oss` models. Useful for exercising the OpenAI code path
+without an OpenAI balance.
+
 ### Keys
 
 | Provider | Where | Cost |
@@ -113,6 +121,8 @@ write down when you pinned it.
 | `ModuleNotFoundError: langchain_openai` | partial install | `uv pip install -r requirements.txt` again |
 | `401` / `invalid_api_key` | key copied with a newline or quotes | re-copy; no quotes in `.env` |
 | `429` | free-tier rate limit | wait, or lower the temperature/length |
+| `429 insufficient_quota` on OpenAI | the key is valid but has no credit | add credit, or set `GROQ_API_KEY` and use the compatible endpoint |
+| A reply comes back empty | reasoning tokens share the `max_tokens` budget | raise `max_tokens`; the apps set 2048 |
 | Ollama: `connection refused` | the daemon is not running | `ollama serve` in another terminal |
 | HuggingFace notebook is extremely slow | CPU inference | use a Colab GPU runtime |
 | `.env` ignored | you ran from the wrong directory | run from inside `python_scripts/` |
@@ -145,10 +155,10 @@ through `message_text()` instead of touching `.content` directly.
 - **Cross-provider comparison here is qualitative.** The apps make it easy to
   ask the same question of four providers; they do not score the answers, and
   four samples is not a benchmark.
-- **The Gemini, Groq, OpenAI and Anthropic apps were all booted end to end**
-  in this revision. Booting proves wiring, imports and the key guard - it
-  does not prove every model in each dropdown answers, and the OpenAI key
-  used had no credit to spend on a real call.
+- **All four apps were booted end to end**, and the OpenAI app was verified
+  making a real call through Groq's compatible endpoint (the OpenAI key
+  available had no credit). Booting proves wiring, imports and the key guard;
+  it does not prove every model in each dropdown answers.
 - **Paid providers cost real money per call.** The apps have no spend guard.
 - **Keys live in a plaintext `.env`.** Fine locally; not how you would deploy
   this.
