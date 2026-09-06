@@ -239,7 +239,7 @@ class ModerationDatabase:
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_comment_story ON story_comments(story_id)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_comment_user ON story_comments(user_id)")
 
-            print(f"✅ Database initialized at {self.db_path}")
+            print(f"Database initialized at {self.db_path}")
 
     def create_content_submission(self, content_data: Dict[str, Any]) -> str:
         """

@@ -1,4 +1,4 @@
-## 📚 Advance RAG
+## Advance RAG
 
 ![alt text](images/rag.gif)
 
@@ -14,7 +14,7 @@ When you send a query:
 This makes RAG essential for building reliable GenAI applications. As queries and data grow in complexity, advanced RAG techniques, like agentic RAG, Graph RAG, Corrective RAG, Reranking RAG etc further improve accuracy, adaptability & relevance.
 
 ---
-## 🔑 Core Components of RAG
+## Core Components of RAG
 
    - **Knowledge Base**: External data source (e.g. documents, databases) that the system relies on.
 
@@ -27,7 +27,7 @@ This makes RAG essential for building reliable GenAI applications. As queries an
    - **Language Model (LLM)**: Generates responses using both retrieved data and the query.
 
 ---
-## 📚 Super Handy Resources
+## Super Handy Resources
 
 | Resource | Link | Description |
 |----------|------|-------------|
@@ -37,7 +37,7 @@ This makes RAG essential for building reliable GenAI applications. As queries an
 | **Uber's Usecase -> Enhanced Agentic-RAG: What If Chatbots Could Deliver Near-Human Precision?** | [Blog](https://lnkd.in/eGz5a9xm) | Genie is Uber's internal on-call copilot in Slack, delivering real-time, cited answers from internal docs and boosting on-call engineers' and SMEs' productivity by handling common queries efficiently. |
 
 ---
-## 🗺️ Recommended Learning Path
+## Recommended Learning Path
 
 If you are new to RAG, work through the techniques in this order to build understanding progressively:
 
@@ -56,13 +56,13 @@ If you are new to RAG, work through the techniques in this order to build unders
 > **Tip:** Refer to the [RAG Decision Flow PDF](./docs/advance-rag-decision-flow-chart.pdf) to quickly choose the right technique for your use case.
 
 ---
-## 🧪 Exploring Advanced RAG
+## Exploring Advanced RAG
 
 **A. Try Graph RAG**
 
 Knowledge-graph based retrieval using LangGraph, HuggingFace embeddings, and ChromaDB. Understands relationships between concepts in your documents — not just keyword matches.
 
-👉 [Full setup instructions →](graph-rag/README.md)
+[Full setup instructions →](graph-rag/README.md)
 
 ```bash
 # After completing setup in graph-rag/README.md:
@@ -75,7 +75,7 @@ streamlit run streamlit_app.py
 
 Multi-agent workflow with five specialized agents (Planner, Retriever, Research, Synthesizer, Validator). Uses LangGraph for orchestration and optionally Tavily for live web search.
 
-👉 [Full setup instructions →](agentic-rag/README.md)
+[Full setup instructions →](agentic-rag/README.md)
 
 ```bash
 # After completing setup in agentic-rag/README.md:
@@ -90,7 +90,7 @@ Processes both PDF text and images. Uses Gemini Vision to describe images and st
 
 > **Entry point:** Always run `streamlit_app.py` — not `app.py`. The `app.py` file is the backend and is not meant to be executed directly.
 
-👉 [Full setup instructions →](multimodal-rag/README.md)
+[Full setup instructions →](multimodal-rag/README.md)
 
 ```bash
 # After completing setup in multimodal-rag/README.md:
@@ -103,7 +103,7 @@ streamlit run streamlit_app.py
 
 Semantic search over code repositories using Tree-sitter AST parsing. Understands code structure — functions, classes, imports — not just raw text.
 
-👉 [Full setup instructions →](code-search-rag/README.md)
+[Full setup instructions →](code-search-rag/README.md)
 
 ```bash
 # After completing setup in code-search-rag/README.md:
@@ -114,12 +114,12 @@ streamlit run app.py
 ---
 **E. Try Advanced RAG Techniques in Google Colab**
 
-> ⚠️ **Different tech stack from the Streamlit apps (Section F) below:**
+> **Different tech stack from the Streamlit apps (Section F) below:**
 > The notebooks run on **Groq API** (free LLMs) + **HuggingFace Embeddings** + **FAISS**.
 > You will need a free [Groq API key](https://console.groq.com/keys) and a [HuggingFace token](https://huggingface.co/settings/tokens) — **not** a Google API key.
 > Each notebook has an **Open in Colab** button at the top — click it to run without any local setup.
 
-👉 [Notebooks](notebooks/)
+[Notebooks](notebooks/)
 
    - [Basic RAG](notebooks/basic-rag.ipynb)
    - [Corrective RAG](notebooks/corrective-rag.ipynb)
@@ -134,15 +134,15 @@ streamlit run app.py
 ---
 **F. Try Advanced RAG Techniques in Streamlit UI**
 
-> 🔑 **Tech stack:** Google Gemini API (LLM + Embeddings) + ChromaDB. Requires a free `GOOGLE_API_KEY` — **not** a Groq key. See step 5 below.
+> **Tech stack:** Google Gemini API (LLM + Embeddings) + ChromaDB. Requires a free `GOOGLE_API_KEY` — **not** a Groq key. See step 5 below.
 
-**🛠️ Setup Instructions**
+** Setup Instructions**
 
-**✅ Prerequisites**
+** Prerequisites**
    - Python 3.10 or higher
    - pip (Python package installer)
 
-**📦 Installation & Running App**
+** Installation & Running App**
    1. Clone the repository:
 
       ```bash

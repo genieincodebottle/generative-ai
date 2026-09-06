@@ -1,11 +1,28 @@
+# --- API (routing layer) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+python-multipart>=0.0.20
+
+# --- UI (thin Streamlit client) ---
 streamlit>=1.41.1
-plotly>=5.24.1
+requests>=2.32.0
 pandas>=2.2.3
-python-dotenv>=1.0.1
+plotly>=5.24.1
 Pillow>=10.0.0
 
+# --- Business logic: local model + KV cache ---
 torch>=2.0.0
 transformers>=4.45.0
-sentence-transformers>=3.0.0
 accelerate>=1.0.0
-bitsandbytes>=0.44.0
+python-dotenv>=1.0.1
+
+# Similarity scoring between the model's answer and the ground truth
+sentence-transformers>=3.0.0
+
+# --- Optional: 4-bit quantization. GPU only; skip on CPU-only machines.
+bitsandbytes>=0.44.0; platform_system != "Darwin"
+
+# --- Tests (offline; no model download needed) ---
+pytest>=8.3.0
+httpx>=0.27.0

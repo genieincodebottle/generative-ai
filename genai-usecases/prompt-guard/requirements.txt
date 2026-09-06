@@ -1,6 +1,24 @@
-streamlit>=1.47.1
+# --- API (routing layer) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+
+# --- UI (thin Streamlit client) ---
+streamlit>=1.49.1
+requests>=2.32.0
+
+# --- Hosted backend ---
+groq>=0.30.0
+
+# --- Local backend. Only needed if you pick "Local (HuggingFace)".
+#     The Prompt Guard repos are gated, so you also need HF_TOKEN and must
+#     accept the model licence on huggingface.co first.
 torch>=2.7.1
 transformers>=4.54.1
-groq>=0.30.0
 huggingface-hub>=0.34.3
+
 python-dotenv>=1.0.1
+
+# --- Tests (offline; no key and no model download needed) ---
+pytest>=8.3.0
+httpx>=0.27.0

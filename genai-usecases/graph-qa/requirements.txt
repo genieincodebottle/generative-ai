@@ -1,7 +1,22 @@
+# --- API (routing layer) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+
+# --- UI (thin Streamlit client) ---
+streamlit>=1.49.1
+requests>=2.32.0
+pandas>=2.3.2
+
+# --- Business logic: graph + LLM ---
 langchain>=0.3.27
+langchain-core>=0.3.43
 langchain-neo4j>=0.3.0
-langchain-groq>=0.3.2
 langchain-google-genai>=2.1.8
+langchain-groq>=0.3.2
 neo4j>=5.28.1
-streamlit>=1.47.1
 python-dotenv>=1.1.0
+
+# --- Tests (offline; no API key and no database needed) ---
+pytest>=8.3.0
+httpx>=0.27.0

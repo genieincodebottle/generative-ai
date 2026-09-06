@@ -85,7 +85,7 @@ class AgentSemanticMemory:
             adjustment = -0.05 if confidence > 0.7 else -0.02
             self.confidence_adjustments[pattern_key] += adjustment
 
-        success_emoji = "✅" if success else "❌"
+        success_emoji = "" if success else ""
         rate = self.get_action_success_rate(context, action)
         logger.info(f"{success_emoji} [{self.agent_name}] {context} → {action}: {rate:.1%} success")
 
@@ -180,7 +180,7 @@ class AgentSemanticMemory:
 
         self.thresholds[threshold_name] = new_value
 
-        change = "📈" if new_value > old_value else "📉"
+        change = "" if new_value > old_value else ""
         logger.info(f"{change} [{self.agent_name}] Threshold '{threshold_name}': "
               f"{old_value:.3f} → {new_value:.3f}")
 

@@ -8,7 +8,7 @@
 
 ---
 
-### 📋 Table of Contents
+### Table of Contents
 
 - [Template Library](#-template-library)
 - [Getting Started](#-getting-started)
@@ -23,12 +23,12 @@
 
 ---
 
-### ▶️ Run first workflow
+### ▶ Run first workflow
 - [n8n video walkthrough](https://x.com/zero2nn/status/1952697313241280706/video/1)
 
 ---
 
-### 📚 Template Library
+### Template Library
 
 - **4,200+ Official Templates**: Browse the full n8n template library - spanning categories like AI, sales, marketing, document ops, support, and more → [n8n.io/workflows](https://n8n.io/workflows)
 - **Community Collections**:
@@ -37,7 +37,7 @@
 
 ---
 
-### 🛠 Getting Started
+### Getting Started
 
 #### A. Prerequisites
 
@@ -48,8 +48,8 @@
     * A code editor like **VS Code** (optional but helpful)
 
 #### B. Local (Self-Hosted)
-  - **Method 1: Try instantly** with NPX: 
-  
+  - **Method 1: Try instantly** with NPX:
+
     * **Step 1:** Install and Run n8n
 
       ```bash
@@ -67,15 +67,15 @@
     - **Common NPX Fixes for**
 
       **Error:** Cannot find module 'ajv/dist/core' or any other issue
-      
+
       * **Option A: Global Install**
-        
+
         ```bash
         npm install -g n8n
         n8n
         ```
       * **Option B: Clear NPX Cache**
-        
+
         ```bash
         npx clear-npx-cache
         npm install ajv #If error: Cannot find module 'ajv/dist/core'
@@ -88,7 +88,7 @@
         ```
   - **Method 2: Run with Docker (Best for Production)**:
     * **Step 1:** Run n8n with Docker
-     
+
       ```bash
       docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
       ```
@@ -185,7 +185,7 @@
 
 ---
 
-### 🤖 AI-Enhanced Setup
+### AI-Enhanced Setup
 
 #### AI Starter Kit
 
@@ -214,19 +214,19 @@ Adds:
 
 ---
 
-### 📦 Template Categories & Examples
+### Template Categories & Examples
 
 | Category            | Count | Examples                                       |
 |---------------------|-------|------------------------------------------------|
-| 🤖 AI & LLMs         | 500+  | OpenAI, Claude, Gemini, chatbot, RAG           |
-| 📧 Email / CRM       | 1,188 | Gmail triage, email-to-sheets                  |
-| 📱 Social Media      | 800+  | X, IG, Telegram bots, LinkedIn posts           |
-| 📄 Document Ops      | 477+  | PDF parsing, Excel tools, content extraction   |
-| 🛠️ Support / Ops     | 397+  | Slack bots, SSL monitoring, feedback systems   |
+| AI & LLMs         | 500+  | OpenAI, Claude, Gemini, chatbot, RAG           |
+| Email / CRM       | 1,188 | Gmail triage, email-to-sheets                  |
+| Social Media      | 800+  | X, IG, Telegram bots, LinkedIn posts           |
+| Document Ops      | 477+  | PDF parsing, Excel tools, content extraction   |
+| Support / Ops     | 397+  | Slack bots, SSL monitoring, feedback systems   |
 
 ---
 
-### ✅ Workflow Creation Process
+### Workflow Creation Process
 
 1. Pick a template or build from scratch
 2. Import JSON or use cloud library
@@ -238,7 +238,7 @@ Adds:
 
 ---
 
-### ⚙️ Configuration
+### Configuration
 
 #### `.env` Basics
 
@@ -264,7 +264,7 @@ QUEUE_BULL_REDIS_HOST=redis
 
 ---
 
-### 🔍 Troubleshooting
+### Troubleshooting
 
 #### Common Fixes
 - Clear cache:
@@ -286,7 +286,7 @@ export N8N_LOG_OUTPUT=console
 
 ---
 
-### 📂 Sample Project Structure
+### Sample Project Structure
 
 ```text
 n8n-automation/
@@ -304,7 +304,7 @@ n8n-automation/
 
 ---
 
-### 📖 Resources
+### Resources
 
 #### Official
 - [Docs](https://docs.n8n.io)
@@ -322,7 +322,7 @@ n8n-automation/
 
 ---
 
-### 🧪 Add Your Own Templates
+### Add Your Own Templates
 
 #### Creator Program
 - Join at [n8n.io/creators](https://n8n.io/creators)

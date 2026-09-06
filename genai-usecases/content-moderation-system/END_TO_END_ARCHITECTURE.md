@@ -1,35 +1,35 @@
 # Content Moderation System - Complete End-to-End Architecture
 
-## 🎯 System Overview
+## System Overview
 
 This document provides a comprehensive view of the entire content moderation platform, from user story submission to final resolution, including all components, databases, and workflows. It covers both the high-level system architecture and detailed backend module implementations.
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-1. [📊 High Level Architecture](#📊-high-level-architecture-diagram)
-2. [🔧 Backend Module Overview](#🔧-backend-module-overview)
-3. [🤖 AI/ML Models & Embedding Systems](#🤖-aiml-models--embedding-systems)
-4. [🔄 Complete User Story Submission Flow](#🔄-complete-user-story-submission-flow)
-5. [📐 Sequence Diagrams](#📐-sequence-diagrams)
-6. [🗄️ Database Schema Details](#🗄️-database-schema-details)
-7. [📈 System Performance Metrics](#📈-system-performance-metrics)
-8. [🔐 Security & Privacy](#🔐-security--privacy)
-9. [🚀 Deployment Architecture](#🚀-deployment-architecture)
-10. [⚙️ Configuration](#⚙️-configuration)
-11. [📊 Complete Flow Summary](#📊-complete-flow-summary)
+1. [ High Level Architecture](# -high-level-architecture-diagram)
+2. [ Backend Module Overview](# -backend-module-overview)
+3. [ AI/ML Models & Embedding Systems](# -aiml-models--embedding-systems)
+4. [ Complete User Story Submission Flow](# -complete-user-story-submission-flow)
+5. [ Sequence Diagrams](# -sequence-diagrams)
+6. [ Database Schema Details](# -database-schema-details)
+7. [ System Performance Metrics](# -system-performance-metrics)
+8. [ Security & Privacy](# -security--privacy)
+9. [ Deployment Architecture](# -deployment-architecture)
+10. [ Configuration](# -configuration)
+11. [ Complete Flow Summary](# -complete-flow-summary)
 
 ---
 
-## 📊 High Level Architecture Diagram
+## High Level Architecture Diagram
 
 ![End-to-End Architecture](images/end-to-end-architecture-content-moderation.png)
 ---
 
-## 🔧 Backend Module Overview
+## Backend Module Overview
 
-### 📁 Backend Structure
+### Backend Structure
 
 ```
 backend/
@@ -290,13 +290,13 @@ backend/
 
 ---
 
-## 🤖 AI/ML Models & Embedding Systems
+## AI/ML Models & Embedding Systems
 
 This section clarifies the different AI models and embedding systems used throughout the platform.
 
-### 🧠 Google Gemini LLM (Primary AI Engine)
+### Google Gemini LLM (Primary AI Engine)
 
-**Model**: `gemini-1.5-flash` via Google Generative AI API
+**Model**: `gemini-flash-latest` via Google Generative AI API
 
 **Usage Locations**:
 1. **Content Analysis Agent** ([agents.py:58](content-moderation-system/backend/src/agents/agents.py#L58))
@@ -338,7 +338,7 @@ GOOGLE_API_KEY=your_api_key_here
 # LLM Client initialization
 from langchain_google_genai import ChatGoogleGenerativeAI
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="gemini-flash-latest",
     temperature=0.7,
     google_api_key=os.getenv("GOOGLE_API_KEY")
 )
@@ -351,7 +351,7 @@ llm = ChatGoogleGenerativeAI(
 
 ---
 
-### 🔍 ChromaDB Vector Embeddings (Memory System)
+### ChromaDB Vector Embeddings (Memory System)
 
 **Embedding Function**: ChromaDB Default (sentence-transformers/all-MiniLM-L6-v2)
 
@@ -411,7 +411,7 @@ self.decisions_collection = self.client.get_or_create_collection(
 
 ---
 
-### 🛡️ ML Toxicity Detection Models (Optional)
+### ML Toxicity Detection Models (Optional)
 
 **Framework**: HuggingFace Transformers
 
@@ -447,7 +447,7 @@ self.decisions_collection = self.client.get_or_create_collection(
 
 ---
 
-### 📊 AI/ML Architecture Summary
+### AI/ML Architecture Summary
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -610,7 +610,7 @@ self.decisions_collection = self.client.get_or_create_collection(
 
 ---
 
-## 🔄 Complete User Story Submission Flow
+## Complete User Story Submission Flow
 
 ### Story 1: User Submits a Story (Happy Path - Auto-Approved)
 
@@ -682,7 +682,7 @@ self.decisions_collection = self.client.get_or_create_collection(
    ├─> Check: len(content) = 450 chars > 200 (FAST_MODE_MAX_LENGTH)
    │
    └─> Route: "content_analysis" (Full Pipeline)
-       ⚠️  Story too long for fast mode - using full analysis
+       Story too long for fast mode - using full analysis
 
 5. Agent 1: Content Analysis Agent
    ┌────────────────────────────────────────────────────────┐
@@ -794,14 +794,14 @@ self.decisions_collection = self.client.get_or_create_collection(
    │ OBSERVE PHASE:                                         │
    │ ───────────────────────────────────────────────────────│
    │ 6. Evaluate HITL triggers (8 conditions)               │
-   │    ✗ Low confidence (<70%)? No (92%)                  │
-   │    ✗ High severity violation? No                      │
-   │    ✗ Conflicting decisions (<60% consensus)? No       │
-   │    ✗ High-profile user? No                            │
-   │    ✗ Sensitive content? No                            │
-   │    ✗ Potential false positive? No                     │
-   │    ✗ First offense + severe? No                       │
-   │    ✗ Legal concern? No                                │
+   │   Low confidence (<70%)? No (92%)                  │
+   │   High severity violation? No                      │
+   │   Conflicting decisions (<60% consensus)? No       │
+   │   High-profile user? No                            │
+   │   Sensitive content? No                            │
+   │   Potential false positive? No                     │
+   │   First offense + severe? No                       │
+   │   Legal concern? No                                │
    │                                                        │
    │ 7. HITL decision                                       │
    │    hitl_required = False                               │
@@ -965,13 +965,13 @@ Total Processing Time: ~10.5 seconds
 LLM API Calls: 4 (Content Analysis, Policy Check, ReAct Synthesis, Action Reason)
 Agents Executed: 6 agents
 Database Writes: 8 operations
-Final Status: Approved ✅
+Final Status: Approved
 User Impact: Story published immediately
 ```
 
 ---
 
-### 🔴 Story 2: User Submits Toxic Comment (Removal Path)
+### Story 2: User Submits Toxic Comment (Removal Path)
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -987,8 +987,8 @@ User Impact: Story published immediately
    }
 
 2. Fast Mode Check
-   ├─> len(content) = 68 chars < 200 ✅
-   ├─> content_type = "story_comment" ✅
+   ├─> len(content) = 68 chars < 200
+   ├─> content_type = "story_comment"
    └─> Route: "fast_mode" (Single-agent processing)
 
 3. Fast Mode Agent Execution
@@ -1050,13 +1050,13 @@ User Impact: Story published immediately
      }
    }
 
-Total Processing Time: ~1.2 seconds ⚡
-Decision: Removed + 7-day suspension ❌
+Total Processing Time: ~1.2 seconds
+Decision: Removed + 7-day suspension
 ```
 
 ---
 
-### ⏸️ Story 3: Content Requires Human Review (HITL Path)
+### ⏸ Story 3: Content Requires Human Review (HITL Path)
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -1081,9 +1081,9 @@ Decision: Removed + 7-day suspension ❌
    │ ACT: Synthesize → FLAG                                 │
    │ OBSERVE: Check HITL triggers                           │
    │                                                        │
-   │ ✓ Low confidence: 0.68 < 0.70                          │
-   │ ✓ Conflicting decisions: consensus 33% < 60%           │
-   │ ✓ Sensitive content: political topic                   │
+   │ Low confidence: 0.68 < 0.70                          │
+   │ Conflicting decisions: consensus 33% < 60%           │
+   │ Sensitive content: political topic                   │
    │                                                        │
    │ Result: hitl_required = TRUE                           │
    └────────────────────────────────────────────────────────┘
@@ -1175,12 +1175,12 @@ Decision: Removed + 7-day suspension ❌
     └─> System learns: Similar political content may be acceptable
 
 Total Time: Variable (depends on moderator availability)
-HITL ensures quality on edge cases ✅
+HITL ensures quality on edge cases
 ```
 
 ---
 
-### 📝 Story 4: User Appeals a Removal Decision
+### Story 4: User Appeals a Removal Decision
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -1259,13 +1259,13 @@ HITL ensures quality on edge cases ✅
    └─> Update sarcasm detection patterns
 
 Total Processing Time: ~2.5 seconds
-Outcome: Appeal upheld, content restored ✅
+Outcome: Appeal upheld, content restored
 Learning: System improved for similar cases
 ```
 
 ---
 
-## 📐 Sequence Diagrams
+## Sequence Diagrams
 
 ### 1. Story Submission Flow
 
@@ -1584,7 +1584,7 @@ User Appeal → Review Agent → Decision → Database → Notify User
 
 ---
 
-## 🗄️ Database Schema Details
+## Database Schema Details
 
 ### Database 1: Auth Database (moderation_auth.db)
 
@@ -1805,7 +1805,7 @@ Collection: "user_violations"
 
 ---
 
-## 📈 System Performance Metrics
+## System Performance Metrics
 
 ### Processing Time Comparison
 
@@ -1826,7 +1826,7 @@ Collection: "user_violations"
 
 ---
 
-## 🔐 Security & Privacy
+## Security & Privacy
 
 ### Authentication Flow
 ```
@@ -1847,7 +1847,7 @@ User → Login → Auth DB → Session Token → Stored in memory → Used for a
 
 ---
 
-## 🚀 Deployment Architecture
+## Deployment Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -1873,7 +1873,7 @@ User → Login → Auth DB → Session Token → Stored in memory → Used for a
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Environment Variables Impact
 
@@ -1935,7 +1935,7 @@ Entry → Analysis → Toxicity → Policy → ReAct
 
 ---
 
-## 📊 Complete Flow Summary
+## Complete Flow Summary
 
 ### Key Metrics
 - **6 AI Agents** working in orchestrated pipeline
@@ -1953,9 +1953,9 @@ Entry → Analysis → Toxicity → Policy → ReAct
 4. **Appeal**: User contests → Appeal agent → Restore/Deny
 
 This architecture ensures:
-- ✅ Scalable multi-agent processing
-- ✅ Human oversight for edge cases
-- ✅ Continuous learning from decisions
-- ✅ Fast processing with cost optimization
-- ✅ Complete audit trail
-- ✅ User appeal mechanism
+- Scalable multi-agent processing
+- Human oversight for edge cases
+- Continuous learning from decisions
+- Fast processing with cost optimization
+- Complete audit trail
+- User appeal mechanism

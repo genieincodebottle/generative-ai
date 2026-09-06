@@ -37,9 +37,9 @@ def get_llm():
             )
         os.environ["GOOGLE_API_KEY"] = api_key
         from langchain_google_genai import ChatGoogleGenerativeAI
-        logger.info("Using Gemini LLM provider (gemini-2.0-flash)")
+        logger.info("Using Gemini LLM provider (gemini-flash-latest)")
         return ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
+            model="gemini-flash-latest",
             temperature=0.1,
         )
 

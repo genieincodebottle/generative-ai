@@ -14,21 +14,21 @@ A modern React-based frontend for the AI-powered content moderation system with 
 
 ## Features
 
-### 🎯 Core Functionality
+### Core Functionality
 - Real-time content moderation dashboard
 - AI agent decision visualization
 - Appeal management with learning triggers
 - Comprehensive analytics and metrics
 - Multi-agent performance tracking
 
-### 🧠 Learning System Visualization
+### Learning System Visualization
 - Episodic memory tracking
 - Semantic pattern learning
 - Threshold adjustment monitoring
 - Success rate improvement charts
 - Appeal rate trending
 
-### 📊 Analytics Dashboard
+### Analytics Dashboard
 - Overall system accuracy
 - Agent-specific performance
 - Learning progress over time

@@ -1,4 +1,4 @@
-# 🛡️ Content Moderation & Community Safety Platform
+# Content Moderation & Community Safety Platform
 
 **AI-Powered Multi-Agentic Content Moderation System with React Frontend**
 
@@ -11,23 +11,23 @@
 
 ![End-to-End Architecture](images/end-to-end-architecture-content-moderation.png)
 
-## 📖 Table of Contents
-- [🎯 Overview](#🎯-overview)
-- [⚡ Quick Start](#⚡-quick-start)
-- [✨ Features](#✨-features)
-- [🏗️ Architecture & Agents](#🏗️-architecture--agents)
-- [🧑‍⚖️ Human-in-the-Loop (HITL) System](#🧑‍⚖️-human-in-the-loop-hitl-system)
-- [📂 Project Structure](#📂-project-structure)
-- [🔧 REST API Endpoints](#🔧-rest-api-endpoints)
-- [🛠️ Technology Stack](#🛠️-technology-stack)
-- [🎓 Project Highlights & Learning Outcomes](#🎓-project-highlights--learning-outcomes)
-- [📈 Use Cases](#📈-use-cases)
-- [🎓 Skills Demonstrated](#🎓-skills-demonstrated)
-- [🔧 Troubleshooting](#🔧-troubleshooting)
-- [🗑️ Database Cleanup](#🗑️-database-cleanup)
-- [📝 Resume Talking Points](#📝-resume-talking-points)
+## Table of Contents
+- [ Overview](# -overview)
+- [ Quick Start](# -quick-start)
+- [ Features](# -features)
+- [ Architecture & Agents](# -architecture--agents)
+- [ Human-in-the-Loop (HITL) System](# -human-in-the-loop-hitl-system)
+- [ Project Structure](# -project-structure)
+- [ REST API Endpoints](# -rest-api-endpoints)
+- [ Technology Stack](# -technology-stack)
+- [ Project Highlights & Learning Outcomes](# -project-highlights--learning-outcomes)
+- [ Use Cases](# -use-cases)
+- [ Skills Demonstrated](# -skills-demonstrated)
+- [ Troubleshooting](# -troubleshooting)
+- [ Database Cleanup](# -database-cleanup)
+- [ Resume Talking Points](# -resume-talking-points)
 
-## 🎯 Overview
+## Overview
 
 An enterprise-grade content moderation system that automates content safety using a Multi-Agentic AI Architecture powered by Google Gemini free-tier LLM API and LangGraph.
 
@@ -41,7 +41,7 @@ The platform includes a full-stack React web application serving six distinct us
 - **Policy Specialists:** Handle appeals, policy violations, user bans
 - **Admins:** Full system access, user management, system configuration
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -159,7 +159,7 @@ The system includes several pre-configured demo accounts with different roles:
 **Password Reset**: If you forget your password, contact the admin or reset it directly in the database using the `initialize_users.py` script.
 </details>
 
-## ✨ Features
+## Features
 
 Click to view each
 
@@ -168,56 +168,56 @@ Click to view each
 
 | Feature                              | Details                                         |
 |--------------------------------------|-------------------------------------------------|
-| 🤖 **Multi-Agentic Architecture**    | 6 Specialized AI agents working collaboratively |
-| ⚡ **Fast Mode**             | Optimized single-pass moderation for short comments (1-2 seconds vs 6-12 seconds) |
-| 🧠 **ReAct Decision Loop**           | Think-Act-Observe pattern for synthesizing agent decisions |
-| 🧑‍⚖️ [**Human-in-the-Loop (HITL)**]((https://medium.com/@raj-srivastava/why-agent-assist-human-in-the-loop-is-usually-smarter-than-fully-automated-agentic-ai-bb4e022684a7))      | Configurable interrupt points for human review |
-| 📋 **Priority Review Queue**         | Smart prioritization of [HITL (Human-In-The-Loop)](https://medium.com/@raj-srivastava/why-agent-assist-human-in-the-loop-is-usually-smarter-than-fully-automated-agentic-ai-bb4e022684a7) reviews (critical/high/medium/low) |
-| 🔍 **ML-Powered Toxicity Detection** | Transformer based models (HateBERT, DistilBERT) or keyword-based detection |
-| ⚖️ **Policy Enforcement**            | Automated checking against community guidelines |
-| 👤 **User Reputation System**        | Dynamic reputation scoring and risk assessment |
-| 📝 **Appeal Workflow**               | Automated appeal review process with HITL support |
-| 🎯 **Smart Action Enforcement**      | Content removal, warnings, suspensions, and bans |
-| 💾 **Complete Audit Trail**          | Dual SQLite databases stored in databases/ folder: moderation_data.db (content/decisions) and moderation_auth.db (users/auth) - (You can modify to use any other DB) |
-| 🧠 **Memory & Learning**             | ChromaDB vector store learns from moderation patterns |
-| 📊 **REST API**                      | FastAPI backend with comprehensive endpoints |
-| 🔄 **Real-time Processing**          | Instant content analysis with AI workflow pause/resume |
-| ⏸️ **Workflow Interrupts**           | Pause workflows for human input, resume automatically |
+| **Multi-Agentic Architecture**    | 6 Specialized AI agents working collaboratively |
+| **Fast Mode**             | Optimized single-pass moderation for short comments (1-2 seconds vs 6-12 seconds) |
+| **ReAct Decision Loop**           | Think-Act-Observe pattern for synthesizing agent decisions |
+| [**Human-in-the-Loop (HITL)**]((https://medium.com/@raj-srivastava/why-agent-assist-human-in-the-loop-is-usually-smarter-than-fully-automated-agentic-ai-bb4e022684a7))      | Configurable interrupt points for human review |
+| **Priority Review Queue**         | Smart prioritization of [HITL (Human-In-The-Loop)](https://medium.com/@raj-srivastava/why-agent-assist-human-in-the-loop-is-usually-smarter-than-fully-automated-agentic-ai-bb4e022684a7) reviews (critical/high/medium/low) |
+| **ML-Powered Toxicity Detection** | Transformer based models (HateBERT, DistilBERT) or keyword-based detection |
+| **Policy Enforcement**            | Automated checking against community guidelines |
+| **User Reputation System**        | Dynamic reputation scoring and risk assessment |
+| **Appeal Workflow**               | Automated appeal review process with HITL support |
+| **Smart Action Enforcement**      | Content removal, warnings, suspensions, and bans |
+| **Complete Audit Trail**          | Dual SQLite databases stored in databases/ folder: moderation_data.db (content/decisions) and moderation_auth.db (users/auth) - (You can modify to use any other DB) |
+| **Memory & Learning**             | ChromaDB vector store learns from moderation patterns |
+| **REST API**                      | FastAPI backend with comprehensive endpoints |
+| **Real-time Processing**          | Instant content analysis with AI workflow pause/resume |
+| ⏸ **Workflow Interrupts**           | Pause workflows for human input, resume automatically |
 </details>
 
 
 <details>
 <summary><strong>Frontend Web Application</strong></summary>
 
-| Feature                              | Details                                         | 
+| Feature                              | Details                                         |
 |--------------------------------------|-------------------------------------------------|
-| ⚛️ **React + Vite**                 | Modern, fast frontend development |
-| 🎨 **Material-UI (MUI)**            | Professional, responsive UI components |
-| 🏠 **Community Dashboard**          | Main landing page with widget-based architecture (featured stories, community stats, user stats, guidelines) |
-| 📖 **Stories Platform**             | Users can create and share stories (moderated before publishing) |
-| 💬 **Comments System**              | Users can comment on stories (with real-time moderation) |
-| 🔐 **Role-Based Access Control**    | Separate interfaces for users, moderators, analysts, and admins (6 distinct roles) |
-| 🔑 **Authentication System**        | User registration, login, and password management |
-| 📊 **Moderation Dashboard**         | Integrated HITL (Human-in-the-Loop) review queue with real-time statistics and pending reviews |
-| 🔍 **Content Review Interface**     | Detailed review page with AI analysis, toxicity scores, and one-click moderation actions |
-| 📈 **Analytics Dashboard**          | Charts, trends, and insights with Recharts |
-| 📮 **Appeals Management**           | Interface for users to submit appeals and moderators to review |
-| 👥 **User Management**              | Admin interface for CRUD operations on user accounts (create, edit, delete, role changes) |
-| 🧩 **Custom Hooks**                 | Reusable data fetching hooks (useStories, useUserStories, useStoryStats, etc.) |
-| 📦 **Widget Architecture**          | Modular, reusable UI components for consistent design |
+| **React + Vite**                 | Modern, fast frontend development |
+| **Material-UI (MUI)**            | Professional, responsive UI components |
+| **Community Dashboard**          | Main landing page with widget-based architecture (featured stories, community stats, user stats, guidelines) |
+| **Stories Platform**             | Users can create and share stories (moderated before publishing) |
+| **Comments System**              | Users can comment on stories (with real-time moderation) |
+| **Role-Based Access Control**    | Separate interfaces for users, moderators, analysts, and admins (6 distinct roles) |
+| **Authentication System**        | User registration, login, and password management |
+| **Moderation Dashboard**         | Integrated HITL (Human-in-the-Loop) review queue with real-time statistics and pending reviews |
+| **Content Review Interface**     | Detailed review page with AI analysis, toxicity scores, and one-click moderation actions |
+| **Analytics Dashboard**          | Charts, trends, and insights with Recharts |
+| **Appeals Management**           | Interface for users to submit appeals and moderators to review |
+| **User Management**              | Admin interface for CRUD operations on user accounts (create, edit, delete, role changes) |
+| **Custom Hooks**                 | Reusable data fetching hooks (useStories, useUserStories, useStoryStats, etc.) |
+| **Widget Architecture**          | Modular, reusable UI components for consistent design |
 </details>
 
 <details>
 <summary><strong>Advanced Features</strong></summary>
 
-#### 🛡️ Guardrails System
+#### Guardrails System
 - **Loop Detection** - Prevents infinite reasoning loops (max 10 iterations)
 - **Hallucination Detection** - Identifies contradictions and unsupported claims in AI decisions
 - **Cost Budget Tracking** - Monitors and limits API costs (configurable budget)
 - **Consistency Checking** - Ensures agent decisions don't contradict each other
 - **Confidence Adjustment** - Automatically reduces confidence when hallucinations detected
 
-#### 🧠 Learning System
+#### Learning System
 - **Episodic Memory** - Stores individual moderation decisions for learning
 - **Semantic Memory** - Learns generalized patterns from outcomes
 - **Success Rate Tracking** - Monitors decision quality per agent
@@ -225,7 +225,7 @@ Click to view each
 - **Adaptive Thresholds** - Learns optimal toxicity/policy thresholds over time
 </details>
 
-## 🏗️ Architecture & Agents
+## Architecture & Agents
 The system uses a LangGraph based StateGraph to manage the flow of data between agents.
 
 #### The Agent Workflow
@@ -252,15 +252,15 @@ Memory:
 ![alt text](images/architecture.png)
 
 
-## 🧑‍⚖️ Human-in-the-Loop (HITL) System
+## Human-in-the-Loop (HITL) System
 
 AI isn't perfect. The system automatically pauses the workflow and flags content for human review based on specific triggers.
 Priority Levels:
 
-- 🔴 Critical: Legal concerns, severe toxicity.
-- 🟠 High: High-profile user (10k+ followers), conflicting agent signals.
-- 🟡 Medium: Potential false positives.
-- 🟢 Low: Low confidence scores (<70%).
+- Critical: Legal concerns, severe toxicity.
+- High: High-profile user (10k+ followers), conflicting agent signals.
+- Medium: Potential false positives.
+- Low: Low confidence scores (<70%).
 
 #### The Workflow:
 
@@ -271,7 +271,7 @@ Priority Levels:
 5. Workflow resumes, executing the human's decision and updating Agent Memory.
 
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 content-moderation-system/
@@ -301,7 +301,7 @@ content-moderation-system/
 └── README.md                      # This file
 ```
 
-## 🔧 REST API Endpoints
+## REST API Endpoints
 
 <details>
 <summary><strong>Click to view key endpoints</strong></summary>
@@ -321,7 +321,7 @@ content-moderation-system/
 - GET /api/auth/users - User management (Admin only)
 </details>
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 <details>
 <summary><strong>Click to view stack</strong></summary>
@@ -357,7 +357,7 @@ content-moderation-system/
 | **Package Management** | pip, npm | Dependency management |
 </details>
 
-## 🎓 Project Highlights & Learning Outcomes
+## Project Highlights & Learning Outcomes
 
 This project was built to demonstrate advanced Full-Stack and AI Engineering capabilities:
 
@@ -367,18 +367,18 @@ This project was built to demonstrate advanced Full-Stack and AI Engineering cap
 - **Complex State Management:** handling asynchronous workflow pauses/resumes in the backend and syncing real-time status updates to the React frontend.
 - **Role-Based Security:** Implementing a secure, JWT-based auth system with granular permission controls across 6 user roles.
 
-## 📈 Use Cases
+## Use Cases
 
 This system is ideal for:
 
-- 🐦 **Social Media Platforms** (Twitter, Reddit, Discord)
-- 💬 **Community Forums** (Discussion boards, Q&A sites)
-- 🎮 **Gaming Platforms** (Chat moderation, user reports)
-- 📺 **Video Platforms** (YouTube comments, live chat)
-- 💼 **Enterprise Collaboration** (Slack, Teams, internal forums)
-- 📱 **Mobile Apps** (User-generated content moderation)
+- **Social Media Platforms** (Twitter, Reddit, Discord)
+- **Community Forums** (Discussion boards, Q&A sites)
+- **Gaming Platforms** (Chat moderation, user reports)
+- **Video Platforms** (YouTube comments, live chat)
+- **Enterprise Collaboration** (Slack, Teams, internal forums)
+- **Mobile Apps** (User-generated content moderation)
 
-## 🎓 Skills Demonstrated
+## Skills Demonstrated
 
 For freshers/candidates, this project showcases:
 
@@ -413,7 +413,7 @@ For freshers/candidates, this project showcases:
 - **Real-time Updates** - Dynamic status tracking
 - **User Experience** - Intuitive interfaces for different user roles
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 - ### ML Models not loading?
   Ensure USE_ML_MODELS=true is set in .env and you have installed torch: pip install torch transformers. Restart the server after changing these settings.
@@ -422,13 +422,13 @@ For freshers/candidates, this project showcases:
 - ### Database Locked?
   Since SQLite is a file-based DB, ensure you don't have the database file open in a viewer while the server is trying to write to it.
 
-## 🗑️ Database Cleanup
+## Database Cleanup
 
 If you need to reset all data and start fresh, use the cleanup script:
 
 ### Full Database Reset
 
-**⚠️ WARNING**: This will permanently delete ALL data including:
+** WARNING**: This will permanently delete ALL data including:
 - All content (stories, comments)
 - All moderation decisions and appeals
 - All user accounts and sessions
@@ -508,7 +508,7 @@ rmdir /s /q databases\chroma_moderation_db
 
 ---
 
-## 📝 Resume Talking Points
+## Resume Talking Points
 
 > Developed a **full-stack content moderation platform** with a **multi-agent AI backend** powered by **Google Gemini and LangGraph**, and a **React frontend** using **Material-UI**. Implemented **specialized AI agents** with **ReAct Decision Loop** and **Human-in-the-Loop (HITL) checkpoints** for intelligent content moderation. Built the Think-Act-Observe reasoning pattern for synthesizing agent decisions with configurable consensus thresholds.
 >

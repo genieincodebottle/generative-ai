@@ -69,7 +69,7 @@ def should_use_fast_mode(state: ContentState) -> bool:
     if len(content_text) > max_length:
         return False
 
-    logger.info(f"✅ Fast mode eligible: type={content_type}, length={len(content_text)} chars")
+    logger.info(f"Fast mode eligible: type={content_type}, length={len(content_text)} chars")
     return True
 
 
@@ -397,7 +397,7 @@ def create_moderation_workflow(db: ModerationDatabase, use_checkpointer: bool = 
             # Add fast mode agent if enabled
             if enable_fast_mode:
                 workflow.add_node("fast_mode", create_agent_wrapper(agents.fast_mode_agent, "fast_mode"))
-                logger.info("   ✅ Fast mode agent added")
+                logger.info("  Fast mode agent added")
         else:
             # No guardrails - add agents directly
             workflow.add_node("content_analysis", agents.content_analysis_agent)
@@ -412,9 +412,9 @@ def create_moderation_workflow(db: ModerationDatabase, use_checkpointer: bool = 
             # Add fast mode agent if enabled
             if enable_fast_mode:
                 workflow.add_node("fast_mode", agents.fast_mode_agent)
-                logger.info("   ✅ Fast mode agent added")
+                logger.info("  Fast mode agent added")
     except Exception as node_error:
-        logger.error(f"   ❌ Failed to add node: {node_error}")
+        logger.error(f"  Failed to add node: {node_error}")
         import traceback
         traceback.print_exc()
         raise node_error

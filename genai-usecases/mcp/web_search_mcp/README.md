@@ -1,4 +1,4 @@
-## 🔍 Gemini LLM-powered MCP Client integrated with Web Search Remote MCP Server
+## Gemini LLM-powered MCP Client integrated with Web Search Remote MCP Server
 
 A local web search system that combines Google's **Gemini LLM** with a **FastMCP** tool-calling interface and a **Streamlit UI**. Uses **SerpApi** for live, real-time search results via a custom MCP server to show Remote MCP Server capabilities with Gemini LLM.
 
@@ -6,9 +6,9 @@ A local web search system that combines Google's **Gemini LLM** with a **FastMCP
 
 ### Features
 
-- ✅ Google's Gemini API integration with Remote FastMCP Server
-- ✅ Tool calling using [FastMCP based Remote MCP Server](https://github.com/jlowin/fastmcp)
-- ✅ Custom MCP Server with live web search via SerpApi
+- Google's Gemini API integration with Remote FastMCP Server
+- Tool calling using [FastMCP based Remote MCP Server](https://github.com/jlowin/fastmcp)
+- Custom MCP Server with live web search via SerpApi
 
 ### [MCP Official Doc](https://modelcontextprotocol.io/docs/getting-started/intro)
 
@@ -36,13 +36,13 @@ A local web search system that combines Google's **Gemini LLM** with a **FastMCP
    6. Set up environment variables
       * Rename .env.example to .env
       * Update the file with your API keys:
-      
+
       ```bash
-      GOOGLE_API_KEY=your_key_here # Using the free-tier API 
+      GOOGLE_API_KEY=your_key_here # Using the free-tier API
       SERPAPI_API_KEY=your_serpapi_key # Using free-tier
       ```
-      * 🔑 Get your API keys:
-      
+      * Get your API keys:
+
         For **GOOGLE_API_KEY** follow this -> https://aistudio.google.com/app/apikey
 
         For **SERPAPI_API_KEY** follow this -> https://serpapi.com/manage-api-key
@@ -70,7 +70,7 @@ A local web search system that combines Google's **Gemini LLM** with a **FastMCP
 
       ![alt text](images/app.png)
 
-### ⚙️ How It Works
+### How It Works
 - The Remote MCP server exposes tools (like web_search) via FastMCP over Streamable HTTP.
 - The Streamlit app uses Gemini's function calling to request results from the Remote Web Saerch MCP server.
 - Gemini combines LLM reasoning with live data via SerpApi using tool calling.

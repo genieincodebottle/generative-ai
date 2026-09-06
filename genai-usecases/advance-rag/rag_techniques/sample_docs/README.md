@@ -21,4 +21,4 @@ These documents let you start experimenting immediately — no need to find your
 - **Hybrid Search RAG** — use a keyword-heavy question: *"LSTM recurrent architecture gradient"*
 - **Re-ranking RAG** — use a complex question to see how re-ranking improves answer quality
 - **Corrective RAG** — compare the Initial Response vs Final Response tabs to see self-correction in action
-- **Adaptive RAG** — try different question types and watch the complexity badge (🟢/🟡🔴) change
+- **Adaptive RAG** — try different question types and watch the complexity badge ( / ) change

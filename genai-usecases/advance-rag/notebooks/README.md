@@ -4,7 +4,7 @@ This folder contains nine Google Colab notebooks, each demonstrating a different
 
 ---
 
-## ⚠️ Tech Stack (Different From the Streamlit Apps)
+## Tech Stack (Different From the Streamlit Apps)
 
 The notebooks use a **different stack** from the Streamlit applications in this repository:
 
@@ -26,7 +26,7 @@ Each notebook prompts you to enter these keys at the top using `getpass` (keys a
 
 ---
 
-## 📖 Recommended Reading Order
+## Recommended Reading Order
 
 Work through the notebooks in this order to build your understanding progressively:
 
@@ -44,7 +44,7 @@ Work through the notebooks in this order to build your understanding progressive
 
 ---
 
-## 🗺️ Technique Comparison at a Glance
+## Technique Comparison at a Glance
 
 | Technique | Best when… | Key trade-off |
 |-----------|-----------|---------------|
@@ -60,7 +60,7 @@ Work through the notebooks in this order to build your understanding progressive
 
 ---
 
-## 🔧 How to Run a Notebook Locally (Optional)
+## How to Run a Notebook Locally (Optional)
 
 If you prefer to run the notebooks locally instead of on Colab:
 

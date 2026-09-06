@@ -15,6 +15,7 @@ import json
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from ..core.models import ContentState, AgentDecision, DecisionType
+from ..utils.llm_text import message_text
 
 
 class ReasoningStepType(Enum):
@@ -171,7 +172,7 @@ class ReActLoop:
         Provide your thought in 2-3 sentences:"""
 
         response = self.llm.invoke(prompt)
-        return response.content
+        return message_text(response)
 
     def _select_and_execute_action(
         self,
@@ -264,7 +265,7 @@ class PlanExecuteAgent:
 
         # Parse the LLM response
         try:
-            plan_data = self._extract_json_from_response(response.content)
+            plan_data = self._extract_json_from_response(message_text(response))
 
             return ExecutionPlan(
                 plan_id=f"plan_{datetime.now().timestamp()}",
@@ -443,7 +444,7 @@ class ReflexionCritic:
         response = self.llm.invoke(prompt)
 
         try:
-            critique = self._extract_json_from_response(response.content)
+            critique = self._extract_json_from_response(message_text(response))
 
             self.reflection_history.append(ReasoningStep(
                 step_type=ReasoningStepType.CRITIQUE,
@@ -515,7 +516,7 @@ class ReflexionCritic:
             response = self.llm.invoke(improvement_prompt)
 
             try:
-                improved = self._extract_json_from_response(response.content)
+                improved = self._extract_json_from_response(message_text(response))
 
                 # Update decision
                 current_decision.decision = DecisionType(improved.get("decision", "needs_review"))

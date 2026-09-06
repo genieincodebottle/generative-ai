@@ -1,358 +1,217 @@
-# Graph RAG System with Agentic Router
+# Graph RAG
 
-![Graph RAG](https://img.shields.io/badge/Graph-RAG-blue)
-[![Python](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/downloads/)
-![Streamlit](https://img.shields.io/badge/Streamlit-UI_Framework-ff4b4b)
-![Gemini LLM](https://img.shields.io/badge/Gemini-LLM_&_Embedding_Model-00bfa5)
-[![LangChain](https://img.shields.io/badge/LangChain-AI_Framework-0e76a8.svg)](https://langchain.com/)
-[![LangGraph](https://img.shields.io/badge/LangGraph-Agent_Framework-f39c12.svg)](https://langchain.com/langgraph)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-Embeddings-orange)
+> **Learn how to build this project step-by-step on [AI-ML Companion](https://aimlcompanion.ai/)**. Interactive ML learning platform with guided walkthroughs, architecture decisions, and hands-on challenges.
 
-![Graph RAG Architecture](./images/architecture.png)
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688)
+![LangGraph](https://img.shields.io/badge/LangGraph-0.6+-1f6feb)
+![Tests](https://img.shields.io/badge/tests-24%20passing-brightgreen)
 
-*Architecture: documents are split into chunks, embedded, and stored in an in-memory vector store. An agentic router (LangGraph) analyses each query and selects either Traversal retrieval (following graph edges through related documents) or Standard retrieval (direct vector similarity search). The chosen retriever feeds context to the Gemini LLM to produce the final answer.*
-
-An advanced <strong>Graph-based Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system leverages graph relationships between documents to provide enhanced context retrieval through intelligent routing strategies.
-
-## 📁 File Overview
-
-| File | Role |
-|------|------|
-| `graph_rag.py` | Core backend — document loading, graph construction, vector store, and both retriever types |
-| `agentic_router.py` | LangGraph workflow that analyses a query and decides which retrieval strategy to use |
-| `streamlit_app.py` | Frontend UI — Streamlit app that ties everything together |
-| `requirements.txt` | All Python dependencies |
-| `.env.example` | Template for environment variables — copy to `.env` and add your key |
-
-## ✨ Features
-
-- 🧠 **Graph-Based Intelligence**
-   - **Graph Retrieval**: Leverages document relationships for enhanced contextual understanding
-   - **Smart Edge Detection**: Automatically identifies relationships based on metadata and content patterns
-   - **Traversal Strategies**: Explores connected documents through graph relationships with configurable depth
-   - **Relationship Mapping**: Builds connections between documents for improved retrieval accuracy
-
-- 🤖 **Agentic Router System**
-   - **LangGraph Workflow**: Advanced AI-powered decision system using LangGraph state management
-   - **Query Analysis**: Intelligent analysis of query characteristics and requirements
-   - **Strategy Selection**: Automatic selection between traversal and standard retrieval approaches
-   - **Confidence Scoring**: Provides transparency in routing decisions with confidence metrics
-
-- 🔧 **Multiple Retrieval Strategies**
-   - **Traversal Retriever**: Explores graph relationships using configurable depth-based traversal
-   - **Standard Retriever**: Direct vector similarity search for straightforward queries
-   - **Hybrid Routing**: Intelligent selection based on query complexity analysis
-
-- 📄 **Multi-Format Document Support**
-   - **PDF Files**: Full text extraction and processing
-   - **TXT Files**: Plain text document processing
-   - **CSV Files**: Structured data import and processing
-   - **Default Dataset**: Built-in animal dataset for testing and demonstration
-
-### 🔧 Tech Stack
-
-- **Python**: Programming Language
-- **LangGraph**: State-of-the-art agent workflow orchestration
-- **LangChain**: Core AI framework for document processing and retrieval
-- **`langchain-graph-retriever`**: Graph-based document retrieval with edge-traversal support
-- **`graph_rag_example_helpers`**: Companion package that ships a ready-made animal dataset used for the built-in demo (installed automatically via `requirements.txt`)
-- **Gemini LLM API (Free tier)**: Google's AI models for intelligent routing and generation
-- **HuggingFace Embeddings** (`sentence-transformers/all-mpnet-base-v2`): Used here because `langchain-graph-retriever` stores embeddings inside LangChain's `InMemoryVectorStore`, which requires embeddings that are available locally without an API call. HuggingFace sentence-transformers run fully offline after the first download (~420 MB, cached automatically).
-- **Streamlit**: Interactive web interface for system interaction
-
-> **First-run note:** On the very first run the `sentence-transformers/all-mpnet-base-v2` model (~420 MB) is downloaded from HuggingFace and cached locally. Subsequent runs load it from cache. Ensure you have internet access and sufficient disk space for the initial download.
-
-## ⚡ Quick Start
-
-### 📋 Installation & Running App
-
-   1. Prerequisites
-      - Python 3.10 or higher
-      - pip (Python package installer)
-   2. Clone the repository:
-
-      ```bash
-      git clone https://github.com/genieincodebottle/generative-ai.git
-
-      # Windows
-      cd genai-usecases\advance-rag\graph-rag
-
-      # Linux / macOS
-      cd genai-usecases/advance-rag/graph-rag
-      ```
-   3. Open the project in VS Code or any code editor.
-   4. Create a virtual environment:
-
-      ```bash
-      pip install uv  # skip if uv is already installed
-      uv venv
-
-      # Windows
-      .venv\Scripts\activate
-
-      # Linux / macOS
-      source .venv/bin/activate
-      ```
-   5. Install dependencies (a `requirements.txt` is already included in this folder):
-
-      ```bash
-      uv pip install -r requirements.txt
-      ```
-   6. Configure environment — **never commit the `.env` file to version control**:
-      * Rename `.env.example` → `.env`
-      * Add your API key:
-
-        ```bash
-        GOOGLE_API_KEY=your_key_here
-        ```
-      * Get a free **GOOGLE_API_KEY** at https://aistudio.google.com/app/apikey
-
-   7. Start the Streamlit app:
-
-      ```bash
-      streamlit run streamlit_app.py
-      ```
-
-      The application will open in your browser at `http://localhost:8501`
-
-## 📋 Usage Guide
-
-1. **Initialize the System**
-   - **Option 1 — Default Data**: Click "Load Default Animal Dataset" to get started quickly
-   - **Option 2 — Upload Files**: Upload your own PDF, TXT, or CSV documents
-   - **Option 3 — Text Input**: Paste text directly into the system
-
-2. **Choose Your Retrieval Strategy**
-   - **🌐 Traversal Retriever**: Best for queries about relationships, connections, or when you need context from related documents
-   - **📊 Standard Retriever**: Ideal for direct factual questions and straightforward information lookup
-   - **🤖 Smart Router**: Let the AI automatically choose the best strategy based on your question
-
-3. **Query Your Documents**
-   - Ask questions in natural language
-   - The system will analyze your query and route it appropriately
-   - View detailed results including confidence scores and routing decisions
-
-4. **Compare Retrieval Strategies**
-   - Use the comparison feature to see how different retrievers perform on the same query
-   - Understand which strategy works best for different types of questions
-
-5. **Review Results & Sources**
-   - Examine retrieved documents and their metadata
-   - View detected graph relationships
-   - Analyze routing decisions and confidence scores
-
-## 📁 Supported File Types
-
-1. **Documents**:
-   - **PDF**: Full text extraction and processing
-   - **TXT**: Plain text files
-   - **CSV**: Structured data files
-
-2. **Content Processing**:
-   - **Text Chunks**: Intelligent splitting with configurable size and overlap
-   - **Embeddings**: Vector representations using HuggingFace sentence-transformers (local, offline after first download)
-   - **Graph Relationships**: Auto-detected based on metadata and content patterns
-
-## 🎯 Sample Use Cases
-
-1. **Research & Analysis**: Upload research papers, technical documents, and academic materials for intelligent querying
-2. **Business Intelligence**: Process company documents, reports, and policies with relationship-aware retrieval
-3. **Knowledge Management**: Organize and query interconnected documentation with graph-based context
-4. **Educational Support**: Study materials, textbooks, and reference documents with intelligent routing
-5. **Content Exploration**: Explore relationships between different topics and concepts in your document collections
-
-## 🎨 User Interface
-
-The web interface provides **4 intuitive sections**:
-
-### 📁 Document Management
-- Upload PDF, TXT, and CSV documents
-- Load default animal dataset for testing
-- Process documents into vector store with relationship detection
-
-### 💬 Query Interface
-- Natural language query input
-- Real-time answer generation with strategy selection
-- Confidence scoring and routing transparency
-- Performance metrics display
-
-### 🔍 Retriever Comparison
-- Side-by-side comparison of all three retrieval strategies
-- Visual comparison of results and context
-- Strategy performance analysis
-
-### 🧠 System Configuration
-- Configurable system parameters
-- View detected graph relationships
-- Monitor system status and settings
-
-## 🏗️ System Process Flow
-
-```
-Documents → Text Splitting → Vector Embeddings → Edge Detection
-                                                      ↓
-Query → LangGraph Router → Strategy Analysis → Retriever Selection
-                                                      ↓
-Selected Retriever → Graph Traversal/Vector Search → Context → LLM → Answer
-```
-
-## 🔍 Query Routing Logic
-
-The Agentic Router uses LangGraph to analyze queries and make intelligent routing decisions:
-
-1. **Query Analysis**: LLM analyzes query characteristics and requirements
-2. **Strategy Selection**: Chooses between TRAVERSAL or STANDARD based on query type
-3. **Confidence Scoring**: Provides transparency in routing decisions
-4. **Execution**: Routes to selected retriever with detailed reasoning
-
-## 🔍 Example Queries
-
-Try these sample queries to explore the Graph RAG system's capabilities:
-
-1. **Traversal Retriever Best For**
-   - "What animals share similar habitats and how are they related?"
-   - "Compare animals from different origins and their characteristics."
-   - "Find connections between different animal categories."
-
-2. **Standard Retriever Best For**
-   - "What is a capybara?"
-   - "List all mammals in the dataset."
-   - "Where do elephants live?"
-
-3. **Smart Router Examples**
-   - "How do habitat preferences vary across different animal species?" (→ Traversal)
-   - "What type of animal is a penguin?" (→ Standard)
-   - "Analyze the relationship between animal size and habitat." (→ Traversal)
-
-## 📈 Advanced Features
-
-### 🧠 Automatic Edge Detection
-
-The system intelligently detects graph relationships based on your data:
-
-**For Animal Dataset:**
-```python
-# Automatically detects these relationships
-edges = [
-    ("habitat", "habitat"),    # Animals sharing habitats
-    ("origin", "origin"),      # Geographic connections
-    ("category", "category")   # Type-based groupings (mammal, bird, etc.)
-]
-```
-
-**For Custom Documents:**
-```python
-# Auto-detects based on metadata and content
-relationship_patterns = {
-    'source': 'source',        # Document source relationships
-    'author': 'author',        # Same author connections
-    'category': 'category',    # Category-based links
-    'topic': 'topic',          # Topic similarity
-    'location': 'location',    # Geographic connections
-    'date': 'date',            # Temporal relationships
-    'department': 'department' # Organizational links
-}
-
-# Content-based patterns
-content_patterns = {
-    'person': ['person', 'people', 'individual', 'name'],
-    'organization': ['company', 'organization', 'corp'],
-    'location': ['city', 'country', 'state', 'region'],
-    'technology': ['software', 'system', 'platform'],
-    'concept': ['concept', 'idea', 'theory', 'method']
-}
-```
-
-### ⚙️ Retrieval Strategy Configuration
-
-**Traversal Retriever:**
-```python
-GraphRetriever(
-    store=vector_store,
-    edges=detected_edges,
-    strategy=Eager(
-        k=5,           # Total documents to retrieve
-        start_k=1,     # Initial seed documents
-        max_depth=2    # Maximum traversal depth
-    )
-)
-```
-
-**Standard Retriever:**
-```python
-GraphRetriever(
-    store=vector_store,
-    edges=detected_edges,
-    strategy=Eager(
-        k=5,           # Documents to retrieve
-        start_k=5,     # All from initial search
-        max_depth=0    # No traversal (direct similarity only)
-    )
-)
-```
-
-### 🔧 Configurable Parameters
-
-- **Chunk Size**: Default 1000 characters (configurable in `GraphRAGConfig`)
-- **Chunk Overlap**: Default 200 characters for context continuity
-- **K Retrieval**: Default 5 documents retrieved per query
-- **Max Depth**: Default 2 levels for graph traversal
-- **Embedding Model**: `sentence-transformers/all-mpnet-base-v2` (HuggingFace, local)
-
-## 🔧 Troubleshooting
-
-### 🛑 Common Issues
-
-1. **Google API Key Error**
-   ```
-   Error: GOOGLE_API_KEY environment variable not set
-   ```
-   **Solution**: Ensure your Google API key is properly set in the `.env` file
-
-2. **HuggingFace Model Download Hangs or Fails**
-   ```
-   OSError: Can't load tokenizer for 'sentence-transformers/all-mpnet-base-v2'
-   ```
-   **Solution**: Ensure you have internet access on first run. The model (~420 MB) is downloaded once and then cached. If download fails midway, delete the cache folder (`~/.cache/huggingface/`) and retry.
-
-3. **Document Loading Failures**
-   ```
-   Error: No documents could be loaded from files
-   ```
-   **Solution**: Ensure document files exist and are in supported formats (PDF, TXT, CSV)
-
-4. **Memory Issues with Large Documents**
-   ```
-   ChromaDB memory error or slow processing
-   ```
-   **Solution**: Reduce `chunk_size` in `GraphRAGConfig` or process documents in smaller batches
-
-5. **No Graph Relationships Detected**
-   ```
-   Warning: No edges detected, using default relationships
-   ```
-   **Solution**: Ensure documents have meaningful metadata or content patterns for relationship detection
-
-6. **Router Decision Errors**
-   ```
-   Error in routing workflow
-   ```
-   **Solution**: Check LLM connectivity and ensure proper initialization of both retrievers
-
-## ⚡ Performance Tips
-
-1. **For Better Speed**: Use smaller chunk sizes (500-800) for faster processing
-2. **For Better Context**: Use larger chunk sizes (1200-2000) for comprehensive retrieval
-3. **Graph Traversal**: Set `max_depth=1` for faster queries, `max_depth=2` for comprehensive exploration
-4. **Retrieval Count**: Use `k_retrieval=3-5` for balanced performance
-5. **Smart Routing**: Let the agentic router choose the optimal strategy automatically
-6. **File Organization**: Group related documents for better relationship detection
-7. **Query Specificity**: More specific questions yield better routing and retrieval results
-
-## 🔐 Security Notes
-
-- Never commit your `.env` file to version control
-- Keep your API keys secure and rotate them if accidentally exposed
+**Vector search finds documents that *look like* your question. Some answers
+only exist in what those documents *connect to*.**
 
 ---
-<strong>RAG On.. 🔥</strong>
+
+## 1. The problem, demonstrated
+
+Same dataset, same question, two retrievers. Real output from this project:
+
+> **Question:** Which animals live in the same habitat as the aardvark?
+
+| Retriever | Answer |
+|---|---|
+| **Standard vector** | *"The aardvark's habitat is the savanna. **None of the other animals listed share this habitat.** Narwhals: Arctic. Caribou: tundra. Bears: forests..."* |
+| **Graph traversal** | *"The aardvark's habitat is the savanna. The other animals that share this habitat are: **Gazelles, Lions, Cheetahs, Ostriches**."* |
+
+The standard retriever is not broken and it is not hallucinating. It did
+exactly what it is designed to do: it embedded *"animals in the same habitat as
+the aardvark"* and returned the documents nearest to that sentence - which are
+documents **about aardvarks and about animals in general**. Gazelles and lions
+are not textually similar to that question, so they never entered the context,
+and the model correctly reported that nothing in its context matched.
+
+It produced a confident, well-written, wrong answer with no error and no
+warning.
+
+Graph traversal starts from the same vector hits, then walks the
+`habitat -> habitat` edge to every other document with the same value. The
+lions were one hop away the whole time.
+
+## 2. When traversal is the wrong tool
+
+Traversal is not a free upgrade. It costs an edge-detection pass over your
+corpus, and on questions with no relational structure (*"summarise this
+document"*) it just retrieves more text.
+
+That is what the third option is for. The **agentic router** reads the question
+and picks, then tells you why:
+
+```
+router: traversal | confidence 0.95
+```
+
+You can also ask it to explain without answering, via
+`POST /routing-explanation`, which is the interesting endpoint if you are
+trying to learn how the routing decision is made.
+
+## 3. The shape of it
+
+![Architecture: a thin Streamlit UI calls a FastAPI routing layer over HTTP, which calls a framework-free service layer](docs/img/architecture.svg)
+
+## 4. A defect this restructure fixed
+
+`graph_rag.py` used to do this at **module level**:
+
+```python
+if 'GOOGLE_API_KEY' not in os.environ:
+    raise ValueError("GOOGLE_API_KEY environment variable not set...")
+```
+
+Raising at import time means the module cannot be imported at all without a
+key. The API could not start and then report a helpful message - it died while
+loading. No test could import the module either, which is why there were none.
+
+The check now happens where the key is actually used:
+
+```python
+def _initialize_components(self):
+    require_api_key()          # raises MissingAPIKey, caught by the API as 503
+```
+
+`GET /health` now answers `{"google_key": false}` instead of the process
+refusing to start, and 24 tests import the module with no key set.
+
+## 5. Run it
+
+### Clone
+
+```bash
+git clone https://github.com/genieincodebottle/generative-ai.git
+cd generative-ai/genai-usecases/advance-rag/graph-rag
+```
+
+### Set up with uv
+
+```bash
+pip install uv
+
+uv venv
+source .venv/bin/activate      # Linux / macOS
+# .venv\Scripts\activate       # Windows PowerShell or cmd
+
+uv pip install -r requirements.txt
+```
+
+Python 3.10+.
+
+### Add a key
+
+```bash
+cp .env.example .env           # copy .env.example .env  on Windows
+```
+
+`GOOGLE_API_KEY` from [Google AI Studio](https://aistudio.google.com/app/apikey)
+(free tier). Embeddings run **locally** on CPU (`all-mpnet-base-v2`), so the
+first load downloads about 420 MB. That is a one-time cost.
+
+### Start both services
+
+```bash
+python run.py
+```
+
+```
+API   ->  http://localhost:8000/docs
+UI    ->  http://localhost:8501
+```
+
+### Reproduce the result in section 1
+
+1. Press **Use sample** in the sidebar. This loads a small animals dataset -
+   no files needed - and prints the edges it detected
+   (`habitat`, `origin`, `category`).
+2. Pick **Standard vector** and ask *"Which animals live in the same habitat as
+   the aardvark?"*
+3. Switch to **Graph traversal** and ask the identical question.
+
+### Run the tests
+
+```bash
+pytest                         # 24 tests, no API key, no network
+```
+
+## 6. The API
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/health` | Liveness, whether the key is set, whether documents are loaded |
+| `GET` | `/catalogue` | Models, the three retrievers, defaults |
+| `GET` | `/status` | Loaded source, detected edges, active config |
+| `POST` | `/configure` | Rebuild with new settings (clears loaded documents) |
+| `POST` | `/documents` | Index uploads, or `use_sample=true` |
+| `POST` | `/query` | Ask, with `retriever` = traversal / standard / hybrid |
+| `POST` | `/routing-explanation` | What the router would pick, and why - without answering |
+
+```bash
+curl -s -X POST http://localhost:8000/documents -F "use_sample=true"
+
+curl -X POST http://localhost:8000/query \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"Which animals live in the same habitat as the aardvark?",
+       "retriever":"traversal"}'
+```
+
+## 7. If something goes wrong
+
+| symptom | cause | fix |
+|---|---|---|
+| UI says "Cannot reach the API" | Streamlit started on its own | use `python run.py` |
+| `503 GOOGLE_API_KEY is not set` | `.env` missing or unfilled | `cp .env.example .env`, add the key, restart |
+| First load takes several minutes | downloading the local embedding model (~420 MB) | expected once |
+| `409 No documents are loaded` | nothing indexed yet | press **Use sample**, or upload files |
+| `422 not a .pdf, .txt or .csv` | unsupported file type | convert it, or use a supported type |
+| Standard retriever gives a poor answer | that is the point of section 1 | switch to traversal |
+| No edges detected | your documents share no repeated metadata values | traversal needs structure to walk |
+| Port already in use | something else has 8000/8501 | `API_PORT=8100 UI_PORT=8600 python run.py` |
+
+## 8. Layout
+
+```
+run.py                       starts the API and the UI together
+.env.example                 the key, and where to get it
+.streamlit/config.toml       turns off Streamlit's own start-up advert
+
+ui/app.py                    Streamlit. Retriever picker + requests only.
+
+api/main.py                  7 routes, upload handling, status mapping
+
+services/graph_rag.py        EDGE DETECTION, traversal and standard retrievers
+services/agentic_router.py   LangGraph router: which retriever, and why
+services/manager.py          one system, upload validation, the key check
+services/llm_text.py         flattens Gemini 3 content blocks to text
+
+tests/test_manager.py        validation, config guards, the key check, 13 cases
+tests/test_api.py            routes and status codes, 11 cases
+```
+
+## 9. Track modules this covers
+
+`graphRag` - `rag` - `knowledgeGraphs` - `langGraph` - `embeddings` -
+`agenticRouting`
+
+## 10. Honest limitations
+
+- **Edges come from repeated metadata values, not from understanding.** Two
+  documents are connected when they share a `habitat` value. That works
+  beautifully on structured data like this dataset and does very little on a
+  pile of unstructured prose with no shared fields.
+- **The animals dataset is chosen to make traversal win.** It has clean,
+  repeated categorical metadata. Your corpus probably does not, and on a
+  corpus without structure, standard vector search is the right answer.
+- **No scored evaluation.** Section 1 is one reproducible example, not a
+  benchmark.
+- **Embeddings are local and single-threaded.** Fine for a demo corpus, slow
+  for thousands of documents.
+- **The index is in memory and global.** Restart the API and it is gone;
+  `POST /configure` rebuilds the single instance every client shares.
+- **CORS is wide open** because both halves run on localhost.

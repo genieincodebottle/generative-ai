@@ -81,7 +81,7 @@ async def lifespan(app: FastAPI):
     # Initialize workflow
     logger.info("Creating moderation workflow...")
     fast_mode_enabled = os.getenv("ENABLE_FAST_MODE", "true").lower() == "true"
-    logger.info(f"   Fast Mode: {'✅ Enabled' if fast_mode_enabled else '❌ Disabled'}")
+    logger.info(f"   Fast Mode: {'Enabled' if fast_mode_enabled else 'Disabled'}")
     if fast_mode_enabled:
         max_length = os.getenv("FAST_MODE_MAX_LENGTH", "200")
         content_types = os.getenv("FAST_MODE_CONTENT_TYPES", "story_comment")
@@ -97,7 +97,7 @@ async def lifespan(app: FastAPI):
     logger.info(f"   ML_USE_ENSEMBLE: {MLConfig.use_ensemble()}")
     logger.info(f"   ML_PRELOAD_MODELS: {MLConfig.should_preload()}")
     logger.info(f"   ML_DEVICE: {MLConfig.get_device()}")
-    
+
     if MLConfig.is_ml_enabled() and MLConfig.should_preload():
         logger.info("\nPreloading ML models (this may take a moment)...")
         ml_status = preload_ml_models()

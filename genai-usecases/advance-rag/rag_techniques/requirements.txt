@@ -1,14 +1,36 @@
-streamlit>=1.47.1
+# --- API (routing layer) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+python-multipart>=0.0.20
+
+# --- UI (thin Streamlit client) ---
+streamlit>=1.49.1
+requests>=2.32.0
+
+# --- Business logic: retrieval and generation ---
 langchain>=0.3.27
-langchain-google-genai>=2.1.8
+langchain-core>=0.3.76
+langchain-community>=0.3.29
 langchain-chroma>=0.2.5
-langchain-community>=0.3.20
-langchain-text-splitters>=0.3.0
-langchain-groq>=0.3.0
-langchain-huggingface>=0.1.2
-sentence-transformers>=3.0.0
-nest-asyncio>=1.6.0
+langchain-text-splitters>=0.3.8
+langchain-google-genai>=2.1.12
+langchain-groq>=0.3.8
 pypdf>=5.9.0
 python-dotenv>=1.0.1
-flashrank>=0.2.10
+
+# --- Hybrid search (BM25 half of the ensemble) ---
 rank_bm25>=0.2.2
+
+# --- Re-rankers. Embeddings Filter needs nothing extra; these add options.
+flashrank>=0.2.10
+sentence-transformers>=3.0.0
+
+# --- Only needed for the Groq provider (Groq serves no embedding model,
+#     so retrieval runs locally on CPU)
+langchain-huggingface>=0.1.2
+einops>=0.8.0
+
+# --- Tests (offline; no API key needed) ---
+pytest>=8.3.0
+httpx>=0.27.0

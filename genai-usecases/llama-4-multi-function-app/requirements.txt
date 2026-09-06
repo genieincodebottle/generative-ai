@@ -1,36 +1,35 @@
-# UI
-streamlit>=1.43.2
+# --- API (routing layer) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+python-multipart>=0.0.20
 
-# LLM Providers
-groq>=0.22.0
-google-genai>=1.5.0
-
-# LangChain
-langchain>=0.3.20
-langchain-groq>=0.3.2
-langchain-huggingface>=0.1.2
-langchain-community>=0.3.20
-
-# CrewAI
-crewai>=0.190.0
-crewai-tools>=0.73.0
-
-# Document Processing
-pypdf>=4.0.0
-
-# Vector Store & Embeddings
-faiss-cpu>=1.7.4
-sentence-transformers>=3.0.0
-
-# Evaluation
-ragas>=0.2.0
-datasets>=2.20.0
-
-# Data & Visualization
+# --- UI (thin Streamlit client) ---
+streamlit>=1.49.1
+requests>=2.32.0
 pandas>=2.0.0
 plotly>=5.24.0
+
+# --- Primary provider: Llama 4 on Groq (chat + vision) ---
+groq>=0.22.0
+
+# --- Fallback and RAG evaluation ---
+langchain-google-genai>=2.1.12
+google-genai>=1.5.0
+
+# --- Retrieval ---
+langchain>=0.3.20
+langchain-core>=0.3.20
+langchain-community>=0.3.20
+langchain-text-splitters>=0.3.0
+langchain-huggingface>=0.1.2
+faiss-cpu>=1.7.4
+sentence-transformers>=3.0.0
+pypdf>=4.0.0
 pillow>=10.2.0
 
-# Utilities
 python-dotenv>=1.1.0
-streamlit-chat>=0.1.1
+
+# --- Tests (offline; no key and no model download needed) ---
+pytest>=8.3.0
+httpx>=0.27.0
