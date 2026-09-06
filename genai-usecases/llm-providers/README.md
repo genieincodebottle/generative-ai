@@ -145,10 +145,10 @@ through `message_text()` instead of touching `.content` directly.
 - **Cross-provider comparison here is qualitative.** The apps make it easy to
   ask the same question of four providers; they do not score the answers, and
   four samples is not a benchmark.
-- **Only the Gemini app was booted end to end in this revision.** The Groq,
-  OpenAI and Anthropic paths were verified by install, import, and static
-  check against each vendor's current model list - no key for them was
-  available.
+- **The Gemini, Groq, OpenAI and Anthropic apps were all booted end to end**
+  in this revision. Booting proves wiring, imports and the key guard - it
+  does not prove every model in each dropdown answers, and the OpenAI key
+  used had no credit to spend on a real call.
 - **Paid providers cost real money per call.** The apps have no spend guard.
 - **Keys live in a plaintext `.env`.** Fine locally; not how you would deploy
   this.

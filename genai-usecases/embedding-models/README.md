@@ -128,9 +128,10 @@ Two rules that matter more than the choice itself:
   single highest-leverage thing to change in a RAG pipeline.
 - **The vector store is in memory.** It disappears when the kernel restarts,
   so every run re-embeds the whole article.
-- **Only the Google path is verified end to end** in this revision. The OpenAI
-  and HuggingFace sections are correct against their current APIs but were not
-  run - no key, and no GPU.
+- **The Google and HuggingFace paths are verified end to end**; the local
+  `nomic-embed-text-v1.5` returns 768 dimensions on CPU. The OpenAI section
+  is correct against the current API but could not be executed - the key
+  available had no credit.
 
 ## 7. Further reading
 

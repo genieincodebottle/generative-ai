@@ -64,6 +64,11 @@ provider or model is a one-line edit:
 llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0.5)
 ```
 
+One exception: `automatic_reasoning_and_tool_use.ipynb` uses
+**`qwen/qwen3.6-27b`**. ART teaches a *text* tool protocol - the model writes
+JSON and the notebook parses it - and a tool-calling-native model emits a real
+tool call instead, which the API then rejects because no tools were bound.
+
 `prompt_engineering_main.ipynb` is the multi-provider notebook: it shows the
 same techniques against Groq, Gemini, OpenAI and Claude, with each provider in
 its own cell.
@@ -135,6 +140,8 @@ that you are comparing single samples of a non-deterministic system.
 | `model_not_found` / `model_decommissioned` on Groq | a retired model ID | use `openai/gpt-oss-20b`; see the note above |
 | `401 Invalid API Key` | key pasted with a newline | re-copy from the provider console |
 | `429 Too Many Requests` | free-tier rate limit | wait, or lower the sample count in Self-Consistency |
+| `400 Tool choice is none, but model called a tool` | a tool-calling-native model against a text tool protocol | use `qwen/qwen3.6-27b`, as ART does |
+| A cell returns success but prints nothing | some models put everything in a reasoning field | check `response.additional_kwargs`; try another model |
 | `ImportError: langchain_groq` | first cell skipped | run the install cell |
 | `ImportError` for openai / anthropic / google | that provider is optional | install only the provider you use |
 | Ollama notebook cannot connect | Ollama not running | `ollama serve`, then `ollama pull llama3.2` |
@@ -151,9 +158,10 @@ that you are comparing single samples of a non-deterministic system.
   next step, and it is the step most people skip.
 - **Results are non-deterministic** at any temperature above 0, and several
   notebooks deliberately use a higher temperature.
-- **The Groq path is unverified against a live key in this revision.** The
-  model ID was updated to the vendor's stated replacement for a
-  decommissioned model; the code around it is unchanged.
+- **All 14 Groq notebooks were run end to end against a live key.** Two
+  needed real fixes to get there, and one uses `qwen/qwen3.6-27b` rather
+  than `gpt-oss`: ART teaches a *text* tool protocol, and a tool-calling
+  native model emits a real tool call that the API then rejects.
 - **Cost is not shown.** Self-Consistency and Tree-of-Thoughts issue many
   calls per question. On a free tier that is a rate limit rather than a bill,
   but the arithmetic is the same.
