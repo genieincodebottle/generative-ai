@@ -6,7 +6,7 @@
    <a target="_blank" href="https://www.youtube.com/@genieincodebottle"><img src="https://img.shields.io/badge/YouTube-11.5K-blue"></a>&nbsp;
    <a target="_blank" href="https://github.com/genieincodebottle/generative-ai"><img src="https://img.shields.io/github/stars/genieincodebottle/generative-ai"></a>&nbsp;
    <a target="_blank" href="https://www.linkedin.com/in/rajesh-srivastava"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>&nbsp;
-   <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/56K-C13584?style=round-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/eduardopiresbr/"></a>&nbsp;
+   <a target="_blank" href="https://www.instagram.com/genieincodebottle/"><img src="https://img.shields.io/badge/56K-C13584?style=round-square&labelColor=C13584&logo=instagram&logoColor=white&link=https://www.instagram.com/genieincodebottle/"></a>&nbsp;
    <a target="_blank" href="https://medium.com/@raj-srivastava"><img src="https://img.shields.io/badge/Medium-12100E?style=round-square&style=for-the-badge&logo=medium"></a>&nbsp;
     <a target="_blank" href="https://x.com/zero2nn"><img src="https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=%20%40zero2nn"></a>
 </div>
@@ -16,7 +16,7 @@
 
 I built **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=intro)** - every AI, ML, GenAI and Agentic AI concept covered here, taught visually with animated diagrams, quizzes, and hands-on Python. The guides below are the **full, continuously-updated versions** of the reference material in this repo.
 
-**300+ modules • 22 tracks • 9 real-world projects • free to start**
+**400+ modules • 28 tracks • 23 real-world projects • free to start**
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
 <br><br/>
@@ -36,7 +36,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ## 📖 Documentation & Learning Resources
 
 ### 🎯 Getting Started
-- **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Interactive AI/ML learning platform with 22 tracks, 300+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)
+- **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Interactive AI/ML learning platform with 28 tracks, 400+ modules, visualizations, quizzes, and hands-on coding (ML fundamentals → LLMs → MLOps)
 - **[GenAI Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Your complete learning path for GenAI (interactive) &nbsp;·&nbsp; [markdown](./GenAI_Roadmap.md)
 - **[AI/ML Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=resources)** - Comprehensive AI/ML learning  &nbsp;·&nbsp; [PDF](./docs/ai_ml_roadmap.pdf)
 
@@ -60,7 +60,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 
 ### 💼 Career & Interview Preparation
 
-**[Interview Q&A track](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=interview)** - 13 always-current Q&A modules across ML, GenAI, and Agentic AI (free preview questions, full sets with Pro). The PDFs below are downloadable companions to these live modules.
+**[Interview Q&A track](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=interview)** - 20 always-current Q&A modules across ML, GenAI, and Agentic AI (free preview questions, full sets with Pro). The PDFs below are downloadable companions to these live modules.
 
 - **[GenAI & Transformers Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=readme&utm_campaign=interview)** - GenAI and transformer interview prep &nbsp;·&nbsp; [PDF](./docs/genai-interview-questions.pdf)
 - **[RAG, Prompting & Modern GenAI Q&A](https://aimlcompanion.ai/module/interviewScenarios/ivRAGPromptEng?utm_source=github&utm_medium=readme&utm_campaign=interview)** - Retrieval, prompting and applied GenAI
@@ -85,7 +85,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🤖 Agentic AI & Orchestration
 - **[Agentic AI](./genai-usecases/agentic-ai/)** - Multi-agent systems with CrewAI & LangGraph frameworks
 - **[Tura](https://github.com/Tura-AI/tura)** - Local, open-source coding agent with CLI, TUI, web, and desktop interfaces for context-aware development workflows
-- **[AI Patterns](./genai-usecases/ai-patterns/)** - 25 advanced reasoning patterns (Chain-of-Thought, ReAct, Tree-of-Thought, Meta-Prompting, etc.)
+- **[AI Patterns](./genai-usecases/ai-patterns/)** - 23 advanced reasoning patterns (Chain-of-Thought, ReAct, Tree-of-Thought, Meta-Prompting, etc.)
 - **[MCP - Model Context Protocol](./genai-usecases/mcp/)** - Standard protocol for LLM tool interoperability with web search
 - **[Multi-Agentic Prod Grade Content Moderation System](./genai-usecases/content-moderation-system/)** - AI-Powered Multi-Agentic Content Moderation System with React Frontend
 - **[Handling Latency in Multi-Agentic System](./docs/handling-latency-in-multi-agentic-systems.pdf)** - How to handle Latency in Multi-Agentic System 
@@ -110,7 +110,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 - **[Prompt Guard](./genai-usecases/prompt-guard/)** - Detect prompt injections and jailbreak attempts using Meta's Llama Guard
 
 ### 🖼️ Multimodal & Specialized
-- **[Gemini Nano Banana](./genai-usecases/gemini-nano-banana/)** - Text-to-image generation with Gemini 2.5 Flash
+- **[Gemini Nano Banana](./genai-usecases/gemini-nano-banana/)** - Text-to-image generation with Gemini 2.5 Flash Image
 - **[Llama 4 Multi-Function App](./genai-usecases/llama-4-multi-function-app/)** - All-in-one app: chat, OCR, RAG, and agentic AI
 
 ### ⚡ Automation
@@ -121,10 +121,10 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🔗 Quick Access Links
 | Category | Resources |
 |----------|-----------|
-| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=table) — Interactive AI/ML learning with 22 tracks, 300+ modules, quizzes & coding |
+| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=table) — Interactive AI/ML learning with 28 tracks, 400+ modules, quizzes & coding |
 | **Learning Path** | [GenAI Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=table) • [AI/ML Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=table) |
 | **Cloud Platforms** | [AWS](./docs/genai-with-aws-cloud.pdf) • [Azure](./docs/genai-with-azure-cloud.pdf) • [VertexAI](./docs/genai-with-vertexai.pdf) |
-| **Interview Prep** | [Interview Q&A track (13 modules)](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=table) • [GenAI](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=readme&utm_campaign=table) • [Agentic AI](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) • [LLM](https://aimlcompanion.ai/module/interviewScenarios/llmInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) |
+| **Interview Prep** | [Interview Q&A track (20 modules)](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=table) • [GenAI](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=readme&utm_campaign=table) • [Agentic AI](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) • [LLM](https://aimlcompanion.ai/module/interviewScenarios/llmInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) |
 | **Popular Projects** | [Advanced RAG](./genai-usecases/advance-rag/) • [Agentic AI](./genai-usecases/agentic-ai/) • [Text-to-SQL](./genai-usecases/text-to-sql/) |
 
 <hr>
