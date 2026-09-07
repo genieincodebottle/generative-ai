@@ -29,7 +29,7 @@ Examples of unsupervised learning tasks:
 - Generative modeling: Learn the underlying distribution of data to generate new samples. Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs) can generate realistic images, text, and audio.
 
 Reinforcement Learning
-In reinforcement learning (RL), an agent learns by interacting with an environment. The agent takes actions, receives rewards (positive feedback) or penalties (negative feedback), and learns a policy — a mapping from states to actions — that maximizes cumulative reward over time.
+In reinforcement learning (RL), an agent learns by interacting with an environment. The agent takes actions, receives rewards (positive feedback) or penalties (negative feedback), and learns a policy - a mapping from states to actions - that maximizes cumulative reward over time.
 
 RL has achieved superhuman performance in games (AlphaGo, AlphaZero, OpenAI Five for Dota 2) and is increasingly applied to robotics, recommendation systems, and optimizing industrial processes. It is also a key technique in training large language models (LLMs) through Reinforcement Learning from Human Feedback (RLHF).
 
@@ -45,7 +45,7 @@ Logistic regression extends linear regression to classification by applying a si
 Decision Trees
 A decision tree partitions the feature space into regions by asking a sequence of binary questions. For example: "Is the person's age greater than 30? If yes, is their income greater than $50,000?" Each branch represents a decision, and the leaves represent predicted outputs.
 
-Decision trees are interpretable — you can follow the path from root to leaf to understand exactly why a prediction was made. However, they are prone to overfitting if grown too deep.
+Decision trees are interpretable - you can follow the path from root to leaf to understand exactly why a prediction was made. However, they are prone to overfitting if grown too deep.
 
 Random Forests
 A random forest is an ensemble of many decision trees. Each tree is trained on a random subset of the training data (bootstrap sampling), and at each split, only a random subset of features is considered. The final prediction is made by majority vote (classification) or averaging (regression) across all trees.
@@ -81,7 +81,7 @@ Key data preparation steps:
 - Splitting data: Divide data into training, validation, and test sets
 
 Training and Optimization
-Training a model means finding the parameters (weights) that minimize a loss function — a mathematical measure of how wrong the model's predictions are. The most common optimization algorithm is stochastic gradient descent (SGD) and its variants (Adam, RMSProp).
+Training a model means finding the parameters (weights) that minimize a loss function - a mathematical measure of how wrong the model's predictions are. The most common optimization algorithm is stochastic gradient descent (SGD) and its variants (Adam, RMSProp).
 
 The training loop:
 1. Sample a mini-batch of training examples
@@ -92,7 +92,7 @@ The training loop:
 6. Repeat until convergence
 
 Hyperparameter Tuning
-Hyperparameters are settings that control the training process and model architecture — they are not learned from data but set before training begins. Examples include learning rate, number of trees in a random forest, number of layers in a neural network, and regularization strength.
+Hyperparameters are settings that control the training process and model architecture - they are not learned from data but set before training begins. Examples include learning rate, number of trees in a random forest, number of layers in a neural network, and regularization strength.
 
 Tuning hyperparameters is typically done through grid search (trying all combinations), random search (sampling random combinations), or Bayesian optimization (using a probabilistic model to select promising combinations).
 
@@ -156,7 +156,7 @@ Bias and Fairness
 ML models can inherit and amplify biases present in training data. Facial recognition systems have been shown to have higher error rates for darker-skinned faces. Hiring algorithms trained on historical data can perpetuate historical discrimination. Identifying, measuring, and mitigating bias is a critical aspect of responsible ML development.
 
 Explainability
-Many powerful models, including deep neural networks, are "black boxes" — it is difficult to understand why they made a specific prediction. In high-stakes domains like healthcare, credit decisions, and criminal justice, explainability is legally and ethically required. Techniques like SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) help make black-box models more interpretable.
+Many powerful models, including deep neural networks, are "black boxes" - it is difficult to understand why they made a specific prediction. In high-stakes domains like healthcare, credit decisions, and criminal justice, explainability is legally and ethically required. Techniques like SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) help make black-box models more interpretable.
 
 Data Privacy
 Training ML models often requires large amounts of personal data. Federated learning allows models to be trained across distributed devices (like smartphones) without centralizing sensitive data. Differential privacy adds mathematical noise to ensure individual data points cannot be reconstructed from model outputs.
@@ -165,4 +165,4 @@ Training ML models often requires large amounts of personal data. Federated lear
 
 CONCLUSION
 
-Machine learning is a rapidly evolving field with powerful tools for solving problems that were previously intractable. The fundamentals covered here — supervised, unsupervised, and reinforcement learning; key algorithms; the training process; evaluation; and ethical considerations — provide the foundation for understanding and applying ML in practice. The field continues to advance rapidly, with large language models, multimodal AI, and autonomous agents pushing the boundaries of what is possible.
+Machine learning is a rapidly evolving field with powerful tools for solving problems that were previously intractable. The fundamentals covered here - supervised, unsupervised, and reinforcement learning; key algorithms; the training process; evaluation; and ethical considerations - provide the foundation for understanding and applying ML in practice. The field continues to advance rapidly, with large language models, multimodal AI, and autonomous agents pushing the boundaries of what is possible.

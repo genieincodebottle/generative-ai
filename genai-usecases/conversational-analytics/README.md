@@ -29,7 +29,7 @@ A full-stack Generative AI application that analyzes customer feedback to automa
 - Topic detection and categorization
 - Trend identification and tracking
 - Role-based access control (Admin and User roles)
-- Dual LLM support — **Groq (primary)** and **Google Gemini (secondary)**
+- Dual LLM support - **Groq (primary)** and **Google Gemini (secondary)**
 
 ---
 
@@ -39,9 +39,9 @@ A full-stack Generative AI application that analyzes customer feedback to automa
 |---|---|
 | Frontend | React 18, TypeScript, Material-UI v5 |
 | Backend | Python 3.11, FastAPI, LangChain |
-| Database | MongoDB (runs inside Docker — no separate install needed) |
-| LLM (Primary) | Groq API (free) — Llama 3.3 70B |
-| LLM (Secondary) | Google Gemini API (free) — Gemini 2.0 Flash |
+| Database | MongoDB (runs inside Docker - no separate install needed) |
+| LLM (Primary) | Groq API (free) - Llama 3.3 70B |
+| LLM (Secondary) | Google Gemini API (free) - Gemini 2.0 Flash |
 | Auth | JWT (JSON Web Tokens) with bcrypt password hashing |
 | Containerization | Docker & Docker Compose |
 
@@ -86,13 +86,13 @@ conversational-analytics/
 
 Before you start, install these on your system:
 
-1. **Git** — [Download here](https://git-scm.com/downloads)
-2. **Docker Desktop** — [Download here](https://docs.docker.com/engine/install/)
+1. **Git** - [Download here](https://git-scm.com/downloads)
+2. **Docker Desktop** - [Download here](https://docs.docker.com/engine/install/)
    - After installing, make sure Docker Desktop is **running**
 3. **One free LLM API key** (choose one):
-   - **Groq (recommended)** — [Get free key](https://console.groq.com/keys) — Sign up, create an API key
-   - **Google Gemini** — [Get free key](https://aistudio.google.com/app/apikey)
-4. **Postman** (optional, for creating admin user) — [Download here](https://www.postman.com/downloads/)
+   - **Groq (recommended)** - [Get free key](https://console.groq.com/keys) - Sign up, create an API key
+   - **Google Gemini** - [Get free key](https://aistudio.google.com/app/apikey)
+4. **Postman** (optional, for creating admin user) - [Download here](https://www.postman.com/downloads/)
    - You can also use the `curl` command instead of Postman
 
 ---
@@ -137,13 +137,13 @@ SECRET_KEY=<paste_the_generated_key_here>
 
 Open the `.env` file and update it:
 
-**Option A — Using Groq (Recommended / Primary):**
+**Option A - Using Groq (Recommended / Primary):**
 ```env
 LLM_PROVIDER="groq"
 GROQ_API_KEY="your_groq_api_key_here"
 ```
 
-**Option B — Using Google Gemini:**
+**Option B - Using Google Gemini:**
 ```env
 LLM_PROVIDER="gemini"
 GOOGLE_API_KEY="your_gemini_api_key_here"
@@ -174,7 +174,7 @@ Wait for all 3 services to start (frontend, backend, mongo). You'll see logs fro
 
 Normal users can register via the UI, but **admin users** must be created via API call.
 
-**Option A — Using curl:**
+**Option A - Using curl:**
 ```bash
 curl --location "http://localhost:8000/register" \
 --header "Content-Type: application/json" \
@@ -184,7 +184,7 @@ curl --location "http://localhost:8000/register" \
 
 Replace `YOUR_SECRET_KEY_FROM_ENV` with the actual SECRET_KEY from your `.env` file.
 
-**Option B — Using Postman:**
+**Option B - Using Postman:**
 1. Import the `Conversational-Analytics.postman_collection.json` file into Postman
 2. Open the "Register Admin" request
 3. Go to **Headers** tab → update `X-Admin-Key` with your `SECRET_KEY`

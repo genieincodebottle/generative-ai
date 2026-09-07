@@ -121,7 +121,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 ### 🔗 Quick Access Links
 | Category | Resources |
 |----------|-----------|
-| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=table) — Interactive AI/ML learning with 28 tracks, 400+ modules, quizzes & coding |
+| **Learning Platform** | [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=table) - Interactive AI/ML learning with 28 tracks, 400+ modules, quizzes & coding |
 | **Learning Path** | [GenAI Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=table) • [AI/ML Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=table) |
 | **Cloud Platforms** | [AWS](./docs/genai-with-aws-cloud.pdf) • [Azure](./docs/genai-with-azure-cloud.pdf) • [VertexAI](./docs/genai-with-vertexai.pdf) |
 | **Interview Prep** | [Interview Q&A track (20 modules)](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=table) • [GenAI](https://aimlcompanion.ai/module/interviewScenarios/ivGenAICore?utm_source=github&utm_medium=readme&utm_campaign=table) • [Agentic AI](https://aimlcompanion.ai/module/interviewScenarios/agentInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) • [LLM](https://aimlcompanion.ai/module/interviewScenarios/llmInterviewPrep?utm_source=github&utm_medium=readme&utm_campaign=table) |

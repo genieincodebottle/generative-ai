@@ -1,6 +1,6 @@
 # RAG Technique Notebooks
 
-This folder contains nine Google Colab notebooks, each demonstrating a different RAG technique. Every notebook has an **Open in Colab** button at the top — click it to run the notebook instantly without any local setup.
+This folder contains nine Google Colab notebooks, each demonstrating a different RAG technique. Every notebook has an **Open in Colab** button at the top - click it to run the notebook instantly without any local setup.
 
 ---
 
@@ -37,7 +37,7 @@ Work through the notebooks in this order to build your understanding progressive
 | 3 | [Re-ranking RAG](re_ranking_rag.ipynb) | Adds a cross-encoder reranker after initial retrieval to reorder results by true relevance |
 | 4 | [Corrective RAG](corrective-rag.ipynb) | Adds a self-evaluation step: if retrieved documents are judged irrelevant, the system corrects itself before answering |
 | 5 | [Query Expansion RAG](query-expansion-rag.ipynb) | Rewrites or expands the user's query into multiple variants to improve recall from the vector store |
-| 6 | [Hypothetical Document Embedding RAG](hypothetical-document-embedding-rag.ipynb) | Generates a hypothetical ideal answer first, embeds it, and uses that embedding to search — dramatically improving retrieval for abstract queries |
+| 6 | [Hypothetical Document Embedding RAG](hypothetical-document-embedding-rag.ipynb) | Generates a hypothetical ideal answer first, embeds it, and uses that embedding to search - dramatically improving retrieval for abstract queries |
 | 7 | [Multi-index RAG](multi-index-rag.ipynb) | Maintains separate vector indexes for different document types or sources and routes queries to the right index |
 | 8 | [Adaptive RAG](adaptive-rag.ipynb) | Classifies the query at runtime and routes it to the most appropriate retrieval strategy dynamically |
 | 9 | [Self Adaptive RAG](self-adaptive-rag.ipynb) | Extends Adaptive RAG with a self-grading loop: the system evaluates its own answer and retries with a different strategy if the score is too low |

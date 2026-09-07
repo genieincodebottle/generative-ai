@@ -43,15 +43,15 @@ If you are new to RAG, work through the techniques in this order to build unders
 
 | Step | Technique | Where to run |
 |------|-----------|--------------|
-| 1 | **Basic RAG** — core retrieve-then-generate loop | [Notebook](notebooks/basic-rag.ipynb) · [Streamlit](rag_techniques/basic_rag.py) |
-| 2 | **Hybrid Search RAG** — combine keyword (BM25) + semantic search | [Notebook](notebooks/hybrid-search-rag.ipynb) · [Streamlit](rag_techniques/hybrid_search_rag.py) |
-| 3 | **Re-ranking RAG** — improve relevance with a reranker | [Notebook](notebooks/re_ranking_rag.ipynb) · [Streamlit](rag_techniques/re_ranking_rag.py) |
-| 4 | **Corrective RAG** — self-correct low-quality retrievals | [Notebook](notebooks/corrective-rag.ipynb) · [Streamlit](rag_techniques/corrective_rag.py) |
-| 5 | **Adaptive RAG** — route queries to the best strategy | [Notebook](notebooks/adaptive-rag.ipynb) · [Streamlit](rag_techniques/adaptive_rag.py) |
-| 6 | **Agentic RAG** — multi-agent workflow with LangGraph | [App](agentic-rag/) |
-| 7 | **Graph RAG** — relationship-aware retrieval over a document graph | [App](graph-rag/) |
-| 8 | **Multimodal RAG** — add image understanding to your pipeline | [App](multimodal-rag/) |
-| 9 | **Code Search RAG** — semantic search over a code repository | [App](code-search-rag/) |
+| 1 | **Basic RAG** - core retrieve-then-generate loop | [Notebook](notebooks/basic-rag.ipynb) · [Streamlit](rag_techniques/basic_rag.py) |
+| 2 | **Hybrid Search RAG** - combine keyword (BM25) + semantic search | [Notebook](notebooks/hybrid-search-rag.ipynb) · [Streamlit](rag_techniques/hybrid_search_rag.py) |
+| 3 | **Re-ranking RAG** - improve relevance with a reranker | [Notebook](notebooks/re_ranking_rag.ipynb) · [Streamlit](rag_techniques/re_ranking_rag.py) |
+| 4 | **Corrective RAG** - self-correct low-quality retrievals | [Notebook](notebooks/corrective-rag.ipynb) · [Streamlit](rag_techniques/corrective_rag.py) |
+| 5 | **Adaptive RAG** - route queries to the best strategy | [Notebook](notebooks/adaptive-rag.ipynb) · [Streamlit](rag_techniques/adaptive_rag.py) |
+| 6 | **Agentic RAG** - multi-agent workflow with LangGraph | [App](agentic-rag/) |
+| 7 | **Graph RAG** - relationship-aware retrieval over a document graph | [App](graph-rag/) |
+| 8 | **Multimodal RAG** - add image understanding to your pipeline | [App](multimodal-rag/) |
+| 9 | **Code Search RAG** - semantic search over a code repository | [App](code-search-rag/) |
 
 > **Tip:** Refer to the [RAG Decision Flow PDF](./docs/advance-rag-decision-flow-chart.pdf) to quickly choose the right technique for your use case.
 
@@ -60,7 +60,7 @@ If you are new to RAG, work through the techniques in this order to build unders
 
 **A. Try Graph RAG**
 
-Knowledge-graph based retrieval using LangGraph, HuggingFace embeddings, and ChromaDB. Understands relationships between concepts in your documents — not just keyword matches.
+Knowledge-graph based retrieval using LangGraph, HuggingFace embeddings, and ChromaDB. Understands relationships between concepts in your documents - not just keyword matches.
 
 [Full setup instructions →](graph-rag/README.md)
 
@@ -88,7 +88,7 @@ streamlit run streamlit_app.py
 
 Processes both PDF text and images. Uses Gemini Vision to describe images and stores text, tables, and image descriptions in separate vector stores for richer retrieval.
 
-> **Entry point:** Always run `streamlit_app.py` — not `app.py`. The `app.py` file is the backend and is not meant to be executed directly.
+> **Entry point:** Always run `streamlit_app.py` - not `app.py`. The `app.py` file is the backend and is not meant to be executed directly.
 
 [Full setup instructions →](multimodal-rag/README.md)
 
@@ -101,7 +101,7 @@ streamlit run streamlit_app.py
 ---
 **D. Try Code Search RAG**
 
-Semantic search over code repositories using Tree-sitter AST parsing. Understands code structure — functions, classes, imports — not just raw text.
+Semantic search over code repositories using Tree-sitter AST parsing. Understands code structure - functions, classes, imports - not just raw text.
 
 [Full setup instructions →](code-search-rag/README.md)
 
@@ -116,8 +116,8 @@ streamlit run app.py
 
 > **Different tech stack from the Streamlit apps (Section F) below:**
 > The notebooks run on **Groq API** (free LLMs) + **HuggingFace Embeddings** + **FAISS**.
-> You will need a free [Groq API key](https://console.groq.com/keys) and a [HuggingFace token](https://huggingface.co/settings/tokens) — **not** a Google API key.
-> Each notebook has an **Open in Colab** button at the top — click it to run without any local setup.
+> You will need a free [Groq API key](https://console.groq.com/keys) and a [HuggingFace token](https://huggingface.co/settings/tokens) - **not** a Google API key.
+> Each notebook has an **Open in Colab** button at the top - click it to run without any local setup.
 
 [Notebooks](notebooks/)
 
@@ -134,7 +134,7 @@ streamlit run app.py
 ---
 **F. Try Advanced RAG Techniques in Streamlit UI**
 
-> **Tech stack:** Google Gemini API (LLM + Embeddings) + ChromaDB. Requires a free `GOOGLE_API_KEY` — **not** a Groq key. See step 5 below.
+> **Tech stack:** Google Gemini API (LLM + Embeddings) + ChromaDB. Requires a free `GOOGLE_API_KEY` - **not** a Groq key. See step 5 below.
 
 ** Setup Instructions**
 
@@ -158,7 +158,7 @@ streamlit run app.py
    3. Create a virtual environment:
 
       ```bash
-      # uv is a fast Python package manager — it replaces both pip and venv
+      # uv is a fast Python package manager - it replaces both pip and venv
       pip install uv  # skip if uv is already installed
       uv venv
 
@@ -173,7 +173,7 @@ streamlit run app.py
       ```bash
       uv pip install -r requirements.txt
       ```
-   5. Configure environment — **never commit the `.env` file to version control**:
+   5. Configure environment - **never commit the `.env` file to version control**:
       * Rename `.env.example` → `.env`
       * Add your API key:
 
