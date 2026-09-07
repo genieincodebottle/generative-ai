@@ -1,301 +1,198 @@
-# RAG-Powered Code Intelligence & Search System
+# Code Search RAG
 
-End-to-end RAG pipeline for code search combining semantic embeddings, intelligent reranking, and Tree-sitter AST parsing for structural code understanding.
+> **Learn how to build this project step-by-step on [AI-ML Companion](https://aimlcompanion.ai/)**. Interactive ML learning platform with guided walkthroughs, architecture decisions, and hands-on challenges.
 
-## 📁 File Overview
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.49+-FF4B4B)
+![Tests](https://img.shields.io/badge/tests-33%20passing-brightgreen)
 
-| File | Role |
-|------|------|
-| `app.py` | **Entry point** — Streamlit web application; run this file to start the UI |
-| `rag.py` | Core backend — code parsing, chunking, vector indexing, semantic search, response generation |
-| `test_oauth2_examples.py` | Sample code used as **demo data** (not a test file — do not run with pytest). Index it via the app to explore code search with realistic OAuth2 examples. |
-| `requirements.txt` | All Python dependencies |
-| `.env.example` | Template for environment variables — copy to `.env` and add your key |
+**Chunking prose by character count is fine. Chunking code that way cuts
+functions in half. This project chunks by function and class, so every
+retrieved chunk is a thing that compiles.**
 
-## Features
+---
 
-### 📥 Index Code (Vector Storage)
-- **Direct Code Input**: Paste code snippets directly
-- **Upload Files**: Upload individual code files (.py, .js, .ts, etc.)
-- **Index Directory**: Index entire local directories
-- **Clone from GitHub**: Clone and index GitHub repositories (requires `git` CLI installed)
-- **Import from JSON**: Bulk import from JSON files
+## 1. The problem
 
-### 🔎 Search Code (Retrieval)
-- **Natural Language Search**: Use plain English to find code
-- **Language Filtering**: Filter by programming language
-- **Repository Filtering**: Filter by repository name
-- **AI-Powered Responses**: Get explanations along with code examples
-- **Detailed Results**: View metadata and context for each result
+`RecursiveCharacterTextSplitter` at 1000 characters will happily slice through
+the middle of a method. The first chunk has a signature and no return; the
+second has a return and no idea what it belongs to. Neither answers
+*"how does authentication work here?"*, and the embedding of half a function is
+not the embedding of anything.
 
-### 📈 Analytics
-- View system statistics
-- Track indexing operations
-- Monitor search history
-- Database information
+Code has structure that prose does not: a function is a unit, a class is a
+unit, and a docstring describes the unit it sits in. `services/rag.py` parses
+that structure and chunks along it, keeping the signature, the body, and the
+docstring together, plus the file, language, and symbol name as metadata you
+can filter on.
 
-## Setup
+Real output, over the bundled OAuth2 sample corpus:
 
-<strong>🛠️ Setup Instructions</strong>
+> **Query:** How is the OAuth2 access token refreshed when it expires?
 
-<strong>✅ Prerequisites</strong>
-   - Python 3.10 or higher
-   - pip (Python package installer)
-   - `git` CLI (only needed if you want to clone GitHub repositories from within the app)
+> **Answer:** Refreshing an expired OAuth2 access token is handled via the
+> **Refresh Token Grant** flow implemented in the `refresh_access_token`
+> method. [...] The request body includes `grant_type='refresh_token'`, the
+> currently stored `refresh_token`, and the client credentials.
 
-<strong>📦 Installation & Running App</strong>
-   1. Clone the repository:
+`refresh_access_token` is a real method at line 114 of the sample file, and the
+description of the grant matches its body. It named the symbol because the
+symbol name was in the chunk.
 
-      ```bash
-      git clone https://github.com/genieincodebottle/generative-ai.git
+## 2. The shape of it
 
-      # Windows
-      cd genai-usecases\advance-rag\code-search-rag
+![Architecture: a thin Streamlit UI calls a FastAPI routing layer over HTTP, which calls a framework-free service layer](docs/img/architecture.svg)
 
-      # Linux / macOS
-      cd genai-usecases/advance-rag/code-search-rag
-      ```
-   2. Open the project in VS Code or any code editor.
-   3. Create a virtual environment:
+## 3. Two things this restructure fixed
 
-      ```bash
-      pip install uv  # skip if uv is already installed
-      uv venv
+**A sample corpus was named like a test.** `test_oauth2_examples.py` sat in the
+project root. It contains zero tests, zero assertions, and no pytest import -
+it is 593 lines of OAuth2 sample code that exists to be *searched*. Because of
+its name, `pytest` collected it as a test module. It now lives in
+`samples/oauth2_examples.py`, and a test asserts that no `test_*.py` file ever
+reappears there.
 
-      # Windows
-      .venv\Scripts\activate
+**The service layer printed 47 `[DEBUG]` lines to stdout per search.** Fine in
+a script, wrong behind an HTTP API where stdout is the server log. Those are
+now `logger.debug`, so you get them with `--log-level debug` and not otherwise.
 
-      # Linux / macOS
-      source .venv/bin/activate
-      ```
-   4. Install dependencies (a `requirements.txt` is already included in this folder):
+## 4. Run it
 
-      ```bash
-      uv pip install -r requirements.txt
-      ```
-   5. Configure environment — **never commit the `.env` file to version control**:
-      * Rename `.env.example` → `.env`
-      * Add your API key:
+### Clone
 
-         ```bash
-         GOOGLE_API_KEY=your_key_here
-         ```
-      * Get a free **GOOGLE_API_KEY** at https://aistudio.google.com/app/apikey
-
-   6. Start the Streamlit app:
-
-      ```bash
-      streamlit run app.py
-      ```
-      The application will open in your default browser at `http://localhost:8501`
-
-## Usage
-
-### Indexing Code
-
-1. Navigate to the **"Index Code"** tab
-2. Choose your preferred indexing method:
-   - **Direct Code Input**: Paste code, select language, and click "Index Code"
-   - **Upload File**: Upload code files and click "Index Files"
-   - **Index Directory**: Enter directory path and click "Index Directory"
-   - **Clone from GitHub**: Enter GitHub URL and click "Clone and Index"
-   - **Import from JSON**: Upload JSON file and click "Import from JSON"
-
-#### JSON Format Example
-
-```json
-[
-  {
-    "code": "def hello(): print('Hello')",
-    "name": "hello",
-    "language": "python",
-    "repo": "my-repo",
-    "file_path": "src/hello.py",
-    "description": "A hello function"
-  }
-]
+```bash
+git clone https://github.com/genieincodebottle/generative-ai.git
+cd generative-ai/genai-usecases/advance-rag/code-search-rag
 ```
 
-### Searching Code
+### Set up with uv
 
-1. Navigate to the **"Search Code"** tab
-2. Enter your search query in natural language
-3. (Optional) Apply filters:
-   - Filter by programming language
-   - Filter by repository name
-4. Toggle "Show Details" to see retrieved documents
-5. Click "Search"
+```bash
+pip install uv
 
-#### Example Queries
+uv venv
+source .venv/bin/activate      # Linux / macOS
+# .venv\Scripts\activate       # Windows PowerShell or cmd
 
-- "How do I authenticate with OAuth2?"
-- "Show me JWT token validation"
-- "Database connection with pooling"
-- "Async function examples in JavaScript"
-- "Error handling best practices"
-
-### Viewing Analytics
-
-1. Navigate to the **"Analytics"** tab
-2. View:
-   - Total documents indexed
-   - Total searches performed
-   - Recent indexing operations
-   - Recent search queries
-   - Database information
-
-## Architecture
-
-### Components
-
-1. **RAG System** ([rag.py](rag.py))
-   - Code parsing and chunking
-   - Vector indexing
-   - Semantic search
-   - Response generation
-
-2. **Streamlit UI** ([app.py](app.py))
-   - Web interface
-   - Session management
-   - Multi-method indexing
-   - Search interface
-
-3. **Vector Database** (ChromaDB)
-   - Persistent storage at `./chroma_code_db`
-   - Efficient similarity search
-   - Metadata filtering
-
-### Tech Stack
-
-- **LLM & Embeddings**: Google Gemini
-- **Vector Database**: ChromaDB
-- **Framework**: LangChain
-- **UI**: Streamlit
-- **Code Parsing**: Tree-sitter (AST-based), Regex (fallback)
-
-## File Structure
-
-```
-code-search-rag/
-├── app.py                     # Streamlit UI application (entry point)
-├── rag.py                     # Core RAG system
-├── test_oauth2_examples.py    # Sample OAuth2 code for demo indexing (not a pytest file)
-├── requirements.txt           # Python dependencies
-├── .env.example               # Environment variables template
-├── .env                       # Your API keys (not committed)
-├── .gitignore                 # Git ignore rules
-├── README.md                  # This file
-└── chroma_code_db/            # Vector database (created on first run)
+uv pip install -r requirements.txt
 ```
 
-## Advanced Configuration
+Python 3.10+.
 
-In the sidebar, expand "Advanced Settings" to configure:
-- Chunk Size (default: 500)
-- Top K Results
-- Embedding Model
-- LLM Model
+### Add a key
 
-## Troubleshooting
-
-### API Key Issues
-- Ensure your Google API key is valid
-- Check that you have API access enabled for Gemini
-
-### Indexing Issues
-- Verify file paths are correct and accessible
-- Ensure files are in supported formats
-- Check that the `git` CLI is installed for GitHub cloning
-
-### Search Issues
-- Ensure you have indexed some code first
-- Try different search queries
-- Check filter settings
-
-## Examples
-
-### Using the Included OAuth2 Demo Code
-
-> **What is `test_oauth2_examples.py`?**
-> This file contains realistic OAuth2 authentication examples (Authorization Code, PKCE, Client Credentials, token validation, middleware). Its name begins with `test_` only because it was originally written in a test-file style — **it is not a pytest test file**. Its purpose here is to serve as meaningful sample code that you can index into the RAG system to explore how code search works on real-world patterns.
-
-The file demonstrates five OAuth2 patterns:
-
-**1. Authorization Code Flow (Web Applications)**
-```python
-client = OAuth2Client(
-    client_id="my-web-app",
-    client_secret="super-secret-key",
-    redirect_uri="https://myapp.com/callback",
-    auth_url="https://provider.com/oauth/authorize",
-    token_url="https://provider.com/oauth/token"
-)
-auth_url = client.get_authorization_url(scope="profile email")
-token_data = client.exchange_code_for_token(authorization_code)
-response = client.make_authenticated_request("https://api.provider.com/user/profile")
+```bash
+cp .env.example .env           # copy .env.example .env  on Windows
 ```
 
-**2. PKCE Flow (Mobile/Single-Page Apps)**
-```python
-client = OAuth2PKCEClient(
-    client_id="my-mobile-app",
-    redirect_uri="myapp://callback",
-    auth_url="https://provider.com/oauth/authorize",
-    token_url="https://provider.com/oauth/token"
-)
-verifier, challenge = client.generate_pkce_pair()
-auth_url = client.get_authorization_url(scope="profile")
+`GOOGLE_API_KEY` from [Google AI Studio](https://aistudio.google.com/app/apikey)
+(free tier).
+
+### Start both services
+
+```bash
+python run.py
 ```
 
-**3. Client Credentials Flow (Service-to-Service)**
-```python
-token_data = authenticate_client_credentials(
-    client_id="my-service",
-    client_secret="secret-key",
-    token_url="https://auth.example.com/oauth/token",
-    scope="api.read api.write"
-)
+```
+API   ->  http://localhost:8000/docs
+UI    ->  http://localhost:8501
 ```
 
-**4. Token Validation and Introspection**
-```python
-validator = OAuth2TokenValidator(
-    introspection_url="https://auth.example.com/oauth/introspect",
-    client_id="client-id",
-    client_secret="client-secret"
-)
-result = validator.validate_token(access_token)
+### Use it
+
+1. Press **Use samples** to index the bundled OAuth2 corpus - 23 chunks, no
+   files needed - or upload your own source files.
+2. Ask a question about the code. Optionally filter by language.
+
+Supported extensions: `.py .js .jsx .ts .tsx .java .go .rs .cpp .cc .c .h .hpp`
+
+Anything else is **skipped and reported**, never indexed as unstructured text.
+A `README.md` in with your source would otherwise become a retrievable "code"
+chunk and pollute every search.
+
+### Run the tests
+
+```bash
+pytest                         # 33 tests, no API key, no network
 ```
 
-**5. OAuth2 Middleware for Web Frameworks**
-```python
-middleware = OAuth2Middleware(
-    introspection_url="https://auth.example.com/oauth/introspect",
-    client_id="client-id",
-    client_secret="client-secret",
-    required_scopes=["read", "write"]
-)
-token_info = middleware.validate_request(authorization_header)
+## 5. The API
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/health` | Liveness, whether the key is set, whether anything is indexed |
+| `GET` | `/catalogue` | Models, supported languages, defaults |
+| `GET` | `/status` | Chunk count, indexed files, skipped files |
+| `POST` | `/configure` | Rebuild with new retrieval settings (clears the index) |
+| `POST` | `/index` | Index uploads, or `use_samples=true` |
+| `POST` | `/search` | Ask in English, optionally filtered by language |
+
+```bash
+curl -s -X POST http://localhost:8000/index -F "use_samples=true"
+
+curl -X POST http://localhost:8000/search \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"How is the OAuth2 access token refreshed when it expires?"}'
 ```
 
-To index and search these OAuth2 examples:
-1. Navigate to "Index Code" tab
-2. Select "Upload File"
-3. Upload `test_oauth2_examples.py`
-4. Search using queries like:
-   - "How to implement OAuth2 with PKCE?"
-   - "OAuth2 token validation"
-   - "Client credentials authentication"
+The retrieval pipeline is a funnel, and the three numbers are configurable:
+`top_k_initial` (100 candidates) -> `top_k_rerank` (3 after filtering) ->
+`top_k_final` (2 shown to the model). `POST /configure` rejects a
+`top_k_final` larger than `top_k_rerank`, because asking for more results than
+survive filtering is incoherent.
 
-### Sample Searches
+## 6. If something goes wrong
 
-After indexing:
-- "How to validate JWT tokens?"
-- "OAuth2 authentication flow"
-- "API key middleware implementation"
+| symptom | cause | fix |
+|---|---|---|
+| UI says "Cannot reach the API" | Streamlit started on its own | use `python run.py` |
+| `503 GOOGLE_API_KEY is not set` | `.env` missing or unfilled | `cp .env.example .env`, add the key, restart |
+| `422 None of these files are in a supported language` | uploaded docs, not code | upload source files |
+| Files appear in `skipped` | unsupported extension, or binary content | expected; only code is indexed |
+| `422 Nothing could be indexed` | files contain no functions or classes | the parser needs structure to chunk on |
+| `409 Nothing has been indexed` | no index yet | press **Use samples**, or upload code |
+| `422 top_k_final must not exceed top_k_rerank` | incoherent funnel settings | lower `top_k_final` |
+| Port already in use | something else has 8000/8501 | `API_PORT=8100 UI_PORT=8600 python run.py` |
 
-## Performance Tips
+## 7. Layout
 
-- **Batch Indexing**: Use directory or GitHub indexing for large codebases
-- **Chunk Size**: Adjust based on your code structure (smaller for functions, larger for modules)
-- **Top K Results**: Increase for more comprehensive results, decrease for faster responses
+```
+run.py                       starts the API and the UI together
+.env.example                 the key, and where to get it
+.streamlit/config.toml       turns off Streamlit's own start-up advert
+samples/oauth2_examples.py   sample corpus for the "Use samples" button
+
+ui/app.py                    Streamlit. Upload + requests only.
+
+api/main.py                  6 routes, upload handling, status mapping
+
+services/rag.py              THE STRUCTURAL PARSER, indexing, retrieval, generation
+services/manager.py          language detection, validation, skip rules, key check
+
+tests/test_manager.py        language detection, validation, guards, 25 cases
+tests/test_api.py            routes and status codes, 8 cases
+```
+
+## 8. Track modules this covers
+
+`codeRag` - `rag` - `chunking` - `astParsing` - `embeddings` -
+`vectorDatabases` - `metadataFiltering`
+
+## 9. Honest limitations
+
+- **Python and JavaScript get real structural parsing.** Other languages fall
+  back to a generic parser that is closer to brace-matching than to a syntax
+  tree, so chunk boundaries are less reliable there.
+- **No cross-file understanding.** Each chunk is one function or class. A
+  question whose answer spans a call graph across four files will retrieve
+  four unrelated-looking chunks and leave the joining up to the model.
+- **No repository cloning in the UI.** `gitpython` is in the requirements and
+  the service can index a directory, but the UI only takes uploads. Cloning
+  arbitrary URLs from a web form is not something to ship casually.
+- **Comments are not weighted differently from code.** A well-commented but
+  wrong function can outrank the correct one.
+- **The index is global and in memory.** Restart the API and it is gone;
+  `POST /configure` rebuilds the single instance every client shares.
+- **CORS is wide open** because both halves run on localhost.

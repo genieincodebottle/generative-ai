@@ -1,84 +1,255 @@
-# RAG Techniques — Streamlit Apps
+# RAG Techniques, Compared
 
-Five RAG implementations as standalone Streamlit apps. Complete the [one-time setup in the parent README](../README.md#f-try-advanced-rag-techniques-in-streamlit-ui), then run any of the apps below.
+> **Learn how to build this project step-by-step on [AI-ML Companion](https://aimlcompanion.ai/)**. Interactive ML learning platform with guided walkthroughs, architecture decisions, and hands-on challenges.
 
----
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.49+-FF4B4B)
+![Tests](https://img.shields.io/badge/tests-51%20passing-brightgreen)
 
-## Quick Reference
-
-| File | Technique | What it demonstrates | Level |
-|------|-----------|---------------------|-------|
-| `basic_rag.py` | **Basic RAG** | Core retrieve → generate loop. The baseline every other technique builds on. | ⭐ Beginner |
-| `hybrid_search_rag.py` | **Hybrid Search RAG** | Combines keyword (BM25) + semantic (vector) search. Better recall for factual queries. | ⭐⭐ Intermediate |
-| `re_ranking_rag.py` | **Re-ranking RAG** | Retrieves more docs first, then re-scores and reorders them before generating. | ⭐⭐ Intermediate |
-| `corrective_rag.py` | **Corrective RAG** | Generates a draft answer, critiques it, retrieves extra context, then regenerates. | ⭐⭐ Intermediate |
-| `adaptive_rag.py` | **Adaptive RAG** | Adjusts retrieval depth and strategy based on query complexity. | ⭐⭐⭐ Advanced |
-
-**Recommended order:** Basic → Hybrid → Re-ranking → Corrective → Adaptive
+**Five retrieval strategies over one shared index. Because they all query the
+same chunks, the difference you see is the technique and nothing else.**
 
 ---
 
-## How to Run
+## 1. The problem, demonstrated
 
-From inside the `rag_techniques/` folder:
+This is not a hypothetical. Same documents, same index, same question, one
+knob different:
+
+> **Question:** What are the main types of machine learning?
+
+| Technique | Retrieved | Answer |
+|---|---|---|
+| **Basic RAG** (`k=2`) | 2 chunks | "Supervised Learning, Unsupervised Learning" |
+| **Adaptive RAG** | 4 chunks | "Supervised, Unsupervised, **Reinforcement**" |
+
+The bundled source document states, in as many words, that machine learning is
+*"broadly divided into three categories"*. Basic RAG at `k=2` did not retrieve
+the chunk describing reinforcement learning, so it answered with two - fluently,
+confidently, and **wrong**.
+
+Nothing about that answer looks like a failure. There is no error, no warning,
+no low-confidence score. That is the entire reason the other four techniques
+exist, and you can reproduce this in about a minute with the bundled samples.
+
+## 2. The five techniques
+
+| Technique | Strategy | Costs |
+|---|---|---|
+| **Basic** | Embed, take top-k, answer | 1 LLM call. The baseline. |
+| **Adaptive** | Classify the question simple/moderate/complex, vary k and prompt style | 2 LLM calls |
+| **Corrective** | Answer, critique that answer, re-retrieve **using the critique**, answer again | 3 LLM calls, 2 retrievals |
+| **Hybrid** | Weighted ensemble of BM25 keyword search and vector search | 1 LLM call, 2 retrievals |
+| **Re-ranking** | Over-retrieve 8, re-order with a second model, keep the best | 1 LLM call + reranker |
+
+Two of these are worth spelling out, because their point is easy to miss:
+
+**Corrective RAG's second search uses the critique, not the question.** That is
+what lets it find context the original wording never would have matched. There
+is a test that pins exactly this
+(`test_second_retrieval_uses_the_critique_not_the_query`).
+
+**Hybrid exists because vector search cannot match tokens it has never seen.**
+Product codes, error numbers, surnames. BM25 handles those and fumbles
+paraphrase; the ensemble covers both.
+
+## 3. The shape of it
+
+![Architecture: a thin Streamlit UI calls a FastAPI routing layer over HTTP, which calls a framework-free service layer](docs/img/architecture.svg)
+
+This project used to be five separate Streamlit scripts, each with its own
+loader, its own chunker, and its own index. Comparing them meant running five
+apps that had each embedded the documents differently - so any difference you
+observed might have been the chunking, not the technique.
+
+Now documents are indexed **once** per session and every technique queries that
+same index. `services/techniques.py` holds all five side by side, which is also
+how you read them: the differences are 20 lines apart, not five files apart.
+
+## 4. Run it
+
+### Clone
 
 ```bash
-streamlit run basic_rag.py          # Basic RAG
-streamlit run hybrid_search_rag.py  # Hybrid Search RAG
-streamlit run re_ranking_rag.py     # Re-ranking RAG
-streamlit run corrective_rag.py     # Corrective RAG
-streamlit run adaptive_rag.py       # Adaptive RAG
+git clone https://github.com/genieincodebottle/generative-ai.git
+cd generative-ai/genai-usecases/advance-rag/rag_techniques
 ```
 
-The app opens at `http://localhost:8501`
-
----
-
-## What API Keys Do You Need?
-
-| Provider | Key | Purpose | Where to get it |
-|----------|-----|---------|-----------------|
-| **Gemini** (default) | `GOOGLE_API_KEY` | LLM + Embeddings | [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey) — free |
-| **Groq** (optional) | `GROQ_API_KEY` | Free open-source LLMs (Llama) | [console.groq.com/keys](https://console.groq.com/keys) — free |
-
-> When using **Groq**, embeddings are handled locally via HuggingFace `nomic-embed-text-v1.5` (~270 MB, downloaded once on first run). No HuggingFace API key needed.
-
-Copy `.env.example` → `.env` and add your key(s):
+### Set up with uv
 
 ```bash
-GOOGLE_API_KEY=your_google_api_key_here
-GROQ_API_KEY=your_groq_api_key_here   # optional
+pip install uv
+
+uv venv
+source .venv/bin/activate      # Linux / macOS
+# .venv\Scripts\activate       # Windows PowerShell or cmd
+
+uv pip install -r requirements.txt
 ```
 
----
+Python 3.10+.
 
-## Key Concepts for Beginners
+### Add a key
 
-**What is "chunking"?**
-Documents are split into smaller overlapping pieces before being embedded. Each piece is called a chunk.
-- **Chunk Size** — how many characters per chunk (default: 1000). Larger = more context per chunk but less precise matching.
-- **Chunk Overlap** — how many characters adjacent chunks share (default: 100). Prevents sentences from being cut off at chunk boundaries.
+```bash
+cp .env.example .env           # copy .env.example .env  on Windows
+```
 
-**What is an "embedding" / "vector"?**
-A list of numbers that represents the *meaning* of a text. Similar texts produce similar vectors. The retriever finds relevant chunks by comparing vectors — not by exact keyword matching.
+| Variable | Where to get it | Embeddings used |
+|---|---|---|
+| `GOOGLE_API_KEY` | [Google AI Studio](https://aistudio.google.com/app/apikey) | Gemini API, nothing to download |
+| `GROQ_API_KEY` | [Groq Console](https://console.groq.com/keys) | **local CPU**, ~250 MB on first run |
 
-**What is ChromaDB?**
-A lightweight local vector database. It stores your document embeddings on disk so you can search them by semantic similarity. No separate server or account needed — it just works.
+Groq serves chat models but no embedding model, so that path runs
+`nomic-embed-text-v1.5` locally. **Gemini is the lighter first run.**
 
-**What is BM25?** *(used in Hybrid Search RAG)*
-A classic keyword search algorithm. It finds documents that contain the exact words in your query. Complementary to vector search: BM25 is great for specific terms, vector search is great for concepts.
+### Start both services
 
-**What is re-ranking?** *(used in Re-ranking RAG)*
-After retrieving a large set of candidate chunks, a second model scores them for relevance and reorders them. The most relevant chunks go to the LLM, improving answer quality.
+```bash
+python run.py
+```
 
----
+```
+API   ->  http://localhost:8000/docs
+UI    ->  http://localhost:8501
+```
 
-## Troubleshooting
+### Reproduce the result in section 1
 
-| Error | Likely cause | Fix |
-|-------|--------------|-----|
-| `GOOGLE_API_KEY not set` | Missing `.env` file or key | Rename `.env.example` → `.env`, add your key |
-| `GROQ_API_KEY not set` | Selected Groq but key missing | Add `GROQ_API_KEY` to `.env` or switch to Gemini |
-| `No module named 'langchain_groq'` | Groq dependencies not installed | `pip install langchain-groq langchain-huggingface sentence-transformers` |
-| PDF returns no results | PDF is scan-only (no text layer) | Use a PDF with selectable text, or try a different file |
-| Very slow first run with Groq | HuggingFace model downloading | Wait for the ~270 MB model to download; subsequent runs are fast |
+1. Press **Use samples** in the sidebar. No files needed - two documents ship
+   with the project and index in a few seconds.
+2. Pick **Basic RAG**, set k to **2**, ask *"What are the main types of machine
+   learning?"*
+3. Switch to **Adaptive RAG** and ask the identical question.
+
+Compare the two answers. Nothing changed except the retrieval strategy.
+
+### Run the tests
+
+```bash
+pytest                         # 51 tests, no API key, no network
+```
+
+The technique tests use stub models that record every prompt and every search,
+so they assert the *strategy* - which chunks were asked for, how many LLM calls
+were made, and what happens when a re-ranker filters everything out.
+
+## 5. The API
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/health` | Liveness, configured providers, session count |
+| `GET` | `/catalogue` | Providers, models, techniques and the options each takes |
+| `POST` | `/sessions` | Index documents once (or `use_samples=true`) |
+| `POST` | `/sessions/{id}/query` | Run one technique against that index |
+| `DELETE` | `/sessions/{id}` | Drop the session and its index |
+
+```bash
+SID=$(curl -s -X POST http://localhost:8000/sessions \
+       -F "provider=Gemini (Google)" -F "use_samples=true" \
+       | python -c "import json,sys; print(json.load(sys.stdin)['session_id'])")
+
+curl -X POST "http://localhost:8000/sessions/$SID/query" \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"What are the main types of machine learning?",
+       "technique":"adaptive","model":"gemini-flash-latest"}'
+```
+
+Every response carries a `steps` list describing what the technique actually
+did, which is the part worth reading:
+
+```json
+"steps": ["Classified the question as complex",
+          "Retrieved 8 chunks (k chosen by complexity)",
+          "Answered with the complex prompt style"]
+```
+
+## 6. LangChain 0.3 and 1.x
+
+**LangChain 1.0 emptied the top-level `langchain.retrievers` namespace.**
+`ContextualCompressionRetriever`, `EnsembleRetriever`, and the document
+compressors moved to `langchain_classic`. Code written against 0.3 fails on 1.x
+at import time with a bare `ModuleNotFoundError`, before anything runs.
+
+A fresh clone can reasonably resolve either version, so every moved import goes
+through `services/compat.py`, which tries the 1.x location, falls back to the
+0.3 one, and otherwise raises an error naming the package to install.
+
+| class | 0.3.x | 1.x |
+|---|---|---|
+| `ContextualCompressionRetriever` | `langchain.retrievers` | `langchain_classic.retrievers` |
+| `EnsembleRetriever` | `langchain.retrievers` | `langchain_classic.retrievers` |
+| document compressors | `langchain.retrievers.document_compressors` | `langchain_classic.retrievers.document_compressors` |
+| `BM25Retriever` | `langchain_community.retrievers` | unchanged |
+
+## 7. Models
+
+Defaults are Google's rolling aliases (`gemini-flash-latest`). Every
+`gemini-2.0-*` ID this project previously pinned has been retired, which turns
+a working clone into a 404 with no code change. `services/config.py` is the
+only file that names a model.
+
+## 8. If something goes wrong
+
+| symptom | cause | fix |
+|---|---|---|
+| UI says "Cannot reach the API" | Streamlit started on its own | use `python run.py` |
+| "No API keys found" | `.env` missing or unfilled | `cp .env.example .env`, add a key, restart the API |
+| `ModuleNotFoundError: langchain.retrievers` | LangChain 1.x with pre-shim code | fixed here by `services/compat.py`; reinstall requirements |
+| `422 No extractable text found` | scanned/image PDF | this project does not OCR; use a text PDF or the samples |
+| "FlashRank is not installed" | optional re-ranker | `pip install flashrank`, or use Embeddings Filter |
+| "Hybrid search needs rank_bm25" | optional dependency | `pip install rank_bm25` |
+| Re-ranker kept 0 chunks | filter threshold too strict | it falls back and says so in `steps` |
+| First Groq index takes minutes | downloading local embeddings | expected once; or switch to Gemini |
+| `404` on query | session evicted (LRU, default 12) | index again |
+| Port already in use | something else has 8000/8501 | `API_PORT=8100 UI_PORT=8600 python run.py` |
+
+## 9. Layout
+
+```
+run.py                       starts the API and the UI together
+.env.example                 the keys, and where to get them
+.streamlit/config.toml       turns off Streamlit's own start-up advert
+sample_docs/                 two documents, so the app works with no files
+
+ui/app.py                    Streamlit. Technique picker + requests only.
+
+api/main.py                  5 routes, upload handling, status mapping
+
+services/config.py           THE ONLY FILE THAT NAMES A MODEL OR READS THE ENV
+services/techniques.py       ALL FIVE TECHNIQUES, side by side
+services/store.py            one index per session, LRU bounded
+services/documents.py        validate, parse, chunk
+services/compat.py           LangChain 0.3 vs 1.x import shim
+services/llm.py              provider -> chat model and embeddings
+services/llm_text.py         flattens Gemini 3 content blocks to text
+services/retry.py            backoff for transient embedding failures
+
+tests/test_documents.py      validation, parsing, chunking, 16 cases
+tests/test_techniques.py     strategy behaviour with stub models, 24 cases
+tests/test_api.py            routes and status codes, 11 cases
+```
+
+## 10. Track modules this covers
+
+`rag` - `advancedRag` - `hybridSearch` - `reranking` - `embeddings` -
+`vectorDatabases` - `chunking`
+
+## 11. Honest limitations
+
+- **This is a demonstrator, not a benchmark.** There is no scored eval set
+  here. The section 1 result is one reproducible example, not a measurement of
+  which technique is better in general. Which one wins depends entirely on your
+  corpus and your questions.
+- **"More chunks" is not free.** Adaptive's k=8 costs more tokens and more
+  latency than basic's k=2, and on a simple lookup the extra context can
+  distract rather than help. The trade-off is the lesson.
+- **Corrective RAG triples your LLM calls** for one answer. On a rate-limited
+  free tier that is the difference between working and 429.
+- **BM25 is rebuilt per query** in the hybrid technique. Fine at this corpus
+  size, wasteful at scale; build it once alongside the index.
+- **Sessions live in process memory.** Restart the API and every index is gone.
+- **No OCR.** Scanned PDFs are detected and rejected with a clear message
+  rather than silently indexing nothing.
+- **CORS is wide open** because both halves run on localhost.

@@ -1,473 +1,259 @@
-![agentic-ai-header](./images/agentic-ai-header.png)
+# Agentic AI Platform
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io)
-[![LangChain](https://img.shields.io/badge/🦜🔗_LangChain-121011?logoColor=white)](https://langchain.com)
-[![CrewAI](https://img.shields.io/badge/🚢_CrewAI-FF6B35?logoColor=white)](https://crewai.com)
-[![LangGraph](https://img.shields.io/badge/🕸️_LangGraph-1C3A3A?logoColor=white)](https://langchain-ai.github.io/langgraph/)
+> **Learn how to build this project step-by-step on [AI-ML Companion](https://aimlcompanion.ai/)**. Interactive ML learning platform with guided walkthroughs, architecture decisions, and hands-on challenges.
 
-> Hands-on multi-agent implementations showcasing cutting-edge patterns, best practices, and orchestration techniques in autonomous agent development using CrewAI and LangGraph.
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688)
+![LangGraph](https://img.shields.io/badge/LangGraph-0.6+-1f6feb)
+![CrewAI](https://img.shields.io/badge/CrewAI-0.193+-ff6b35)
+![Tests](https://img.shields.io/badge/tests-36%20passing-brightgreen)
 
-🌟 **[Agentic AI Interview Q&A](../../docs/agentic-ai-interview-questions.pdf)**
-
-## 🚀 Start Here — Learning Path for Beginners
-
-If you're new to Agentic AI, **don't try to learn everything at once**. Follow this path:
-
-### Step 1: Workflow Patterns (start here — simplest)
-These are standalone Streamlit apps that teach one pattern each. No YAML, no complex state management.
-
-```bash
-cd genai-usecases\agentic-ai
-
-# 1️⃣ Start with Query Routing — see how an LLM classifies and routes queries
-streamlit run agentic_workflows\query_routing.py
-
-# 2️⃣ Parallel Execution — run multiple LLM tasks concurrently
-streamlit run agentic_workflows\parallel_execution.py
-
-# 3️⃣ Prompt Chaining — multi-step reasoning where each step builds on the last
-streamlit run agentic_workflows\prompt_chaining.py
-```
-
-### Step 2: LangGraph (state-driven agents)
-LangGraph adds **state management** — agents pass structured data between steps via a shared state object.
-
-```bash
-# 4️⃣ Customer Support Agent — best intro to LangGraph's state + conditional routing
-streamlit run agentic_frameworks\langgraph\customer_support_agent.py
-```
-
-### Step 3: CrewAI (multi-agent teams)
-CrewAI lets you define **teams of specialized agents** via YAML config files. Each agent has a role, goal, and backstory.
-
-```bash
-# 5️⃣ Data Analysis Crew — 4 agents collaborate to analyze your CSV data
-streamlit run agentic_frameworks\crewai\data_analysis_crew\data_analysis_crew.py
-```
-
-> **⚠️ Performance note:** CrewAI crews run 4+ agents sequentially, so expect **2–5 minutes per run**. This is normal — each agent makes multiple LLM calls. Use Groq (`llama-3.1-8b-instant`) for the fastest experience.
-
-### Step 4: Multi-Agent Orchestration (advanced)
-Combines CrewAI + LangGraph in hybrid workflows. **Do this last** — it builds on everything above.
-
-```bash
-# 6️⃣ Hybrid orchestration — cross-framework coordination
-streamlit run multi_agent_orchestration\multi_agent_orchestration.py
-```
-
-### Which LLM provider should I use?
-
-| Provider | Cost | Speed | Best for |
-|----------|------|-------|----------|
-| **Ollama** | Free (local) | Moderate | Learning without API costs. Needs 2-8 GB RAM. |
-| **Groq** | Free tier | Fastest | Quick iteration. Get key: https://console.groq.com/keys |
-| **Gemini** | Free tier | Fast | Good quality + free quota. Get key: https://aistudio.google.com/app/apikey |
-| **Anthropic** | Paid | Good | Highest quality reasoning. Get key: https://console.anthropic.com/settings/keys |
-| **OpenAI** | Paid | Good | GPT models. Get key: https://platform.openai.com/api-keys |
-
-> **Recommendation for beginners:** Use **Groq** (free, fastest) or **Ollama** (free, no API key needed). You only need ONE provider to get started — not all five.
+**Thirteen agentic apps that used to be thirteen standalone Streamlit scripts,
+each with its own copy of the provider list. Now they share one provider layer,
+one API route, and one UI.**
 
 ---
 
-## Table of Contents
+## 1. Why this was restructured
 
-- [🚀 Start Here — Learning Path](#-start-here--learning-path-for-beginners)
-- [🤔 What is Agentic AI?](#-what-is-agentic-ai)
-- [🎯 Core Characteristics](#-core-characteristics)
-- [🔄 How Agentic AI Differs from Traditional AI](#-how-agentic-ai-differs-from-traditional-ai)
-- [🏗️ Key Components of Agentic Systems](#-key-components-of-agentic-systems)
-- [🧩 Agentic AI SDK and Frameworks](#-agentic-ai-sdk-and-frameworks)
-- [✨ Summary of Use Cases](#-summary-of-use-cases)
-- [⚙️ Installation and Running App](#-installation-and-running-app)
-- [🎮 Frameworks and Use Cases](#-frameworks-and-use-cases)
-- [🔧 Troubleshooting](#-troubleshooting)
-- [📚 Learning Resources](#-learning-resources)
+The provider catalogue and `create_llm` were copy-pasted into **all thirteen**
+app files. That is not a style complaint - it had consequences:
 
-## 🤔 What is Agentic AI?
+- The Anthropic model list went stale in thirteen places at once, and fixing
+  it meant thirteen identical edits.
+- `create_llm` had no `else` branch. An unknown provider returned `None`, and
+  the caller then failed with
+  `AttributeError: 'NoneType' object has no attribute 'invoke'` - a long way
+  from the actual mistake.
 
-**Agentic AI** represents a major evolution from traditional, task specific AI systems to autonomous, goal driven agents capable of reasoning, planning multi step actions, making intelligent decisions and adapting dynamically to achieve complex goals. 
+There is now one `services/providers.py`, and it raises where the mistake is.
 
-Unlike conventional models that merely respond to prompts, these agents can collaborate with others, use tools and APIs, learn from feedback and orchestrate workflows.
+## 2. The shape of it
 
-## 🎯 Core Characteristics
+![Architecture: a thin Streamlit UI calls a FastAPI routing layer over HTTP, which calls a framework-free service layer](docs/img/architecture.svg)
 
-- **Autonomy**: Operate independently with minimal human intervention (fully autonomous systems are still rare because they’re complex.)
-- **Goal-Oriented**: Work towards specific objectives and outcomes
-- **Reactive**: Respond dynamically to environmental changes
-- **Proactive**: Take initiative to achieve goals without explicit instructions
-- **Social**: Collaborate and communicate with other agents
-- **Learning**: Adapt and improve from experience
+Each app declares its own inputs in `services/registry.py`. The API validates
+against that declaration and the UI renders its form from it, so adding an app
+is **one entry**, not an edit in three layers. There is one route,
+`POST /apps/{app_id}/run`, for all of them.
 
-## 🔄 How Agentic AI Differs from Traditional AI
+All thirteen app modules import **no web framework at all** - the `st.error`
+calls that were buried in their logic are now `logger.error`.
 
-| Traditional AI | Agentic AI |
-|---|---|
-| **Reactive**: Responds to inputs | **Proactive**: Plans ahead and takes initiative |
-| **Single-task**: Optimized for narrow functions | **Multi-task**: Can coordinate complex workflows |
-| **Stateless**: No built-in memory between calls | **Stateful**: Maintains context via integrated memory |
-| **Tool User**: Relies on predefined functions | **Tool Creator**: Selects and combines tools dynamically |
-| **Human-Directed**: Requires explicit instructions | **Goal-Directed**: Works towards objectives autonomously |
+## 3. Four bugs that only running it could find
 
-## 🏗️ Key Components of Agentic Systems
+Every one of these returned HTTP 200 while being wrong.
 
-###  🤖 **Agents**
-- **Definition:** Autonomous entities with specific roles, capable of perceiving, reasoning, planning, acting and adapting.
-- **Core Components:**
-   - Goals / Objectives (what they aim to achieve)
-   - Memory (short-term, long-term and episodic)
-   - Tools / Interfaces (APIs, services, external systems)
-   - Reasoning / Planning Engine (logic, heuristics, inference)
-   - Perception / Input Processing (parsing inputs, interpreting environment)
-   - Feedback / Learning Loop (adjusting behavior based on outcomes)
-- **Examples:** Data Analyst Agent, Content Creator Agent, Code Reviewer Agent, Monitoring Agent
+### A billing question was routed to the code-review processor
 
-### 🎭 **Multi-Agent Orchestration**
-- **Coordination & Delegation:** How tasks are assigned, scheduled, rebalanced across multiple agents
-- **Communication & Protocols:** Message passing, shared state, negotiation, contract protocols
-- **Patterns / Architectures:**
-   - Hierarchical (manager ⇢ workers)
-   - Peer-to-peer / decentralized
-   - Federated / federated orchestration (privacy-preserving, cross-domain)
-   - Swarm / emergent behaviors
-   - Semantic orchestration / capability-based routing (newer research)
-- **Orchestrator Roles:** central coordinator, meta-agent, dynamic router
+`_score_routing_rules` added a priority bonus unconditionally:
 
-### 🛠️ **Tools, Environment & Integration**
-- **Tool Integration:** APIs, databases, external services, classically “tool calls”
-- **Dynamic Tool Discovery / Capability Advertising:** Agents discover or advertise new abilities using semantic embeddings, capability vectors, or registry systems
-- **Runtime Environment:** The context or sandbox where agents act (OS, cloud, microservices, containerized infrastructure)
-- **Protocol Standards & Interoperability:**
-   - **Model Context Protocol (MCP)** - Standard for tool/agent interoperability 
-   - **Semantic routing, versioned capability vectors** - research like Federation of Agents 
-   - **Agentic frameworks:** CrewAI, LangGraph, AutoGen, etc.
-
-### 💾 **Memory & State Management**
-- **Short-Term Memory / Context:** Current conversational or task context
-- **Long-Term Memory:** Persistent knowledge, past decisions, embeddings, episodic data
-- **Shared / Global Memory:** Cross-agent knowledge store or knowledge graph
-- **Experience & Trace Logging:** Execution traces, rationale, failure logs
-- **Memory Augmentation & Retrieval:** Efficient indexing, retrieval augmentation (structured and dynamic)
-
-### 🧩 **Planning & Reasoning**
-- **Task Decomposition / Subtasking:** Splitting complex goals into smaller, manageable units
-- **Planning:** Sequencing and scheduling subtasks, contingencies, branching
-- **Reasoning & Decision-Making:** Selecting among options, trade-offs, cost-benefit, uncertainty
-- **Meta-Reasoning / Self-Reflection:** Agents reasoning about their own plans, revising strategies
-- **Error Handling & Recovery:** Detecting failures, rollback, replanning
-
-### 🧠 **Learning, Adaptation & Feedback**
-- **Reinforcement / Reward Signals:** Internal metrics or external feedback guiding behaviour
-- **Fine-tuning & Model Updates:** Adjusting models over time with new data
-- **Policy Adaptation:** Shifting strategies in changing environments
-- Agent-to-Agent Learning / Delegation Evolution
-
-### 🛡️ **Governance, Safety & Evaluation**
-- **Ethics, Bias & Guardrails:** Rules, constraints, alignment (e.g. avoid malicious actions)
-- **Security & Access Control:** Permissions for tool calls, data usage, sandboxing
-- **Verification & Monitoring:** Logging, auditing, observability
-- **Evaluation Metrics:** Success rate, task latency, resource usage, collaboration efficacy
-- **Human-in-the-loop / Oversight:** Interventions, human correction, fallback
-
-## 🧩 Agentic AI SDK and Frameworks
-
-- **[LangChain](https://python.langchain.com/api_reference/core/agents.html)** - A powerful framework for building LLM-powered agents by chaining tools, memory, and reasoning capabilities together for complex workflows.  
-- **[LangGraph](https://langchain-ai.github.io/langgraph/concepts/why-langgraph/)** - A graph-based extension of LangChain focused on building **stateful, multi-step agent workflows** with clear control flow and better observability.  
-- **[CrewAI](https://docs.crewai.com/)** - A multi-agent orchestration framework that lets you **coordinate teams of specialized AI agents** to collaboratively solve tasks.  
-- **[LlamaIndex](https://developers.llamaindex.ai/python/framework/use_cases/agents/)** - Provides agent capabilities tightly integrated with data retrieval, enabling **context-aware reasoning** and **RAG-powered agent systems**.  
-- **[Agent Development Kit (ADK)](https://google.github.io/adk-docs/)** - Google’s toolkit for building **production-ready, event-driven AI agents**, with strong emphasis on composability and tool integration.  
-- **[OpenAI Agent SDK](https://openai.github.io/openai-agents-python/)** - Official SDK for creating **tool-using OpenAI agents**, supporting function calls, memory, and action orchestration out-of-the-box.  
-- **[Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview)** - Anthropic’s SDK for building **Claude-powered agents** with tool access, planning, and long-term reasoning capabilities.  
-- **[Microsoft Agent Framework](https://github.com/microsoft/agent-framework)** - A modular, open-source platform to **design, deploy, and manage autonomous agents** with integration into Microsoft’s AI ecosystem.  
-- **[AWS Strands Agents](https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/)** - AWS’s open-source SDK for creating **scalable, distributed AI agents** that interact with cloud services and external APIs.  
-- **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/)** - An open protocol that enables **seamless communication between LLM agents and external tools/APIs**, making agent capabilities more composable and interoperable.  
-- **[A2A (Agent2Agent)](https://github.com/google-a2a/A2A)** - An open protocol initiated by Google to enable **secure, framework-agnostic communication and collaboration between autonomous agents**. Agents can discover each other’s capabilities, negotiate interaction modalities, and jointly coordinate tasks without revealing their internal memory or tools.
-
-## ✨ Summary of Use Cases
-
-| Framework / Workflow | Key Focus | Code |
-|----------------------|-----------|---------------|
-| **CrewAI** | Collaboration, Task Delegation, Content Creation, Code Review | [`agentic_frameworks\crewai\...`](./agentic_frameworks/crewai/) |
-| **LangGraph** | Customer Support, Document Processing, Task Planning | [`agentic_frameworks\langgraph\...`](./agentic_frameworks/langgraph/) |
-| **Workflows** | Query routing, Parallel Execution, Prompt Chaining, Event Driven, Tool Orchestration | [`agentic_workflows\...`](./agentic_workflows/) |
-
-## ⚙️ Installation and Running App
-
-Get up and running in under 5 minutes:
-
-1. Clone the repository
-
-    ```bash
-    git clone https://github.com/genieincodebottle/generative-ai.git
-    cd generative-ai\genai-usecases\agentic-ai
-    ```
-
-2. Open the Project in VS Code or any code editor.
-3. Create a virtual environment by running the following command in the terminal:
-
-    ```bash   
-    pip install uv #if uv not installed
-    uv venv
-    .venv\Scripts\activate # On Linux -> source venv/bin/activate
-    ```
-
-4. Install dependencies
-
-    ```bash
-    uv pip install -r requirements.txt
-    ```
-5. Configure Environment
-    
-    - **Option 1**: 🏠 Local LLM Setup
-
-        1. **Ollama** - Run open models locally with zero API costs:
-
-            - **Windows/MacOS:** Download Ollama models from here -> https://ollama.com/download
-            - **Linux:** Install with command:
-            
-                ```bash
-                # Install Ollama from https://ollama.ai
-                curl -fsSL https://ollama.ai/install.sh | sh
-                ```
-            - Pull a lightweight models as per your system memory availability 
-                ```bash
-                ollama pull llama3.2:3b # Options: gpt-oss:20b, llama3.2:1b, llama3.2:3b, llama3.1:8b, deepseek-r1:1.5b, deepseek-r1:7b, deepseek-r1:8b, gemma3:1b, gemma3:4b, gemma3:12b, phi3:3.8b
-
-                # No API keys needed..
-                ```
-            Reference guide for memory requirement 
-            - **llama3.2:1b** (1B parameters) - ~0.7GB RAM
-            - **llama3.2:3b** (3B parameters) - ~2GB RAM
-            - **llama3.1:8b** (8B parameters) - ~4.5GB RAM
-            - **gemma3:1b** (1B parameters) - ~0.7GB RAM
-            - **gemma3:4b** (4B parameters) - ~2.5GB RAM
-
-            **Note**: Ollama uses Q4_0 quantization (~0.5-0.7GB per billion parameters)
-        2. **Run the following command to list the local open models available in Ollama**
-
-            ```bash
-            ollama list
-            ```
-        3. **Start Ollama Service** (if needed)
-            ```bash
-            ollama serve  # Only needed if Ollama isn't running automatically
-            ```
-
-            **Note**: Most desktop installations start Ollama automatically. Check if it's running by visiting `http://localhost:11434` in your browser or by looking for the Ollama icon in your system tray.
-
-    - **Option 2**: ☁️ Cloud Providers
-
-        - Configure Environment 
-            - rename ```.env.example``` to ```.env``` in your project root
-            - Update with your keys:
-
-                ```env
-                # Choose your preferred providers
-                GEMINI_API_KEY=your-gemini-key-here
-                GROQ_API_KEY=your-groq-key-here
-                ANTHROPIC_API_KEY=your-anthropic-key
-                OPENAI_API_KEY=your-openai-key-here
-                ```
-                
-                * Get **GEMINI_API_KEY** here -> https://aistudio.google.com/app/apikey
-                * Get **GROQ_API_KEY** here -> https://console.groq.com/keys
-                * Get **ANTHROPIC_API_KEY** here -> https://console.anthropic.com/settings/keys
-                * Get **OPENAI_API_KEY** here -> https://platform.openai.com/api-keys
-
-6. Run the platform, it puts CrewAI, LangGraph, Agentic Workflows and Multi-Agent Orchestration all in one place. 
-
-    ```bash
-    streamlit run agentic_ai_platform.py
-    ```
-
-## 🎮 Frameworks and Use Cases
-
-### 🤖 CrewAI Framework
-> **Location**: [`agentic_frameworks\crewai\`](./agentic_frameworks/crewai/)
-
-#### **Use Cases:**
-
-📊 **Data Analysis Crew**
-> **Path**: [`agentic_frameworks\crewai\data_analysis_crew\`](./agentic_frameworks/crewai/data_analysis_crew/)
-- **What You'll Learn**: Agent collaboration, task delegation, result synthesis
-- **Business Value**: Automated insights from raw data, statistical analysis, visualization strategy
-- **Key Patterns**: Manager-worker hierarchy, context passing between agents
-- **Agents**: Data Analyst, Business Intelligence Specialist, Visualization Expert, QA Specialist
-```bash
-streamlit run agentic_frameworks\crewai\data_analysis_crew\data_analysis_crew.py
+```python
+priority_bonus = rule.priority * 0.1
+total_score = keyword_score + pattern_score + priority_bonus
+if total_score > 0:                    # true for any rule with a priority
 ```
 
-✍️ **Content Creation Crew**
-> **Path**: [`agentic_frameworks\crewai\content_creation_crew\`](./agentic_frameworks/crewai/content_creation_crew/)
-- **What You'll Learn**: Creative collaboration, quality gates, multi-format output
-- **Business Value**: SEO-optimized content, brand consistency, content strategy
-- **Key Patterns**: Sequential workflow, iterative refinement, human approval
-- **Agents**: Content Strategist, Writer, SEO Specialist, Quality Reviewer
-```bash
-streamlit run agentic_frameworks\crewai\content_creation_crew\content_creation_crew.py
+A rule that matched **nothing** still scored `priority * 0.1`. On a query that
+matched no rule at all, the highest-priority rule won by default. Measured:
+
+```json
+"rule_based_result": {"name": "Code Development", "score": 0.30000000000000004,
+                      "keyword_matches": 0, "pattern_matches": 0}
 ```
 
-🔬 **Research Assistant Crew**
-> **Path**: [`agentic_frameworks\crewai\research_assistant_crew\`](./agentic_frameworks/crewai/research_assistant_crew/)
-- **What You'll Learn**: Information gathering, fact verification, synthesis workflows
-- **Business Value**: Comprehensive research reports, citation management, executive summaries
-- **Key Patterns**: Parallel research, verification chains, report compilation
-- **Agents**: Research Coordinator, Information Gatherer, Fact Checker, Analyst, Report Writer
-```bash
-streamlit run agentic_frameworks\crewai\research_assistant_crew\research_assistant_crew.py
-```
+There *was* a guard for this - `if best_rule['score'] > 0.3` - and it did not
+fire, because **`3 * 0.1` is `0.30000000000000004`, which is greater than
+`0.3`**. Floating point defeated the exact check written to catch this case.
 
-👨‍💻 **Code Review Crew**
-> **Path**: [`agentic_frameworks\crewai\code_review_crew\`](./agentic_frameworks/crewai/code_review_crew/)
-- **What You'll Learn**: Specialized expertise, quality assurance, comprehensive analysis
-- **Business Value**: Automated security analysis, performance optimization, code quality
-- **Key Patterns**: Expert specialization, parallel analysis, final synthesis
-- **Agents**: Security Specialist, Performance Analyst, Quality Reviewer, Senior Reviewer
-```bash
-streamlit run agentic_frameworks\crewai\code_review_crew\code_review_crew.py
-```
+Fixed: the bonus only applies to rules that actually matched, and scores are
+rounded so the comparison means what it reads as. The same query now returns
+`rule_based_result: None` and falls through to `general_processor`, agreeing
+with the LLM's own classification.
 
----
-### 🌐 LangGraph Framework
-> **Location**: [`agentic_frameworks\langgraph\`](./agentic_frameworks/langgraph/)
+### The event-driven workflow was a silent no-op
 
-#### **Use Cases:**
+Reactive agents subscribe to the event bus when they are constructed. With no
+agents registered, `start_workflow` published its events into a bus nobody was
+listening to. The call succeeded, returned `None`, and nothing happened.
 
-🎧 **Customer Support Agent**
-> **Path**: [`agentic_frameworks\langgraph\customer_support_agent.py`](./agentic_frameworks/langgraph/customer_support_agent.py)
-- **What You'll Learn**: Conversation flows, escalation patterns, context management
-- **Business Value**: Automated support, intelligent routing, customer satisfaction
-- **Key Patterns**: State persistence, conditional routing, human handoff
-- **Features**: Intent recognition, knowledge base integration, escalation workflows
-```bash
-streamlit run agentic_frameworks\langgraph\customer_support_agent.py
-```
+| | events | agent activity |
+|---|---|---|
+| before | 2 (`workflow_started`, `user_input`) | none |
+| after | 4 | 2 `agent_message` events |
 
-📄 **Document Processing Pipeline** 
-> **Path**: [`agentic_frameworks\langgraph\document_processing_pipeline.py`](./agentic_frameworks/langgraph/document_processing_pipeline.py)
-- **What You'll Learn**: Pipeline orchestration, data transformation, error handling
-- **Business Value**: Automated document analysis, content extraction, format conversion
-- **Key Patterns**: Sequential processing, checkpoint recovery, parallel execution
-- **Features**: Multi-format support, content analysis, structured output
-```bash
-streamlit run agentic_frameworks\langgraph\document_processing_pipeline.py
-```
+### The launcher killed a perfectly healthy API
 
-🗂️ **Task Planning System**
-> **Path**: [`agentic_frameworks\langgraph\task_planning_system.py`](./agentic_frameworks/langgraph/task_planning_system.py)
-- **What You'll Learn**: Dynamic planning, resource management, adaptive execution
-- **Business Value**: Automated workflow planning, resource optimization, adaptive systems
-- **Key Patterns**: Graph-based planning, resource allocation, dynamic routing
-- **Features**: Dynamic workflow planning, execution monitoring, adaptive optimization
-```bash
-streamlit run agentic_frameworks\langgraph\task_planning_system.py
-```
+`/health` called `ollama_reachable()`, which made a blocking HTTP request with
+a 2-second timeout on **every request**. That made `/health` take 2.09 s -
+longer than `run.py`'s own 2 s poll timeout. So the poll timed out every single
+time, and after five minutes the launcher reported *"The API did not start"*
+about an API that had been serving requests the whole time.
 
----
-### 🌟 Multi-Agent Orchestration
-> **Location**: [`multi_agent_orchestration`](./multi_agent_orchestration/)
+Fixed on both sides: the probe is cached with a short timeout (`/health` now
+answers in **0.003 s**, down from 2.09 s), and the launcher's poll is no longer
+tighter than the endpoint it polls.
 
-**Advanced orchestration patterns:**
-- **Hierarchical Systems**: Manager-worker coordination patterns
-- **Swarm Intelligence**: Emergent behavior through collaboration
-- **Cross-Framework Integration**: CrewAI + LangGraph hybrid workflows
-- **Event-Driven Communication**: Async message passing protocols
+### A silent `null` result
+
+`start_workflow` returns `None` by design; the output accumulates in the
+workflow's state. Returning its return value handed the caller `null` and
+looked exactly like a failure.
+
+## 4. The apps
+
+| App | Family | What it demonstrates |
+|---|---|---|
+| Query routing | Workflow patterns | Score a query against rules, send it to the handler that fits |
+| Prompt chaining | Workflow patterns | Each step consumes the previous step's output |
+| Parallel execution | Workflow patterns | Independent prompts at once - 3 tasks in **9.7 s**, not ~27 s |
+| Event driven | Workflow patterns | Emit events; reactive agents respond |
+| Tool orchestration | Workflow patterns | The model plans which tools to call, then the plan runs |
+| Document processing | LangGraph | Parse, analyse, validate, summarise, format, with an error route |
+
+`services/apps/` also holds the CrewAI crews (code review, content creation,
+data analysis, research assistant), the LangGraph customer-support agent and
+task planner, and the multi-agent orchestrator. They are migrated, import
+cleanly, and are wired into the API as their entry points are covered by tests.
+
+## 5. Run it
+
+### Clone
 
 ```bash
-streamlit run multi_agent_orchestration\multi_agent_orchestration.py
+git clone https://github.com/genieincodebottle/generative-ai.git
+cd generative-ai/genai-usecases/agentic-ai
 ```
 
----
-### 🏗️ Workflow Patterns
-> **Location**: [agentic_workflows](./agentic_workflows/)
+### Set up with uv
 
-Core agentic patterns for building intelligent, autonomous systems:
-
-#### 🎯 **Query Routing**
-> **Path**: [`agentic_workflows\query_routing.py`](./agentic_workflows/query_routing.py)
-- **What You'll Learn**: Intelligent query classification, specialized pipeline routing
-- **Business Value**: Multi-domain support systems, content management, smart chatbots
-- **Key Patterns**: Context analysis, route classification, performance optimization
-- **Perfect For**: Beginners - immediate visible results with clear routing decisions
 ```bash
-streamlit run agentic_workflows\query_routing.py
+pip install uv
+
+uv venv
+source .venv/bin/activate      # Linux / macOS
+# .venv\Scripts\activate       # Windows PowerShell or cmd
+
+uv pip install -r requirements.txt
 ```
 
-#### ⚡ **Parallel Execution**
-> **Path**: [`agentic_workflows\parallel_execution.py`](./agentic_workflows/parallel_execution.py)
-- **What You'll Learn**: Concurrent task processing, multi-perspective analysis, speed optimization
-- **Business Value**: Fast comprehensive analysis, time-sensitive processing, resource efficiency
-- **Key Patterns**: Task distribution, concurrent processing, result aggregation
-- **Perfect For**: Understanding concurrent AI workflows and speed improvements
+Python 3.10+. This one installs CrewAI and LangGraph, so it is the slowest
+install in the repo.
+
+### Pick a provider
+
 ```bash
-streamlit run agentic_workflows\parallel_execution.py
+cp .env.example .env           # copy .env.example .env  on Windows
 ```
 
-#### 🔗 **Prompt Chaining**
-> **Path**: [`agentic_workflows\prompt_chaining.py`](./agentic_workflows/prompt_chaining.py)
-- **What You'll Learn**: Multi-step reasoning, context preservation, progressive refinement
-- **Business Value**: Complex problem-solving, strategic planning, sophisticated analysis
-- **Key Patterns**: Sequential chains, parallel chains, custom LCEL, memory management
-- **Perfect For**: Building complex reasoning workflows with accumulated intelligence
+| Provider | Key | Notes |
+|---|---|---|
+| **Ollama** | none | Runs on your machine. No key, no cost, slower. |
+| Gemini | `GEMINI_API_KEY` | [Free tier](https://aistudio.google.com/app/apikey), no card |
+| Groq | `GROQ_API_KEY` | [Free tier](https://console.groq.com/keys), very fast |
+| Anthropic | `ANTHROPIC_API_KEY` | [Console](https://console.anthropic.com/settings/keys) |
+| OpenAI | `OPENAI_API_KEY` | [Platform](https://platform.openai.com/api-keys) |
+
+Only providers with a key appear in the UI. Ollama always appears because it
+needs none - and `GET /health` separately reports whether an Ollama server is
+actually **reachable**, because "configured" and "running" are different
+questions.
+
+### Start both services
+
 ```bash
-streamlit run agentic_workflows\prompt_chaining.py
+python run.py
 ```
 
-#### 📡 **Event-Driven**
-> **Path**: [`agentic_workflows\event_driven.py`](./agentic_workflows/event_driven.py)
-- **What You'll Learn**: Real-time reactive systems, multi-agent coordination, event buses
-- **Business Value**: Real-time applications, IoT systems, collaborative platforms
-- **Key Patterns**: Event publishing/subscription, reactive agents, dynamic adaptation
-- **Perfect For**: Interactive systems requiring instant responses and coordination
+```
+API   ->  http://localhost:8000/docs
+UI    ->  http://localhost:8501
+```
+
+**First start is slow** - importing CrewAI takes a while. The launcher prints
+`still starting (first-run imports can be slow)...` and waits up to five
+minutes. Raise it with `API_START_TIMEOUT=600 python run.py` if you need to.
+
+### Run the tests
+
 ```bash
-streamlit run agentic_workflows\event_driven.py
+pytest                         # 36 tests, no API key, no network
 ```
 
-#### 🛠️ **Tool Orchestration**
-> **Path**: [`agentic_workflows\tool_orchestration.py`](./agentic_workflows/tool_orchestration.py)
-- **What You'll Learn**: Intelligent workflow planning, tool coordination, automation
-- **Business Value**: Process automation, API integration, complex workflow management
-- **Key Patterns**: Dynamic planning, tool registry, dependency resolution, adaptive execution
-- **Perfect For**: Building sophisticated automation with multiple tool coordination
+## 6. The API
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/health` | Configured providers, and whether Ollama answers |
+| `GET` | `/catalogue` | Providers, models, and every app with its input schema |
+| `POST` | `/apps/{app_id}/run` | Run any app |
+
 ```bash
-streamlit run agentic_workflows\tool_orchestration.py
+curl -X POST http://localhost:8000/apps/query_routing/run \
+  -H 'Content-Type: application/json' \
+  -d '{"provider":"Gemini","model":"gemini-flash-latest",
+       "inputs":{"query":"My invoice is wrong and I want a refund"}}'
 ```
 
-### 🏗️ Agentic RAG
+An unknown app is **404** and names `GET /catalogue`; an unknown provider is
+**400**; a missing or blank required input is **422** and names the field; a
+missing key is **503**.
 
-An <strong>Agentic Retrieval-Augmented Generation (RAG)</strong> system built with LangChain, LangGraph & Google's Gemini LLM. This system implements advanced multi-agent workflows for intelligent question answering with adaptive reasoning strategies.
+## 7. If something goes wrong
 
-> **Path**: [`advance-rag\agentic-rag`](../advance-rag/agentic-rag/)
+| symptom | cause | fix |
+|---|---|---|
+| "The API did not start" | first-run imports are slow | `API_START_TIMEOUT=600 python run.py` |
+| UI says "Cannot reach the API" | Streamlit started on its own | use `python run.py` |
+| "No providers are available" | no keys and no Ollama | add a key, or install Ollama |
+| Ollama listed but requests fail | server not running | `ollama serve`, then `ollama pull llama3.2:3b` |
+| `503 ... is not set` | that provider has no key | the message names the variable and the URL |
+| `422 Missing required input(s)` | a required field was blank | the message names the field |
+| A run takes a minute or more | agent workflows make many model calls | expected; prompt chaining ran 78 s |
+| Rate limits on a free tier | many calls per run | switch provider, or use Ollama |
 
----
+## 8. Layout
 
-## 🔧 Troubleshooting
+```
+run.py                       starts the API and the UI together
+.env.example                 every provider key, and where to get it
+.streamlit/config.toml       turns off Streamlit's own start-up advert
 
-| Problem | Cause | Fix |
-|---------|-------|-----|
-| `No module named 'crewai'` | Dependencies not installed | `uv pip install -r requirements.txt` |
-| `No module named 'crewai_tools'` | crewai-tools not installed | `uv pip install crewai-tools` |
-| `Connection refused` (Ollama) | Ollama service not running | Start Ollama: `ollama serve` or open the Ollama desktop app |
-| `Model not found` (Ollama) | Model not pulled yet | `ollama pull llama3.2:3b` (or whichever model you selected) |
-| `API key not found` | Missing `.env` file | Copy `.env.example` to `.env` and add your key |
-| `UNAUTHENTICATED` / `Invalid API key` | Wrong or expired key | Double-check the key at the provider's dashboard |
-| `Rate limit exceeded` (Groq) | Too many requests on free tier | Wait 60 seconds, or switch to Ollama (no rate limits) |
-| CrewAI runs for 5+ minutes | Normal — each agent makes multiple LLM calls | Use Groq (`llama-3.1-8b-instant`) for fastest results |
-| `asyncio` / `event loop` error | Nested async on Windows | Already patched in most files. If not: `pip install nest-asyncio` |
-| Streamlit blank page | Import error hidden by Streamlit | Run `python <filename>.py` directly to see the full traceback |
+ui/app.py                    Streamlit. Builds every form from /catalogue.
 
-### Still stuck?
+api/main.py                  3 routes; one runs any app
 
-1. Run the file directly with Python to see the full error: `python agentic_workflows\query_routing.py`
-2. Check that your virtual environment is activated: `.venv\Scripts\activate`
-3. Check Ollama status: visit `http://localhost:11434` in your browser
+services/providers.py        ONE create_llm and ONE model catalogue
+services/registry.py         what each app is, and what inputs it takes
+services/apps/               13 app modules, none importing Streamlit
+services/apps/config/        per-crew YAML: agents, tasks, crew
+services/llm_text.py         flattens Gemini 3 content blocks to text
 
----
-## 📚 Learning Resources
+tests/test_providers.py      catalogue, keys, the None-return bug, health speed
+tests/test_registry.py       app declarations, async runners, the two setup bugs
+tests/test_query_routing.py  THE SCORING BUG and the float that hid it
+tests/test_api.py            routes, status codes, validation
+```
 
-- [Agentic AI Interview Q&A (PDF)](../../docs/agentic-ai-interview-questions.pdf) - Comprehensive guide covering common questions and answers for Agentic AI concepts.
-- [Blog - Building Agents (Claude)](https://www.anthropic.com/research/building-effective-agents)
-- [Huggingface Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
-- [Blog - Chip Huyen](https://huyenchip.com/2025/01/07/agents.html) 
-- [Google Whitepaper](https://www.kaggle.com/whitepaper-agents) 
-- [Agentic Design Pattern](https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0#heading=h.pxcur8v2qagu)
+## 9. Track modules this covers
+
+`agenticAi` - `langGraph` - `crewAi` - `multiAgent` - `toolUse` -
+`workflowPatterns` - `promptChaining`
+
+## 10. Honest limitations
+
+- **No evaluation.** Nothing here measures whether an agent's answer is
+  correct. The workflows show you *what happened*, not whether it was right.
+- **Routing rules are keyword and regex scoring**, not understanding. They are
+  fast, transparent and easy to reason about, and they will mis-route
+  vocabulary they were not written for. The LLM classification runs alongside
+  precisely because of that.
+- **Agent runs are not cheap.** Prompt chaining measured 78 seconds and four
+  model calls for one answer. On a free tier that is a rate limit waiting to
+  happen.
+- **State is in process memory.** Nothing survives an API restart.
+- **The CrewAI crews are config-driven.** Their agents, tasks and crew
+  definitions live in `services/apps/config/<crew>/*.yaml`, one directory per
+  crew - they would otherwise all resolve to the same path and collide. A test
+  asserts those twelve files exist and parse.
+- **CORS is wide open** because both halves run on localhost.

@@ -49,6 +49,7 @@ from ..core.llm_schemas import (
     parse_llm_response,
     create_structured_prompt
 )
+from ..utils.llm_text import message_text
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
@@ -71,7 +72,7 @@ class ContentModerationAgents:
         logger.info("Initializing LLM...")
         try:
             self.llm_flash = ChatGoogleGenerativeAI(
-                model="gemini-2.0-flash",
+                model="gemini-flash-latest",
                 temperature=0.1,
                 google_api_key=google_api_key
             )
@@ -81,7 +82,7 @@ class ContentModerationAgents:
 
         try:
             self.llm_pro = ChatGoogleGenerativeAI(
-                model="gemini-2.0-flash",
+                model="gemini-flash-latest",
                 temperature=0.1,
                 google_api_key=google_api_key
             )
@@ -175,7 +176,7 @@ class ContentModerationAgents:
             )
 
             response = self.llm_flash.invoke(topic_extraction_prompt)
-            analysis = response.content
+            analysis = message_text(response)
 
             # Parse LLM response using structured parser
             parsed_response = parse_llm_response(analysis, TopicExtractionResponse)
@@ -277,7 +278,7 @@ class ContentModerationAgents:
             """
 
             response = self.llm_flash.invoke(final_prompt)
-            reasoning = response.content
+            reasoning = message_text(response)
 
             # Determine decision
             if "FLAG" in reasoning or state["explicit_content_detected"]:
@@ -448,7 +449,7 @@ class ContentModerationAgents:
             )
 
             response = self.llm_pro.invoke(toxicity_prompt)
-            analysis = response.content
+            analysis = message_text(response)
 
             # Parse structured response
             parsed_toxicity = parse_llm_response(analysis, ToxicityAnalysisResponse)
@@ -652,7 +653,7 @@ class ContentModerationAgents:
             """
 
             response = self.llm_pro.invoke(analysis_prompt)
-            analysis = response.content
+            analysis = message_text(response)
 
             # Store recommended action
             if "BAN_USER" in analysis:
@@ -851,7 +852,7 @@ class ContentModerationAgents:
             """
 
             response = self.llm_flash.invoke(analysis_prompt)
-            analysis = response.content
+            analysis = message_text(response)
 
             # Determine confidence
             confidence = 0.80
@@ -995,7 +996,7 @@ class ContentModerationAgents:
             """
 
             response = self.llm_pro.invoke(analysis_prompt)
-            analysis = response.content
+            analysis = message_text(response)
 
             # Determine decision
             if "OVERTURN" in analysis:
@@ -1139,7 +1140,7 @@ class ContentModerationAgents:
             """
 
             response = self.llm_flash.invoke(action_reason_prompt)
-            action_reason = response.content
+            action_reason = message_text(response)
 
             state["action_reason"] = action_reason
             state["action_timestamp"] = datetime.now().isoformat()
@@ -1313,7 +1314,7 @@ class ContentModerationAgents:
             """
 
             response = self.llm_pro.invoke(synthesis_prompt)
-            think_output = response.content
+            think_output = message_text(response)
 
             # ═══════════════════════════════════════════════════
             # ACT PHASE - Make consolidated decision
@@ -1876,7 +1877,7 @@ class ContentModerationAgents:
         - Policy violations (if any)
         - Action reason
         """
-        logger.info("\n🚀 FAST MODE AGENT - Single-Pass Moderation")
+        logger.info("\n FAST MODE AGENT - Single-Pass Moderation")
         logger.info("=" * 80)
 
         start_time = datetime.now()
@@ -1942,7 +1943,7 @@ Provide ONLY the JSON response, no additional text.
 
             # Invoke LLM
             response = self.llm_flash.invoke(fast_mode_prompt)
-            response_text = response.content.strip()
+            response_text = message_text(response).strip()
 
             # Parse JSON response
             if response_text.startswith("```json"):
@@ -2022,7 +2023,7 @@ Provide ONLY the JSON response, no additional text.
             state["agent_decisions"].append(agent_decision)
 
             # Log results
-            logger.info(f"\n✅ Fast Mode Decision: {decision.upper()}")
+            logger.info(f"\n Fast Mode Decision: {decision.upper()}")
             logger.info(f"   Toxicity Score: {toxicity_score:.2f}")
             logger.info(f"   Confidence: {confidence:.2%}")
             logger.info(f"   Policy Violations: {', '.join(policy_violations) if policy_violations else 'None'}")
@@ -2047,7 +2048,7 @@ Provide ONLY the JSON response, no additional text.
                 logger.warning(f"Failed to store in memory: {mem_error}")
 
         except json.JSONDecodeError as json_err:
-            logger.error(f"❌ Failed to parse LLM response: {json_err}")
+            logger.error(f"Failed to parse LLM response: {json_err}")
             logger.error(f"Response text: {response_text[:500]}")
             # Fallback to safe default
             state["status"] = ContentStatus.FLAGGED.value
@@ -2056,7 +2057,7 @@ Provide ONLY the JSON response, no additional text.
             state["toxicity_score"] = 0.5
 
         except Exception as e:
-            logger.error(f"❌ Fast Mode Agent Error: {e}")
+            logger.error(f"Fast Mode Agent Error: {e}")
             import traceback
             traceback.print_exc()
             # Fallback to safe default

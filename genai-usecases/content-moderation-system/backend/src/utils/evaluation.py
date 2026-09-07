@@ -18,6 +18,7 @@ from contextlib import contextmanager
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from ..core.models import AgentDecision, ContentState
+from .llm_text import message_text
 
 
 class EvaluationMetric(Enum):
@@ -382,7 +383,7 @@ class LLMJudge:
         response = self.llm.invoke(prompt)
 
         try:
-            eval_data = self._extract_json_from_response(response.content)
+            eval_data = self._extract_json_from_response(message_text(response))
 
             return JudgeEvaluation(
                 decision_id=f"{decision.agent_name}_{datetime.now().timestamp()}",

@@ -1,0 +1,9 @@
+# Streamlit prints a "Help agents write better Streamlit apps / install the
+# official Streamlit skills" advert on every start. It is Streamlit's own
+# promo, not part of this project, and it is noise for someone following the
+# README for the first time. This switches it off.
+[logger]
+hideWelcomeMessage = true
+
+[browser]
+gatherUsageStats = false

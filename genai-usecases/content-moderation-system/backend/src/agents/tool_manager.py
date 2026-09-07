@@ -23,6 +23,7 @@ from ..utils.tools import (
     check_spam_indicators,
     detect_hate_speech_patterns
 )
+from ..utils.llm_text import message_text
 
 
 class ToolCategory(Enum):
@@ -433,11 +434,11 @@ Selected tools:"""
 
             # Extract JSON from response
             import json
-            start_idx = response.content.find('[')
-            end_idx = response.content.rfind(']')
+            start_idx = message_text(response).find('[')
+            end_idx = message_text(response).rfind(']')
 
             if start_idx != -1 and end_idx != -1:
-                json_str = response.content[start_idx:end_idx + 1]
+                json_str = message_text(response)[start_idx:end_idx + 1]
                 selected_tools = json.loads(json_str)
 
                 # Validate tools exist

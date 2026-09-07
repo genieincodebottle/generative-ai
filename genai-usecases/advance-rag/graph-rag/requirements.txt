@@ -1,25 +1,34 @@
-# Core LangChain and Graph RAG
+# --- API (routing layer) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+python-multipart>=0.0.20
+
+# --- UI (thin Streamlit client) ---
+streamlit>=1.49.1
+requests>=2.32.0
+pandas>=2.3.2
+
+# --- Business logic: graph retrieval ---
 langchain>=0.3.27
 langchain-core>=0.3.75
 langchain-community>=0.3.29
+langchain-text-splitters>=0.3.8
+langchain-google-genai>=2.1.10
 langchain-graph-retriever>=0.8.0
 langchain-huggingface>=0.3.1
-langchain-google-genai>=2.1.10
 langgraph>=0.6.6
 
-# Graph RAG specific
+# Sample dataset used by the "Use sample" button
 graph_rag_example_helpers>=0.8.0
 
-# Embeddings
+# Local embeddings (all-mpnet-base-v2, ~420 MB on first run)
 sentence-transformers>=5.1.0
-hf-xet>= 1.1.9
+hf-xet>=1.1.9
 
-# Document Processing
 pypdf>=3.0.0
-
-# Streamlit Interface
-streamlit>=1.49.1
-pandas>=2.3.2
-
-# Utilities
 python-dotenv>=1.1.1
+
+# --- Tests (offline; no API key needed) ---
+pytest>=8.3.0
+httpx>=0.27.0

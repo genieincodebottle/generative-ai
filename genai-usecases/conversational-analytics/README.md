@@ -268,7 +268,7 @@ You can switch between Groq and Gemini anytime:
 | Provider | Model | Notes |
 |---|---|---|
 | Groq (primary) | llama-3.3-70b-versatile | Fast inference, free tier available |
-| Gemini (secondary) | gemini-2.0-flash | Google's free-tier model |
+| Gemini (secondary) | gemini-flash-latest | Google's free-tier model |
 
 ---
 

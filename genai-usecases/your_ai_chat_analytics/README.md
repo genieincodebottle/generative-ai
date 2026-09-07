@@ -2,7 +2,7 @@
    <img src="images/header.png" alt="AI"/>
 </div>
 
-### ⚙️ Setup Instructions
+### Setup Instructions
 
 - #### Prerequisites
    - Python 3.9 or higher
@@ -28,7 +28,7 @@
       uv pip install -r requirements.txt
       ```
 
-### 💻 Running the Application
+### Running the Application
 To start the application, run:
 
 ```bash
