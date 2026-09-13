@@ -90,6 +90,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 - **[Multi-Agentic Prod Grade Content Moderation System](./genai-usecases/content-moderation-system/)** - AI-Powered Multi-Agentic Content Moderation System with React Frontend
 - **[Handling Latency in Multi-Agentic System](./docs/handling-latency-in-multi-agentic-systems.pdf)** - How to handle Latency in Multi-Agentic System 
 - **[agent-qa](https://github.com/vostride/agent-qa)** - Self-improving QA agent for natural-language web/mobile tests with persistent memory, MCP, and Agent Skills
+- **[YYLO](https://github.com/yylo-dev/yylo)** - Command-line orchestrator for coding agents with typed task, validation, merge, and release-readiness boundaries in a dedicated branch/worktree
 
 ### 💬 Conversational AI
 - **[Chatbot with Memory](./genai-usecases/chatbot-with-memory/)** - PDF chatbot using local models with persistent conversation memory
