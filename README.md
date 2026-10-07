@@ -16,6 +16,8 @@
 
 I built **[AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=intro)** - every AI, ML, GenAI and Agentic AI concept covered here, taught visually with animated diagrams, quizzes, and hands-on Python. The guides below are the **full, continuously-updated versions** of the reference material in this repo.
 
+<img src="https://github.com/genieincodebottle/generative-ai/blob/main/images/aiml-companion-tour.gif" width="80%">
+
 **400+ modules • 28 tracks • 23 real-world projects • free to start**
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
