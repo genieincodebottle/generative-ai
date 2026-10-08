@@ -16,6 +16,7 @@
 
 > **Learn AI/ML interactively at [AI-ML Companion](https://aimlcompanion.ai/?utm_source=github&utm_medium=roadmap&utm_campaign=banner)** - Guided walkthroughs, architecture decisions, hands-on challenges, and narrated overviews for every project.
 
+<a href="https://aimlcompanion.ai/"><img src="https://raw.githubusercontent.com/genieincodebottle/generative-ai/main/images/aiml-companion-tour.gif" width="80%" alt="AI-ML Companion tour"></a>
 <br><br/>
 Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated with the latest GenAI resources :)
 <br><br/>
