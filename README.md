@@ -94,6 +94,7 @@ Your go-to hub for end-to-end GenAI learning. ⭐ Star this repo to stay updated
 - **[agent-qa](https://github.com/vostride/agent-qa)** - Self-improving QA agent for natural-language web/mobile tests with persistent memory, MCP, and Agent Skills
 - **[YYLO](https://github.com/yylo-dev/yylo)** - Command-line orchestrator for coding agents with typed task, validation, merge, and release-readiness boundaries in a dedicated branch/worktree
 - **[agent-manager](https://github.com/YoanWai/agent-manager)** - Terminal UI that runs coding-agent CLIs such as Claude Code, Codex and Gemini CLI side by side, each in its own persistent tmux session, with live status, git worktrees and diff review
+- **[deed.page](https://github.com/f-o-x11/deed-page-skill)** - Agent skill and remote MCP server that let a coding agent publish an HTML page or small static site to a public URL with one API call
 
 ### 💬 Conversational AI
 - **[Chatbot with Memory](./genai-usecases/chatbot-with-memory/)** - PDF chatbot using local models with persistent conversation memory
