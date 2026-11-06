@@ -31,11 +31,13 @@ Concretely, the server exposes three tools:
 
 ## 2. Search providers - the default needs no key
 
-The server tries whichever provider your environment can actually use:
+When no provider is specified, the server uses Tavily if its key is set, then
+SerpApi if its key is set, otherwise DuckDuckGo. Parallel is opt-in only:
 
 | Provider | Needs | Notes |
 |---|---|---|
 | **DuckDuckGo** | **nothing** | the default when no key is set |
+| Parallel | nothing | opt-in Unified MCP search with source excerpts |
 | Tavily | a free key | better snippets, and returns a synthesised answer |
 | SerpApi | a paid key | real Google SERP features |
 
@@ -47,8 +49,30 @@ arrives later without warning. DuckDuckGo removes that dependency entirely.
 Pick one explicitly if you want to:
 
 ```python
-web_search(query="...", provider="duckduckgo")   # or "tavily", "serpapi"
+web_search(query="...", provider="duckduckgo")   # or "parallel", "tavily", "serpapi"
 ```
+
+For example, in the MCP client example below, select Parallel explicitly:
+
+```python
+r = await c.call_tool("web_search", {
+    "query": "Python asyncio documentation", "num_results": 3,
+    "provider": "parallel",
+})
+print(r.content[0].text)
+```
+
+This calls [Parallel's Unified MCP endpoint](https://mcp.parallel.ai/mcp) and
+returns source links and excerpts in the same format as the other providers.
+No key is required. [Unified MCP search defaults to Fast mode](https://docs.parallel.ai/integrations/mcp).
+The result limit is applied locally to the returned sources. Only search is
+exposed here, not Parallel's fetch or research tools.
+
+If you explicitly set `PARALLEL_API_KEY`, it is sent as a Bearer credential;
+rejected credentials, quota limits and network errors are returned to the
+caller. There is no retry with anonymous access or another provider. Selecting
+another provider makes no requests to Parallel. Existing explicit choices and
+the default selection remain unchanged.
 
 ## 3. Run it
 
@@ -88,7 +112,7 @@ It prints the provider it will use, so you know before you send a query:
 
 ```
 Default provider : duckduckgo
-Available        : duckduckgo
+Available        : duckduckgo, parallel
 No API key is required - DuckDuckGo is used when no key is set.
 ```
 
@@ -155,9 +179,16 @@ MCP for another transport would not touch it.
 - **A tool description is untrusted text** once a client points at a server it
   did not write. Descriptions go straight into the model's context, so treat
   them as data, and gate destructive tools behind human approval.
-- **Only `duckduckgo` and `tavily` are verified end to end here.** The SerpApi
-  path is correct against its documented API but was not run - the key
+- **The SerpApi path has not been verified end to end.** It follows the
+  documented API but was not run - the key
   available for testing was rejected with a 401, which is what prompted the
   provider chain in the first place.
 - **One search per call, no caching.** Repeated identical queries repeat the
   work.
+
+## 7. Service checks
+
+From this directory, run `python -m unittest discover -s tests -v`.
+The focused tests use synthetic HTTP responses to check routing, credentials,
+MCP errors, JSON/SSE parsing, result limits and request headers. Use the direct
+MCP client example above to check live results through the registered tool.
