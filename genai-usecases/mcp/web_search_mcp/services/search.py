@@ -111,34 +111,54 @@ PARALLEL_USER_AGENT = (
 )
 
 
-def _parallel_rpc(response, request_id: int) -> dict:
-    """Read JSON or finite SSE replies. Only CR/LF delimit SSE lines."""
+def _parallel_sse_messages(response):
+    """Yield complete SSE messages without waiting for EOF or a full chunk."""
     import json
-    import re
 
-    response.raise_for_status()
-    if response.is_redirect:
-        raise SearchError("Parallel MCP redirects are not supported.")
-    if "text/event-stream" in response.headers.get("Content-Type", ""):
-        messages = []
-        data = []
-        # str.splitlines() would corrupt legal Unicode separators in JSON.
-        for line in re.split(r"\r\n|\r|\n", response.content.decode("utf-8")) + [""]:
-            if not line:
-                if data:
-                    messages.append(json.loads("\n".join(data)))
-                    data = []
-            elif line.startswith("data:"):
-                data.append(line[5:].removeprefix(" "))
-    else:
-        messages = [response.json()]
-    for message in messages:
-        if isinstance(message, dict) and message.get("id") == request_id:
-            if "error" in message:
-                raise SearchError(f"Parallel MCP error: {message['error']}")
-            if isinstance(message.get("result"), dict):
-                return message["result"]
-    raise SearchError("Parallel MCP returned no matching result.")
+    line = bytearray()
+    data = []
+    event = "message"
+    skip_lf = False
+    # A larger requests chunk can wait for more bytes on a still-open stream.
+    # Decode complete lines, so UTF-8 characters can span arbitrary reads.
+    for chunk in response.iter_content(chunk_size=1):
+        for byte in chunk:
+            if skip_lf and byte == 10:
+                skip_lf = False
+                continue
+            skip_lf = byte == 13
+            if byte not in (10, 13):
+                line.append(byte)
+                continue
+            text = line.decode("utf-8")
+            line.clear()
+            if not text:
+                if data and event in ("", "message"):
+                    yield json.loads("\n".join(data))
+                data = []
+                event = "message"
+            elif text.startswith("data:"):
+                data.append(text[5:].removeprefix(" "))
+            elif text.startswith("event:"):
+                event = text[6:].removeprefix(" ")
+
+
+def _parallel_rpc(response, request_id: int) -> dict:
+    """Read a matching JSON/SSE reply, closing it even if the stream stays open."""
+    with response:
+        response.raise_for_status()
+        if response.is_redirect:
+            raise SearchError("Parallel MCP redirects are not supported.")
+        media_type = response.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+        messages = (_parallel_sse_messages(response) if media_type == "text/event-stream"
+                    else [response.json()])
+        for message in messages:
+            if isinstance(message, dict) and message.get("id") == request_id:
+                if "error" in message:
+                    raise SearchError(f"Parallel MCP error: {message['error']}")
+                if isinstance(message.get("result"), dict):
+                    return message["result"]
+        raise SearchError("Parallel MCP returned no matching result.")
 
 
 def _parallel_results(payload: dict, query: str, num_results: int) -> SearchResponse:
@@ -194,7 +214,7 @@ def _search_parallel(query: str, num_results: int) -> SearchResponse:
                 if params is not None:
                     body["params"] = params
                 return session.post(PARALLEL_MCP_URL, json=body,
-                                    timeout=(10, 60), allow_redirects=False)
+                                    timeout=(10, 60), allow_redirects=False, stream=True)
 
             initialized = post("initialize", 1, {
                 "protocolVersion": "2025-03-26", "capabilities": {},
@@ -209,10 +229,10 @@ def _search_parallel(query: str, num_results: int) -> SearchResponse:
                 if init.get("protocolVersion") != "2025-03-26":
                     raise SearchError("Parallel MCP returned an unsupported protocol version.")
                 session.headers["MCP-Protocol-Version"] = init["protocolVersion"]
-                notice = post("notifications/initialized")
-                if notice.status_code != 202:
-                    notice.raise_for_status()
-                    raise SearchError("Parallel MCP did not accept initialization.")
+                with post("notifications/initialized") as notice:
+                    if notice.status_code != 202:
+                        notice.raise_for_status()
+                        raise SearchError("Parallel MCP did not accept initialization.")
                 tools = _parallel_rpc(post("tools/list", 2), 2)
                 if not any(t.get("name") == "web_search" for t in tools.get("tools", [])):
                     raise SearchError("Parallel MCP does not offer web_search.")
@@ -226,13 +246,13 @@ def _search_parallel(query: str, num_results: int) -> SearchResponse:
             finally:
                 if session_id:
                     try:
-                        closed = session.delete(PARALLEL_MCP_URL, timeout=(10, 30),
-                                                allow_redirects=False)
-                        # The MCP spec permits servers without session termination.
-                        if closed.status_code not in (404, 405):
-                            closed.raise_for_status()
-                            if closed.is_redirect:
-                                raise SearchError("Parallel MCP teardown redirected.")
+                        with session.delete(PARALLEL_MCP_URL, timeout=(10, 30),
+                                            allow_redirects=False, stream=True) as closed:
+                            # MCP permits servers without session termination.
+                            if closed.status_code not in (404, 405):
+                                closed.raise_for_status()
+                                if closed.is_redirect:
+                                    raise SearchError("Parallel MCP teardown redirected.")
                     except (requests.RequestException, SearchError):
                         if not failed:
                             raise

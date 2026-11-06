@@ -16,6 +16,7 @@ from services import search
 def reply(result=None, request_id=1, status=200, sse=False):
     response = requests.Response()
     response.status_code = status
+    response._content_consumed = True
     message = {"jsonrpc": "2.0", "id": request_id, "result": result}
     text = json.dumps(message, ensure_ascii=False)
     response._content = ((f"event: message\r\ndata: {text}\r\n\r\n")
