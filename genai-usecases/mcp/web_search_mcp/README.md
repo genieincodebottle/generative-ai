@@ -32,12 +32,13 @@ Concretely, the server exposes three tools:
 ## 2. Search providers - the default needs no key
 
 When no provider is specified, the server uses Tavily if its key is set, then
-SerpApi if its key is set, otherwise DuckDuckGo. Parallel is opt-in only:
+SerpApi if its key is set, otherwise DuckDuckGo. Parallel and Keenable are opt-in only:
 
 | Provider | Needs | Notes |
 |---|---|---|
 | **DuckDuckGo** | **nothing** | the default when no key is set |
 | Parallel | nothing | opt-in Unified MCP search with source excerpts |
+| Keenable | nothing | opt-in REST search with snippets; a key lifts the hourly limit |
 | Tavily | a free key | better snippets, and returns a synthesised answer |
 | SerpApi | a paid key | real Google SERP features |
 
@@ -49,7 +50,7 @@ arrives later without warning. DuckDuckGo removes that dependency entirely.
 Pick one explicitly if you want to:
 
 ```python
-web_search(query="...", provider="duckduckgo")   # or "parallel", "tavily", "serpapi"
+web_search(query="...", provider="duckduckgo")   # or "parallel", "keenable", "tavily", "serpapi"
 ```
 
 For example, in the MCP client example below, select Parallel explicitly:
@@ -73,6 +74,13 @@ rejected credentials, quota limits and network errors are returned to the
 caller. There is no retry with anonymous access or another provider. Selecting
 another provider makes no requests to Parallel. Existing explicit choices and
 the default selection remain unchanged.
+
+`provider="keenable"` calls [Keenable](https://docs.keenable.ai)'s search API
+the same way: no key needed, same result format. Keyless requests allow 1,000
+per hour per IP ([rate limits](https://docs.keenable.ai/rate-limits)) and are
+logged with the query and IP. Set `KEENABLE_API_KEY` to send it as `X-API-Key`
+and lift the hourly limit. Errors are returned to the caller, never retried
+with another provider.
 
 ## 3. Run it
 
@@ -112,7 +120,7 @@ It prints the provider it will use, so you know before you send a query:
 
 ```
 Default provider : duckduckgo
-Available        : duckduckgo, parallel
+Available        : duckduckgo, parallel, keenable
 No API key is required - DuckDuckGo is used when no key is set.
 ```
 
