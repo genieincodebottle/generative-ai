@@ -48,7 +48,7 @@ class ParallelTests(unittest.TestCase):
 
     def test_default_and_explicit_routing(self):
         self.assertEqual(search.default_provider(), "duckduckgo")
-        self.assertEqual(search.available_providers(), ["duckduckgo", "parallel"])
+        self.assertEqual(search.available_providers(), ["duckduckgo", "parallel", "keenable"])
         with patch.object(search, "_search_duckduckgo", return_value="ddg") as ddg, \
                 patch.object(search, "_search_parallel", return_value="parallel") as parallel:
             self.assertEqual(search.search_sync("question"), "ddg")

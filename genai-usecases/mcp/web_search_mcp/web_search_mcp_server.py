@@ -9,6 +9,7 @@ Providers, in order of what they ask of you:
 
     duckduckgo   no key at all   <- works out of the box
     parallel     no key, opt-in
+    keenable     no key, opt-in
     tavily       free key
     serpapi      paid key
 
@@ -39,7 +40,7 @@ async def web_search(query: str, num_results: int = 5,
     Args:
         query: The search query.
         num_results: How many results to return (1-25).
-        provider: "duckduckgo" or "parallel" (no key), "tavily", or "serpapi".
+        provider: "duckduckgo", "parallel" or "keenable" (no key), "tavily", or "serpapi".
             Defaults to the best one your environment can actually use.
         location: Localised results. SerpApi only; ignored elsewhere.
 
@@ -67,6 +68,7 @@ async def list_providers() -> str:
     lines = [f"Default provider: {search_service.default_provider()}", ""]
     for name, needs in (("duckduckgo", "no key"),
                         ("parallel", "no key, opt-in"),
+                        ("keenable", "no key, opt-in"),
                         ("tavily", "TAVILY_API_KEY"),
                         ("serpapi", "SERPAPI_API_KEY")):
         mark = "available" if name in available else f"needs {needs}"
