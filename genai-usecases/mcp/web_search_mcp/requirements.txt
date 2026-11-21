@@ -4,7 +4,7 @@ mcp>=1.9.4
 
 # Search providers
 ddgs>=9.0.0                 # DuckDuckGo - no API key needed, the default
-requests>=2.32.4            # used by the Tavily and SerpApi providers
+requests>=2.32.4            # used by Parallel, Tavily and SerpApi
 # google-search-results>=2.4.2   # SerpApi SDK - only if you use that provider
 
 # UI and LLM client
