@@ -4,10 +4,11 @@ Import nothing from `fastmcp`, `streamlit` or `fastapi` here. That rule is what
 lets the whole search layer be tested with no server running, and it is why the
 MCP tool in `web_search_mcp_server.py` is a thin wrapper over these functions.
 
-Four providers, with different setup requirements:
+Five providers, with different setup requirements:
 
     DuckDuckGo   no key at all        <- the default
     Parallel     no key, opt-in       <- Unified MCP search
+    Keenable     no key, opt-in       <- REST search, optional key
     Tavily       free key             <- better snippets, built for RAG
     SerpApi      paid key             <- real Google SERP features
 
@@ -60,7 +61,7 @@ def available_providers() -> list[str]:
 
     DuckDuckGo is always listed: it needs no key. That is the point.
     """
-    providers = ["duckduckgo", "parallel"]
+    providers = ["duckduckgo", "parallel", "keenable"]
     if tavily_key():
         providers.append("tavily")
     if serpapi_key():
@@ -260,6 +261,62 @@ def _search_parallel(query: str, num_results: int) -> SearchResponse:
         raise SearchError(f"Parallel MCP request failed: {exc}") from exc
 
 
+# Keyless calls go to the public endpoint; KEENABLE_API_KEY switches to the
+# keyed one. The title header names this app on keyless requests.
+KEENABLE_SEARCH_URL = "https://api.keenable.ai/v1/search"
+KEENABLE_PUBLIC_SEARCH_URL = "https://api.keenable.ai/v1/search/public"
+KEENABLE_TITLE = "generative-ai-web-search-mcp"
+KEENABLE_MAX_RESULTS = 10
+
+
+def _search_keenable(query: str, num_results: int) -> SearchResponse:
+    """Opt-in Keenable search, keyless unless KEENABLE_API_KEY is set.
+
+    Errors are raised, never answered by another provider.
+    """
+    import requests
+
+    key = os.getenv("KEENABLE_API_KEY") or None
+    headers = {"X-Keenable-Title": KEENABLE_TITLE}
+    if key:
+        headers["X-API-Key"] = key
+    try:
+        response = requests.post(
+            KEENABLE_SEARCH_URL if key else KEENABLE_PUBLIC_SEARCH_URL,
+            json={"query": query, "max_results": min(num_results, KEENABLE_MAX_RESULTS)},
+            headers=headers,
+            timeout=30,
+            allow_redirects=False,
+        )
+        if response.is_redirect:
+            raise SearchError("Keenable redirects are not supported.")
+        if response.status_code in (401, 403):
+            raise SearchError(
+                f"Keenable rejected the request ({response.status_code}). Check "
+                "KEENABLE_API_KEY, or unset it to use the keyless tier."
+            )
+        if response.status_code == 429:
+            raise SearchError(
+                "Keenable rate limit reached (429). The keyless tier allows "
+                "1,000 requests per hour per IP; set KEENABLE_API_KEY to lift it."
+            )
+        response.raise_for_status()
+        payload = response.json()
+    except (requests.RequestException, ValueError) as exc:
+        raise SearchError(f"Keenable request failed: {exc}") from exc
+
+    results = []
+    for hit in payload.get("results") or []:
+        if not isinstance(hit, dict):
+            continue
+        url = hit.get("url")
+        if not isinstance(url, str) or not url.startswith(("https://", "http://")):
+            continue
+        results.append(SearchResult(title=hit.get("title") or url, link=url,
+                                    snippet=hit.get("snippet") or ""))
+    return SearchResponse(query=query, provider="keenable", results=results[:num_results])
+
+
 def _search_tavily(query: str, num_results: int) -> SearchResponse:
     import requests
 
@@ -374,6 +431,8 @@ def search_sync(query: str, num_results: int = 5, provider: str | None = None,
         return _search_duckduckgo(query, num_results)
     if provider == "parallel":
         return _search_parallel(query, num_results)
+    if provider == "keenable":
+        return _search_keenable(query, num_results)
     if provider == "tavily":
         return _search_tavily(query, num_results)
     if provider == "serpapi":
