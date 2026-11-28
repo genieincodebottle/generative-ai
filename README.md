@@ -22,8 +22,6 @@
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
 <br><br/>
-[Blogs](https://aimlcompanion.ai/blog?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
-<br><br/>
 **Popular:** [Interactive Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [ML Games](https://aimlcompanion.ai/game?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | [AI History](https://aimlcompanion.ai/ai-story?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Cheatsheets](https://aimlcompanion.ai/cheatsheets?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)  • [Interview Q&A](https://aimlcompanion.ai/curriculum/interviewScenarios?utm_source=github&utm_medium=readme&utm_campaign=popular) • [Full Roadmap](https://aimlcompanion.ai/roadmap?utm_source=github&utm_medium=readme&utm_campaign=popular) • [GenAI Imp Docs](https://github.com/genieincodebottle/generative-ai/tree/main/docs) • [ML Project Interactive Visualization](https://aimlcompanion.ai/ml-visualization?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) • [AI Blogs](https://aimlcompanion.ai/blog?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
 
 <br>
