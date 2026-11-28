@@ -18,7 +18,7 @@
 
 <a href="https://aimlcompanion.ai/"><img src="https://raw.githubusercontent.com/genieincodebottle/generative-ai/main/images/aiml-companion-tour.gif" width="80%" alt="AI-ML Companion tour"></a>
 
-**500+ modules • 32 tracks • [32 real-world projects](https://github.com/genieincodebottle/aiml-companion?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks) | **
+500+ modules • 32 tracks • [32 real-world projects](https://github.com/genieincodebottle/aiml-companion?utm_source=github&utm_medium=roadmap&utm_campaign=quicklinks)
 
 [![Try AI-ML Companion](https://img.shields.io/badge/Try%20AI--ML%20Companion-Live%20App-blue?style=for-the-badge)](https://aimlcompanion.ai/?utm_source=github&utm_medium=readme&utm_campaign=cta)
 <br><br/>
